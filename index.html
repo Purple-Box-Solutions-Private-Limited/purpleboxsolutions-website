@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Purplebox Solutions — End-to-end software for every business</title>
+<meta name="description" content="Purplebox Solutions Private Limited, Hyderabad. Custom software, web and mobile apps, business automation, cloud and ongoing support for businesses of every size.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1130; --muted:#5d5470; --line:#e7e1f2; --bg:#fbfaff; --card:#fff;
+  --p900:#2a0f5c; --p700:#4b1fa3; --p600:#5b2bc4; --p500:#7246e0; --p100:#efe8ff; --p50:#f7f3ff;
+  --accent:#ffb547;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Sora,Inter,sans-serif;line-height:1.15;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--p600);margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:600;font-size:.95rem;transition:.2s;border:0;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--p600);color:#fff;box-shadow:0 8px 24px -8px rgba(91,43,196,.6)}
+.btn-primary:hover{background:var(--p700);transform:translateY(-1px)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.2)}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font-family:Sora;font-weight:800;font-size:1.25rem;color:var(--p900)}
+.logo span{color:var(--p500)}
+.logo b{font-weight:800}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:.93rem;font-weight:500;color:var(--muted)}
+.nav ul a:hover{color:var(--p600)}
+.nav .btn{padding:10px 20px}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;padding:8px}
+@media(max-width:860px){
+  .nav ul{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line)}
+  .nav ul.open{display:flex}
+  .nav ul li a{display:block;padding:16px 24px;border-top:1px solid var(--line)}
+  .nav .btn{display:none}
+  .menu-btn{display:block}
+}
+
+/* hero */
+.hero{background:radial-gradient(1200px 600px at 85% -10%,#8b5cf6 0%,transparent 60%),radial-gradient(800px 500px at -10% 110%,#3b0f8c 0%,transparent 60%),var(--p900);color:#fff;overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:96px;padding-bottom:110px}
+.hero .eyebrow{color:#d8c8ff}
+.hero h1{font-size:clamp(2.3rem,5vw,3.8rem);font-weight:800;margin-bottom:22px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#c9b2ff,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.12rem;color:#ddd3f5;max-width:560px;margin-bottom:34px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:420px;justify-self:center;width:100%}
+.hero-art svg{width:100%;height:100%;filter:drop-shadow(0 30px 60px rgba(0,0,0,.35))}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px}
+.chip{font-size:.82rem;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#e7defc}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;padding-top:64px;padding-bottom:72px}.hero-art{max-width:280px}}
+
+section{padding:96px 0}
+.head{max-width:680px;margin-bottom:52px}
+.head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:14px}
+.head p{color:var(--muted);font-size:1.05rem}
+
+/* services */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;transition:.25s}
+.card:hover{border-color:#cdbaf7;box-shadow:0 20px 40px -24px rgba(75,31,163,.35);transform:translateY(-3px)}
+.icon{width:48px;height:48px;border-radius:14px;background:var(--p100);display:grid;place-items:center;margin-bottom:20px;color:var(--p600)}
+.card h3{font-size:1.15rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.95rem}
+.card ul{margin-top:14px;list-style:none;font-size:.88rem;color:var(--muted)}
+.card li{padding-left:18px;position:relative;margin-top:6px}
+.card li:before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:2px;background:var(--p500)}
+
+/* industries */
+.alt{background:var(--p50);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ind{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.ind{grid-template-columns:repeat(2,1fr)}}
+.ind div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.ind b{display:block;font-family:Sora;font-size:1rem;margin-bottom:6px}
+.ind span{font-size:.88rem;color:var(--muted)}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;counter-reset:s}
+@media(max-width:960px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding:26px 22px;border-radius:var(--r);background:#fff;border:1px solid var(--line)}
+.step:before{counter-increment:s;content:"0" counter(s);font-family:Sora;font-weight:800;font-size:2rem;color:var(--p100);-webkit-text-stroke:1px var(--p500);display:block;margin-bottom:10px}
+.step h3{font-size:1.05rem;margin-bottom:8px}
+.step p{font-size:.9rem;color:var(--muted)}
+
+/* why */
+.why{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:860px){.why{grid-template-columns:1fr}}
+.why-list{display:grid;gap:18px}
+.why-item{display:flex;gap:16px;align-items:flex-start}
+.tick{flex:none;width:30px;height:30px;border-radius:50%;background:var(--p600);color:#fff;display:grid;place-items:center;font-size:.85rem;margin-top:2px}
+.why-item h3{font-size:1.02rem;margin-bottom:4px}
+.why-item p{font-size:.93rem;color:var(--muted)}
+.panel{background:linear-gradient(150deg,var(--p700),var(--p900));color:#fff;border-radius:24px;padding:40px;position:relative;overflow:hidden}
+.panel h3{font-size:1.5rem;margin-bottom:14px}
+.panel p{color:#ddd3f5;margin-bottom:22px}
+.panel .tags{display:flex;flex-wrap:wrap;gap:8px}
+.panel .tags span{font-size:.8rem;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+@media(max-width:860px){.contact{grid-template-columns:1fr}}
+.info p{color:var(--muted);margin-bottom:26px}
+.info dl{display:grid;gap:16px}
+.info dt{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--p600);font-weight:600}
+.info dd{font-weight:500}
+form{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px;display:grid;gap:16px;grid-template-columns:1fr 1fr}
+form .full{grid-column:1/-1}
+@media(max-width:560px){form{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:.85rem;font-weight:600}
+input,select,textarea{font:inherit;font-weight:400;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--p500);outline-offset:1px;border-color:transparent}
+textarea{min-height:120px;resize:vertical}
+.note{font-size:.88rem;padding:12px 14px;border-radius:10px;background:var(--p100);color:var(--p700);display:none}
+
+/* cta band + footer */
+.band{background:var(--p600);color:#fff;border-radius:28px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.band h2{font-size:clamp(1.6rem,3vw,2.2rem);max-width:560px}
+.band .btn{background:#fff;color:var(--p700)}
+footer{background:var(--ink);color:#b9b0cc;padding:56px 0 30px;font-size:.9rem;margin-top:96px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}}
+footer h4{color:#fff;font-family:Sora;font-size:.95rem;margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a:hover{color:#fff}
+footer .logo{color:#fff;margin-bottom:12px}
+.legal{border-top:1px solid #2f2643;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo" aria-label="Purplebox Solutions home">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 36 11.5v17L20 37 4 28.5v-17Z" fill="#5b2bc4"/><path d="M20 3 36 11.5 20 20 4 11.5Z" fill="#8b5cf6"/><path d="M20 20v17L4 28.5v-17Z" fill="#3b168f"/></svg>
+      <b>Purple<span>box</span></b>
+    </a>
+    <ul id="menu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#process">How we work</a></li>
+      <li><a href="#why">Why us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-primary">Start a project</a>
+    <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('menu').classList.toggle('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2a0f5c" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Purplebox Solutions · Hyderabad</span>
+      <h1>Software that runs your business, <em>end to end.</em></h1>
+      <p>From the first idea to a live system and long-term support — we design, build, automate and manage software for businesses of every size and every industry.</p>
+      <div class="ctas">
+        <a href="#contact" class="btn btn-primary">Book a free consultation →</a>
+        <a href="#services" class="btn btn-ghost">Explore services</a>
+      </div>
+      <div class="chips">
+        <span class="chip">Custom software</span><span class="chip">Web &amp; mobile apps</span><span class="chip">Business automation</span><span class="chip">Cloud &amp; security</span><span class="chip">Support</span>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b79bff"/><stop offset="1" stop-color="#7246e0"/></linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b2bc4"/><stop offset="1" stop-color="#2a0f5c"/></linearGradient>
+          <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4b1fa3"/><stop offset="1" stop-color="#3b168f"/></linearGradient>
+        </defs>
+        <path d="M200 40 340 115v150L200 360 60 265V115Z" fill="url(#g2)"/>
+        <path d="M200 40 340 115 200 190 60 115Z" fill="url(#g1)"/>
+        <path d="M200 190v170L60 265V115Z" fill="url(#g3)"/>
+        <g fill="#fff" opacity=".9">
+          <rect x="100" y="185" width="70" height="8" rx="4" transform="skewY(34)" opacity=".55"/>
+          <rect x="100" y="205" width="48" height="8" rx="4" transform="skewY(34)" opacity=".35"/>
+          <rect x="100" y="225" width="60" height="8" rx="4" transform="skewY(34)" opacity=".35"/>
+        </g>
+        <g stroke="#fff" stroke-width="3" fill="none" opacity=".85" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M235 235l-15 15 15 15M285 235l15 15-15 15M268 228l-16 44" transform="skewY(-28) translate(0 130)"/>
+        </g>
+        <circle cx="340" cy="70" r="14" fill="#ffb547"/>
+        <circle cx="52" cy="330" r="8" fill="#c9b2ff"/>
+        <circle cx="370" cy="300" r="5" fill="#fff" opacity=".6"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">What we do</span>
+      <h2>One partner for your whole software journey</h2>
+      <p>Whether you need a single app or a complete digital backbone, Purplebox handles strategy, design, development, deployment and support under one roof.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m8 9-3 3 3 3M16 9l3 3-3 3M13 6l-2 12"/></svg></div>
+        <h3>Custom software development</h3>
+        <p>Software built around how your business actually works — not the other way round.</p>
+        <ul><li>ERP, CRM &amp; inventory systems</li><li>Billing, booking &amp; HR tools</li><li>Industry-specific platforms</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="13" height="10" rx="2"/><rect x="14" y="9" width="7" height="12" rx="2"/><path d="M6 18h5"/></svg></div>
+        <h3>Web &amp; mobile apps</h3>
+        <p>Fast, secure websites, customer portals and Android/iOS apps your customers enjoy using.</p>
+        <ul><li>Business websites &amp; e-commerce</li><li>Customer &amp; partner portals</li><li>Cross-platform mobile apps</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><circle cx="18" cy="6" r="2.5"/><path d="M8.5 6h7M18 8.5v7M8 8l8 8"/></svg></div>
+        <h3>Business process automation</h3>
+        <p>Replace spreadsheets, paper and email chains with automated workflows and low-code apps.</p>
+        <ul><li>Microsoft Power Platform apps</li><li>Power Automate approval flows</li><li>SharePoint &amp; Teams solutions</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 8.5a4.5 4.5 0 0 1 0 9.5Z"/></svg></div>
+        <h3>Cloud, security &amp; governance</h3>
+        <p>Move to the cloud safely and keep data protected, compliant and under control.</p>
+        <ul><li>Azure &amp; Microsoft 365 setup</li><li>Data-loss prevention &amp; access policies</li><li>Licence and cost optimisation</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg></div>
+        <h3>Data, integrations &amp; AI</h3>
+        <p>Connect your systems and turn your data into dashboards and smarter decisions.</p>
+        <ul><li>API &amp; system integrations</li><li>Power BI dashboards &amp; reports</li><li>AI assistants &amp; document automation</li></ul>
+      </div>
+      <div class="card">
+        <div class="icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Support &amp; maintenance</h3>
+        <p>We stay with you after launch — monitoring, fixes, updates and new features on a simple monthly plan.</p>
+        <ul><li>Monthly support retainers</li><li>Performance &amp; security updates</li><li>Training for your team</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="industries" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Who we serve</span>
+      <h2>Built for every kind of business</h2>
+      <p>From neighbourhood clinics to growing manufacturers, we adapt proven building blocks to your industry.</p>
+    </div>
+    <div class="ind">
+      <div><b>Healthcare</b><span>OPD, appointments, patient records, billing</span></div>
+      <div><b>Retail &amp; distribution</b><span>POS, inventory, orders, delivery tracking</span></div>
+      <div><b>Manufacturing</b><span>Production, quality, maintenance, ERP</span></div>
+      <div><b>Education</b><span>Admissions, fees, attendance, LMS</span></div>
+      <div><b>Professional services</b><span>CRM, project tracking, invoicing</span></div>
+      <div><b>Real estate</b><span>Lead management, site visits, sales portals</span></div>
+      <div><b>Logistics</b><span>Fleet, dispatch, warehouse management</span></div>
+      <div><b>Startups &amp; SMEs</b><span>MVPs, SaaS products, internal tools</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">How we work</span>
+      <h2>A clear path from idea to impact</h2>
+      <p>Transparent milestones, regular demos and no surprises on scope or cost.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Discover</h3><p>We understand your goals, users and current processes — free first consultation.</p></div>
+      <div class="step"><h3>Design</h3><p>Clickable prototypes and a fixed plan with timeline and cost.</p></div>
+      <div class="step"><h3>Build</h3><p>Agile sprints with a working demo every two weeks.</p></div>
+      <div class="step"><h3>Launch</h3><p>Testing, data migration, deployment and team training.</p></div>
+      <div class="step"><h3>Support</h3><p>Ongoing care, improvements and scaling as you grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="alt">
+  <div class="wrap why">
+    <div>
+      <span class="eyebrow">Why Purplebox</span>
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:30px">Everything in one box</h2>
+      <div class="why-list">
+        <div class="why-item"><div class="tick">✓</div><div><h3>End-to-end ownership</h3><p>One accountable team from requirement to support — no hand-offs between vendors.</p></div></div>
+        <div class="why-item"><div class="tick">✓</div><div><h3>Enterprise-grade security</h3><p>Governance, access control and data protection designed in from day one.</p></div></div>
+        <div class="why-item"><div class="tick">✓</div><div><h3>Right-sized for your budget</h3><p>Low-code where it saves money, custom code where it matters.</p></div></div>
+        <div class="why-item"><div class="tick">✓</div><div><h3>Data stays in India</h3><p>Cloud hosting in Indian regions on request, with clear ownership of your code and data.</p></div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>Technologies we work with</h3>
+      <p>We choose the stack that fits your problem, your team and your budget.</p>
+      <div class="tags">
+        <span>Microsoft Azure</span><span>Microsoft 365</span><span>Power Apps</span><span>Power Automate</span><span>Power BI</span><span>SharePoint</span><span>Dataverse</span><span>.NET</span><span>React</span><span>Node.js</span><span>Flutter</span><span>SQL</span><span>REST APIs</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div class="info">
+      <span class="eyebrow">Contact</span>
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:14px">Let's build something great</h2>
+      <p>Tell us about your business and what you want to achieve. We'll get back within one working day with next steps.</p>
+      <dl>
+        <div><dt>Email</dt><dd>hello@purpleboxsolutions.in</dd></div>
+        <div><dt>Phone</dt><dd>+91 XXXXX XXXXX</dd></div>
+        <div><dt>Office</dt><dd>Hyderabad, Telangana, India</dd></div>
+      </dl>
+    </div>
+    <form id="cform" novalidate>
+      <label>Name<input name="name" required placeholder="Your full name"></label>
+      <label>Company<input name="company" placeholder="Business name"></label>
+      <label>Email<input name="email" type="email" required placeholder="you@company.com"></label>
+      <label>Phone<input name="phone" type="tel" placeholder="+91"></label>
+      <label class="full">I'm interested in
+        <select name="service">
+          <option>Custom software</option><option>Website or mobile app</option><option>Business automation</option><option>Cloud &amp; security</option><option>Data &amp; AI</option><option>Support &amp; maintenance</option><option>Not sure yet</option>
+        </select>
+      </label>
+      <label class="full">Project details<textarea name="msg" placeholder="What problem are you trying to solve?"></textarea></label>
+      <div class="full note" id="note"></div>
+      <div class="full"><button class="btn btn-primary" type="submit">Send enquiry →</button></div>
+    </form>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="band">
+    <h2>Have an idea or a process that wastes hours every week?</h2>
+    <a href="#contact" class="btn">Get a free consultation</a>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo">
+          <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 36 11.5v17L20 37 4 28.5v-17Z" fill="#5b2bc4"/><path d="M20 3 36 11.5 20 20 4 11.5Z" fill="#8b5cf6"/><path d="M20 20v17L4 28.5v-17Z" fill="#3b168f"/></svg>
+          Purplebox
+        </div>
+        <p>End-to-end software solutions for businesses of every size.</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#services">Custom software</a></li><li><a href="#services">Web &amp; mobile</a></li><li><a href="#services">Automation</a></li><li><a href="#services">Cloud &amp; security</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#why">Why us</a></li><li><a href="#process">How we work</a></li><li><a href="#industries">Industries</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#top">Privacy policy</a></li><li><a href="#top">Terms of service</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span id="yr">2026</span> Purplebox Solutions Private Limited. All rights reserved.</span>
+      <span>CIN: to be added after incorporation · Registered office: Hyderabad, Telangana</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
+document.getElementById('cform').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, note = document.getElementById('note');
+  note.style.display = 'block';
+  if (!f.name.value.trim() || !/\S+@\S+\.\S+/.test(f.email.value)) {
+    note.textContent = 'Please enter your name and a valid email address.';
+    return;
+  }
+  note.textContent = 'Thanks, ' + f.name.value.trim() + '! Online enquiries are being set up — please email hello@purpleboxsolutions.in and we will respond within one working day.';
+});
+</script>
+</body>
+</html>
