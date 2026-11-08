@@ -365,12 +365,12 @@ footer .logo{color:#fff;margin-bottom:12px}
       <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:14px">Let's build something great</h2>
       <p>Tell us about your business and what you want to achieve. We'll get back within one working day with next steps.</p>
       <dl>
-        <div><dt>Email</dt><dd>hello@purpleboxsolutions.in</dd></div>
-        <div><dt>Phone</dt><dd>+91 XXXXX XXXXX</dd></div>
-        <div><dt>Office</dt><dd>Hyderabad, Telangana, India</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:kharshavardhan150@gmail.com" style="color:var(--p600)">kharshavardhan150@gmail.com</a></dd></div>
+                <div><dt>Office</dt><dd>Hyderabad, Telangana, India</dd></div>
       </dl>
     </div>
     <form id="cform" novalidate>
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
       <label>Name<input name="name" required placeholder="Your full name"></label>
       <label>Company<input name="company" placeholder="Business name"></label>
       <label>Email<input name="email" type="email" required placeholder="you@company.com"></label>
@@ -419,15 +419,40 @@ footer .logo{color:#fff;margin-bottom:12px}
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
-document.getElementById('cform').addEventListener('submit', e => {
+document.getElementById('cform').addEventListener('submit', async e => {
   e.preventDefault();
-  const f = e.target, note = document.getElementById('note');
+  const f = e.target, note = document.getElementById('note'), btn = f.querySelector('button[type=submit]');
   note.style.display = 'block';
   if (!f.name.value.trim() || !/\S+@\S+\.\S+/.test(f.email.value)) {
     note.textContent = 'Please enter your name and a valid email address.';
     return;
   }
-  note.textContent = 'Thanks, ' + f.name.value.trim() + '! Online enquiries are being set up — please email hello@purpleboxsolutions.in and we will respond within one working day.';
+  if (f._honey.value) return;
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/kharshavardhan150@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'New enquiry from purpleboxsolutions.in — ' + f.name.value.trim(),
+        _template: 'table',
+        _captcha: 'false',
+        name: f.name.value.trim(),
+        company: f.company.value.trim(),
+        email: f.email.value.trim(),
+        phone: f.phone.value.trim(),
+        interested_in: f.service.value,
+        message: f.msg.value.trim()
+      })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || String(data.success) === 'false') throw new Error(data.message || 'send failed');
+    f.reset();
+    note.textContent = 'Thanks! Your enquiry has reached us — we will reply within one working day.';
+  } catch (err) {
+    note.textContent = 'Sorry, that did not go through. Please email us at kharshavardhan150@gmail.com.';
+  }
+  btn.disabled = false; btn.textContent = 'Send enquiry →';
 });
 </script>
 </body>
