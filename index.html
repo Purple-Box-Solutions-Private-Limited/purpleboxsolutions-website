@@ -137,6 +137,21 @@ footer ul{list-style:none;display:grid;gap:8px}
 footer a:hover{color:#fff}
 footer .logo{color:#fff;margin-bottom:12px}
 .legal{border-top:1px solid #2f2643;padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem}
+
+/* our work */
+.work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+@media(max-width:820px){.work-grid{grid-template-columns:1fr}}
+.wk{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.wk:hover{border-color:#cdbaf7;box-shadow:0 20px 40px -24px rgba(75,31,163,.35)}
+.wk video{display:block;width:100%;aspect-ratio:16/9;background:#111;object-fit:cover}
+.wk-body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.wk-tag{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--p600)}
+.wk h3{font-size:1.35rem;margin:8px 0 8px}
+.wk p{color:var(--muted);font-size:.95rem;flex:1}
+.wk-act{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.wk-act .btn{padding:11px 18px;font-size:.9rem}
+.wk-act .ghost{border:1px solid var(--line);color:var(--ink)}
+.work-note{margin-top:22px;font-size:.85rem;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -149,6 +164,7 @@ footer .logo{color:#fff;margin-bottom:12px}
     </a>
     <ul id="menu">
       <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our work</a></li>
       <li><a href="#industries">Industries</a></li>
       <li><a href="#process">How we work</a></li>
       <li><a href="#why">Why us</a></li>
@@ -247,6 +263,39 @@ footer .logo{color:#fff;margin-bottom:12px}
         <ul><li>Monthly support retainers</li><li>Performance &amp; security updates</li><li>Training for your team</li></ul>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Our work</span>
+      <h2>Concepts that show what we build</h2>
+      <p>Four end-to-end concepts — the website, the customer experience and the software that runs the business behind it. Watch the walkthrough, or click through the live demo.</p>
+    </div>
+    <div class="work-grid">
+      <article class="wk">
+        <video src="work/hospital.mp4" poster="work/hospital.jpg" controls preload="none" playsinline></video>
+        <div class="wk-body"><span class="wk-tag">Healthcare</span><h3>Kadamba Health</h3><p>Hospital website with symptom search, real-time doctor booking, a live OPD queue on WhatsApp, a family health record, ambulance tracking and an operations dashboard.</p>
+          <div class="wk-act"><a class="btn btn-primary" href="work/hospital.html" target="_blank" rel="noopener">Try the live demo →</a></div></div>
+      </article>
+      <article class="wk">
+        <video src="work/restaurant.mp4" poster="work/restaurant.jpg" controls preload="none" playsinline></video>
+        <div class="wk-body"><span class="wk-tag">Restaurant</span><h3>Saalan</h3><p>Restaurant website with a menu that filters by diet and spice, table booking on the live floor plan, delivery tracked from the kitchen, and a kitchen display with stock alerts.</p>
+          <div class="wk-act"><a class="btn btn-primary" href="work/restaurant.html" target="_blank" rel="noopener">Try the live demo →</a></div></div>
+      </article>
+      <article class="wk">
+        <video src="work/retail.mp4" poster="work/retail.jpg" controls preload="none" playsinline></video>
+        <div class="wk-body"><span class="wk-tag">Retail · D2C</span><h3>thanda.</h3><p>D2C store with a live product configurator, stock-aware delivery dates, one-page UPI checkout, engraving-photo order tracking and a brand dashboard.</p>
+          <div class="wk-act"><a class="btn btn-primary" href="work/retail.html" target="_blank" rel="noopener">Try the live demo →</a></div></div>
+      </article>
+      <article class="wk">
+        <video src="work/school.mp4" poster="work/school.jpg" controls preload="none" playsinline></video>
+        <div class="wk-body"><span class="wk-tag">Education</span><h3>Parabola Academy</h3><p>Coaching institute platform: course finder, paperless admissions with scholarships, student performance analytics, a parent app and a staff room.</p>
+          <div class="wk-act"><a class="btn btn-primary" href="work/school.html" target="_blank" rel="noopener">Try the live demo →</a></div></div>
+      </article>
+    </div>
+    <p class="work-note">Concept work created by Purplebox. Brand names are fictional. Live demos work best on a laptop or desktop.</p>
   </div>
 </section>
 
@@ -361,8 +410,8 @@ footer .logo{color:#fff;margin-bottom:12px}
       <div><h4>Legal</h4><ul><li><a href="#top">Privacy policy</a></li><li><a href="#top">Terms of service</a></li></ul></div>
     </div>
     <div class="legal">
-      <span>© <span id="yr">2026</span> Purplebox Solutions Private Limited. All rights reserved.</span>
-      <span>CIN: to be added after incorporation · Registered office: Hyderabad, Telangana</span>
+      <span>© <span id="yr">2026</span> Purplebox Solutions. All rights reserved.</span>
+      <span>Hyderabad, Telangana, India</span>
     </div>
   </div>
 </footer>
