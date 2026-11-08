@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kadamba Health — Gachibowli</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Instrument+Sans:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>/* ---------- Film harness: browser frame, cursor, captions, title cards ---------- */
+html.film, html.film body { margin:0; height:100%; overflow:hidden; background:#0d0d0f; }
+html.film { scroll-behavior:auto !important; }
+#film-stage { position:fixed; inset:0; display:flex; flex-direction:column; background:#e9e7e2; z-index:0; }
+.fb-bar { height:38px; flex:none; display:flex; align-items:center; gap:14px; padding:0 14px; background:#efede8; border-bottom:1px solid #d9d6cf; font:500 12.5px/1 'Instrument Sans',system-ui,sans-serif; color:#4a4842; position:relative; z-index:3; }
+.fb-dots { display:flex; gap:7px; }
+.fb-dots i { width:11px; height:11px; border-radius:50%; background:#d6d3cc; display:block; }
+.fb-dots i:nth-child(1){background:#ee6a5f}.fb-dots i:nth-child(2){background:#f5bd4f}.fb-dots i:nth-child(3){background:#61c454}
+.fb-nav { display:flex; gap:10px; color:#9a978f; margin-left:6px; }
+.fb-url { flex:0 1 560px; margin:0 auto; height:25px; border-radius:7px; background:#fff; border:1px solid #dcd9d2; display:flex; align-items:center; justify-content:center; gap:7px; color:#3a3833; letter-spacing:.01em; }
+.fb-url svg { opacity:.55 }
+.fb-url .path { color:#8b887f; }
+.fb-spacer { width:84px; }
+.fb-vp { position:relative; flex:1; transform:translateZ(0); overflow:hidden; }
+.fb-scroll { position:absolute; inset:0; overflow-y:auto; overflow-x:hidden; scrollbar-width:none; }
+.fb-scroll::-webkit-scrollbar { display:none; }
+
+#film-cursor { position:fixed; left:0; top:0; z-index:9998; width:26px; height:26px; pointer-events:none; transform-origin:4px 3px; will-change:transform; filter:drop-shadow(0 2px 3px rgba(0,0,0,.28)); }
+#film-cursor.press { transform-origin:4px 3px; }
+.film-ripple { position:fixed; z-index:9997; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; border:2px solid rgba(20,20,20,.55); pointer-events:none; animation:filmRipple .55s cubic-bezier(.2,.7,.3,1) forwards; }
+@keyframes filmRipple { from { transform:scale(.25); opacity:.9 } to { transform:scale(1.25); opacity:0 } }
+
+#film-cap { position:fixed; left:30px; bottom:30px; z-index:9990; max-width:440px; padding:16px 20px 17px; border-radius:14px; background:rgba(14,14,16,.9); color:#f4f2ee; font-family:'Instrument Sans',system-ui,sans-serif; box-shadow:0 18px 50px -18px rgba(0,0,0,.55); opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1); pointer-events:none; }
+#film-cap.show { opacity:1; transform:none; }
+#film-cap .fc-k { font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.08em; color:#a9a59c; text-transform:uppercase; display:flex; gap:10px; align-items:center; }
+#film-cap .fc-k b { color:#f4f2ee; font-weight:500 }
+#film-cap .fc-k i { flex:1; height:1px; background:rgba(255,255,255,.14); }
+#film-cap .fc-t { font-size:18px; font-weight:600; margin-top:10px; letter-spacing:-.01em; }
+#film-cap .fc-d { font-size:14px; line-height:1.45; color:#c9c5bc; margin-top:5px; }
+
+#film-card { position:fixed; inset:0; z-index:9995; display:flex; flex-direction:column; justify-content:space-between; padding:64px 80px; opacity:0; pointer-events:none; transition:opacity .7s ease; }
+#film-card.show { opacity:1; }
+#film-card .fk-top, #film-card .fk-bot { display:flex; justify-content:space-between; align-items:center; font:500 13px/1 'JetBrains Mono',monospace; letter-spacing:.06em; text-transform:uppercase; opacity:.75; }
+#film-card .fk-pb { display:flex; align-items:center; gap:10px; font-family:'Instrument Sans',sans-serif; text-transform:none; letter-spacing:0; font-size:15px; font-weight:600; opacity:1; }
+#film-card .fk-mid { max-width:1100px; }
+#film-card .fk-eyebrow { font:500 14px/1 'JetBrains Mono',monospace; letter-spacing:.1em; text-transform:uppercase; opacity:.7; }
+#film-card .fk-name { margin-top:22px; line-height:.95; letter-spacing:-.03em; }
+#film-card .fk-desc { margin-top:24px; font:400 22px/1.4 'Instrument Sans',sans-serif; opacity:.82; max-width:720px; }
+#film-card .fk-mods { display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; }
+#film-card .fk-mods span { font:500 13px/1 'Instrument Sans',sans-serif; padding:9px 14px; border-radius:99px; border:1px solid currentColor; opacity:.8; }
+#film-card .fk-ln { overflow:hidden; }
+#film-card .fk-ln > * { display:block; transform:translateY(105%); transition:transform .9s cubic-bezier(.2,.8,.15,1); }
+#film-card.show .fk-ln > * { transform:none; }
+#film-card.show .fk-ln.fk-d1 > * { transition-delay:.12s } #film-card.show .fk-ln.fk-d2 > * { transition-delay:.24s } #film-card.show .fk-ln.fk-d3 > * { transition-delay:.36s }
+#film-card .fk-fade { opacity:0; transition:opacity .8s ease .5s; } #film-card.show .fk-fade { opacity:1; }
+
+/* hover helper class for scripted states */
+[data-reveal] { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+[data-reveal].in { opacity:1; transform:none; }
+#film-card .fk-ln > .fk-mods { display:flex; }
+
+#demo-bar { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:9999; display:flex; align-items:center; gap:4px; padding:6px; border-radius:16px; background:rgba(16,16,18,.92); color:#f2f0ec; font:500 13px/1 'Instrument Sans',system-ui,sans-serif; box-shadow:0 20px 50px -20px rgba(0,0,0,.6); white-space:nowrap; }
+#demo-bar .db-pb { display:flex; align-items:center; gap:8px; padding:0 12px 0 8px; color:#bdb9b0; border-right:1px solid rgba(255,255,255,.12); margin-right:4px; }
+#demo-bar button { font:inherit; color:#d9d6cf; background:none; border:0; padding:9px 12px; border-radius:11px; cursor:pointer; }
+#demo-bar button:hover { background:rgba(255,255,255,.08); }
+#demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
+#demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
+#demo-bar .db-tour:hover { background:#7c4bec; }
+#tour-again { position:fixed; right:30px; top:60px; z-index:9999; font:600 14px 'Instrument Sans',sans-serif; color:#111; background:#fff; border:0; border-radius:12px; padding:12px 18px; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.4); }
+</style>
+<style>
+:root{
+  --bone:#F2EEE5; --paper:#FBF9F4; --ink:#0F2A22; --ink2:#3C5249; --mute:#6D7F77;
+  --green:#1E5A45; --green2:#2C7559; --sage:#D5E1D4; --mist:#E8EEE6; --coral:#DD5536; --amber:#D9962E;
+  --line:rgba(15,42,34,.12); --line2:rgba(15,42,34,.07);
+  --serif:'Newsreader',Georgia,serif; --sans:'Figtree',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;font-size:15px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input{font:inherit;color:inherit}
+.wrap{max-width:1400px;margin:0 auto;padding:0 56px}
+.mono{font-family:var(--mono);font-feature-settings:"zero" 0}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- top + nav ---------- */
+.util{background:var(--ink);color:#cfe0d7;font-size:12.5px}
+.util .wrap{display:flex;justify-content:space-between;height:34px;align-items:center}
+.util b{color:#fff;font-weight:600}
+.util .r{display:flex;gap:22px}
+nav.main{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.96);border-bottom:1px solid var(--line2)}
+nav.main .wrap{display:flex;align-items:center;height:70px;gap:40px}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--serif);font-size:23px;font-weight:500;letter-spacing:-.01em}
+.logo small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-top:1px}
+.links{display:flex;gap:30px;font-weight:500;color:var(--ink2);font-size:14.5px}
+.links a{position:relative;cursor:pointer}
+.links a.cur::after{content:"";position:absolute;left:0;right:0;bottom:-24px;height:2px;background:var(--green)}
+.nav-r{margin-left:auto;display:flex;gap:12px;align-items:center}
+.btn{height:42px;padding:0 18px;border-radius:10px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s,box-shadow .2s}
+.btn.g{background:var(--green);color:#fff}
+.btn.g:hover{background:#174a38}
+.btn.o{border:1px solid var(--line);background:#fff}
+.btn.o:hover{border-color:var(--ink2)}
+.btn.er{color:var(--coral);border:1.5px solid rgba(221,85,54,.4);background:#fff}
+.btn.er:hover{background:#fdf0ec}
+.pulse{width:8px;height:8px;border-radius:50%;background:currentColor;position:relative;display:inline-block}
+.pulse::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid currentColor;animation:pl 1.6s ease-out infinite}
+@keyframes pl{from{transform:scale(.4);opacity:.9}to{transform:scale(1.6);opacity:0}}
+
+/* ---------- hero ---------- */
+.hero{padding:62px 0 70px;background:linear-gradient(180deg,var(--paper),var(--bone))}
+.hero .wrap{display:grid;grid-template-columns:1.25fr .85fr;gap:70px;align-items:start}
+.eyebrow{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600;display:flex;gap:14px;align-items:center}
+.eyebrow i{width:28px;height:1px;background:var(--mute);display:block}
+h1{font-family:var(--serif);font-weight:400;font-size:86px;line-height:.98;letter-spacing:-.025em;margin:22px 0 22px}
+h1 em{font-style:italic;color:var(--green)}
+.lede{font-size:18px;line-height:1.55;color:var(--ink2);max-width:560px}
+.search{margin-top:34px;position:relative;max-width:680px}
+.sbox{display:flex;align-items:center;gap:12px;height:64px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 10px 0 20px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 18px 40px -28px rgba(15,42,34,.35);transition:border-color .2s,box-shadow .2s}
+.sbox.f{border-color:var(--green2);box-shadow:0 0 0 4px rgba(44,117,89,.12),0 18px 40px -28px rgba(15,42,34,.35)}
+.sbox input{flex:1;border:0;outline:0;font-size:17px;background:none}
+.sbox input::placeholder{color:#93a29b}
+.sbox .btn{height:46px}
+.chips{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.chip{font-size:13px;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid var(--line2);color:var(--ink2)}
+.drop{position:absolute;left:0;right:0;top:72px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -30px rgba(15,42,34,.45);padding:8px;opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .3s;pointer-events:none;z-index:20}
+.drop.on{opacity:1;transform:none;pointer-events:auto}
+.drop .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600;padding:10px 12px 6px}
+.res{display:flex;align-items:center;gap:14px;padding:12px;border-radius:11px;cursor:pointer;transition:background .15s}
+.res:hover{background:var(--mist)}
+.res .ic{width:38px;height:38px;border-radius:10px;background:var(--mist);display:grid;place-items:center;color:var(--green);flex:none}
+.res:hover .ic{background:#fff}
+.res b{font-weight:600;display:block}
+.res span{font-size:13px;color:var(--mute)}
+.res .go{margin-left:auto;font-size:12.5px;color:var(--green);font-weight:600;white-space:nowrap}
+.res.warn{background:#fdf1ed;margin-top:6px}
+.res.warn .ic{background:#fff;color:var(--coral)}
+.res.warn b{color:#a53a1f}
+.drop .res{opacity:0;transform:translateY(4px);transition:opacity .3s,transform .35s,background .15s}
+.drop.on .res{opacity:1;transform:none}
+.drop.on .res:nth-child(3){transition-delay:.06s}.drop.on .res:nth-child(4){transition-delay:.12s}.drop.on .res:nth-child(5){transition-delay:.18s}
+
+.live{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 26px 18px;box-shadow:0 40px 80px -50px rgba(15,42,34,.5)}
+.live h3{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:10px}
+.live h3 .pulse{color:#2fa36f}
+.er{display:flex;justify-content:space-between;align-items:flex-end;padding:18px 0 20px;border-bottom:1px solid var(--line2)}
+.er .k{font-size:14px;color:var(--ink2)}
+.er .v{font-family:var(--serif);font-size:72px;line-height:.9;letter-spacing:-.03em}
+.er .v small{font-size:22px;color:var(--mute);margin-left:6px;letter-spacing:0}
+.spark{width:150px;height:52px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--line2);font-size:14.5px}
+.row:last-of-type{border-bottom:0}
+.row .r{display:flex;align-items:center;gap:10px;font-weight:600}
+.bar{width:96px;height:6px;border-radius:9px;background:var(--mist);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green2);border-radius:9px}
+.tag{font-size:11.5px;font-weight:700;padding:4px 8px;border-radius:6px;letter-spacing:.02em}
+.tag.low{background:#fdf0e1;color:#9a6110}
+.tag.ok{background:#e6f2ea;color:#1f6b45}
+.live .foot{display:flex;justify-content:space-between;font-size:12px;color:var(--mute);padding-top:12px;border-top:1px solid var(--line2);margin-top:4px}
+
+/* ---------- doctors + booking ---------- */
+.sec{padding:84px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px}
+.sh h2{font-family:var(--serif);font-weight:400;font-size:52px;letter-spacing:-.02em;line-height:1}
+.sh h2 em{color:var(--green)}
+.sh p{color:var(--mute);font-size:15px;margin-top:10px}
+.crumbs{font-size:13px;color:var(--mute);margin-bottom:14px}
+.crumbs b{color:var(--ink);font-weight:600}
+.book{display:grid;grid-template-columns:1fr 470px;gap:28px;align-items:start}
+.docs{display:flex;flex-direction:column;gap:14px}
+.doc{display:grid;grid-template-columns:76px 1fr auto;gap:20px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;transition:border-color .25s,box-shadow .25s}
+.doc.sel{border-color:var(--green2);box-shadow:0 0 0 3px rgba(44,117,89,.12)}
+.av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:30px;color:#fff;position:relative;overflow:hidden}
+.av::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 2px,transparent 2px 7px)}
+.doc h4{font-size:18px;font-weight:600;letter-spacing:-.01em}
+.doc .t{color:var(--ink2);font-size:14px;margin-top:3px}
+.doc .m{display:flex;gap:16px;margin-top:10px;font-size:12.5px;color:var(--mute)}
+.doc .m b{color:var(--ink);font-weight:600}
+.doc .nx{text-align:right}
+.doc .nx small{display:block;font-size:12px;color:var(--mute)}
+.doc .nx b{font-size:16px;display:block;margin:3px 0 10px}
+.doc .btn{height:38px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;position:sticky;top:96px}
+.panel .ph{padding:20px 24px;background:var(--mist);border-bottom:1px solid var(--line2);display:flex;gap:14px;align-items:center}
+.panel .ph .av{width:48px;height:48px;font-size:19px}
+.panel .ph b{display:block;font-size:16px}
+.panel .ph span{font-size:13px;color:var(--mute)}
+.pb{padding:20px 24px 24px}
+.pl{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:10px;display:flex;justify-content:space-between}
+.days{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:20px}
+.day{border:1px solid var(--line);border-radius:12px;padding:9px 0;text-align:center;transition:all .2s}
+.day small{display:block;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+.day b{font-size:19px;font-weight:600}
+.day.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.day.on small{color:#9fb6ab}
+.day.x{opacity:.4}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:20px}
+.slot{height:40px;border-radius:10px;border:1px solid var(--line);font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;transition:all .2s}
+.slot:hover{border-color:var(--green2)}
+.slot.taken{color:#b9c2be;text-decoration:line-through;border-style:dashed}
+.slot.on{background:var(--green);border-color:var(--green);color:#fff}
+.seg{display:grid;grid-template-columns:1fr 1fr;background:var(--mist);border-radius:12px;padding:4px;margin-bottom:20px}
+.seg button{height:40px;border-radius:9px;font-size:14px;font-weight:600;color:var(--ink2)}
+.seg button.on{background:#fff;box-shadow:0 2px 6px -2px rgba(0,0,0,.15);color:var(--ink)}
+.seg button span{font-weight:500;color:var(--mute);margin-left:6px}
+.ph-in{display:flex;gap:8px}
+.ph-in .cc{height:48px;padding:0 14px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;font-weight:600;color:var(--ink2)}
+.ph-in input{flex:1;height:48px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:16px;outline:0;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+.ph-in input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(44,117,89,.12)}
+.ph-in .btn{height:48px}
+.otp{display:flex;gap:10px;align-items:center;margin-top:14px;max-height:0;opacity:0;overflow:hidden;transition:max-height .5s,opacity .4s}
+.otp.on{max-height:80px;opacity:1}
+.otp i{width:48px;height:52px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;font-style:normal;font-size:22px;font-weight:600;transition:border-color .2s,background .2s}
+.otp i.f{border-color:var(--green2);background:#f3f8f5}
+.otp span{font-size:12.5px;color:var(--mute);margin-left:6px;line-height:1.3}
+.confirm{width:100%;height:54px;margin-top:20px;justify-content:center;font-size:15.5px;border-radius:13px}
+.confirm.busy{opacity:.85}
+.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(255,255,255,.35);border-top-color:#fff;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.done{display:none;padding:26px 24px 24px}
+.panel.ok .pb{display:none}.panel.ok .done{display:block;animation:fin .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes fin{from{opacity:0;transform:translateY(10px)}}
+.done .ck{width:46px;height:46px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff}
+.done h3{font-family:var(--serif);font-size:34px;font-weight:400;margin:16px 0 4px;letter-spacing:-.01em}
+.done p{color:var(--mute);font-size:14px}
+.tk{display:grid;grid-template-columns:1fr 112px;gap:18px;margin:22px 0 18px;padding:18px;border-radius:16px;background:var(--bone);border:1px dashed rgba(15,42,34,.25)}
+.tk small{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.tk .no{font-family:var(--serif);font-size:58px;line-height:1;letter-spacing:-.02em;margin:6px 0 8px}
+.tk .w{font-size:14px;line-height:1.5;color:var(--ink2)}
+.tk svg{width:112px;height:112px;background:#fff;border-radius:10px;padding:8px}
+.ok-row{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--ink2);padding:9px 0;border-top:1px solid var(--line2)}
+.ok-row svg{color:var(--green2);flex:none}
+
+/* ---------- live visit ---------- */
+.visit{background:var(--ink);color:#e9efe9;padding:96px 0;overflow:hidden}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.visit h2{font-family:var(--serif);font-weight:400;font-size:62px;line-height:1;letter-spacing:-.02em}
+.visit h2 em{color:#9fd3b5}
+.visit p.l{color:#a9bdb3;font-size:18px;line-height:1.55;margin-top:22px;max-width:520px}
+.feats{margin-top:34px;display:grid;gap:0;max-width:520px}
+.feats div{display:flex;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,.1);font-size:15px;color:#cfdcd4}
+.feats div b{font-family:var(--mono);font-size:12px;color:#7fae94;font-weight:500;padding-top:2px}
+.phones{position:relative;height:640px}
+.phone{position:absolute;width:318px;height:640px;border-radius:46px;background:#0a1612;padding:12px;box-shadow:0 60px 90px -40px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.12)}
+.phone .scr{width:100%;height:100%;border-radius:36px;background:var(--paper);color:var(--ink);overflow:hidden;position:relative}
+.phone .notch{position:absolute;top:10px;left:50%;width:96px;height:26px;margin-left:-48px;border-radius:20px;background:#0a1612;z-index:3}
+.p1{left:40px;top:0;transform:rotate(-3deg)}
+.p2{left:330px;top:40px;transform:rotate(4deg) scale(.92);opacity:.95}
+.sb{display:flex;justify-content:space-between;padding:16px 26px 0;font-size:12px;font-weight:600}
+.q{padding:30px 20px 0}
+.q .h{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--mute)}
+.q .h b{color:var(--ink);font-size:14px}
+.q .big{margin:16px 0 0;padding:20px;border-radius:22px;background:var(--green);color:#fff}
+.q .big small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#a7d4bc;font-weight:600}
+.q .big .n{font-family:var(--serif);font-size:62px;line-height:1;margin:6px 0 4px;letter-spacing:-.02em}
+.q .big .s{font-size:13.5px;color:#cfe7da}
+.dots{display:flex;gap:6px;margin:16px 0 4px}
+.dots i{flex:1;height:30px;border-radius:8px;background:rgba(255,255,255,.14);display:grid;place-items:center;font-style:normal;font-size:10.5px;font-weight:700;color:#cfe7da;transition:background .5s,color .5s}
+.dots i.d{background:rgba(255,255,255,.04);color:rgba(255,255,255,.35)}
+.dots i.c{background:#fff;color:var(--green)}
+.dots i.me{background:var(--amber);color:#2c1b00}
+.eta{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px}
+.eta .v{font-family:var(--serif);font-size:30px}
+.note{margin-top:14px;padding:12px 14px;border-radius:14px;background:#fdf3e2;color:#7a4a08;font-size:12.5px;line-height:1.45;display:flex;gap:10px;opacity:0;transform:translateY(8px);transition:opacity .5s,transform .6s}
+.note.on{opacity:1;transform:none}
+.leave{margin-top:10px;padding:12px 14px;border-radius:14px;background:var(--mist);font-size:12.5px;line-height:1.45}
+.leave b{display:block;font-size:14px}
+.pbtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.pbtns span{height:40px;border-radius:12px;border:1px solid var(--line);display:grid;place-items:center;font-size:12.5px;font-weight:600}
+.pbtns span:last-child{background:var(--ink);color:#fff;border-color:var(--ink)}
+.wa{padding:30px 16px 0}
+.wa .bub{background:#fff;border-radius:4px 16px 16px 16px;padding:12px 14px;font-size:12.5px;line-height:1.5;box-shadow:0 2px 6px -3px rgba(0,0,0,.2);margin-bottom:10px}
+.wa .bub b{display:block;margin-bottom:2px}
+.wa .bub .tm{display:block;text-align:right;font-size:10px;color:var(--mute);margin-top:4px}
+.wa .top{display:flex;gap:10px;align-items:center;padding:0 4px 14px;border-bottom:1px solid var(--line2);margin-bottom:14px}
+.wa .top i{width:34px;height:34px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff;font-style:normal;font-family:var(--serif);font-size:16px}
+.wa .top b{font-size:13.5px}.wa .top small{display:block;font-size:11px;color:var(--mute)}
+.p2 .scr{background:#ece5d8}
+
+/* ---------- portal ---------- */
+.view{display:none}
+.view.on{display:block;animation:vin .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes vin{from{opacity:0;transform:translateY(14px)}}
+.portal{display:grid;grid-template-columns:240px 1fr;min-height:862px;background:var(--bone)}
+.side{background:var(--paper);border-right:1px solid var(--line2);padding:28px 18px}
+.side .who{display:flex;gap:12px;align-items:center;padding:0 8px 22px;border-bottom:1px solid var(--line2);margin-bottom:16px}
+.side .who .av{width:42px;height:42px;font-size:17px}
+.side .who b{display:block;font-size:14.5px}.side .who span{font-size:12px;color:var(--mute)}
+.side a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:10px;font-weight:500;color:var(--ink2);font-size:14.5px;margin-bottom:2px}
+.side a.on{background:var(--mist);color:var(--ink);font-weight:600}
+.side a .c{margin-left:auto;font-size:11px;font-weight:700;background:var(--coral);color:#fff;border-radius:99px;padding:2px 7px}
+.pm{padding:30px 40px 50px}
+.pmh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px}
+.pmh h2{font-family:var(--serif);font-weight:400;font-size:44px;letter-spacing:-.02em;line-height:1}
+.pmh p{color:var(--mute);margin-top:8px}
+.fam{display:flex;gap:8px;background:var(--paper);padding:5px;border-radius:14px;border:1px solid var(--line2)}
+.fam button{display:flex;gap:9px;align-items:center;height:42px;padding:0 14px 0 6px;border-radius:10px;font-weight:600;font-size:13.5px;color:var(--ink2);transition:background .2s}
+.fam button .av{width:30px;height:30px;font-size:13px}
+.fam button.on{background:#fff;box-shadow:0 2px 8px -3px rgba(0,0,0,.2);color:var(--ink)}
+.fam button:hover{background:#fff}
+.pg{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}
+.card{background:#fff;border:1px solid var(--line2);border-radius:20px;padding:22px 24px}
+.card h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.card h4 a{text-transform:none;letter-spacing:0;color:var(--green);font-size:13px}
+.trend{display:flex;justify-content:space-between;align-items:flex-end;margin:12px 0 4px}
+.trend .v{font-family:var(--serif);font-size:54px;line-height:1;letter-spacing:-.02em}
+.trend .v small{font-size:18px;color:var(--mute)}
+.trend .d{font-size:13px;color:var(--green2);font-weight:600;text-align:right}
+.trend .d span{display:block;color:var(--mute);font-weight:500}
+.chart{width:100%;height:210px;margin-top:6px}
+.chart .ln{stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 2.2s cubic-bezier(.4,0,.2,1)}
+.chart.draw .ln{stroke-dashoffset:0}
+.chart .pt{opacity:0;transition:opacity .4s}
+.chart.draw .pt{opacity:1}
+.chart.draw .pt:nth-of-type(2){transition-delay:.45s}.chart.draw .pt:nth-of-type(3){transition-delay:.9s}.chart.draw .pt:nth-of-type(4){transition-delay:1.35s}.chart.draw .pt:nth-of-type(5){transition-delay:1.8s}
+.rep{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--line2);font-size:14px}
+.rep:first-of-type{border-top:0}
+.rep .ic{width:36px;height:36px;border-radius:10px;background:var(--mist);display:grid;place-items:center;color:var(--green)}
+.rep b{display:block;font-weight:600}
+.rep span{font-size:12.5px;color:var(--mute)}
+.rep .s{margin-left:auto}
+.rx{display:flex;justify-content:space-between;align-items:center;padding:14px;border-radius:14px;background:var(--bone);margin-top:12px}
+.rx b{display:block}
+.rx span{font-size:12.5px;color:var(--mute)}
+.rx .btn{height:36px;font-size:13px}
+.meter{height:5px;background:#e3ddd0;border-radius:9px;margin-top:8px;width:180px;overflow:hidden}
+.meter i{display:block;height:100%;width:20%;background:var(--amber)}
+.claim{display:grid;grid-template-columns:repeat(4,1fr);margin-top:18px;position:relative}
+.claim::before{content:"";position:absolute;left:12px;right:12%;top:11px;height:2px;background:#e3ddd0}
+.claim .fill{position:absolute;left:12px;top:11px;height:2px;background:var(--green2);width:0;transition:width 1.6s cubic-bezier(.4,0,.2,1)}
+.claim.go .fill{width:58%}
+.st{position:relative;font-size:12.5px;color:var(--mute);padding-top:32px}
+.st::before{content:"";position:absolute;left:4px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;border:2px solid #d9d2c3;box-sizing:border-box}
+.st.d::before{background:var(--green2);border-color:var(--green2)}
+.st.a::before{border-color:var(--amber);box-shadow:0 0 0 5px rgba(217,150,46,.18)}
+.st b{display:block;color:var(--ink);font-size:13.5px}
+.appt{display:flex;gap:16px;align-items:center;margin-top:14px}
+.appt .dt{width:64px;height:68px;border-radius:14px;background:var(--ink);color:#fff;display:grid;place-items:center;text-align:center;line-height:1.1}
+.appt .dt small{font-size:11px;color:#9fb6ab;letter-spacing:.08em}
+.appt .dt b{font-size:26px;font-family:var(--serif);font-weight:400}
+.fx{transition:opacity .35s}
+.fx.out{opacity:0}
+
+/* ---------- emergency modal ---------- */
+.modal{position:fixed;inset:0;z-index:60;background:rgba(10,24,19,.5);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.modal.on{opacity:1;pointer-events:auto}
+.mbox{width:1040px;background:var(--paper);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 400px;transform:translateY(16px) scale(.98);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.modal.on .mbox{transform:none}
+.map{position:relative;height:560px;background:#e9e6dd}
+.map svg{width:100%;height:100%;display:block}
+.mside{padding:30px 30px 26px;display:flex;flex-direction:column}
+.mside .k{display:flex;gap:10px;align-items:center;color:var(--coral);font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.mside h3{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.02;margin:14px 0 8px;letter-spacing:-.02em}
+.mside .eta2{display:flex;align-items:baseline;gap:8px;margin:18px 0 6px}
+.mside .eta2 b{font-family:var(--serif);font-size:84px;line-height:.9;font-weight:400;letter-spacing:-.03em}
+.mside .eta2 span{font-size:18px;color:var(--mute)}
+.crew{display:flex;gap:12px;align-items:center;padding:14px;border-radius:14px;background:#fff;border:1px solid var(--line2);margin-top:14px;font-size:13.5px}
+.crew i{width:40px;height:40px;border-radius:50%;background:var(--mist);display:grid;place-items:center;font-style:normal;font-weight:700;color:var(--green)}
+.shared{margin-top:14px;font-size:13px;color:var(--ink2)}
+.shared div{display:flex;gap:10px;align-items:center;padding:8px 0;opacity:0;transform:translateX(-6px);transition:opacity .4s,transform .5s}
+.shared div.on{opacity:1;transform:none}
+.shared svg{color:var(--green2)}
+.mside .bt{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mside .bt span{height:46px;border-radius:12px;display:grid;place-items:center;font-weight:600;font-size:14px;border:1px solid var(--line)}
+.mside .bt span:first-child{background:var(--coral);color:#fff;border-color:var(--coral)}
+
+/* ---------- ops dashboard ---------- */
+.ops{background:#0d1714;color:#dfe8e3;min-height:862px;padding:26px 34px 40px}
+.oph{display:flex;align-items:center;gap:18px;margin-bottom:22px}
+.oph .logo{color:#fff}
+.oph .tabs{display:flex;gap:4px;margin-left:30px;background:rgba(255,255,255,.05);padding:4px;border-radius:11px}
+.oph .tabs span{padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:600;color:#8ea69a}
+.oph .tabs span.on{background:rgba(255,255,255,.1);color:#fff}
+.oph .r{margin-left:auto;display:flex;gap:16px;align-items:center;font-size:13px;color:#8ea69a}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:14px}
+.kpi{background:#132420;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px 20px}
+.kpi small{font-size:12px;color:#8ea69a;display:block}
+.kpi b{font-family:var(--serif);font-weight:400;font-size:44px;display:block;margin:8px 0 2px;letter-spacing:-.02em;color:#fff}
+.kpi span{font-size:12.5px;color:#7fcfa2}
+.kpi span.bad{color:#f0a07f}
+.og{display:grid;grid-template-columns:1.3fr 1fr 0.9fr;gap:14px}
+.ob{background:#132420;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:20px}
+.ob h5{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8ea69a;font-weight:600;margin-bottom:16px;display:flex;justify-content:space-between}
+.wards{display:grid;grid-template-columns:110px repeat(12,1fr);gap:4px;font-size:12px;color:#9db3a8;align-items:center}
+.wards i{height:26px;border-radius:5px;display:block;transform:scaleY(0);transform-origin:bottom;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.ops.go .wards i{transform:none}
+.bars{display:flex;align-items:flex-end;gap:8px;height:200px;padding-top:10px}
+.bars div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:#7d968a;height:100%;justify-content:flex-end}
+.bars i{width:100%;border-radius:6px 6px 2px 2px;background:#2c7559;transform:scaleY(0);transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.bars i.pk{background:#e0a24a}
+.ops.go .bars i{transform:none}
+.alert{display:flex;gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,.06);font-size:13px;line-height:1.4}
+.alert:first-of-type{border-top:0}
+.alert .dt{width:8px;height:8px;border-radius:50%;margin-top:6px;flex:none}
+.alert b{color:#fff;font-weight:600}
+.alert small{display:block;color:#7d968a;font-size:12px}
+.amb{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(255,255,255,.06);font-size:13px}
+.amb:first-of-type{border-top:0}
+.amb b{color:#fff}
+.amb span{color:#7fcfa2;font-family:var(--mono);font-size:12px}
+</style>
+</head>
+<body>
+
+<div class="util"><div class="wrap"><span>Emergency &amp; ambulance, 24×7 — <b>040 4455 0108</b></span><div class="r"><span>Gachibowli</span><span>Kondapur</span><span>Kukatpally</span><span>Health checks from ₹1,499</span></div></div></div>
+<nav class="main"><div class="wrap">
+  <div class="logo"><svg width="38" height="38" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1E5A45"/><g fill="#F2EEE5"><circle cx="20" cy="20" r="5.2"/></g><g fill="#9fd3b5"><circle cx="20" cy="8.5" r="2"/><circle cx="20" cy="31.5" r="2"/><circle cx="8.5" cy="20" r="2"/><circle cx="31.5" cy="20" r="2"/><circle cx="11.9" cy="11.9" r="2"/><circle cx="28.1" cy="28.1" r="2"/><circle cx="28.1" cy="11.9" r="2"/><circle cx="11.9" cy="28.1" r="2"/></g></svg><div>Kadamba Health<small>Hospitals · Hyderabad</small></div></div>
+  <div class="links"><a class="cur" id="l-home">Find a doctor</a><a>Specialities</a><a>Health checks</a><a id="l-portal">Patient portal</a></div>
+  <div class="nav-r"><button class="btn er" id="b-er"><span class="pulse"></span>Emergency</button><button class="btn g">Book appointment</button></div>
+</div></nav>
+
+<!-- ================= HOME ================= -->
+<main class="view on" id="v-home">
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="eyebrow"><i></i>Gachibowli campus · 412 beds · NABH accredited</div>
+    <h1>Care that doesn't keep you <em>waiting.</em></h1>
+    <p class="lede">Book a specialist in under a minute, track your OPD token from home, and keep every report your family has ever had — in one place.</p>
+    <div class="search">
+      <div class="sbox" id="sbox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6D7F77" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" placeholder="Search a doctor, speciality, or describe how you feel"><button class="btn g">Search</button></div>
+      <div class="drop" id="drop">
+        <div class="lbl">Best match for your symptoms</div>
+        <div class="res" id="r-cardio"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M3 12h4l2-3 3 6 2-3h7"/></svg></div><div><b>Cardiology</b><span>3 doctors available today · earliest 11:20 AM</span></div><span class="go">See slots →</span></div>
+        <div class="res"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6M8 6h8M5 12c0-3 3-4 7-4s7 1 7 4v4a6 6 0 0 1-14 0z"/></svg></div><div><b>Pulmonology</b><span>If breathlessness is the main symptom · 2 doctors</span></div><span class="go">See slots →</span></div>
+        <div class="res"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div><div><b>Heart health check</b><span>ECG, Echo, TMT, lipid profile · same day · ₹3,900</span></div><span class="go">Book →</span></div>
+        <div class="res warn"><div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.5"/></svg></div><div><b>Sudden or severe chest pain? Don't book — come to ER now.</b><span>Current ER wait at Gachibowli: 12 min · one tap to call an ambulance</span></div></div>
+      </div>
+    </div>
+    <div class="chips"><span class="chip">Fever in children</span><span class="chip">Knee pain</span><span class="chip">Pregnancy scan</span><span class="chip">Diabetes review</span><span class="chip">Second opinion</span></div>
+  </div>
+  <aside class="live">
+    <h3><span class="pulse"></span>Right now at Gachibowli</h3>
+    <div class="er"><div><div class="k">Emergency wait time</div><div class="v tnum" id="erv">12<small>min</small></div></div>
+      <svg class="spark" viewBox="0 0 150 52"><path d="M0 30 L15 26 L30 32 L45 22 L60 28 L75 18 L90 24 L105 14 L120 20 L135 16 L150 22" fill="none" stroke="#2C7559" stroke-width="2"/><path d="M0 30 L15 26 L30 32 L45 22 L60 28 L75 18 L90 24 L105 14 L120 20 L135 16 L150 22 V52 H0Z" fill="rgba(44,117,89,.09)"/><circle cx="150" cy="22" r="3.5" fill="#2C7559"/></svg></div>
+    <div class="row"><span>Cardiology OPD — now serving</span><span class="r mono" id="srv">A-19</span></div>
+    <div class="row"><span>ICU beds free</span><span class="r"><span class="bar"><i style="width:12.5%"></i></span><span class="tnum">4 / 32</span></span></div>
+    <div class="row"><span>General ward beds free</span><span class="r"><span class="bar"><i style="width:28%"></i></span><span class="tnum">18 / 64</span></span></div>
+    <div class="row"><span>Blood bank · O negative</span><span class="r"><span class="tag low">LOW — DONORS NEEDED</span></span></div>
+    <div class="row"><span>Pharmacy · open till</span><span class="r"><span class="tag ok">24 HOURS</span></span></div>
+    <div class="foot"><span>Synced with hospital systems</span><span class="tnum" id="upd">updated 4 s ago</span></div>
+  </aside>
+</div></section>
+
+<section class="sec" id="doctors"><div class="wrap">
+  <div class="crumbs">Find a doctor / <b>Cardiology</b></div>
+  <div class="sh"><div><h2>Cardiology, <em>today.</em></h2><p>Real slots from the doctors' own calendars — what you see is what's free.</p></div>
+    <div class="chips" style="margin:0"><span class="chip" style="background:#fff">Gachibowli</span><span class="chip">Telugu · Hindi · English</span><span class="chip">Video consult available</span></div></div>
+  <div class="book">
+    <div class="docs">
+      <div class="doc sel" id="doc1"><div class="av" style="background:#2C7559">AR</div><div><h4>Dr. Ananya Rao</h4><div class="t">Interventional Cardiologist · MD, DM (AIIMS)</div><div class="m"><span><b>16 yrs</b> experience</span><span><b>4.9</b> · 1,240 consults</span><span>English, Telugu</span></div></div><div class="nx"><small>Next available</small><b>Today, 11:20 AM</b><button class="btn g" id="bk1">Book</button></div></div>
+      <div class="doc"><div class="av" style="background:#7A6A4F">VK</div><div><h4>Dr. Vikram Kulkarni</h4><div class="t">Cardiac Electrophysiologist · MD, DM, FHRS</div><div class="m"><span><b>21 yrs</b> experience</span><span><b>4.8</b> · 2,310 consults</span><span>English, Hindi, Marathi</span></div></div><div class="nx"><small>Next available</small><b>Today, 4:40 PM</b><button class="btn o">Book</button></div></div>
+      <div class="doc"><div class="av" style="background:#4F6478">SF</div><div><h4>Dr. Sana Farooqui</h4><div class="t">Preventive Cardiology · MD, DNB</div><div class="m"><span><b>9 yrs</b> experience</span><span><b>4.9</b> · 860 consults</span><span>English, Hindi, Urdu</span></div></div><div class="nx"><small>Next available</small><b>Tomorrow, 9:00 AM</b><button class="btn o">Book</button></div></div>
+      <div class="doc" style="opacity:.6"><div class="av" style="background:#8a5a4a">MP</div><div><h4>Dr. Mahesh Pillai</h4><div class="t">Cardiothoracic Surgeon · MS, MCh</div><div class="m"><span><b>24 yrs</b> experience</span><span>In surgery today</span></div></div><div class="nx"><small>Next available</small><b>Thu, 10:00 AM</b><button class="btn o">Book</button></div></div>
+    </div>
+    <div class="panel" id="panel">
+      <div class="ph"><div class="av" style="background:#2C7559">AR</div><div><b>Dr. Ananya Rao</b><span>Cardiology · Gachibowli · Room 214</span></div></div>
+      <div class="pb">
+        <div class="pl"><span>Choose a day</span><span>November</span></div>
+        <div class="days" id="days"><div class="day on"><small>Mon</small><b>10</b></div><div class="day" id="d11"><small>Tue</small><b>11</b></div><div class="day"><small>Wed</small><b>12</b></div><div class="day"><small>Thu</small><b>13</b></div><div class="day"><small>Fri</small><b>14</b></div><div class="day x"><small>Sun</small><b>16</b></div></div>
+        <div class="pl"><span>Morning slots</span><span id="slotsleft">5 left</span></div>
+        <div class="slots" id="slots"><button class="slot taken">9:40</button><button class="slot taken">10:00</button><button class="slot">10:40</button><button class="slot" id="s1120">11:20</button><button class="slot taken">11:40</button><button class="slot">12:00</button><button class="slot">12:20</button><button class="slot taken">12:40</button></div>
+        <div class="seg" id="seg"><button class="on">In person <span>₹900</span></button><button>Video <span>₹700</span></button></div>
+        <div class="pl"><span>Your mobile number</span><span>No password needed</span></div>
+        <div class="ph-in"><div class="cc">+91</div><input id="phone" placeholder="98xxx xxxxx" maxlength="11"><button class="btn o" id="otpb">Send OTP</button></div>
+        <div class="otp" id="otp"><i></i><i></i><i></i><i></i><span>Auto-filled from SMS<br>on this device</span></div>
+        <button class="btn g confirm" id="conf">Confirm — Tue 11 Nov, 11:20 AM</button>
+      </div>
+      <div class="done">
+        <div class="ck"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 5 5 9-10"/></svg></div>
+        <h3>You're booked, Meera.</h3><p>Tuesday, 11 November · 11:20 AM · Dr. Ananya Rao</p>
+        <div class="tk"><div><small>Your OPD token</small><div class="no">A-24</div><div class="w">Show this QR at the Cardiology desk, 2nd floor. We'll tell you when to leave home.</div></div><svg id="qr" viewBox="0 0 29 29"></svg></div>
+        <div class="ok-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>WhatsApp reminder set for 9:30 AM</div>
+        <div class="ok-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Previous ECG &amp; reports shared with Dr. Rao</div>
+        <div class="ok-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Added to your calendar · Pay at visit or now</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="visit" id="visit"><div class="wrap">
+  <div>
+    <div class="eyebrow" style="color:#7fae94"><i style="background:#7fae94"></i>On the day of your visit</div>
+    <h2 style="margin-top:20px">Wait at home,<br><em>not in the corridor.</em></h2>
+    <p class="l">Your token moves in real time with the doctor's queue. If she's running late, your time moves too — and we tell you exactly when to leave.</p>
+    <div class="feats"><div><b>01</b>Live token position, synced with the OPD desk</div><div><b>02</b>Travel time from your location, updated with traffic</div><div><b>03</b>WhatsApp alerts — no app download required</div></div>
+  </div>
+  <div class="phones">
+    <div class="phone p2"><div class="scr"><div class="notch"></div><div class="sb"><span>10:41</span><span>5G</span></div>
+      <div class="wa"><div class="top"><i>K</i><div><b>Kadamba Health</b><small>Verified business</small></div></div>
+        <div class="bub"><b>Reminder · Today 11:20 AM</b>Dr. Ananya Rao, Cardiology. Your token is A-24. Reply 1 to confirm, 2 to reschedule.<span class="tm">9:30 AM</span></div>
+        <div class="bub"><b>Time to leave</b>The queue is moving. Leave by 10:52 — it's a 14 min drive from Kondapur right now.<span class="tm">10:38 AM</span></div>
+        <div class="bub"><b>Reports ready</b>Your lipid profile is ready. View it in your patient portal.<span class="tm">10:40 AM</span></div>
+      </div></div></div>
+    <div class="phone p1"><div class="scr"><div class="notch"></div><div class="sb"><span>10:41</span><span>5G</span></div>
+      <div class="q">
+        <div class="h"><b>Today's visit</b><span>Room 214 · 2nd floor</span></div>
+        <div class="big"><small>Your token</small><div class="n">A-24</div><div class="s">Dr. Ananya Rao · Cardiology</div>
+          <div class="dots" id="qdots"><i class="c">A-19</i><i>A-20</i><i>A-21</i><i>A-22</i><i>A-23</i><i class="me">A-24</i></div>
+          <div class="eta"><span class="s" id="ahead">5 people ahead</span><span class="v tnum" id="etav">~22 min</span></div></div>
+        <div class="note" id="late"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="flex:none;margin-top:1px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>Dr. Rao is running 6 min behind. We've moved your estimate — no need to rush.</span></div>
+        <div class="leave"><b id="leave">Leave by 10:52 AM</b>14 min drive from Kondapur · light traffic on ORR</div>
+        <div class="pbtns"><span>I'm running late</span><span>Directions</span></div>
+      </div></div></div>
+  </div>
+</div></section>
+<div style="height:40px;background:var(--ink)"></div>
+</main>
+
+<!-- ================= PORTAL ================= -->
+<main class="view" id="v-portal">
+<div class="portal">
+  <aside class="side">
+    <div class="who"><div class="av" style="background:#B0634A">MR</div><div><b>Meera Reddy</b><span>KH-ID 0048 2291</span></div></div>
+    <a class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 12 4l9 8M5 10v10h14V10"/></svg>Overview</a>
+    <a><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Reports<span class="c">2</span></a>
+    <a><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M6 12h12"/></svg>Prescriptions</a>
+    <a><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Bills &amp; insurance</a>
+    <a><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.5 3-6 6-6s6 2.5 6 6M15 20c0-2 1-4 3-4s3 1.5 3 4"/></svg>Family</a>
+    <a><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="13" height="14" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg>Video consults</a>
+  </aside>
+  <div class="pm">
+    <div class="pmh"><div><h2 id="ptitle">Good morning, Meera.</h2><p id="psub">Your next visit is tomorrow. Two new reports since last week.</p></div>
+      <div class="fam" id="fam"><button class="on" data-p="meera"><span class="av" style="background:#B0634A">MR</span>Me</button><button data-p="dad" id="f-dad"><span class="av" style="background:#4F6478">SR</span>Father</button><button data-p="mom"><span class="av" style="background:#7A6A4F">LR</span>Mother</button></div></div>
+    <div class="pg fx" id="pgrid">
+      <div class="card">
+        <h4><span id="tk">HbA1c · last 18 months</span><a>All results →</a></h4>
+        <div class="trend"><div class="v tnum" id="tv">6.1<small>%</small></div><div class="d" id="td">↓ 1.3 since May 2025<span>Inside target range for 2 visits</span></div></div>
+        <svg class="chart" id="chart" viewBox="0 0 640 210" preserveAspectRatio="none"></svg>
+      </div>
+      <div style="display:grid;gap:18px">
+        <div class="card"><h4><span>Coming up</span><a>Reschedule</a></h4>
+          <div class="appt"><div class="dt"><div><small>NOV</small><br><b id="ad">11</b></div></div><div><b style="font-size:16px" id="adoc">Dr. Ananya Rao · Cardiology</b><div style="font-size:13.5px;color:var(--mute);margin-top:4px" id="awhen">Tue 11:20 AM · Token A-24 · Gachibowli</div></div></div></div>
+        <div class="card"><h4><span>Recent reports</span><a>View all</a></h4>
+          <div class="rep"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3M8 3h8"/></svg></div><div><b>Lipid profile</b><span>Today, 10:40 AM · reviewed by Dr. Rao</span></div><span class="s tag ok">READY</span></div>
+          <div class="rep"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg></div><div><b>2D Echo</b><span>Uploaded with images · 6 Nov</span></div><span class="s tag ok">READY</span></div>
+          <div class="rep"><div class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b>Thyroid panel</b><span>Sample collected · results by 4 PM</span></div><span class="s tag low">PROCESSING</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h4><span>Insurance claim · KH-CL-20931</span><a>Documents</a></h4>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:12px"><div style="font-family:var(--serif);font-size:38px;letter-spacing:-.02em">₹42,300</div><div style="font-size:13px;color:var(--mute)">Angiography · cashless</div></div>
+        <div class="claim" id="claim"><div class="fill"></div><div class="st d"><b>Submitted</b>2 Nov</div><div class="st d"><b>Pre-auth approved</b>3 Nov</div><div class="st a"><b>Final review</b>with insurer</div><div class="st"><b>Settled</b>est. 14 Nov</div></div>
+      </div>
+      <div class="card">
+        <h4><span>Prescriptions</span><a>History</a></h4>
+        <div class="rx"><div><b>Metformin 500 mg</b><span>1 tablet after dinner · 6 days left</span><div class="meter"><i></i></div></div><button class="btn g">Refill · home delivery</button></div>
+        <div class="rx"><div><b>Rosuvastatin 10 mg</b><span>1 tablet at night · 24 days left</span></div><button class="btn o">Remind me</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- ================= OPS ================= -->
+<main class="view" id="v-ops">
+<div class="ops" id="ops">
+  <div class="oph"><div class="logo"><svg width="32" height="32" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2C7559"/><circle cx="20" cy="20" r="5.2" fill="#F2EEE5"/></svg>Kadamba Ops</div>
+    <div class="tabs"><span class="on">Today</span><span>Beds</span><span>OPD</span><span>Emergency</span><span>Revenue</span></div>
+    <div class="r"><span>Gachibowli campus</span><span class="mono" id="clk">10:44:12</span><span style="color:#7fcfa2;display:flex;gap:8px;align-items:center"><span class="pulse" style="color:#7fcfa2"></span>Live</span></div></div>
+  <div class="kpis">
+    <div class="kpi"><small>Bed occupancy</small><b class="tnum" data-n="87" data-s="%">0</b><span>↑ 3% vs last Monday</span></div>
+    <div class="kpi"><small>OPD patients today</small><b class="tnum" data-n="642">0</b><span>184 still in queue</span></div>
+    <div class="kpi"><small>Avg OPD wait</small><b class="tnum" data-n="14" data-s=" min">0</b><span>↓ from 41 min before live queue</span></div>
+    <div class="kpi"><small>ER arrivals</small><b class="tnum" data-n="23">0</b><span class="bad">2 critical · 1 ambulance inbound</span></div>
+    <div class="kpi"><small>Discharges pending</small><b class="tnum" data-n="11">0</b><span class="bad">4 waiting on billing</span></div>
+  </div>
+  <div class="og">
+    <div class="ob"><h5><span>Bed occupancy by ward · next 12 hours</span><span>forecast</span></h5><div class="wards" id="wards"></div>
+      <div style="display:flex;gap:16px;margin-top:16px;font-size:12px;color:#8ea69a;align-items:center"><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#1d4a3a"></i>&lt;70%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#2c7559"></i>70–85%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#d9962e"></i>85–95%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#dd5536"></i>full</span></div></div>
+    <div class="ob"><h5><span>OPD arrivals by hour</span><span>today</span></h5><div class="bars" id="bars"></div></div>
+    <div class="ob"><h5><span>Needs attention</span><span>4</span></h5>
+      <div class="alert"><span class="dt" style="background:#dd5536"></span><div><b>ICU · 2 beds left</b><small>Forecast full by 6 PM — 3 transfers from Ward C suggested</small></div></div>
+      <div class="alert"><span class="dt" style="background:#d9962e"></span><div><b>Ortho OPD running 25 min late</b><small>38 patients auto-notified with new times</small></div></div>
+      <div class="alert"><span class="dt" style="background:#d9962e"></span><div><b>O− blood stock low</b><small>Donor drive SMS sent to 1,204 registered donors</small></div></div>
+      <h5 style="margin-top:18px"><span>Ambulances</span><span>live</span></h5>
+      <div class="amb"><span><b>KA-07</b> · inbound, chest pain</span><span>ETA 4 min</span></div>
+      <div class="amb"><span><b>KA-03</b> · at base</span><span>ready</span></div>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- emergency modal -->
+<div class="modal" id="modal"><div class="mbox">
+  <div class="map"><svg id="map" viewBox="0 0 640 560" preserveAspectRatio="xMidYMid slice"></svg></div>
+  <div class="mside">
+    <div class="k"><span class="pulse"></span>Ambulance on the way</div>
+    <h3>Stay where you are. Help is coming.</h3>
+    <div style="font-size:14px;color:var(--mute)">Pickup: Block C, Aparna Towers, Kondapur</div>
+    <div class="eta2"><b class="tnum" id="amin">7</b><span>min away</span></div>
+    <div class="crew"><i>KA</i><div><b>KA-07 · Advanced life support</b><br><span style="color:var(--mute)">Paramedic Ravi Teja · +91 98490 22xxx</span></div></div>
+    <div class="shared" id="shared">
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>ER team at Gachibowli alerted</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Shared: blood group B+, allergy to penicillin</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Last ECG and medications sent to ER doctor</div>
+      <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Your father and brother notified by SMS</div>
+    </div>
+    <div class="bt"><span>Call paramedic</span><span>Share live location</span></div>
+  </div>
+</div></div>
+
+<script>/* Film harness. Normal mode: page behaves like a regular site.
+   ?film mode: wraps the site in a browser frame, adds a scripted cursor, captions and title cards.
+   All timing uses setTimeout / requestAnimationFrame / performance.now so a faked clock drives it frame by frame. */
+(function () {
+  const F = (window.FILM = {});
+  F.on = new URLSearchParams(location.search).has('film');
+  F.done = false;
+  F.cx = 800; F.cy = 520;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  F.wait = sleep;
+  const easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  F.ease = easeIO; F.easeOut = easeOut;
+  F.tween = (dur, fn, e = easeIO) =>
+    new Promise((res) => {
+      const t0 = performance.now();
+      (function step() {
+        const p = Math.min(1, (performance.now() - t0) / dur);
+        fn(e(p), p);
+        if (p < 1) requestAnimationFrame(step); else res();
+      })();
+    });
+  // deterministic pseudo random
+  let seed = 7;
+  F.rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+  F.scroller = document.scrollingElement;
+  F.layer = document.body; // where site overlays (modals/drawers) live
+
+  const $ = (s) => (typeof s === 'string' ? document.querySelector(s) : s);
+  F.$ = $;
+
+  // ---- reveal on scroll ----
+  F.reveal = () => {
+    const vb = F.on ? F.scroller.getBoundingClientRect().bottom : innerHeight;
+    document.querySelectorAll('[data-reveal]:not(.in)').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vb - 40 && r.bottom > 0) el.classList.add('in');
+    });
+  };
+
+  F.setUrl = (host, path = '') => {
+    const u = document.getElementById('fb-url-text');
+    if (u) u.innerHTML = host + (path ? '<span class="path">' + path + '</span>' : '');
+  };
+
+  function buildStage(cfg) {
+    const pageBg = getComputedStyle(document.body).backgroundColor;
+    document.documentElement.classList.add('film');
+    const stage = document.createElement('div');
+    stage.id = 'film-stage';
+    stage.innerHTML =
+      '<div class="fb-bar"><div class="fb-dots"><i></i><i></i><i></i></div>' +
+      '<div class="fb-nav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></div>' +
+      '<div class="fb-url"><svg width="11" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1zm2 0h8V8a4 4 0 1 0-8 0v2z"/></svg><span id="fb-url-text"></span></div>' +
+      '<div class="fb-spacer"></div></div><div class="fb-vp"><div class="fb-scroll"></div></div>';
+    const scroll = stage.querySelector('.fb-scroll');
+    scroll.style.background = pageBg;
+    while (document.body.firstChild) scroll.appendChild(document.body.firstChild);
+    document.body.appendChild(stage);
+    F.scroller = scroll;
+    F.vp = stage.querySelector('.fb-vp');
+    F.layer = F.vp;
+    scroll.addEventListener('scroll', F.reveal);
+
+    const cur = document.createElement('div');
+    cur.id = 'film-cursor';
+    cur.innerHTML = '<svg width="26" height="26" viewBox="0 0 26 26"><path d="M4 2.5v18.2l4.6-4.4 2.9 6.9 3.2-1.4-2.9-6.7 6.4-.2z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(cur);
+    F.cursorEl = cur;
+
+    const cap = document.createElement('div');
+    cap.id = 'film-cap';
+    cap.innerHTML = '<div class="fc-k"><b class="fc-n"></b><i></i><span class="fc-b"></span></div><div class="fc-t"></div><div class="fc-d"></div>';
+    document.body.appendChild(cap);
+    F.capEl = cap;
+
+    const card = document.createElement('div');
+    card.id = 'film-card';
+    document.body.appendChild(card);
+    F.cardEl = card;
+    F.cfg = cfg;
+    F.setUrl(cfg.host, '');
+    placeCursor();
+  }
+
+  function placeCursor() {
+    if (F.cursorEl) F.cursorEl.style.transform = `translate(${F.cx - 4}px,${F.cy - 3}px) scale(${F._press || 1})`;
+  }
+
+  F.point = (target, ox = 0.5, oy = 0.5) => {
+    if (target && typeof target === 'object' && 'x' in target && !(target instanceof Element)) return target;
+    const el = $(target);
+    if (!el) throw new Error('FILM: missing ' + target);
+    const r = el.getBoundingClientRect();
+    return { x: r.left + r.width * ox, y: r.top + r.height * oy };
+  };
+
+  F.moveTo = async (target, dur, ox, oy) => {
+    const p = F.point(target, ox, oy);
+    const sx = F.cx, sy = F.cy, dx = p.x - sx, dy = p.y - sy;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 1) return;
+    dur = dur || Math.max(420, Math.min(1050, 380 + dist * 0.55));
+    const bend = (F.rand() - 0.5) * 0.35 * dist;
+    const nx = -dy / dist, ny = dx / dist;
+    const cx = sx + dx * 0.5 + nx * bend, cy = sy + dy * 0.5 + ny * bend;
+    await F.tween(dur, (t) => {
+      const u = 1 - t;
+      F.cx = u * u * sx + 2 * u * t * cx + t * t * p.x;
+      F.cy = u * u * sy + 2 * u * t * cy + t * t * p.y;
+      placeCursor();
+    });
+  };
+
+  F.press = async () => {
+    await F.tween(90, (t) => { F._press = 1 - 0.14 * t; placeCursor(); });
+    const rp = document.createElement('div');
+    rp.className = 'film-ripple';
+    rp.style.left = F.cx + 'px'; rp.style.top = F.cy + 'px';
+    document.body.appendChild(rp);
+    setTimeout(() => rp.remove(), 700);
+    await F.tween(140, (t) => { F._press = 0.86 + 0.14 * t; placeCursor(); });
+  };
+
+  F.click = async (target, opts = {}) => {
+    if (!opts.noMove) await F.moveTo(target, opts.dur, opts.ox, opts.oy);
+    await sleep(opts.pause ?? 120);
+    await F.press();
+    const el = typeof target === 'string' || target instanceof Element ? $(target) : document.elementFromPoint(F.cx, F.cy);
+    if (el) {
+      if (el.focus && /INPUT|TEXTAREA|SELECT/.test(el.tagName)) el.focus();
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, clientX: F.cx, clientY: F.cy }));
+    }
+    await sleep(opts.after ?? 220);
+  };
+
+  F.type = async (target, text, opts = {}) => {
+    const el = $(target);
+    el.focus();
+    if (opts.clear) { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); }
+    for (const ch of text) {
+      el.value += ch;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      await sleep((opts.cps ? 1000 / opts.cps : 70) * (0.6 + F.rand() * 0.9));
+    }
+    await sleep(opts.after ?? 250);
+  };
+
+  F.scrollTo = async (target, dur = 1400, offset = 0) => {
+    const sc = F.scroller;
+    let y;
+    if (typeof target === 'number') y = target;
+    else {
+      const el = $(target);
+      const top = el.getBoundingClientRect().top - (F.on ? sc.getBoundingClientRect().top : 0);
+      y = sc.scrollTop + top - offset;
+    }
+    y = Math.max(0, Math.min(y, sc.scrollHeight - sc.clientHeight));
+    const s = sc.scrollTop;
+    await F.tween(dur, (t) => { sc.scrollTop = s + (y - s) * t; F.reveal(); });
+  };
+  F.scrollBy = (dy, dur = 1200) => F.scrollTo(F.scroller.scrollTop + dy, dur);
+
+  let capN = 0;
+  F.caption = async (title, desc, opt = {}) => {
+    const c = F.capEl; if (!c) return;
+    if (c.classList.contains('show')) { c.classList.remove('show'); await sleep(420); }
+    capN++;
+    c.querySelector('.fc-n').textContent = String(capN).padStart(2, '0') + ' / ' + String(F.cfg.caps || 8).padStart(2, '0');
+    c.querySelector('.fc-b').textContent = F.cfg.short || '';
+    c.querySelector('.fc-t').textContent = title;
+    c.querySelector('.fc-d').textContent = desc || '';
+    c.style.left = opt.right ? 'auto' : '30px';
+    c.style.right = opt.right ? '30px' : 'auto';
+    await sleep(30);
+    c.classList.add('show');
+  };
+  F.hideCaption = async () => { F.capEl && F.capEl.classList.remove('show'); await sleep(400); };
+
+  const cube = '<svg width="22" height="22" viewBox="0 0 40 40"><path d="M20 3 36 11.5v17L20 37 4 28.5v-17Z" fill="#5b2bc4"/><path d="M20 3 36 11.5 20 20 4 11.5Z" fill="#8b5cf6"/><path d="M20 20v17L4 28.5v-17Z" fill="#3b168f"/></svg>';
+  F.card = async (kind, hold) => {
+    const c = F.cfg, el = F.cardEl;
+    el.style.background = c.cardBg; el.style.color = c.cardFg;
+    const name = `<div class="fk-ln fk-d1"><span class="fk-name" style="font-family:${c.displayFont};font-size:${c.nameSize || 132}px;font-weight:${c.nameWeight || 500};${c.nameStyle || ''}">${c.name}</span></div>`;
+    if (kind === 'intro') {
+      el.innerHTML = `<div class="fk-top fk-fade"><span class="fk-pb">${cube} Purplebox Solutions</span><span>Concept ${c.no} / 04</span></div>
+        <div class="fk-mid"><div class="fk-ln"><span class="fk-eyebrow">${c.sector}</span></div>${name}
+        <div class="fk-ln fk-d2"><span class="fk-desc">${c.desc}</span></div></div>
+        <div class="fk-bot fk-fade"><span>${c.host}</span><span>Concept demo · fictional brand</span></div>`;
+    } else {
+      el.innerHTML = `<div class="fk-top fk-fade"><span class="fk-pb">${cube} Purplebox Solutions</span><span>Concept ${c.no} / 04</span></div>
+        <div class="fk-mid"><div class="fk-ln"><span class="fk-eyebrow">What we'd build for you</span></div>
+        <div class="fk-ln fk-d1"><span class="fk-name" style="font-family:'Instrument Sans',sans-serif;font-size:76px;font-weight:600">Website, apps and the<br>software behind them.</span></div>
+        <div class="fk-ln fk-d2"><span class="fk-mods">${c.mods.map((m) => `<span>${m}</span>`).join('')}</span></div></div>
+        <div class="fk-bot fk-fade"><span>purpleboxsolutions.in</span><span>${c.name} is a fictional brand created for this demo</span></div>`;
+    }
+    await sleep(40);
+    el.classList.add('show');
+    if (hold) { await sleep(hold); el.classList.remove('show'); await sleep(750); }
+  };
+
+  F.hideCursor = (v) => { if (F.cursorEl) F.cursorEl.style.opacity = v ? 0 : 1; };
+
+  // called once per captured frame: pin every CSS animation/transition to the (faked) clock
+  F.sync = () => {
+    const now = performance.now();
+    for (const a of document.getAnimations()) {
+      if (a._fin) continue;
+      if (a._vs === undefined) { a._vs = now - (a.currentTime || 0); a.pause(); }
+      const ct = now - a._vs;
+      const end = a.effect ? a.effect.getComputedTiming().endTime : Infinity;
+      if (isFinite(end) && ct >= end) { a._fin = 1; try { a.finish(); } catch (e) {} }
+      else a.currentTime = ct;
+    }
+    return { x: F.cx, y: F.cy, done: F.done };
+  };
+
+  function buildBar(cfg) {
+    const bar = document.createElement('div');
+    bar.id = 'demo-bar';
+    bar.innerHTML = '<span class="db-pb">' + cube + 'Concept demo by Purplebox</span>' +
+      (cfg.views || []).map((v, i) => '<button data-i="' + i + '"' + (i ? '' : ' class="on"') + '>' + v.name + '</button>').join('') +
+      '<button class="db-tour">&#9654; Play guided tour</button>';
+    document.body.appendChild(bar);
+    bar.querySelectorAll('button[data-i]').forEach((b) => b.addEventListener('click', () => {
+      bar.querySelectorAll('button[data-i]').forEach((x) => x.classList.remove('on'));
+      b.classList.add('on'); cfg.views[+b.dataset.i].go();
+    }));
+    bar.querySelector('.db-tour').addEventListener('click', () => {
+      bar.remove(); if (cfg.reset) cfg.reset(); scrollTo(0, 0);
+      F.on = true; buildStage(cfg); F.start();
+    });
+  }
+  F.init = (cfg, script) => {
+    F.script = script;
+    if (F.on) buildStage(cfg);
+    else {
+      addEventListener('scroll', F.reveal, { passive: true });
+      if (cfg.normal) setTimeout(cfg.normal, 300);
+      buildBar(cfg);
+    }
+    requestAnimationFrame(F.reveal);
+    setTimeout(F.reveal, 60);
+  };
+  F.start = async () => {
+    try { await F.script(F); } catch (e) { console.error(e); F.err = String(e && e.stack || e); }
+    await sleep(300);
+    F.done = true;
+    if (!navigator.webdriver && F.cardEl) {
+      const b = document.createElement('button');
+      b.id = 'tour-again'; b.textContent = 'Explore the site yourself';
+      b.onclick = () => { location.hash = ''; location.reload(); };
+      document.body.appendChild(b);
+    }
+  };
+  if (F.on && !navigator.webdriver) setTimeout(() => F.start(), 900);
+})();
+</script>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+// ---- QR-like code ----
+(function(){let s=11;const r=()=>((s=s*16807%2147483647)/2147483647);let h='';
+ const fin=(x,y)=>h+=`<rect x="${x}" y="${y}" width="7" height="7" fill="#0F2A22"/><rect x="${x+1}" y="${y+1}" width="5" height="5" fill="#fff"/><rect x="${x+2}" y="${y+2}" width="3" height="3" fill="#0F2A22"/>`;
+ for(let y=0;y<29;y++)for(let x=0;x<29;x++){if((x<8&&y<8)||(x>20&&y<8)||(x<8&&y>20))continue;if(r()>.52)h+=`<rect x="${x}" y="${y}" width="1" height="1" fill="#0F2A22"/>`}
+ fin(0,0);fin(22,0);fin(0,22);$('#qr').innerHTML=h;})();
+// ---- chart ----
+const series={meera:{k:'HbA1c · last 18 months',v:'6.1<small>%</small>',d:'↓ 1.3 since May 2025<span>Inside target range for 2 visits</span>',pts:[7.4,7.1,6.8,6.4,6.1],lo:4.5,hi:8,band:[4.5,6.5],lab:['May 25','Aug 25','Dec 25','Apr 26','Oct 26']},
+ dad:{k:'Blood pressure · systolic',v:'128<small> mmHg</small>',d:'↓ 22 since starting Telmisartan<span>Next review with Dr. Kulkarni · 18 Nov</span>',pts:[150,146,138,131,128],lo:110,hi:160,band:[110,130],lab:['Jun 25','Sep 25','Jan 26','May 26','Oct 26']}};
+function drawChart(p){const s=series[p],W=640,H=210,pad=24;const y=v=>H-pad-(v-s.lo)/(s.hi-s.lo)*(H-2*pad),x=i=>40+i*(W-80)/4;
+ let g=`<rect x="0" y="${y(s.band[1])}" width="${W}" height="${y(s.band[0])-y(s.band[1])}" fill="rgba(44,117,89,.08)"/><text x="8" y="${y(s.band[1])+16}" text-anchor="start" font-size="11" fill="#2C7559" font-family="Figtree" font-weight="600">TARGET RANGE</text>`;
+ [0,1,2,3].forEach(i=>{const yy=pad+i*(H-2*pad)/3;g+=`<line x1="0" x2="${W}" y1="${yy}" y2="${yy}" stroke="rgba(15,42,34,.07)"/>`});
+ let d='';s.pts.forEach((v,i)=>{d+=(i?' L':'M')+x(i)+' '+y(v)});
+ g+=`<path class="ln" d="${d}" fill="none" stroke="#0F2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+ s.pts.forEach((v,i)=>{g+=`<g class="pt"><circle cx="${x(i)}" cy="${y(v)}" r="${i==4?7:5}" fill="${i==4?'#1E5A45':'#fff'}" stroke="#0F2A22" stroke-width="2"/><text x="${x(i)}" y="${y(v)-16}" text-anchor="middle" font-size="13" font-family="Figtree" font-weight="600" fill="#0F2A22">${v}</text><text x="${x(i)}" y="${H-2}" text-anchor="middle" font-size="11.5" fill="#6D7F77" font-family="Figtree">${s.lab[i]}</text></g>`});
+ const c=$('#chart');c.classList.remove('draw');c.innerHTML=g;$('#tk').textContent=s.k;$('#tv').innerHTML=s.v;$('#td').innerHTML=s.d;}
+drawChart('meera');
+// ---- map ----
+(function(){let s=5;const r=()=>((s=s*16807%2147483647)/2147483647);let g='<rect width="640" height="560" fill="#ebe7dd"/>';
+ g+='<path d="M-20 420 C120 380 200 470 330 430 S560 380 680 410 L680 600 L-20 600Z" fill="#d6e2d2"/>';
+ g+='<path d="M430 -10 C460 80 420 140 470 210 S520 300 500 360" fill="none" stroke="#c9dbe6" stroke-width="18"/>';
+ for(let i=0;i<14;i++){const y=20+i*42+r()*12;g+=`<path d="M-10 ${y} L650 ${y+(r()-.5)*40}" stroke="#fff" stroke-width="${r()>.75?7:3}" fill="none"/>`}
+ for(let i=0;i<12;i++){const x=20+i*55+r()*14;g+=`<path d="M${x} -10 L${x+(r()-.5)*50} 570" stroke="#fff" stroke-width="${r()>.75?7:3}" fill="none"/>`}
+ for(let i=0;i<26;i++){g+=`<rect x="${r()*620}" y="${r()*540}" width="${18+r()*40}" height="${14+r()*30}" rx="3" fill="#e1dccf"/>`}
+ g+='<path d="M-10 250 C150 230 260 300 380 280 S560 200 660 230" stroke="#f3d9a4" stroke-width="12" fill="none"/><text x="70" y="232" font-size="12" font-family="Figtree" font-weight="600" fill="#a08550">Outer Ring Road</text>';
+ g+='<path id="route" d="M120 470 L175 452 L230 420 L300 405 L312 330 L330 282 L420 268 L470 214 L520 160" fill="none" stroke="#DD5536" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 0"/>';
+ g+='<g transform="translate(120 470)"><circle r="22" fill="rgba(30,90,69,.18)"/><circle r="10" fill="#1E5A45" stroke="#fff" stroke-width="3"/></g><text x="92" y="508" font-size="13" font-family="Figtree" font-weight="700" fill="#0F2A22">You · Kondapur</text>';
+ g+='<g transform="translate(520 160)"><rect x="-58" y="-48" width="116" height="30" rx="8" fill="#0F2A22"/><text y="-28" text-anchor="middle" font-size="12" font-family="Figtree" font-weight="700" fill="#fff">Kadamba ER</text><circle r="9" fill="#fff" stroke="#0F2A22" stroke-width="3"/><path d="M-4 0h8M0 -4v8" stroke="#DD5536" stroke-width="2.5"/></g>';
+ g+='<g id="amb"><circle r="26" fill="rgba(221,85,54,.18)"/><circle r="15" fill="#DD5536" stroke="#fff" stroke-width="3"/><path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="3"/></g>';
+ $('#map').innerHTML=g;})();
+function placeAmb(t){const p=$('#route'),L=p.getTotalLength(),pt=p.getPointAtLength(L*(1-t));$('#amb').setAttribute('transform',`translate(${pt.x} ${pt.y})`)}
+placeAmb(0);
+// ---- ops data ----
+(function(){const names=['ICU','HDU','Cardiac','Ward A','Ward B','Ward C','Maternity','Paeds'];let s=3;const r=()=>((s=s*16807%2147483647)/2147483647);
+ let h='<span></span>'+[10,11,12,13,14,15,16,17,18,19,20,21].map(x=>`<span style="text-align:center;font-size:10.5px">${x>12?x-12:x}${x>=12?'p':'a'}</span>`).join('');
+ names.forEach((n,i)=>{h+=`<span>${n}</span>`;let base=[.9,.8,.82,.7,.62,.86,.74,.55][i];for(let j=0;j<12;j++){const v=Math.min(1,base+j*(i==0?.012:.006)+(r()-.5)*.08);const c=v>=.98?'#dd5536':v>.85?'#d9962e':v>.7?'#2c7559':'#1d4a3a';h+=`<i style="background:${c};transition-delay:${(i*12+j)*8}ms"></i>`}});
+ $('#wards').innerHTML=h;
+ const v=[22,58,91,104,88,72,64,48,39,30,18];$('#bars').innerHTML=v.map((n,i)=>`<div><i class="${n>85?'pk':''}" style="height:${n/104*170}px;transition-delay:${i*60}ms"></i>${i+8>12?i-4:i+8}${i+8>=12?'p':'a'}</div>`).join('');})();
+function countUp(el,dur=1400){const n=+el.dataset.n,s=el.dataset.s||'';return FILM.tween(dur,t=>{el.innerHTML=Math.round(n*t)+(s?`<em style="font-size:20px;color:#8ea69a;font-style:normal">${s}</em>`:'')},FILM.easeOut)}
+// ---- interactions ----
+function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;
+ $('nav.main').style.display=v==='ops'?'none':'';$('.util').style.display=v==='ops'?'none':'';
+ $('#l-home').classList.toggle('cur',v==='home');$('#l-portal').classList.toggle('cur',v==='portal');}
+$('#q').addEventListener('focus',()=>$('#sbox').classList.add('f'));
+$('#q').addEventListener('input',e=>{$('#drop').classList.toggle('on',e.target.value.length>8)});
+$('#r-cardio').addEventListener('click',()=>{$('#drop').classList.remove('on');$('#sbox').classList.remove('f')});
+$$('.day').forEach(d=>d.addEventListener('click',()=>{if(d.classList.contains('x'))return;$$('.day').forEach(x=>x.classList.remove('on'));d.classList.add('on')}));
+$$('.slot').forEach(d=>d.addEventListener('click',()=>{if(d.classList.contains('taken'))return;$$('.slot').forEach(x=>x.classList.remove('on'));d.classList.add('on')}));
+$('#otpb').addEventListener('click',async()=>{$('#otpb').textContent='Sent ✓';$('#otp').classList.add('on');await FILM.wait(700);const c=[4,8,2,9];const b=$$('#otp i');for(let i=0;i<4;i++){b[i].textContent=c[i];b[i].classList.add('f');await FILM.wait(130)}});
+$('#conf').addEventListener('click',async()=>{const b=$('#conf');b.classList.add('busy');b.innerHTML='<span class="spin"></span>Confirming with Dr. Rao\'s calendar';await FILM.wait(1100);$('#panel').classList.add('ok')});
+$('#l-portal').addEventListener('click',()=>{show('portal');FILM.setUrl('kadambahealth.in','/portal/overview');setTimeout(()=>{$('#chart').classList.add('draw');$('#claim').classList.add('go')},500)});
+$('#f-dad').addEventListener('click',async()=>{$$('#fam button').forEach(b=>b.classList.toggle('on',b.id==='f-dad'));$('#pgrid').classList.add('out');await FILM.wait(350);
+ $('#ptitle').textContent='Suresh Reddy · Father';$('#psub').textContent='Managed by you · BP review due in 9 days.';$('#adoc').textContent='Dr. Vikram Kulkarni · Cardiology';$('#awhen').textContent='Tue 18 Nov, 4:40 PM · Video consult';$('#ad').textContent='18';
+ drawChart('dad');$('#pgrid').classList.remove('out');await FILM.wait(200);$('#chart').classList.add('draw')});
+$('#b-er').addEventListener('click',async()=>{$('#modal').classList.add('on');FILM.setUrl('kadambahealth.in','/emergency');const sh=$$('#shared div');for(const d of sh){await FILM.wait(650);d.classList.add('on')}});
+
+// live ticks on home
+let upd=4;setInterval(()=>{upd=(upd%9)+1;$('#upd').textContent=`updated ${upd} s ago`},1000);
+
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')});
+$('#l-home').addEventListener('click',()=>{$('#modal').classList.remove('on');show('home');FILM.setUrl('kadambahealth.in','')});
+const H_views=[{name:'Website',go:()=>{$('#modal').classList.remove('on');show('home')}},
+ {name:'Patient portal',go:()=>{$('#modal').classList.remove('on');$('#l-portal').click()}},
+ {name:'Emergency',go:()=>{show('home');$('#b-er').click();FILM.tween(7000,t=>{placeAmb(t*.62);$('#amin').textContent=Math.max(4,Math.ceil(7-t*3.2))},t=>t)}},
+ {name:'Ops dashboard',go:()=>{$('#modal').classList.remove('on');show('ops');$('#ops').classList.add('go');$$('.kpi b').forEach(b=>countUp(b))}}];
+FILM.init({views:H_views,reset:()=>{$('#modal').classList.remove('on');show('home')},no:'01',name:'Kadamba Health',short:'Hospital',sector:'Concept 01 — Hospital',host:'kadambahealth.in',caps:7,
+  desc:'A patient-first hospital platform: symptom search, real-time booking, a live OPD queue, family health records and one-tap emergency.',
+  displayFont:"'Newsreader',serif",nameSize:150,nameWeight:400,cardBg:'#0F2A22',cardFg:'#EFEBE1',
+  mods:['Hospital website','Doctor booking','Live OPD queue','WhatsApp alerts','Patient portal','Insurance tracking','Ambulance dispatch','Operations dashboard']},
+async F=>{
+  F.cx=1180;F.cy=640;F.hideCursor(1);
+  await F.card('intro',4200);
+  F.hideCursor(0);
+  await F.wait(500);
+  await F.caption('Live hospital status','ER wait, free beds and OPD queues pulled straight from hospital systems — updated every few seconds.',{right:false});
+  await F.moveTo('#erv',1100,0.3,0.5);
+  await F.wait(700);
+  const tick=[11,11,10];for(const v of tick){await F.wait(900);$('#erv').innerHTML=v+'<small>min</small>'}
+  await F.moveTo('.row:nth-of-type(2)',800,.6,.5);await F.wait(500);$('#srv').textContent='A-20';
+  await F.wait(900);
+  // search
+  await F.caption('Search the way patients talk','Describe a symptom in plain words — it suggests the right department, and flags emergencies instead of booking them.',{right:true});
+  await F.click('#q',{ox:.3});
+  await F.type('#q','tightness in chest when climbing stairs',{cps:16});
+  await F.wait(1400);
+  await F.moveTo('#r-cardio',900,.35,.5);await F.wait(700);
+  await F.moveTo('.res.warn',700,.4,.5);await F.wait(1300);
+  await F.moveTo('#r-cardio',700,.85,.5);
+  await F.click('#r-cardio',{noMove:true});
+  F.setUrl('kadambahealth.in','/doctors/cardiology');
+  await F.scrollTo('#doctors',1500,-10);
+  // booking
+  await F.caption('Book in under a minute','Live slots from each doctor\'s calendar, OTP sign-in instead of passwords, and the token issued instantly.',{right:false});
+  await F.moveTo('#doc1',900,.45,.5);await F.wait(600);
+  await F.click('#d11');
+  await F.click('#s1120');
+  await F.wait(300);
+  await F.click('#phone',{ox:.3});
+  await F.type('#phone','98480 12345',{cps:11});
+  await F.click('#otpb');
+  await F.wait(1500);
+  await F.click('#conf',{ox:.5});
+  await F.wait(1500);
+  await F.moveTo('#qr',1000,.2,.4);
+  await F.wait(2200);
+  // live queue
+  await F.caption('A live OPD queue on every phone','The token moves with the doctor\'s real queue. Patients get told when to leave home — on WhatsApp, no app needed.',{right:false});
+  await F.scrollTo('#visit',1600,-30);
+  await F.moveTo('.p1 .big',900,.6,.5);
+  const dots=$$('#qdots i'),eta=['~17 min','~13 min'];
+  for(let k=0;k<2;k++){await F.wait(1300);dots[k].className='d';dots[k+1].className='c';$('#ahead').textContent=(4-k)+' people ahead';$('#etav').textContent=eta[k];}
+  await F.wait(600);$('#late').classList.add('on');$('#etav').textContent='~19 min';$('#leave').textContent='Leave by 10:58 AM';
+  await F.moveTo('#late',700,.5,.5);
+  await F.wait(2400);
+  // portal
+  await F.caption('One record for the whole family','Reports, trends, prescriptions and insurance claims — for you, your parents and your kids, in one login.',{right:true});
+  await F.scrollTo(0,1100);
+  await F.click('#l-portal');
+  await F.wait(2600);
+  await F.moveTo('#chart',900,.82,.35);await F.wait(1200);
+  await F.moveTo('#claim',1000,.62,.5);await F.wait(1400);
+  await F.moveTo('.rx .btn.g',800,.5,.5);await F.wait(800);
+  await F.click('#f-dad');
+  await F.wait(2600);
+  // emergency
+  await F.caption('One-tap emergency','Ambulance tracked live on the map. The ER sees blood group, allergies and recent ECGs before the patient arrives.',{right:false});
+  await F.click('#b-er');
+  F.hideCursor(1);
+  const tot=5200;let m=7;
+  await F.tween(tot,(t)=>{placeAmb(t*.62);const nm=Math.max(4,Math.ceil(7-t*3.2));if(nm!==m){m=nm;$('#amin').textContent=m}},t=>t);
+  F.hideCursor(0);
+  await F.wait(700);
+  // ops
+  $('#modal').classList.remove('on');
+  await F.caption('The operations room, live','Admins see occupancy forecasts, OPD flow, ambulances and alerts — and act before wards run out of beds.',{right:true});
+  show('ops');F.setUrl('ops.kadambahealth.in','/today');
+  await F.wait(250);$('#ops').classList.add('go');
+  $$('.kpi b').forEach(b=>countUp(b));
+  let sec=12;const ck=setInterval(()=>{sec++;$('#clk').textContent='10:44:'+String(sec%60).padStart(2,'0')},1000);
+  await F.moveTo('#wards',1200,.15,.2);await F.wait(1400);
+  await F.moveTo('.alert',900,.5,.5);await F.wait(2000);
+  await F.moveTo('#bars',900,.4,.5);await F.wait(1800);
+  clearInterval(ck);
+  await F.hideCaption();
+  F.hideCursor(1);
+  await F.card('outro');await F.wait(5200);
+});
+</script>
+</body>
+</html>

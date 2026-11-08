@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parabola Academy — JEE, NEET & Foundation, Hyderabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Instrument+Sans:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>/* ---------- Film harness: browser frame, cursor, captions, title cards ---------- */
+html.film, html.film body { margin:0; height:100%; overflow:hidden; background:#0d0d0f; }
+html.film { scroll-behavior:auto !important; }
+#film-stage { position:fixed; inset:0; display:flex; flex-direction:column; background:#e9e7e2; z-index:0; }
+.fb-bar { height:38px; flex:none; display:flex; align-items:center; gap:14px; padding:0 14px; background:#efede8; border-bottom:1px solid #d9d6cf; font:500 12.5px/1 'Instrument Sans',system-ui,sans-serif; color:#4a4842; position:relative; z-index:3; }
+.fb-dots { display:flex; gap:7px; }
+.fb-dots i { width:11px; height:11px; border-radius:50%; background:#d6d3cc; display:block; }
+.fb-dots i:nth-child(1){background:#ee6a5f}.fb-dots i:nth-child(2){background:#f5bd4f}.fb-dots i:nth-child(3){background:#61c454}
+.fb-nav { display:flex; gap:10px; color:#9a978f; margin-left:6px; }
+.fb-url { flex:0 1 560px; margin:0 auto; height:25px; border-radius:7px; background:#fff; border:1px solid #dcd9d2; display:flex; align-items:center; justify-content:center; gap:7px; color:#3a3833; letter-spacing:.01em; }
+.fb-url svg { opacity:.55 }
+.fb-url .path { color:#8b887f; }
+.fb-spacer { width:84px; }
+.fb-vp { position:relative; flex:1; transform:translateZ(0); overflow:hidden; }
+.fb-scroll { position:absolute; inset:0; overflow-y:auto; overflow-x:hidden; scrollbar-width:none; }
+.fb-scroll::-webkit-scrollbar { display:none; }
+
+#film-cursor { position:fixed; left:0; top:0; z-index:9998; width:26px; height:26px; pointer-events:none; transform-origin:4px 3px; will-change:transform; filter:drop-shadow(0 2px 3px rgba(0,0,0,.28)); }
+#film-cursor.press { transform-origin:4px 3px; }
+.film-ripple { position:fixed; z-index:9997; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; border:2px solid rgba(20,20,20,.55); pointer-events:none; animation:filmRipple .55s cubic-bezier(.2,.7,.3,1) forwards; }
+@keyframes filmRipple { from { transform:scale(.25); opacity:.9 } to { transform:scale(1.25); opacity:0 } }
+
+#film-cap { position:fixed; left:30px; bottom:30px; z-index:9990; max-width:440px; padding:16px 20px 17px; border-radius:14px; background:rgba(14,14,16,.9); color:#f4f2ee; font-family:'Instrument Sans',system-ui,sans-serif; box-shadow:0 18px 50px -18px rgba(0,0,0,.55); opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1); pointer-events:none; }
+#film-cap.show { opacity:1; transform:none; }
+#film-cap .fc-k { font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.08em; color:#a9a59c; text-transform:uppercase; display:flex; gap:10px; align-items:center; }
+#film-cap .fc-k b { color:#f4f2ee; font-weight:500 }
+#film-cap .fc-k i { flex:1; height:1px; background:rgba(255,255,255,.14); }
+#film-cap .fc-t { font-size:18px; font-weight:600; margin-top:10px; letter-spacing:-.01em; }
+#film-cap .fc-d { font-size:14px; line-height:1.45; color:#c9c5bc; margin-top:5px; }
+
+#film-card { position:fixed; inset:0; z-index:9995; display:flex; flex-direction:column; justify-content:space-between; padding:64px 80px; opacity:0; pointer-events:none; transition:opacity .7s ease; }
+#film-card.show { opacity:1; }
+#film-card .fk-top, #film-card .fk-bot { display:flex; justify-content:space-between; align-items:center; font:500 13px/1 'JetBrains Mono',monospace; letter-spacing:.06em; text-transform:uppercase; opacity:.75; }
+#film-card .fk-pb { display:flex; align-items:center; gap:10px; font-family:'Instrument Sans',sans-serif; text-transform:none; letter-spacing:0; font-size:15px; font-weight:600; opacity:1; }
+#film-card .fk-mid { max-width:1100px; }
+#film-card .fk-eyebrow { font:500 14px/1 'JetBrains Mono',monospace; letter-spacing:.1em; text-transform:uppercase; opacity:.7; }
+#film-card .fk-name { margin-top:22px; line-height:.95; letter-spacing:-.03em; }
+#film-card .fk-desc { margin-top:24px; font:400 22px/1.4 'Instrument Sans',sans-serif; opacity:.82; max-width:720px; }
+#film-card .fk-mods { display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; }
+#film-card .fk-mods span { font:500 13px/1 'Instrument Sans',sans-serif; padding:9px 14px; border-radius:99px; border:1px solid currentColor; opacity:.8; }
+#film-card .fk-ln { overflow:hidden; }
+#film-card .fk-ln > * { display:block; transform:translateY(105%); transition:transform .9s cubic-bezier(.2,.8,.15,1); }
+#film-card.show .fk-ln > * { transform:none; }
+#film-card.show .fk-ln.fk-d1 > * { transition-delay:.12s } #film-card.show .fk-ln.fk-d2 > * { transition-delay:.24s } #film-card.show .fk-ln.fk-d3 > * { transition-delay:.36s }
+#film-card .fk-fade { opacity:0; transition:opacity .8s ease .5s; } #film-card.show .fk-fade { opacity:1; }
+
+/* hover helper class for scripted states */
+[data-reveal] { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+[data-reveal].in { opacity:1; transform:none; }
+#film-card .fk-ln > .fk-mods { display:flex; }
+
+#demo-bar { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:9999; display:flex; align-items:center; gap:4px; padding:6px; border-radius:16px; background:rgba(16,16,18,.92); color:#f2f0ec; font:500 13px/1 'Instrument Sans',system-ui,sans-serif; box-shadow:0 20px 50px -20px rgba(0,0,0,.6); white-space:nowrap; }
+#demo-bar .db-pb { display:flex; align-items:center; gap:8px; padding:0 12px 0 8px; color:#bdb9b0; border-right:1px solid rgba(255,255,255,.12); margin-right:4px; }
+#demo-bar button { font:inherit; color:#d9d6cf; background:none; border:0; padding:9px 12px; border-radius:11px; cursor:pointer; }
+#demo-bar button:hover { background:rgba(255,255,255,.08); }
+#demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
+#demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
+#demo-bar .db-tour:hover { background:#7c4bec; }
+#tour-again { position:fixed; right:30px; top:60px; z-index:9999; font:600 14px 'Instrument Sans',sans-serif; color:#111; background:#fff; border:0; border-radius:12px; padding:12px 18px; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.4); }
+</style>
+<style>
+:root{--paper:#F6F4EE;--card:#fff;--ink:#14213D;--ink2:#46506a;--mute:#7c849a;--hi:#FFD84A;--blue:#2846C4;--coral:#EE5E3A;--green:#23885A;--line:rgba(20,33,61,.12);--line2:rgba(20,33,61,.07);
+ --d:'Bricolage Grotesque',system-ui,sans-serif;--m:'IBM Plex Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--d);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input{font:inherit;color:inherit}
+.wrap{max-width:1420px;margin:0 auto;padding:0 56px}
+.mono{font-family:var(--m)}
+.lab{font:500 11.5px/1 var(--m);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+nav{position:sticky;top:0;z-index:30;background:rgba(246,244,238,.95);border-bottom:1px solid var(--line2)}
+nav .wrap{display:flex;align-items:center;height:70px;gap:44px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:25px;letter-spacing:-.03em}
+.logo small{font:500 10.5px/1.2 var(--m);letter-spacing:.1em;color:var(--mute);text-transform:uppercase;display:block;margin-top:2px}
+.links{display:flex;gap:28px;font-weight:500;color:var(--ink2);font-size:15px}
+.links a{cursor:pointer}
+.nr{margin-left:auto;display:flex;gap:10px}
+.btn{height:44px;padding:0 18px;border-radius:12px;font-weight:600;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn.k{background:var(--ink);color:#fff}
+.btn.k:hover{background:#0b1529}
+.btn.o{border:1.5px solid var(--ink)}
+.btn.o:hover{background:#fff}
+.btn.y{background:var(--hi);color:var(--ink)}
+/* hero */
+.hero{position:relative;padding:56px 0 70px;background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);background-size:32px 32px;background-position:-1px -1px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:104px;line-height:.9;letter-spacing:-.05em;font-weight:800}
+.mk{position:relative;display:inline-block;z-index:0}
+.mk::before{content:"";position:absolute;left:-6px;right:-8px;bottom:6px;height:44%;background:var(--hi);z-index:-1;transform:scaleX(0) skewX(-6deg);transform-origin:left;transition:transform .9s cubic-bezier(.6,0,.2,1) .4s;border-radius:4px}
+.mk.on::before{transform:scaleX(1) skewX(-6deg)}
+.hero p{font-size:19px;line-height:1.55;color:var(--ink2);max-width:520px;margin:28px 0 30px}
+.hero .cta{display:flex;gap:12px;align-items:center}
+.hero .cta span{font-size:13.5px;color:var(--mute);margin-left:8px}
+.plot{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 40px 70px -50px rgba(20,33,61,.5)}
+.plot .h{display:flex;justify-content:space-between;align-items:baseline}
+.plot .h b{font-size:20px;letter-spacing:-.02em}
+.plot svg{width:100%;height:400px;display:block;margin-top:6px}
+.plot .ft{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line2);padding-top:16px;margin-top:4px}
+.plot .ft div b{display:block;font-size:34px;letter-spacing:-.04em;font-weight:800}
+.plot .ft div span{font-size:13px;color:var(--mute)}
+.curve{stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 2.6s cubic-bezier(.4,0,.2,1)}
+.plot.go .curve{stroke-dashoffset:0}
+/* finder */
+.sec{padding:84px 0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px}
+.sh h2{font-size:58px;line-height:.95;letter-spacing:-.045em;font-weight:800}
+.sh p{color:var(--mute);max-width:380px;line-height:1.55}
+.sent{font-size:44px;line-height:1.5;letter-spacing:-.03em;font-weight:600;max-width:1180px}
+.pk{display:inline-flex;align-items:center;gap:10px;padding:0 18px;height:62px;border-radius:16px;background:#fff;border:2px solid var(--ink);vertical-align:middle;margin:4px 2px;position:relative;cursor:pointer;transition:background .25s}
+.pk::after{content:"";width:10px;height:10px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) translateY(-4px)}
+.pk.set{background:var(--hi)}
+.opts{position:absolute;left:-2px;top:68px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 40px -20px rgba(20,33,61,.4);padding:6px;font-size:16px;letter-spacing:0;font-weight:500;min-width:240px;z-index:10;opacity:0;transform:translateY(-6px);pointer-events:none;transition:all .25s}
+.opts.on{opacity:1;transform:none;pointer-events:auto}
+.opts div{padding:11px 14px;border-radius:10px;line-height:1.3}
+.opts div:hover{background:var(--paper)}
+.opts div small{display:block;color:var(--mute);font-size:12.5px}
+.match{margin-top:34px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;opacity:.25;filter:blur(1.5px);transition:opacity .6s,filter .6s}
+.match.on{opacity:1;filter:none}
+.mc{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 24px}
+.mc.main{background:var(--ink);color:#fff;border-color:var(--ink)}
+.mc h3{font-size:28px;letter-spacing:-.03em;line-height:1.05;margin:10px 0 12px}
+.mc .rw{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid rgba(255,255,255,.12);font-size:14.5px}
+.mc .rw span:first-child{color:#a6b0c8}
+.seats{display:flex;gap:3px;margin-top:14px}
+.seats i{flex:1;height:10px;border-radius:2px;background:rgba(255,255,255,.18)}
+.seats i.f{background:var(--hi)}
+.mc .big{font-size:52px;font-weight:800;letter-spacing:-.05em;line-height:1;margin:12px 0 6px}
+.mc p{font-size:14px;color:var(--ink2);line-height:1.5}
+/* admission */
+.adm{background:#fff;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.fb{border:1px solid var(--line);border-radius:22px;padding:26px;background:var(--paper)}
+.fr{margin-bottom:18px}
+.fr label{display:block;font-size:13px;color:var(--mute);margin-bottom:8px}
+.fr input{width:100%;height:52px;border:1px solid var(--line);border-radius:14px;padding:0 16px;font-size:17px;outline:0;background:#fff}
+.fr input:focus{border-color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.drop{border:2px dashed rgba(20,33,61,.22);border-radius:16px;height:96px;display:flex;align-items:center;justify-content:center;gap:12px;color:var(--mute);font-size:15px;transition:all .3s;background:#fff}
+.drop.done{border-style:solid;border-color:var(--green);color:var(--ink);justify-content:flex-start;padding:0 18px}
+.drop .fi{width:46px;height:56px;border-radius:8px;background:#eef1f8;display:grid;place-items:center;font:600 11px var(--m);color:var(--blue)}
+.drop b{display:block;font-size:15px}
+.drop span{font-size:13px;color:var(--mute)}
+.scan{height:4px;border-radius:9px;background:#e6e9f1;overflow:hidden;width:140px;margin-top:6px}
+.scan i{display:block;height:100%;background:var(--green);width:0;transition:width 1.2s ease}
+.read{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.read span{font:500 12.5px var(--m);padding:7px 10px;border-radius:8px;background:#e9f5ee;color:#1d6b46;opacity:0;transform:translateY(4px);transition:all .4s}
+.read span.on{opacity:1;transform:none}
+.feeb{border:1px solid var(--line);border-radius:22px;padding:26px}
+.sch{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-radius:16px;background:var(--hi);margin-bottom:16px}
+.sch b{font-size:36px;font-weight:800;letter-spacing:-.04em}
+.sch span{font-size:14px;max-width:280px;line-height:1.4}
+.plan{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:16px;margin-bottom:10px;transition:all .25s}
+.plan .rd{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;flex:none}
+.plan.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.plan.on .rd{border-color:var(--ink)}
+.plan.on .rd::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.plan b{display:block;font-size:16px}
+.plan span{font-size:13px;color:var(--mute)}
+.plan .p{margin-left:auto;text-align:right;font-weight:700;font-size:18px}
+.plan .p small{display:block;font-weight:500;font-size:12.5px;color:var(--mute)}
+.strike{text-decoration:line-through;color:var(--mute);font-weight:500;font-size:14px;margin-right:8px}
+/* student */
+.view{display:none}.view.on{display:block;animation:vin .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes vin{from{opacity:0;transform:translateY(14px)}}
+.st{display:grid;grid-template-columns:230px 1fr;min-height:862px}
+.side{border-right:1px solid var(--line2);padding:24px 16px;background:#fff}
+.side .logo{padding:0 8px 22px;font-size:22px}
+.side a{display:flex;gap:11px;align-items:center;padding:11px 12px;border-radius:10px;font-weight:500;color:var(--ink2);margin-bottom:2px}
+.side a.on{background:var(--ink);color:#fff}
+.side .cd{margin-top:26px;padding:16px;border-radius:16px;background:var(--hi)}
+.side .cd b{font-size:40px;font-weight:800;letter-spacing:-.05em;display:block;line-height:1}
+.side .cd span{font-size:13px}
+.sm{padding:26px 34px 40px}
+.smh{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.smh h2{font-size:38px;letter-spacing:-.04em;font-weight:800}
+.smh p{color:var(--mute);margin-top:4px}
+.today{display:flex;gap:10px}
+.cls{display:flex;gap:12px;align-items:center;padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:#fff;font-size:13.5px}
+.cls b{display:block;font-size:14.5px}
+.cls.live{background:var(--ink);color:#fff;border-color:var(--ink)}
+.cls.live span{color:#a6b0c8}
+.lv{font:600 11px var(--m);padding:5px 8px;border-radius:6px;background:var(--coral);color:#fff;display:flex;gap:6px;align-items:center}
+.lv i{width:6px;height:6px;border-radius:50%;background:#fff;animation:bl 1.2s infinite}
+@keyframes bl{50%{opacity:.2}}
+.sg{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.c{background:#fff;border:1px solid var(--line2);border-radius:20px;padding:20px 22px}
+.c h4{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:600;margin-bottom:4px}
+.c h4 span{font:500 11.5px var(--m);color:var(--mute);letter-spacing:.06em}
+.rk{display:flex;gap:28px;align-items:flex-end;margin:10px 0 2px}
+.rk b{font-size:52px;font-weight:800;letter-spacing:-.05em;line-height:1}
+.rk span{font-size:13.5px;color:var(--green);font-weight:600}
+.rk small{display:block;color:var(--mute);font-weight:500;font-size:12.5px}
+#rchart{width:100%;height:230px}
+#rchart .ln{stroke-dasharray:1400;stroke-dashoffset:1400;transition:stroke-dashoffset 2.4s cubic-bezier(.4,0,.2,1)}
+#rchart.draw .ln{stroke-dashoffset:0}
+.hm{display:grid;grid-template-columns:96px repeat(10,1fr);gap:4px;font-size:12px;color:var(--ink2);align-items:center;margin-top:10px}
+.hm i{height:30px;border-radius:6px;transform:scale(.4);opacity:0;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .4s}
+.hm.on i{transform:none;opacity:1}
+.hm i.pick{outline:3px solid var(--ink);outline-offset:1px}
+.fix{display:flex;gap:16px;align-items:center;padding:16px;border-radius:16px;background:#fff5f1;border:1px solid #f7d4c8;margin-top:14px;opacity:0;transform:translateY(8px);transition:all .5s}
+.fix.on{opacity:1;transform:none}
+.fix .n{width:46px;height:46px;border-radius:12px;background:var(--coral);color:#fff;display:grid;place-items:center;font:600 13px var(--m);flex:none}
+.fix b{display:block;font-size:16px}
+.fix span{font-size:13px;color:var(--ink2)}
+.fix .btn{margin-left:auto;height:38px;font-size:13px}
+/* parents */
+.par{background:var(--ink);color:#fff;min-height:862px;padding:60px 0;overflow:hidden}
+.par .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center}
+.par h2{font-size:72px;line-height:.92;letter-spacing:-.05em;font-weight:800}
+.par h2 .mk::before{background:var(--hi);opacity:.95;height:88%;bottom:2%}
+.par h2 .mk{color:var(--ink)}
+.par p{color:#a6b0c8;font-size:18px;line-height:1.55;margin-top:24px;max-width:480px}
+.phs{position:relative;height:700px}
+.ph{position:absolute;width:330px;height:680px;border-radius:48px;background:#0b1325;padding:12px;box-shadow:0 60px 80px -40px rgba(0,0,0,.6),inset 0 0 0 1.5px rgba(255,255,255,.12)}
+.ph .scr{width:100%;height:100%;border-radius:38px;background:var(--paper);color:var(--ink);overflow:hidden;position:relative;padding:44px 18px 18px}
+.ph .notch{position:absolute;top:10px;left:50%;width:96px;height:26px;margin-left:-48px;border-radius:20px;background:#0b1325;z-index:2}
+.ph1{left:30px;top:0;transform:rotate(-4deg)}
+.ph2{left:360px;top:10px;transform:rotate(3deg)}
+.nt{background:#fff;border-radius:16px;padding:12px 14px;margin-bottom:10px;font-size:13px;line-height:1.45;box-shadow:0 4px 12px -8px rgba(0,0,0,.3);display:flex;gap:10px;opacity:0;transform:translateY(-10px) scale(.97);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.nt.on{opacity:1;transform:none}
+.nt .ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;font-weight:800;font-size:14px}
+.nt b{display:block;font-size:13.5px}
+.nt small{color:var(--mute);font-size:11px;margin-left:auto;white-space:nowrap}
+.pp h5{font-size:22px;letter-spacing:-.03em;margin-bottom:12px}
+.att{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin:10px 0 14px}
+.att i{aspect-ratio:1;border-radius:6px;background:#d6eedf}
+.att i.a{background:#f6cfc2}.att i.h{background:#e8e6df}
+.prow{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line2);font-size:13.5px}
+.prow b{font-weight:700}
+/* staff */
+.stf{min-height:862px;padding:24px 32px 40px;background:#EEF0F4}
+.sfh{display:flex;align-items:center;gap:24px;margin-bottom:18px}
+.sfh .tb{display:flex;gap:4px;background:#e1e4ec;padding:4px;border-radius:11px}
+.sfh .tb span{padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:600;color:var(--ink2)}
+.sfh .tb span.on{background:#fff;color:var(--ink)}
+.kk{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kq{background:#fff;border-radius:18px;padding:18px 20px}
+.kq small{font-size:13px;color:var(--mute)}
+.kq>b{display:block;font-size:40px;font-weight:800;letter-spacing:-.05em;margin:6px 0 2px}
+.kq span{font-size:12.5px;color:var(--green);font-weight:600}
+.kq span.bad{color:var(--coral)}
+.sg2{display:grid;grid-template-columns:1.4fr 1fr;gap:14px;margin-top:14px}
+.tbl{font-size:14px}
+.tr{display:grid;grid-template-columns:1.3fr 1fr .8fr .8fr 1fr;padding:12px 4px;border-top:1px solid var(--line2);align-items:center}
+.tr:first-child{border:0;font:500 11.5px var(--m);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.bar{height:6px;border-radius:9px;background:#e6e9f1;overflow:hidden;width:90%}
+.bar i{display:block;height:100%;border-radius:9px;background:var(--green)}
+.bar i.w{background:#e6a23c}.bar i.b{background:var(--coral)}
+.risk{display:flex;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--line2);font-size:13.5px}
+.risk:first-of-type{border:0}
+.risk .av{width:34px;height:34px;border-radius:50%;background:#e1e4ec;display:grid;place-items:center;font-weight:700;font-size:12px;flex:none}
+.risk b{display:block}
+.risk span{color:var(--mute);font-size:12.5px}
+.risk .act{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--blue);white-space:nowrap}
+.auto{margin-top:12px;padding:14px;border-radius:14px;background:var(--ink);color:#fff;font-size:13.5px;line-height:1.5}
+.auto b{color:var(--hi)}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="wrap">
+  <div class="logo"><svg width="34" height="34" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#14213D"/><path d="M8 30 Q20 -6 32 30" fill="none" stroke="#FFD84A" stroke-width="3.4" stroke-linecap="round"/><circle cx="26.5" cy="14" r="3" fill="#fff"/></svg><div>Parabola<small>Academy · Hyderabad</small></div></div>
+  <div class="links"><a>Courses</a><a>Results</a><a>Scholarship test</a><a>Centres</a><a>For parents</a></div>
+  <div class="nr"><button class="btn o" id="slog">Student login</button><button class="btn k">Free counselling</button></div>
+</div></nav>
+
+<main class="view on" id="v-home">
+<section class="hero"><div class="wrap">
+  <div>
+    <div class="lab">JEE · NEET · Foundation (Class 8–10) · 4 centres</div>
+    <h1 style="margin-top:22px">Rank is a skill.<br>We train it <span class="mk" id="mk">daily.</span></h1>
+    <p>Batches of 40. A test every Sunday. A dashboard that tells each student exactly what to fix next — and tells parents too.</p>
+    <div class="cta"><button class="btn k" style="height:54px;padding:0 24px">Find your batch</button><button class="btn o" style="height:54px">Scholarship test · Sun 16 Nov</button></div>
+  </div>
+  <div class="plot" id="plot">
+    <div class="h"><b>Average student, 2024–26 batch</b><span class="lab">All-India rank, 12 mocks</span></div>
+    <svg viewBox="0 0 640 400" id="psvg"></svg>
+    <div class="ft"><div><b>312</b><span>JEE Advanced qualifiers</span></div><div><b>41</b><span>in the top 1,000</span></div><div><b>186</b><span>NEET scores above 600</span></div></div>
+  </div>
+</div></section>
+
+<section class="sec" id="finder"><div class="wrap">
+  <div class="sh"><div><div class="lab">Course finder</div><h2 style="margin-top:14px">Tell us where you are.</h2></div><p>One sentence, three choices. You'll see the exact batch, timings, fee and seats left.</p></div>
+  <div class="sent">I'm in <span class="pk set" id="pk1">Class 10</span> and I'm aiming for <span class="pk" id="pk2">choose an exam<div class="opts" id="o2"><div id="o-jee">JEE Main + Advanced<small>Engineering · IITs, NITs</small></div><div>NEET<small>Medicine · AIIMS, GMCs</small></div><div>Olympiads + Boards<small>Foundation track</small></div></div></span>, studying <span class="pk" id="pk3">how?<div class="opts" id="o3"><div>In the classroom<small>Mon–Sat, 4 centres</small></div><div id="o-hyb">Hybrid<small>Classroom 3 days + live online 3 days</small></div><div>Fully online<small>Live classes, recorded backups</small></div></div></span> near <span class="pk set">Kondapur</span>.</div>
+  <div class="match" id="match">
+    <div class="mc main"><div class="lab" style="color:#a6b0c8">Best match</div><h3>JEE Two-Year Hybrid · Batch K-2</h3>
+      <div class="rw"><span>Starts</span><span>Mon 1 Dec 2026</span></div><div class="rw"><span>Classroom</span><span>Mon, Wed, Fri · 4–8 PM · Kondapur</span></div><div class="rw"><span>Live online</span><span>Tue, Thu, Sat · 5–8 PM</span></div>
+      <div class="rw" style="border-bottom:0"><span>Seats</span><span><b style="color:var(--hi)">12 of 40 left</b></span></div><div class="seats">${'<i class="f"></i>'.repeat(28)}</div></div>
+    <div class="mc"><div class="lab">Fee</div><div class="big">₹1,48,000</div><p>per year, before scholarship. Up to 90% off through the Parabola Scholarship Test.</p></div>
+    <div class="mc"><div class="lab">Your teachers</div><p style="margin-top:12px;line-height:1.7"><b>Physics</b> · V. Srinivas, ex-IIT Madras<br><b>Chemistry</b> · Farah Naaz, 11 yrs<br><b>Maths</b> · K. Raghav, AIR 214 (2012)</p></div>
+  </div>
+</div></section>
+
+<section class="sec adm" id="admit"><div class="wrap">
+  <div class="sh"><div><div class="lab">Admission</div><h2 style="margin-top:14px">Admissions in five minutes.<br>No photocopies.</h2></div><p>Upload a marksheet photo — we read it, check it, and calculate the scholarship and instalments on the spot.</p></div>
+  <div class="ag">
+    <div class="fb">
+      <div class="two"><div class="fr"><label>Student's name</label><input id="sname" placeholder="As on the marksheet"></div><div class="fr"><label>Parent's mobile</label><input value="+91 98490 31xxx"></div></div>
+      <div class="fr"><label>Class 10 marksheet</label><div class="drop" id="drop"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>Drop a photo or PDF</div>
+        <div class="read" id="read"><span>CBSE · 2026</span><span>Roll 1928 4471</span><span>Maths 98 · Science 96</span><span>Aggregate 94.2%</span><span>✓ Verified with DigiLocker</span></div></div>
+    </div>
+    <div class="feeb">
+      <div class="sch" id="sch"><div><div class="lab" style="color:var(--ink)">Merit scholarship</div><b id="schv">0%</b></div><span>From Class 10 marks. Can go up to 90% after the scholarship test.</span></div>
+      <div class="plan" id="pl1"><span class="rd"></span><div><b>Pay once</b><span>Extra 4% off · ₹1,000 now to hold the seat</span></div><div class="p"><span class="strike">₹1,48,000</span><span id="p1v">₹1,48,000</span><small>for the year</small></div></div>
+      <div class="plan" id="pl2"><span class="rd"></span><div><b>4 instalments</b><span>Dec · Feb · Apr · Jun · auto-reminders to parents</span></div><div class="p"><span id="p2v">₹37,000</span><small>× 4</small></div></div>
+      <div class="plan" id="pl3"><span class="rd"></span><div><b>Monthly · no-cost EMI</b><span>12 months, via partner bank</span></div><div class="p"><span id="p3v">₹12,334</span><small>/ month</small></div></div>
+      <button class="btn k" style="width:100%;height:54px;justify-content:center;margin-top:8px;font-size:15.5px" id="hold">Hold seat in K-2 · pay ₹1,000</button>
+    </div>
+  </div>
+</div></section>
+</main>
+
+<main class="view" id="v-student">
+<div class="st">
+  <aside class="side"><div class="logo"><svg width="30" height="30" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#14213D"/><path d="M8 30 Q20 -6 32 30" fill="none" stroke="#FFD84A" stroke-width="3.4" stroke-linecap="round"/></svg>Parabola</div>
+    <a class="on">Today</a><a>Performance</a><a>Tests</a><a>Practice</a><a>Doubts</a><a>Recordings</a><a>Fees</a>
+    <div class="cd"><b id="days">142</b><span>days to JEE Main, Session 1</span></div></aside>
+  <div class="sm">
+    <div class="smh"><div><h2>Good evening, Aarav.</h2><p>Batch K-2 · Kondapur · Roll 0428</p></div>
+      <div class="today"><div class="cls live"><div><b>Physics · Rotational motion</b><span>Live now · V. Srinivas</span></div><span class="lv"><i></i>JOIN</span></div><div class="cls"><div><b>Chemistry</b><span>5:30 PM · Room 3</span></div></div><div class="cls"><div><b>Doubt clinic</b><span>7:00 PM · online</span></div></div></div></div>
+    <div class="sg">
+      <div class="c"><h4>All-India rank across mocks<span>JEE MAIN PATTERN · 8 TESTS</span></h4>
+        <div class="rk"><div><b class="tnum" id="rkv">3,120</b><small>Mock 8 · Sun 9 Nov</small></div><div><span>↑ 1,840 places since Mock 7</span><small>Predicted percentile 98.6</small></div></div>
+        <svg id="rchart" viewBox="0 0 700 230" preserveAspectRatio="none"></svg></div>
+      <div class="c"><h4>Chapter mastery<span>ACCURACY × SPEED</span></h4><div class="hm" id="hm"></div>
+        <div class="fix" id="fix"><div class="n">41%</div><div><b>Fix next: Electrostatics</b><span>41% accuracy, 2.3 min per question. 3 practice sets and a 12-min recap assigned.</span></div><button class="btn k">Start set 1</button></div></div>
+    </div>
+  </div>
+</div>
+</main>
+
+<main class="view" id="v-parents">
+<div class="par"><div class="wrap">
+  <div><div class="lab" style="color:#a6b0c8">For parents</div><h2 style="margin-top:18px">Know how they're doing <span class="mk" id="mk2">before</span> the PTM.</h2>
+    <p>Attendance from the centre gate, test results the evening they're out, and fees with reminders — on the parent app or WhatsApp.</p></div>
+  <div class="phs">
+    <div class="ph ph1"><div class="scr"><div class="notch"></div><div class="lab" style="margin-bottom:12px">Notifications</div>
+      <div class="nt" id="n1"><div class="ic" style="background:#d6eedf;color:#1d6b46">✓</div><div><b>Aarav reached the Kondapur centre</b>Checked in at gate · 3:52 PM</div><small>now</small></div>
+      <div class="nt" id="n2"><div class="ic" style="background:var(--hi)">8</div><div><b>Mock 8 result: AIR 3,120</b>Up 1,840 places. Weakest chapter: Electrostatics.</div><small>Sun</small></div>
+      <div class="nt" id="n3"><div class="ic" style="background:#e8ecfb;color:var(--blue)">₹</div><div><b>Instalment 2 due 5 Feb</b>₹33,300 · pay in one tap or auto-debit</div><small>Sat</small></div>
+      <div class="nt" id="n4"><div class="ic" style="background:#fde6de;color:var(--coral)">!</div><div><b>PTM on Sat 22 Nov</b>Book a 10-min slot with Mr. Srinivas</div><small>Fri</small></div></div></div>
+    <div class="ph ph2"><div class="scr pp"><div class="notch"></div><h5>Aarav · November</h5><div class="lab">Attendance · 96%</div>
+      <div class="att">${'<i></i>'.repeat(5)}<i class="h"></i><i class="h"></i>${'<i></i>'.repeat(3)}<i class="a"></i><i></i><i class="h"></i><i class="h"></i>${'<i></i>'.repeat(5)}<i class="h"></i><i class="h"></i>${'<i></i>'.repeat(5)}</div>
+      <div class="prow"><span>Last mock</span><b>AIR 3,120</b></div><div class="prow"><span>Homework done</span><b>27 / 29</b></div><div class="prow"><span>Doubts asked</span><b>14 this month</b></div><div class="prow"><span>Teacher's note</span><b style="max-width:150px;text-align:right;font-weight:500;font-size:12.5px">"Strong in Mechanics. Push on Electrostatics."</b></div>
+      <button class="btn k" style="width:100%;margin-top:14px;justify-content:center">Book PTM slot</button></div></div>
+  </div>
+</div></div>
+</main>
+
+<main class="view" id="v-staff">
+<div class="stf">
+  <div class="sfh"><div class="logo" style="font-size:22px"><svg width="30" height="30" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#14213D"/><path d="M8 30 Q20 -6 32 30" fill="none" stroke="#FFD84A" stroke-width="3.4" stroke-linecap="round"/></svg>Parabola <span style="font-size:13px;color:var(--mute);font-weight:500;letter-spacing:0">staff room</span></div>
+    <div class="tb"><span class="on">Overview</span><span>Batches</span><span>Timetable</span><span>Fees</span><span>Leads</span></div><span style="margin-left:auto;font-size:13px;color:var(--ink2)">All centres · Mon 10 Nov</span></div>
+  <div class="kk">
+    <div class="kq"><small>Students active</small><b>1,846</b><span>42 batches · 4 centres</span></div>
+    <div class="kq"><small>Attendance today</small><b>93.4%</b><span>↑ 2.1% this month</span></div>
+    <div class="kq"><small>Fees collected · Q3</small><b>₹4.12 Cr</b><span class="bad">₹38.6 L pending, 61 families</span></div>
+    <div class="kq"><small>New admissions this week</small><b>57</b><span>Scholarship test signups: 1,204</span></div>
+  </div>
+  <div class="sg2">
+    <div class="kq" style="padding:20px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><b style="font-size:16px;letter-spacing:-.02em;margin:0">Batches</b><span class="lab">this month</span></div><div class="tbl">
+      <div class="tr"><span>Batch</span><span>Attendance</span><span>Avg mock</span><span>Trend</span><span>Fees pending</span></div>
+      <div class="tr"><span><b>K-2 · JEE Hybrid</b></span><span><div class="bar"><i style="width:96%"></i></div></span><span>182/300</span><span style="color:var(--green)">↑ 14</span><span>₹2.4 L</span></div>
+      <div class="tr"><span><b>K-1 · JEE Classroom</b></span><span><div class="bar"><i style="width:91%"></i></div></span><span>168/300</span><span style="color:var(--green)">↑ 6</span><span>₹5.1 L</span></div>
+      <div class="tr"><span><b>G-3 · NEET</b></span><span><div class="bar"><i class="w" style="width:82%"></i></div></span><span>541/720</span><span style="color:var(--coral)">↓ 9</span><span>₹7.8 L</span></div>
+      <div class="tr"><span><b>M-1 · Foundation 9</b></span><span><div class="bar"><i class="b" style="width:71%"></i></div></span><span>64%</span><span style="color:var(--coral)">↓ 4</span><span>₹1.2 L</span></div></div></div>
+    <div class="kq" style="padding:20px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><b style="font-size:16px;letter-spacing:-.02em;margin:0">At risk this week</b><span class="lab">7 students</span></div>
+      <div class="risk"><span class="av">SN</span><div><b>Sneha N. · G-3</b><span>3 mocks falling · missed 4 classes</span></div><span class="act">Call parent →</span></div>
+      <div class="risk"><span class="av">RK</span><div><b>Rohit K. · K-1</b><span>Physics accuracy down 22%</span></div><span class="act">Assign mentor →</span></div>
+      <div class="risk"><span class="av">AP</span><div><b>Ananya P. · M-1</b><span>No homework in 9 days</span></div><span class="act">Message →</span></div>
+      <div class="auto"><b>Timetable fixed automatically:</b> Mr. Srinivas was double-booked Thu 5 PM (K-1, K-2). K-1 Physics moved to Thu 6:30 PM — 40 students and parents notified.</div></div>
+  </div>
+</div>
+</main>
+
+<script>/* Film harness. Normal mode: page behaves like a regular site.
+   ?film mode: wraps the site in a browser frame, adds a scripted cursor, captions and title cards.
+   All timing uses setTimeout / requestAnimationFrame / performance.now so a faked clock drives it frame by frame. */
+(function () {
+  const F = (window.FILM = {});
+  F.on = new URLSearchParams(location.search).has('film');
+  F.done = false;
+  F.cx = 800; F.cy = 520;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  F.wait = sleep;
+  const easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  F.ease = easeIO; F.easeOut = easeOut;
+  F.tween = (dur, fn, e = easeIO) =>
+    new Promise((res) => {
+      const t0 = performance.now();
+      (function step() {
+        const p = Math.min(1, (performance.now() - t0) / dur);
+        fn(e(p), p);
+        if (p < 1) requestAnimationFrame(step); else res();
+      })();
+    });
+  // deterministic pseudo random
+  let seed = 7;
+  F.rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+  F.scroller = document.scrollingElement;
+  F.layer = document.body; // where site overlays (modals/drawers) live
+
+  const $ = (s) => (typeof s === 'string' ? document.querySelector(s) : s);
+  F.$ = $;
+
+  // ---- reveal on scroll ----
+  F.reveal = () => {
+    const vb = F.on ? F.scroller.getBoundingClientRect().bottom : innerHeight;
+    document.querySelectorAll('[data-reveal]:not(.in)').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vb - 40 && r.bottom > 0) el.classList.add('in');
+    });
+  };
+
+  F.setUrl = (host, path = '') => {
+    const u = document.getElementById('fb-url-text');
+    if (u) u.innerHTML = host + (path ? '<span class="path">' + path + '</span>' : '');
+  };
+
+  function buildStage(cfg) {
+    const pageBg = getComputedStyle(document.body).backgroundColor;
+    document.documentElement.classList.add('film');
+    const stage = document.createElement('div');
+    stage.id = 'film-stage';
+    stage.innerHTML =
+      '<div class="fb-bar"><div class="fb-dots"><i></i><i></i><i></i></div>' +
+      '<div class="fb-nav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></div>' +
+      '<div class="fb-url"><svg width="11" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1zm2 0h8V8a4 4 0 1 0-8 0v2z"/></svg><span id="fb-url-text"></span></div>' +
+      '<div class="fb-spacer"></div></div><div class="fb-vp"><div class="fb-scroll"></div></div>';
+    const scroll = stage.querySelector('.fb-scroll');
+    scroll.style.background = pageBg;
+    while (document.body.firstChild) scroll.appendChild(document.body.firstChild);
+    document.body.appendChild(stage);
+    F.scroller = scroll;
+    F.vp = stage.querySelector('.fb-vp');
+    F.layer = F.vp;
+    scroll.addEventListener('scroll', F.reveal);
+
+    const cur = document.createElement('div');
+    cur.id = 'film-cursor';
+    cur.innerHTML = '<svg width="26" height="26" viewBox="0 0 26 26"><path d="M4 2.5v18.2l4.6-4.4 2.9 6.9 3.2-1.4-2.9-6.7 6.4-.2z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(cur);
+    F.cursorEl = cur;
+
+    const cap = document.createElement('div');
+    cap.id = 'film-cap';
+    cap.innerHTML = '<div class="fc-k"><b class="fc-n"></b><i></i><span class="fc-b"></span></div><div class="fc-t"></div><div class="fc-d"></div>';
+    document.body.appendChild(cap);
+    F.capEl = cap;
+
+    const card = document.createElement('div');
+    card.id = 'film-card';
+    document.body.appendChild(card);
+    F.cardEl = card;
+    F.cfg = cfg;
+    F.setUrl(cfg.host, '');
+    placeCursor();
+  }
+
+  function placeCursor() {
+    if (F.cursorEl) F.cursorEl.style.transform = `translate(${F.cx - 4}px,${F.cy - 3}px) scale(${F._press || 1})`;
+  }
+
+  F.point = (target, ox = 0.5, oy = 0.5) => {
+    if (target && typeof target === 'object' && 'x' in target && !(target instanceof Element)) return target;
+    const el = $(target);
+    if (!el) throw new Error('FILM: missing ' + target);
+    const r = el.getBoundingClientRect();
+    return { x: r.left + r.width * ox, y: r.top + r.height * oy };
+  };
+
+  F.moveTo = async (target, dur, ox, oy) => {
+    const p = F.point(target, ox, oy);
+    const sx = F.cx, sy = F.cy, dx = p.x - sx, dy = p.y - sy;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 1) return;
+    dur = dur || Math.max(420, Math.min(1050, 380 + dist * 0.55));
+    const bend = (F.rand() - 0.5) * 0.35 * dist;
+    const nx = -dy / dist, ny = dx / dist;
+    const cx = sx + dx * 0.5 + nx * bend, cy = sy + dy * 0.5 + ny * bend;
+    await F.tween(dur, (t) => {
+      const u = 1 - t;
+      F.cx = u * u * sx + 2 * u * t * cx + t * t * p.x;
+      F.cy = u * u * sy + 2 * u * t * cy + t * t * p.y;
+      placeCursor();
+    });
+  };
+
+  F.press = async () => {
+    await F.tween(90, (t) => { F._press = 1 - 0.14 * t; placeCursor(); });
+    const rp = document.createElement('div');
+    rp.className = 'film-ripple';
+    rp.style.left = F.cx + 'px'; rp.style.top = F.cy + 'px';
+    document.body.appendChild(rp);
+    setTimeout(() => rp.remove(), 700);
+    await F.tween(140, (t) => { F._press = 0.86 + 0.14 * t; placeCursor(); });
+  };
+
+  F.click = async (target, opts = {}) => {
+    if (!opts.noMove) await F.moveTo(target, opts.dur, opts.ox, opts.oy);
+    await sleep(opts.pause ?? 120);
+    await F.press();
+    const el = typeof target === 'string' || target instanceof Element ? $(target) : document.elementFromPoint(F.cx, F.cy);
+    if (el) {
+      if (el.focus && /INPUT|TEXTAREA|SELECT/.test(el.tagName)) el.focus();
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, clientX: F.cx, clientY: F.cy }));
+    }
+    await sleep(opts.after ?? 220);
+  };
+
+  F.type = async (target, text, opts = {}) => {
+    const el = $(target);
+    el.focus();
+    if (opts.clear) { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); }
+    for (const ch of text) {
+      el.value += ch;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      await sleep((opts.cps ? 1000 / opts.cps : 70) * (0.6 + F.rand() * 0.9));
+    }
+    await sleep(opts.after ?? 250);
+  };
+
+  F.scrollTo = async (target, dur = 1400, offset = 0) => {
+    const sc = F.scroller;
+    let y;
+    if (typeof target === 'number') y = target;
+    else {
+      const el = $(target);
+      const top = el.getBoundingClientRect().top - (F.on ? sc.getBoundingClientRect().top : 0);
+      y = sc.scrollTop + top - offset;
+    }
+    y = Math.max(0, Math.min(y, sc.scrollHeight - sc.clientHeight));
+    const s = sc.scrollTop;
+    await F.tween(dur, (t) => { sc.scrollTop = s + (y - s) * t; F.reveal(); });
+  };
+  F.scrollBy = (dy, dur = 1200) => F.scrollTo(F.scroller.scrollTop + dy, dur);
+
+  let capN = 0;
+  F.caption = async (title, desc, opt = {}) => {
+    const c = F.capEl; if (!c) return;
+    if (c.classList.contains('show')) { c.classList.remove('show'); await sleep(420); }
+    capN++;
+    c.querySelector('.fc-n').textContent = String(capN).padStart(2, '0') + ' / ' + String(F.cfg.caps || 8).padStart(2, '0');
+    c.querySelector('.fc-b').textContent = F.cfg.short || '';
+    c.querySelector('.fc-t').textContent = title;
+    c.querySelector('.fc-d').textContent = desc || '';
+    c.style.left = opt.right ? 'auto' : '30px';
+    c.style.right = opt.right ? '30px' : 'auto';
+    await sleep(30);
+    c.classList.add('show');
+  };
+  F.hideCaption = async () => { F.capEl && F.capEl.classList.remove('show'); await sleep(400); };
+
+  const cube = '<svg width="22" height="22" viewBox="0 0 40 40"><path d="M20 3 36 11.5v17L20 37 4 28.5v-17Z" fill="#5b2bc4"/><path d="M20 3 36 11.5 20 20 4 11.5Z" fill="#8b5cf6"/><path d="M20 20v17L4 28.5v-17Z" fill="#3b168f"/></svg>';
+  F.card = async (kind, hold) => {
+    const c = F.cfg, el = F.cardEl;
+    el.style.background = c.cardBg; el.style.color = c.cardFg;
+    const name = `<div class="fk-ln fk-d1"><span class="fk-name" style="font-family:${c.displayFont};font-size:${c.nameSize || 132}px;font-weight:${c.nameWeight || 500};${c.nameStyle || ''}">${c.name}</span></div>`;
+    if (kind === 'intro') {
+      el.innerHTML = `<div class="fk-top fk-fade"><span class="fk-pb">${cube} Purplebox Solutions</span><span>Concept ${c.no} / 04</span></div>
+        <div class="fk-mid"><div class="fk-ln"><span class="fk-eyebrow">${c.sector}</span></div>${name}
+        <div class="fk-ln fk-d2"><span class="fk-desc">${c.desc}</span></div></div>
+        <div class="fk-bot fk-fade"><span>${c.host}</span><span>Concept demo · fictional brand</span></div>`;
+    } else {
+      el.innerHTML = `<div class="fk-top fk-fade"><span class="fk-pb">${cube} Purplebox Solutions</span><span>Concept ${c.no} / 04</span></div>
+        <div class="fk-mid"><div class="fk-ln"><span class="fk-eyebrow">What we'd build for you</span></div>
+        <div class="fk-ln fk-d1"><span class="fk-name" style="font-family:'Instrument Sans',sans-serif;font-size:76px;font-weight:600">Website, apps and the<br>software behind them.</span></div>
+        <div class="fk-ln fk-d2"><span class="fk-mods">${c.mods.map((m) => `<span>${m}</span>`).join('')}</span></div></div>
+        <div class="fk-bot fk-fade"><span>purpleboxsolutions.in</span><span>${c.name} is a fictional brand created for this demo</span></div>`;
+    }
+    await sleep(40);
+    el.classList.add('show');
+    if (hold) { await sleep(hold); el.classList.remove('show'); await sleep(750); }
+  };
+
+  F.hideCursor = (v) => { if (F.cursorEl) F.cursorEl.style.opacity = v ? 0 : 1; };
+
+  // called once per captured frame: pin every CSS animation/transition to the (faked) clock
+  F.sync = () => {
+    const now = performance.now();
+    for (const a of document.getAnimations()) {
+      if (a._fin) continue;
+      if (a._vs === undefined) { a._vs = now - (a.currentTime || 0); a.pause(); }
+      const ct = now - a._vs;
+      const end = a.effect ? a.effect.getComputedTiming().endTime : Infinity;
+      if (isFinite(end) && ct >= end) { a._fin = 1; try { a.finish(); } catch (e) {} }
+      else a.currentTime = ct;
+    }
+    return { x: F.cx, y: F.cy, done: F.done };
+  };
+
+  function buildBar(cfg) {
+    const bar = document.createElement('div');
+    bar.id = 'demo-bar';
+    bar.innerHTML = '<span class="db-pb">' + cube + 'Concept demo by Purplebox</span>' +
+      (cfg.views || []).map((v, i) => '<button data-i="' + i + '"' + (i ? '' : ' class="on"') + '>' + v.name + '</button>').join('') +
+      '<button class="db-tour">&#9654; Play guided tour</button>';
+    document.body.appendChild(bar);
+    bar.querySelectorAll('button[data-i]').forEach((b) => b.addEventListener('click', () => {
+      bar.querySelectorAll('button[data-i]').forEach((x) => x.classList.remove('on'));
+      b.classList.add('on'); cfg.views[+b.dataset.i].go();
+    }));
+    bar.querySelector('.db-tour').addEventListener('click', () => {
+      bar.remove(); if (cfg.reset) cfg.reset(); scrollTo(0, 0);
+      F.on = true; buildStage(cfg); F.start();
+    });
+  }
+  F.init = (cfg, script) => {
+    F.script = script;
+    if (F.on) buildStage(cfg);
+    else {
+      addEventListener('scroll', F.reveal, { passive: true });
+      if (cfg.normal) setTimeout(cfg.normal, 300);
+      buildBar(cfg);
+    }
+    requestAnimationFrame(F.reveal);
+    setTimeout(F.reveal, 60);
+  };
+  F.start = async () => {
+    try { await F.script(F); } catch (e) { console.error(e); F.err = String(e && e.stack || e); }
+    await sleep(300);
+    F.done = true;
+    if (!navigator.webdriver && F.cardEl) {
+      const b = document.createElement('button');
+      b.id = 'tour-again'; b.textContent = 'Explore the site yourself';
+      b.onclick = () => { location.hash = ''; location.reload(); };
+      document.body.appendChild(b);
+    }
+  };
+  if (F.on && !navigator.webdriver) setTimeout(() => F.start(), 900);
+})();
+</script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// fill template-ish repeats
+document.querySelectorAll('.seats,.att').forEach(el=>{el.innerHTML=el.innerHTML.replace(/\$\{'(.*?)'\.repeat\((\d+)\)\}/g,(m,a,n)=>a.repeat(+n))});
+$('.seats').innerHTML='<i class="f"></i>'.repeat(28)+'<i></i>'.repeat(12);
+// hero plot: rank improving along a parabola-ish curve (lower rank = higher on chart)
+(function(){const W=640,H=400;let g='';for(let i=1;i<5;i++)g+=`<line x1="40" x2="${W}" y1="${i*80}" y2="${i*80}" stroke="rgba(20,33,61,.07)"/>`;
+ const ranks=[24000,19500,15200,12100,9400,7600,5900,4700,3800,3100,2600,2300];const y=r=>30+ (Math.log(r)-Math.log(2000))/(Math.log(26000)-Math.log(2000))*(H-80);const x=i=>60+i*(W-90)/11;
+ [2000,5000,10000,25000].forEach(r=>g+=`<text x="34" y="${y(r)+4}" text-anchor="end" font-family="IBM Plex Mono" font-size="11" fill="#7c849a">${r>=1000?r/1000+'k':r}</text>`);
+ let d='';ranks.forEach((r,i)=>d+=(i?' L':'M')+x(i)+' '+y(r));
+ g+=`<path class="curve" d="${d}" fill="none" stroke="#14213D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;
+ ranks.forEach((r,i)=>g+=`<circle cx="${x(i)}" cy="${y(r)}" r="${i==11?8:4}" fill="${i==11?'#FFD84A':'#fff'}" stroke="#14213D" stroke-width="2.4"/>`);
+ g+=`<text x="${x(0)}" y="${y(ranks[0])-14}" font-family="Bricolage Grotesque" font-weight="700" font-size="14" fill="#14213D">Mock 1 · AIR 24,000</text>`;
+ g+=`<g transform="translate(${x(11)-176} ${y(ranks[11])-56})"><rect width="196" height="40" rx="10" fill="#14213D"/><text x="14" y="25" font-family="Bricolage Grotesque" font-weight="700" font-size="15" fill="#FFD84A">Mock 12 · AIR 2,300</text></g>`;
+ ['Jun','Aug','Oct','Dec','Feb','Apr'].forEach((m,i)=>g+=`<text x="${x(i*2)}" y="${H-12}" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#7c849a">${m}</text>`);
+ $('#psvg').innerHTML=g})();
+// finder
+$('#pk2').addEventListener('click',e=>{if(e.target.closest('.opts'))return;$('#o2').classList.add('on')});
+$('#pk3').addEventListener('click',e=>{if(e.target.closest('.opts'))return;$('#o3').classList.add('on')});
+$('#o-jee').addEventListener('click',e=>{e.stopPropagation();$('#o2').classList.remove('on');$('#pk2').firstChild.textContent='JEE';$('#pk2').classList.add('set')});
+$('#o-hyb').addEventListener('click',e=>{e.stopPropagation();$('#o3').classList.remove('on');$('#pk3').firstChild.textContent='hybrid';$('#pk3').classList.add('set');$('#match').classList.add('on')});
+// admission
+async function upload(){const dr=$('#drop');dr.classList.add('done');dr.innerHTML='<div class="fi">JPG</div><div><b>marksheet_aarav.jpg</b><span>Reading…</span><div class="scan"><i id="scn"></i></div></div>';await FILM.wait(60);$('#scn').style.width='100%';await FILM.wait(1300);
+ dr.querySelector('span').textContent='Read and verified · 2.4 MB';for(const s of $$('#read span')){s.classList.add('on');await FILM.wait(260)}
+ await FILM.tween(1000,t=>{const v=Math.round(30*t);$('#schv').textContent=v+'%';const fee=148000*(1-v/100);$('#p1v').textContent='₹'+Math.round(fee*.96).toLocaleString('en-IN');$('#p2v').textContent='₹'+Math.round(fee/4).toLocaleString('en-IN');$('#p3v').textContent='₹'+Math.round(fee/12).toLocaleString('en-IN')},FILM.easeOut)}
+$$('.plan').forEach(p=>p.addEventListener('click',()=>{$$('.plan').forEach(x=>x.classList.remove('on'));p.classList.add('on')}));
+$('#hold').addEventListener('click',()=>{$('#hold').innerHTML='✓ Seat held in K-2 · receipt sent to parent on WhatsApp';$('#hold').style.background='#23885A'});
+// student
+(function(){const W=700,H=230;const r=[18400,14900,12700,11200,8800,6300,4960,3120];const y=v=>20+(Math.log(v)-Math.log(2500))/(Math.log(20000)-Math.log(2500))*(H-50),x=i=>30+i*(W-60)/7;let g='';
+ [3000,6000,12000].forEach(v=>g+=`<line x1="0" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(20,33,61,.07)"/><text x="${W-4}" y="${y(v)-5}" text-anchor="end" font-family="IBM Plex Mono" font-size="11" fill="#7c849a">${v/1000}k</text>`);
+ let d='';r.forEach((v,i)=>d+=(i?' L':'M')+x(i)+' '+y(v));
+ g+=`<path d="${d} L${x(7)} ${H} L${x(0)} ${H}Z" fill="rgba(255,216,74,.22)"/><path class="ln" d="${d}" fill="none" stroke="#14213D" stroke-width="3" stroke-linejoin="round"/>`;
+ r.forEach((v,i)=>g+=`<circle cx="${x(i)}" cy="${y(v)}" r="${i==7?7:4}" fill="${i==7?'#FFD84A':'#fff'}" stroke="#14213D" stroke-width="2.2"/><text x="${x(i)}" y="${H-4}" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#7c849a">M${i+1}</text>`);
+ $('#rchart').innerHTML=g})();
+(function(){const sub=[['Physics',[.82,.9,.74,.41,.68,.88,.79,.6,.71,.85]],['Chemistry',[.7,.62,.88,.91,.55,.73,.8,.66,.9,.77]],['Maths',[.93,.85,.78,.9,.72,.69,.95,.81,.64,.87]]];
+ let h='<span></span>'+['1','2','3','4','5','6','7','8','9','10'].map(x=>`<span style="text-align:center;font-family:IBM Plex Mono;font-size:10.5px;color:#7c849a">${x}</span>`).join('');
+ sub.forEach(([n,v],si)=>{h+=`<span>${n}</span>`;v.forEach((a,i)=>{const c=a<.5?'#EE5E3A':a<.7?'#F2B04C':a<.85?'#9fd3b4':'#23885A';h+=`<i style="background:${c};transition-delay:${(si*10+i)*25}ms" ${si==0&&i==3?'id="weak"':''}></i>`})});
+ $('#hm').innerHTML=h})();
+function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;$('#nav').style.display=v==='home'?'':'none'}
+
+FILM.init({normal:()=>{$('#mk').classList.add('on');$('#plot').classList.add('go')},
+ views:[{name:'Website',go:()=>show('home')},{name:'Student app',go:()=>{show('student');setTimeout(()=>{$('#rchart').classList.add('draw');$('#hm').classList.add('on');$('#fix').classList.add('on')},300)}},
+  {name:'Parent app',go:async()=>{show('parents');$('#mk2').classList.add('on');for(const id of ['#n1','#n2','#n3','#n4']){await FILM.wait(500);$(id).classList.add('on')}}},{name:'Staff room',go:()=>show('staff')}],
+ reset:()=>show('home'),no:'04',name:'Parabola Academy',short:'Education',sector:'Concept 04 — School / coaching institute',host:'parabola.academy',caps:5,
+ desc:'A JEE & NEET coaching institute with one system for everyone: a course finder, paperless admissions, student analytics, a parent app and a staff room.',
+ displayFont:"'Bricolage Grotesque',sans-serif",nameSize:150,nameWeight:800,nameStyle:'letter-spacing:-.05em;',cardBg:'#14213D',cardFg:'#F6F4EE',
+ mods:['Institute website','Course finder','Paperless admissions','Scholarships & instalments','Student dashboard','Parent app','Attendance from gate','Staff & fee management']},
+async F=>{
+ F.cx=1100;F.cy=600;F.hideCursor(1);
+ await F.card('intro',4200);F.hideCursor(0);
+ $('#mk').classList.add('on');$('#plot').classList.add('go');
+ await F.wait(800);
+ await F.moveTo('#psvg',1200,.85,.7);await F.wait(2200);
+ // finder
+ F.setUrl('parabola.academy','/courses');
+ await F.scrollTo('#finder',1500,-20);
+ await F.caption('A course finder in one sentence','Three choices, and parents see the exact batch, timings, fee and seats left — no "call us for details".',{right:true});
+ await F.click('#pk2',{ox:.4});await F.wait(600);
+ await F.click('#o-jee',{ox:.3});await F.wait(500);
+ await F.click('#pk3',{ox:.4});await F.wait(600);
+ await F.click('#o-hyb',{ox:.3});await F.wait(1200);
+ await F.moveTo('.seats',900,.6,.5);await F.wait(2000);
+ // admission
+ F.setUrl('parabola.academy','/admission/K-2');
+ await F.scrollTo('#admit',1500,-20);
+ await F.caption('Admissions without paperwork','A marksheet photo is read and verified on the spot. Scholarship and instalments recalculate instantly.',{right:true});
+ await F.click('#sname',{ox:.3});await F.type('#sname','Aarav Menon',{cps:10});
+ await F.moveTo('#drop',800,.5,.5);await F.wait(300);await F.press();
+ await upload();await F.wait(500);
+ await F.click('#pl2',{ox:.3});await F.wait(700);
+ await F.click('#hold',{ox:.5});await F.wait(1800);
+ // student
+ await F.caption('A dashboard that says what to fix','Rank trend across mocks, a chapter-by-chapter mastery map, and the next thing to practise — assigned automatically.',{right:true});
+ show('student');F.setUrl('my.parabola.academy','/today');
+ await F.wait(400);$('#rchart').classList.add('draw');$('#hm').classList.add('on');
+ await F.tween(1600,t=>{$('#rkv').textContent=Math.round(4960-(4960-3120)*t).toLocaleString('en-IN')},F.easeOut);
+ await F.moveTo('#rchart',900,.9,.3);await F.wait(1200);
+ await F.moveTo('#weak',1000);$('#weak').classList.add('pick');await F.wait(500);$('#fix').classList.add('on');
+ await F.wait(2400);
+ await F.moveTo('.cls.live',1000,.8,.5);await F.wait(1200);
+ // parents
+ await F.caption('Parents stay in the loop','Gate check-ins, results, fee reminders and PTM slots — in the parent app or on WhatsApp.',{right:false});
+ show('parents');F.setUrl('parabola.academy','/parents');F.hideCursor(1);
+ await F.wait(300);$('#mk2').classList.add('on');
+ for(const id of ['#n1','#n2','#n3','#n4']){await F.wait(800);$(id).classList.add('on')}
+ await F.wait(2400);F.hideCursor(0);
+ // staff
+ await F.caption('The staff room','Every batch, fee and at-risk student across all centres. Timetable clashes fixed and families notified automatically.',{right:true});
+ show('staff');F.setUrl('staff.parabola.academy','/overview');
+ await F.moveTo('.tbl',1000,.4,.6);await F.wait(1400);
+ await F.moveTo('.risk',900,.4,.5);await F.wait(1200);
+ await F.moveTo('.auto',900,.5,.5);await F.wait(2600);
+ await F.hideCaption();F.hideCursor(1);
+ await F.card('outro');await F.wait(5200);
+});
+</script>
+</body>
+</html>

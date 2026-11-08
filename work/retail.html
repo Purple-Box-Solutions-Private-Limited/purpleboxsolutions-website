@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>thanda. — insulated steel bottles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Instrument+Sans:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>/* ---------- Film harness: browser frame, cursor, captions, title cards ---------- */
+html.film, html.film body { margin:0; height:100%; overflow:hidden; background:#0d0d0f; }
+html.film { scroll-behavior:auto !important; }
+#film-stage { position:fixed; inset:0; display:flex; flex-direction:column; background:#e9e7e2; z-index:0; }
+.fb-bar { height:38px; flex:none; display:flex; align-items:center; gap:14px; padding:0 14px; background:#efede8; border-bottom:1px solid #d9d6cf; font:500 12.5px/1 'Instrument Sans',system-ui,sans-serif; color:#4a4842; position:relative; z-index:3; }
+.fb-dots { display:flex; gap:7px; }
+.fb-dots i { width:11px; height:11px; border-radius:50%; background:#d6d3cc; display:block; }
+.fb-dots i:nth-child(1){background:#ee6a5f}.fb-dots i:nth-child(2){background:#f5bd4f}.fb-dots i:nth-child(3){background:#61c454}
+.fb-nav { display:flex; gap:10px; color:#9a978f; margin-left:6px; }
+.fb-url { flex:0 1 560px; margin:0 auto; height:25px; border-radius:7px; background:#fff; border:1px solid #dcd9d2; display:flex; align-items:center; justify-content:center; gap:7px; color:#3a3833; letter-spacing:.01em; }
+.fb-url svg { opacity:.55 }
+.fb-url .path { color:#8b887f; }
+.fb-spacer { width:84px; }
+.fb-vp { position:relative; flex:1; transform:translateZ(0); overflow:hidden; }
+.fb-scroll { position:absolute; inset:0; overflow-y:auto; overflow-x:hidden; scrollbar-width:none; }
+.fb-scroll::-webkit-scrollbar { display:none; }
+
+#film-cursor { position:fixed; left:0; top:0; z-index:9998; width:26px; height:26px; pointer-events:none; transform-origin:4px 3px; will-change:transform; filter:drop-shadow(0 2px 3px rgba(0,0,0,.28)); }
+#film-cursor.press { transform-origin:4px 3px; }
+.film-ripple { position:fixed; z-index:9997; width:44px; height:44px; margin:-22px 0 0 -22px; border-radius:50%; border:2px solid rgba(20,20,20,.55); pointer-events:none; animation:filmRipple .55s cubic-bezier(.2,.7,.3,1) forwards; }
+@keyframes filmRipple { from { transform:scale(.25); opacity:.9 } to { transform:scale(1.25); opacity:0 } }
+
+#film-cap { position:fixed; left:30px; bottom:30px; z-index:9990; max-width:440px; padding:16px 20px 17px; border-radius:14px; background:rgba(14,14,16,.9); color:#f4f2ee; font-family:'Instrument Sans',system-ui,sans-serif; box-shadow:0 18px 50px -18px rgba(0,0,0,.55); opacity:0; transform:translateY(10px); transition:opacity .45s ease, transform .55s cubic-bezier(.2,.8,.2,1); pointer-events:none; }
+#film-cap.show { opacity:1; transform:none; }
+#film-cap .fc-k { font:500 11px/1 'JetBrains Mono',monospace; letter-spacing:.08em; color:#a9a59c; text-transform:uppercase; display:flex; gap:10px; align-items:center; }
+#film-cap .fc-k b { color:#f4f2ee; font-weight:500 }
+#film-cap .fc-k i { flex:1; height:1px; background:rgba(255,255,255,.14); }
+#film-cap .fc-t { font-size:18px; font-weight:600; margin-top:10px; letter-spacing:-.01em; }
+#film-cap .fc-d { font-size:14px; line-height:1.45; color:#c9c5bc; margin-top:5px; }
+
+#film-card { position:fixed; inset:0; z-index:9995; display:flex; flex-direction:column; justify-content:space-between; padding:64px 80px; opacity:0; pointer-events:none; transition:opacity .7s ease; }
+#film-card.show { opacity:1; }
+#film-card .fk-top, #film-card .fk-bot { display:flex; justify-content:space-between; align-items:center; font:500 13px/1 'JetBrains Mono',monospace; letter-spacing:.06em; text-transform:uppercase; opacity:.75; }
+#film-card .fk-pb { display:flex; align-items:center; gap:10px; font-family:'Instrument Sans',sans-serif; text-transform:none; letter-spacing:0; font-size:15px; font-weight:600; opacity:1; }
+#film-card .fk-mid { max-width:1100px; }
+#film-card .fk-eyebrow { font:500 14px/1 'JetBrains Mono',monospace; letter-spacing:.1em; text-transform:uppercase; opacity:.7; }
+#film-card .fk-name { margin-top:22px; line-height:.95; letter-spacing:-.03em; }
+#film-card .fk-desc { margin-top:24px; font:400 22px/1.4 'Instrument Sans',sans-serif; opacity:.82; max-width:720px; }
+#film-card .fk-mods { display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; }
+#film-card .fk-mods span { font:500 13px/1 'Instrument Sans',sans-serif; padding:9px 14px; border-radius:99px; border:1px solid currentColor; opacity:.8; }
+#film-card .fk-ln { overflow:hidden; }
+#film-card .fk-ln > * { display:block; transform:translateY(105%); transition:transform .9s cubic-bezier(.2,.8,.15,1); }
+#film-card.show .fk-ln > * { transform:none; }
+#film-card.show .fk-ln.fk-d1 > * { transition-delay:.12s } #film-card.show .fk-ln.fk-d2 > * { transition-delay:.24s } #film-card.show .fk-ln.fk-d3 > * { transition-delay:.36s }
+#film-card .fk-fade { opacity:0; transition:opacity .8s ease .5s; } #film-card.show .fk-fade { opacity:1; }
+
+/* hover helper class for scripted states */
+[data-reveal] { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .9s cubic-bezier(.2,.8,.2,1); }
+[data-reveal].in { opacity:1; transform:none; }
+#film-card .fk-ln > .fk-mods { display:flex; }
+
+#demo-bar { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:9999; display:flex; align-items:center; gap:4px; padding:6px; border-radius:16px; background:rgba(16,16,18,.92); color:#f2f0ec; font:500 13px/1 'Instrument Sans',system-ui,sans-serif; box-shadow:0 20px 50px -20px rgba(0,0,0,.6); white-space:nowrap; }
+#demo-bar .db-pb { display:flex; align-items:center; gap:8px; padding:0 12px 0 8px; color:#bdb9b0; border-right:1px solid rgba(255,255,255,.12); margin-right:4px; }
+#demo-bar button { font:inherit; color:#d9d6cf; background:none; border:0; padding:9px 12px; border-radius:11px; cursor:pointer; }
+#demo-bar button:hover { background:rgba(255,255,255,.08); }
+#demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
+#demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
+#demo-bar .db-tour:hover { background:#7c4bec; }
+#tour-again { position:fixed; right:30px; top:60px; z-index:9999; font:600 14px 'Instrument Sans',sans-serif; color:#111; background:#fff; border:0; border-radius:12px; padding:12px 18px; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.4); }
+</style>
+<style>
+:root{--cream:#F3EEE4;--paper:#FAF7F1;--ink:#171614;--ink2:#47443e;--mute:#8a857b;--tang:#FF5A24;--line:rgba(23,22,20,.12);--line2:rgba(23,22,20,.07);
+ --d:'Familjen Grotesk',system-ui,sans-serif;--s:'Instrument Serif',Georgia,serif;--m:'JetBrains Mono',monospace;
+ --c:#5A6E3F;--c1:#7d9160;--c2:#3c4b28;--bg:#E4E6D6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--d);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;font-size:15px}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+input{font:inherit;color:inherit}
+.wrap{max-width:1440px;margin:0 auto;padding:0 56px}
+.m{font-family:var(--m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+.ann{background:var(--ink);color:#e9e4d8;height:34px;display:flex;align-items:center;justify-content:center;gap:40px;font-size:13px}
+.ann b{color:#ffb08f;font-weight:600}
+nav{position:sticky;top:0;z-index:30;background:rgba(250,247,241,.95);border-bottom:1px solid var(--line2)}
+nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
+.logo{font-weight:700;font-size:30px;letter-spacing:-.04em}
+.logo span{color:var(--tang)}
+.links{display:flex;gap:28px;font-size:15px;color:var(--ink2);font-weight:500}
+.nr{margin-left:auto;display:flex;gap:20px;align-items:center;font-size:14.5px;font-weight:500}
+.bag{position:relative;display:flex;gap:8px;align-items:center}
+.bag i{position:absolute;left:12px;top:-8px;min-width:18px;height:18px;border-radius:9px;background:var(--tang);color:#fff;font-style:normal;font-size:11px;font-weight:700;display:grid;place-items:center;transform:scale(0);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.bag i.on{transform:scale(1)}
+
+/* hero */
+.hero{height:300px;display:flex;align-items:flex-end;padding-bottom:36px;border-bottom:1px solid var(--line2)}
+.hero .wrap{display:flex;justify-content:space-between;align-items:flex-end;width:100%}
+.hero h1{font-size:118px;line-height:.86;letter-spacing:-.05em;font-weight:700}
+.hero h1 em{font-family:var(--s);font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--tang)}
+.hero .r{text-align:right;color:var(--ink2);font-size:16px;line-height:1.55;max-width:360px}
+.hero .r .stars{font-weight:600;color:var(--ink);margin-bottom:8px;display:block}
+
+/* configurator */
+.cfg{display:grid;grid-template-columns:1fr 560px;min-height:780px}
+.stage{position:relative;background:var(--bg);transition:background-color .8s ease;overflow:hidden;display:grid;place-items:center}
+.stage .disc{position:absolute;width:640px;height:640px;border-radius:50%;background:rgba(255,255,255,.35);left:50%;top:50%;margin:-320px 0 0 -320px}
+.stage .shadow{position:absolute;left:50%;bottom:62px;width:260px;height:30px;margin-left:-130px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.28),rgba(0,0,0,0));transition:width .6s,margin .6s}
+.stage .lbl{position:absolute;left:36px;top:30px}
+.stage .lbl b{display:block;font-size:13px;font-weight:600;margin-top:6px;transition:color .5s}
+.stage .spin{position:absolute;right:36px;top:30px;display:flex;gap:8px;align-items:center;font-size:13px;color:var(--ink2)}
+.stage .hl{position:absolute;left:36px;bottom:34px;display:flex;gap:26px;font-size:13px;color:var(--ink2)}
+.stage .hl b{display:block;font-size:22px;color:var(--ink);font-weight:700;letter-spacing:-.02em}
+#bottle{height:700px;position:relative;z-index:2;margin-top:10px}
+#bottle .grp{transform-box:fill-box;transform-origin:50% 100%;transition:transform .8s cubic-bezier(.3,1.25,.4,1)}
+#bottle .grp,.bcopy .grp{transform-box:fill-box;transform-origin:50% 100%}
+#bottle stop{transition:stop-color .7s ease}
+#bottle .cap{transition:opacity .35s}
+#bottle .sheen{animation:sheen 6s ease-in-out infinite}
+@keyframes sheen{0%,100%{transform:translateX(0)}50%{transform:translateX(26px)}}
+.engr{font-family:var(--s);font-style:italic;font-size:44px;fill:rgba(235,232,225,.88);letter-spacing:.01em}
+.panel{padding:40px 48px 40px 44px;border-left:1px solid var(--line2);background:var(--paper)}
+.pn{display:flex;justify-content:space-between;align-items:baseline}
+.pn h2{font-size:38px;letter-spacing:-.03em;font-weight:700;line-height:1}
+.pn .pr{font-size:28px;font-weight:700;letter-spacing:-.02em}
+.sub{color:var(--mute);font-size:14px;margin-top:8px;display:flex;gap:14px}
+.sub b{color:var(--ink);font-weight:600}
+.opt{margin-top:26px}
+.ol{display:flex;justify-content:space-between;font-size:14px;margin-bottom:12px;color:var(--ink2)}
+.ol b{color:var(--ink);font-weight:600}
+.sw{display:flex;gap:12px}
+.sw button{width:46px;height:46px;border-radius:50%;position:relative;transition:transform .2s}
+.sw button::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid transparent;transition:border-color .25s}
+.sw button.on::after{border-color:var(--ink)}
+.sw button:hover{transform:scale(1.06)}
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ch{height:62px;border-radius:14px;border:1px solid var(--line);font-size:14px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transition:all .2s}
+.ch small{font-weight:500;color:var(--mute);font-size:12px}
+.ch.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.ch:hover{border-color:var(--ink2)}
+.eng{display:flex;gap:8px}
+.eng input{flex:1;height:50px;border:1px solid var(--line);border-radius:14px;padding:0 16px;font-size:16px;outline:0;background:#fff}
+.eng input:focus{border-color:var(--ink)}
+.eng .cnt{width:60px;display:grid;place-items:center;font-family:var(--m);font-size:12px;color:var(--mute)}
+.stock{display:flex;gap:10px;align-items:center;margin-top:22px;padding:12px 14px;border-radius:12px;background:#f0ecdf;font-size:13.5px;color:var(--ink2)}
+.stock .dt{width:8px;height:8px;border-radius:50%;background:#d48a1c;box-shadow:0 0 0 4px rgba(212,138,28,.2)}
+.stock b{color:var(--ink)}
+.pin{display:flex;gap:8px;margin-top:12px}
+.pin input{width:150px;height:46px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:15px;outline:0;background:#fff;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.pin .res{flex:1;display:flex;align-items:center;font-size:13.5px;color:var(--mute);line-height:1.35}
+.pin .res b{color:#2f6a2a}
+.addb{width:100%;height:60px;margin-top:22px;border-radius:16px;background:var(--ink);color:#fff;font-size:16px;font-weight:600;display:flex;justify-content:space-between;align-items:center;padding:0 24px;transition:background .2s}
+.addb:hover{background:#000}
+.trust{display:flex;justify-content:space-between;margin-top:16px;font-size:12.5px;color:var(--mute)}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(23,22,20,.35);opacity:0;pointer-events:none;transition:opacity .4s;z-index:50}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:500px;background:var(--paper);z-index:51;transform:translateX(100%);transition:transform .6s cubic-bezier(.2,.8,.2,1);padding:28px 30px;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer h3{font-size:26px;letter-spacing:-.03em;display:flex;justify-content:space-between;align-items:baseline}
+.drawer h3 span{font-size:14px;color:var(--mute);font-weight:500;letter-spacing:0}
+.fs{margin:18px 0 6px;font-size:13.5px;color:var(--ink2)}
+.fs .bar{height:6px;background:#e7e1d3;border-radius:9px;margin-top:8px;overflow:hidden}
+.fs .bar i{display:block;height:100%;background:#2f6a2a;border-radius:9px;width:0;transition:width 1s cubic-bezier(.4,0,.2,1)}
+.li{display:flex;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line2)}
+.li .th{width:84px;height:104px;border-radius:14px;display:grid;place-items:center;flex:none}
+.li b{display:block;font-size:16px}
+.li span{font-size:13px;color:var(--mute);display:block;margin-top:3px}
+.li .p{margin-left:auto;font-weight:700}
+.up{margin-top:18px;padding:16px;border-radius:16px;border:1px dashed var(--line);display:flex;gap:14px;align-items:center}
+.up .th{width:64px;height:64px;border-radius:12px;background:#e9dcc6;display:grid;place-items:center;flex:none}
+.up b{display:block;font-size:15px}
+.up span{font-size:13px;color:var(--mute)}
+.up button{margin-left:auto;height:38px;padding:0 16px;border-radius:99px;border:1px solid var(--ink);font-weight:600;font-size:13.5px;transition:all .25s}
+.up button.on{background:var(--ink);color:#fff}
+.li.new{animation:lin .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes lin{from{opacity:0;transform:translateY(-8px)}}
+.dsum{margin-top:auto;border-top:1px solid var(--line);padding-top:18px}
+.dsum .r{display:flex;justify-content:space-between;font-size:14px;color:var(--ink2);padding:4px 0}
+.dsum .r.t{font-size:20px;color:var(--ink);font-weight:700;padding-top:10px}
+.cob{width:100%;height:58px;border-radius:16px;background:var(--tang);color:#fff;font-weight:700;font-size:16px;margin-top:14px}
+
+/* checkout / views */
+.view{display:none}.view.on{display:block;animation:vin .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes vin{from{opacity:0;transform:translateY(14px)}}
+.co{display:grid;grid-template-columns:1fr 520px;min-height:794px}
+.col{padding:40px 56px}
+.col h2{font-size:44px;letter-spacing:-.04em;line-height:1}
+.box{border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin-top:18px;background:#fff}
+.box .bl{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-bottom:10px}
+.box .bl b{color:var(--ink);font-size:15px}
+.pm{display:flex;flex-direction:column;gap:8px}
+.po{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);font-size:15px;font-weight:500;transition:all .2s}
+.po .rd{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center}
+.po.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.po.on .rd{border-color:var(--ink)}
+.po.on .rd::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.po small{margin-left:auto;color:var(--mute);font-size:13px}
+.vpa{display:flex;gap:8px;margin-top:10px;padding-left:34px}
+.vpa input{width:280px;height:44px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:15px;outline:0}
+.vpa span{display:flex;align-items:center;font-size:13px;color:#2f6a2a;font-weight:600;opacity:0;transition:opacity .3s}
+.vpa span.on{opacity:1}
+.sum{background:var(--cream);padding:40px 44px;border-left:1px solid var(--line2);position:relative}
+.payb{width:100%;height:62px;border-radius:16px;background:var(--ink);color:#fff;font-size:17px;font-weight:700;margin-top:22px;display:flex;align-items:center;justify-content:center;gap:10px}
+.spin{width:18px;height:18px;border-radius:50%;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.ok{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:0 44px;opacity:0;pointer-events:none;transition:opacity .5s}
+.ok.on{opacity:1}
+.ok .ck{width:64px;height:64px;border-radius:50%;background:#2f6a2a;color:#fff;display:grid;place-items:center;transform:scale(0);transition:transform .6s cubic-bezier(.3,1.6,.5,1) .15s}
+.ok.on .ck{transform:none}
+.ok h3{font-size:48px;letter-spacing:-.04em;line-height:1;margin:24px 0 12px}
+.ok h3 em{font-family:var(--s);font-weight:400}
+.ok p{color:var(--ink2);font-size:15px;line-height:1.55}
+
+/* tracking */
+.trk{padding:40px 56px 50px}
+.trk h2{font-size:56px;letter-spacing:-.045em;line-height:.95}
+.trk h2 em{font-family:var(--s);font-weight:400;color:var(--tang)}
+.tl{display:grid;grid-template-columns:repeat(5,1fr);margin-top:40px;position:relative}
+.tl::before{content:"";position:absolute;left:10px;right:20%;top:9px;height:3px;background:#e4dccb;border-radius:3px}
+.tl .fl{position:absolute;left:10px;top:9px;height:3px;background:var(--ink);border-radius:3px;width:0;transition:width 2.4s cubic-bezier(.4,0,.2,1)}
+.tl.go .fl{width:56%}
+.ts{position:relative;padding-top:36px;font-size:13.5px;color:var(--mute)}
+.ts::before{content:"";position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;background:var(--paper);border:3px solid #d9d0bd;box-sizing:border-box;transition:all .4s}
+.ts.d::before{background:var(--ink);border-color:var(--ink)}
+.ts.a::before{border-color:var(--tang);box-shadow:0 0 0 6px rgba(255,90,36,.18)}
+.ts b{display:block;color:var(--ink);font-size:16px;margin-bottom:3px}
+.tg{display:grid;grid-template-columns:420px 1fr 380px;gap:20px;margin-top:40px}
+.photo{border-radius:20px;background:#d8d1c2;position:relative;overflow:hidden;height:380px;display:grid;place-items:center}
+.photo .cap2{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(23,22,20,.86);color:#fff;border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.45}
+.photo .cap2 b{display:block}
+.courier{border-radius:20px;background:#fff;border:1px solid var(--line2);overflow:hidden;position:relative;height:380px}
+.courier svg{width:100%;height:100%}
+.help{border-radius:20px;background:var(--ink);color:#e9e4d8;padding:24px;height:380px;display:flex;flex-direction:column}
+.help b{font-size:22px;letter-spacing:-.02em;color:#fff}
+.help .a{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid rgba(255,255,255,.1);font-size:14px}
+.help .a:first-of-type{margin-top:16px}
+
+/* admin */
+.adm{background:#F1EDE4;min-height:862px;padding:24px 32px 40px}
+.ah{display:flex;align-items:center;gap:24px;margin-bottom:20px}
+.ah .tb{display:flex;gap:4px;background:#e6e0d3;padding:4px;border-radius:11px}
+.ah .tb span{padding:8px 14px;border-radius:8px;font-size:13.5px;font-weight:600;color:var(--ink2)}
+.ah .tb span.on{background:#fff;color:var(--ink)}
+.ah .r{margin-left:auto;display:flex;gap:16px;align-items:center;font-size:13px;color:var(--ink2)}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.k{background:#fff;border-radius:18px;padding:18px 20px;border:1px solid var(--line2)}
+.k small{font-size:13px;color:var(--mute)}
+.k b{display:block;font-size:42px;letter-spacing:-.04em;margin:6px 0 2px}
+.k span{font-size:12.5px;color:#2f6a2a;font-weight:600}
+.ag{display:grid;grid-template-columns:1.1fr 1fr .95fr;gap:14px;margin-top:14px}
+.ab{background:#fff;border-radius:18px;padding:20px;border:1px solid var(--line2)}
+.ab h5{font-size:13px;color:var(--mute);font-weight:500;display:flex;justify-content:space-between;margin-bottom:14px}
+.ab h5 b{color:var(--ink);font-weight:600}
+.feed{display:flex;flex-direction:column}
+.fi{display:flex;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--line2);font-size:13.5px}
+.fi:first-child{border:0}
+.fi .sw2{width:26px;height:26px;border-radius:50%;flex:none}
+.fi span{color:var(--mute);margin-left:auto;font-size:12.5px;white-space:nowrap}
+.fi.new{animation:lin .6s cubic-bezier(.2,.8,.2,1)}
+.cb{display:flex;flex-direction:column;gap:12px}
+.cr{display:grid;grid-template-columns:90px 1fr 50px;gap:12px;align-items:center;font-size:13.5px}
+.cr .t{height:16px;border-radius:5px;transform:scaleX(0);transform-origin:left;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.adm.go .cr .t{transform:none}
+.cr b{text-align:right}
+.inv{font-size:13.5px}
+.inv .ir{display:grid;grid-template-columns:1fr 60px 90px;padding:10px 0;border-top:1px solid var(--line2);align-items:center}
+.inv .ir:first-child{border:0;color:var(--mute);font-size:12px}
+.inv .low{color:#b5452a;font-weight:600}
+.reo{margin-top:12px;padding:12px 14px;border-radius:12px;background:#fbefe7;font-size:13px;color:#8a3a1f;line-height:1.45}
+.wa{margin-top:14px;padding:14px 16px;border-radius:14px;background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center}
+.wa small{display:block;color:#b9b3a6;font-size:12.5px}
+.wa b{font-size:26px;letter-spacing:-.03em}
+</style>
+</head>
+<body>
+<div class="ann"><span>Free laser engraving this week — <b>no code needed</b></span><span>Ships in 48 hrs from Bengaluru &amp; Hyderabad</span><span>Lifetime warranty on every bottle</span></div>
+<nav><div class="wrap"><div class="logo">thanda<span>.</span></div><div class="links"><a>Bottles</a><a>Tumblers</a><a>Kids</a><a>Corporate gifting</a><a>Our steel</a></div>
+ <div class="nr"><span>Search</span><span>Account</span><span class="bag" id="bagn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 13H6zM9 8V6a3 3 0 0 1 6 0v2"/></svg>Bag<i id="bagc">1</i></span></div></div></nav>
+
+<main class="view on" id="v-shop">
+<section class="hero"><div class="wrap"><h1>Cold for 24 hours.<br>Yours for <em>years.</em></h1><div class="r"><span class="stars">4.8 ★ · 12,400+ reviews</span>Double-wall 18/8 steel, powder-coated by hand in Peenya. Built, engraved and shipped by us.</div></div></section>
+<section class="cfg" id="cfg">
+  <div class="stage" id="stage">
+    <div class="disc"></div><div class="shadow" id="shd"></div>
+    <div class="lbl"><span class="m" style="color:var(--ink2)">Live preview</span><b id="lbl">Moss · Loop cap · 750 ml</b></div>
+    
+    <svg id="bottle" viewBox="0 0 300 760"></svg>
+    <div class="hl"><div><b>24 h</b>cold</div><div><b>12 h</b>hot</div><div><b id="wt">410 g</b>empty weight</div><div><b>0%</b>plastic inside</div></div>
+  </div>
+  <div class="panel">
+    <div class="pn"><h2>The Everyday</h2><div class="pr" id="price">₹1,349</div></div>
+    <div class="sub"><span><b>4.9</b> · 3,812 reviews</span><span>Fits car cup holders</span></div>
+    <div class="opt"><div class="ol"><span>Colour · <b id="cn">Moss</b></span><span>5 colours</span></div>
+      <div class="sw" id="sw"></div></div>
+    <div class="opt"><div class="ol"><span>Cap</span><span id="capn">Loop</span></div>
+      <div class="chips" id="caps"><button class="ch on" data-c="loop">Loop<small>Carry handle</small></button><button class="ch" data-c="sport" id="c-sport">Sport<small>+₹150 · one hand</small></button><button class="ch" data-c="chug">Chug<small>Wide mouth</small></button></div></div>
+    <div class="opt"><div class="ol"><span>Size</span><span>holds ice cubes up to 750 ml</span></div>
+      <div class="chips" id="sizes"><button class="ch" data-s="500">500 ml<small>₹1,149</small></button><button class="ch on" data-s="750" id="s750">750 ml<small>₹1,349</small></button><button class="ch" data-s="1000" id="s1000">1 litre<small>₹1,549</small></button></div></div>
+    <div class="opt"><div class="ol"><span>Free engraving</span><span>preview is exact</span></div>
+      <div class="eng"><input id="eng" maxlength="12" placeholder="A name, a date, a word"><div class="cnt" id="ecnt">0/12</div></div></div>
+    <div class="stock" id="stock"><span class="dt"></span><span id="stk"><b>Moss · 750 ml</b> — 12 left in the Hyderabad warehouse</span></div>
+    <div class="pin"><input id="pin" placeholder="Pincode" maxlength="6"><div class="res" id="pres">Enter your pincode for an exact delivery date</div></div>
+    <button class="addb" id="add"><span>Add to bag</span><span id="addp">₹1,349</span></button>
+    <div class="trust"><span>Free returns within 30 days</span><span>Lifetime warranty</span><span>COD available</span></div>
+  </div>
+</section>
+</main>
+
+<main class="view" id="v-checkout">
+<div class="co">
+  <div class="col">
+    <div class="m" style="color:var(--mute)">Checkout · 1 of 1</div>
+    <h2 style="margin-top:12px">Almost yours.</h2>
+    <div class="box"><div class="bl"><b>Deliver to</b><span>Change</span></div><div style="font-size:15px;line-height:1.55"><b>Kabir Menon</b> · +91 98480 xxxxx<br>Flat 402, Lumbini Residency, Road 12, Banjara Hills, Hyderabad 500034</div></div>
+    <div class="box"><div class="bl"><b>Arrives Wed, 12 Nov</b><span>from Hyderabad warehouse</span></div><div style="font-size:14px;color:var(--ink2)">Engraved tomorrow morning · we'll WhatsApp you a photo before it ships</div></div>
+    <div class="box"><div class="bl"><b>Pay with</b><span>secured · PCI DSS</span></div>
+      <div class="pm"><div class="po on" id="p-upi"><span class="rd"></span>UPI<small>Any UPI app</small></div>
+        <div class="vpa"><input id="vpa" placeholder="yourname@bank"><span id="vok">✓ Verified · Kabir Menon</span></div>
+        <div class="po"><span class="rd"></span>Credit / debit card<small>No-cost EMI from ₹3,000</small></div>
+        <div class="po"><span class="rd"></span>Cash on delivery<small>+₹49</small></div></div></div>
+  </div>
+  <div class="sum">
+    <div class="m" style="color:var(--mute);margin-bottom:6px">Order summary</div>
+    <div id="sumitems"></div>
+    <div class="dsum" style="border:0;margin-top:14px"><div class="r"><span>Subtotal</span><span>₹1,998</span></div><div class="r"><span>Engraving</span><span>Free</span></div><div class="r"><span>Shipping</span><span>Free</span></div><div class="r t"><span>Total</span><span>₹1,998</span></div></div>
+    <button class="payb" id="payb">Pay ₹1,998</button>
+    <div style="font-size:12.5px;color:var(--mute);text-align:center;margin-top:12px">You'll approve the payment in your UPI app</div>
+    <div class="ok" id="ok"><div class="ck"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="m5 12 5 5 9-10"/></svg></div><h3>Thank you, <em>Kabir.</em></h3><p>Order TH-58213 is confirmed. Your bottle goes to engraving tomorrow at 9 AM — you'll get a photo of it on WhatsApp before it leaves.</p></div>
+  </div>
+</div>
+</main>
+
+<main class="view" id="v-track">
+<div class="trk">
+  <div class="m" style="color:var(--mute)">Order TH-58213 · placed Mon 10 Nov</div>
+  <h2 style="margin-top:12px">Out for delivery, <em>today.</em></h2>
+  <div class="tl" id="tl"><div class="fl"></div>
+    <div class="ts d"><b>Ordered</b>Mon 10 Nov, 10:42 AM</div><div class="ts d"><b>Engraved</b>Tue, 9:18 AM · photo sent</div><div class="ts d"><b>Shipped</b>Tue, 4:05 PM · Hyderabad</div><div class="ts a"><b>Out for delivery</b>Wed · 3 stops away</div><div class="ts"><b>Delivered</b>by 1 PM today</div></div>
+  <div class="tg">
+    <div class="photo" id="photo"><div class="cap2"><b>Your engraving, before it shipped</b>Photographed at our Peenya workshop · Tue 9:18 AM</div></div>
+    <div class="courier"><svg id="cmap" viewBox="0 0 640 380" preserveAspectRatio="xMidYMid slice"></svg></div>
+    <div class="help"><b>Need something?</b><div style="font-size:14px;color:#b9b3a6;margin-top:6px">No hold music. Real people in Bengaluru.</div>
+      <div class="a"><span>Change delivery time</span><span>→</span></div><div class="a"><span>Leave with security</span><span>→</span></div><div class="a"><span>Chat on WhatsApp</span><span>→</span></div><div class="a"><span>Register lifetime warranty</span><span>→</span></div></div>
+  </div>
+</div>
+</main>
+
+<main class="view" id="v-admin">
+<div class="adm" id="adm">
+  <div class="ah"><div class="logo" style="font-size:26px">thanda<span>.</span> <span style="font-size:14px;color:var(--mute);letter-spacing:0;font-weight:500">studio</span></div>
+    <div class="tb"><span class="on">Today</span><span>Orders</span><span>Inventory</span><span>Customers</span><span>Campaigns</span></div>
+    <div class="r"><span>Mon 10 Nov</span><span style="display:flex;gap:8px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#2f6a2a;box-shadow:0 0 0 4px rgba(47,106,42,.15)"></span><b id="vis">318</b>&nbsp;people on the site now</span></div></div>
+  <div class="kp">
+    <div class="k"><small>Revenue today</small><b data-n="384200" data-r="1">₹0</b><span>↑ 18% vs last Monday</span></div>
+    <div class="k"><small>Orders</small><b data-n="214">0</b><span>62% chose engraving</span></div>
+    <div class="k"><small>Conversion rate</small><b data-n="39" data-d="1">0</b><span>↑ 0.6 pts since configurator launch</span></div>
+    <div class="k"><small>Average order</small><b data-n="1795" data-r="1">₹0</b><span>Sling attach rate 34%</span></div>
+  </div>
+  <div class="ag">
+    <div class="ab"><h5><b>Live orders</b><span>last 10 min</span></h5><div class="feed" id="feed">
+      <div class="fi"><span class="sw2" style="background:#4a7aa8"></span>Sky · 1 L · engraved "ROHAN"<span>Pune · 2 min</span></div>
+      <div class="fi"><span class="sw2" style="background:#FF5A24"></span>Tangerine · 500 ml × 3<span>Chennai · 3 min</span></div>
+      <div class="fi"><span class="sw2" style="background:#e8e3d8;border:1px solid #ccc"></span>Chalk · 750 ml + sling<span>Kochi · 5 min</span></div>
+      <div class="fi"><span class="sw2" style="background:#1f1f1d"></span>Ink · Chug · corporate × 40<span>Gurugram · 7 min</span></div></div></div>
+    <div class="ab"><h5><b>What people are choosing</b><span>today</span></h5><div class="cb">
+      <div class="cr"><span>Moss</span><i class="t" style="background:#5A6E3F;width:92%"></i><b>31%</b></div>
+      <div class="cr"><span>Tangerine</span><i class="t" style="background:#FF5A24;width:74%;transition-delay:.1s"></i><b>25%</b></div>
+      <div class="cr"><span>Sky</span><i class="t" style="background:#7fa7cf;width:55%;transition-delay:.2s"></i><b>19%</b></div>
+      <div class="cr"><span>Ink</span><i class="t" style="background:#1f1f1d;width:44%;transition-delay:.3s"></i><b>15%</b></div>
+      <div class="cr"><span>Chalk</span><i class="t" style="background:#d8d2c4;width:30%;transition-delay:.4s"></i><b>10%</b></div></div>
+      <div class="wa"><div><small>Abandoned bags recovered on WhatsApp</small>this week</div><b>₹38,400</b></div></div>
+    <div class="ab"><h5><b>Stock · Hyderabad</b><span>forecast</span></h5><div class="inv">
+      <div class="ir"><span>SKU</span><span>Left</span><span>Runs out</span></div>
+      <div class="ir"><span>Moss · 750</span><span class="low">11</span><span class="low">Tomorrow</span></div>
+      <div class="ir"><span>Tangerine · 500</span><span>86</span><span>9 days</span></div>
+      <div class="ir"><span>Sky · 1 L</span><span>42</span><span>6 days</span></div>
+      <div class="ir"><span>Sling · cotton</span><span>204</span><span>3 weeks</span></div></div>
+      <div class="reo">Move 60 Moss · 750 from Bengaluru → Hyderabad tonight. Reorder 400 from Peenya — 6 day lead time.</div></div>
+  </div>
+</div>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <h3>Your bag <span>1 item</span></h3>
+  <div class="fs" id="fs">You've unlocked free shipping<div class="bar"><i id="fsb"></i></div></div>
+  <div id="items"></div>
+  <div class="up" id="up"><div class="th"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 6 C 4 20, 10 32, 20 34 C 30 32, 36 20, 32 6" fill="none" stroke="#8a6a3e" stroke-width="3"/><rect x="14" y="20" width="12" height="14" rx="3" fill="#b38a54"/></svg></div><div><b>Cotton bottle sling</b><span>Bought with 1 in 3 Everyday bottles · ₹499</span></div><button id="upb">Add</button></div>
+  <div class="dsum"><div class="r"><span>Subtotal</span><span id="sub">₹1,499</span></div><div class="r"><span>Engraving</span><span>Free</span></div><div class="r"><span>Delivery · Wed 12 Nov</span><span>Free</span></div><div class="r t"><span>Total</span><span id="tot">₹1,499</span></div>
+  <button class="cob" id="cob">Checkout</button></div>
+</aside>
+
+<script>/* Film harness. Normal mode: page behaves like a regular site.
+   ?film mode: wraps the site in a browser frame, adds a scripted cursor, captions and title cards.
+   All timing uses setTimeout / requestAnimationFrame / performance.now so a faked clock drives it frame by frame. */
+(function () {
+  const F = (window.FILM = {});
+  F.on = new URLSearchParams(location.search).has('film');
+  F.done = false;
+  F.cx = 800; F.cy = 520;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  F.wait = sleep;
+  const easeIO = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+  F.ease = easeIO; F.easeOut = easeOut;
+  F.tween = (dur, fn, e = easeIO) =>
+    new Promise((res) => {
+      const t0 = performance.now();
+      (function step() {
+        const p = Math.min(1, (performance.now() - t0) / dur);
+        fn(e(p), p);
+        if (p < 1) requestAnimationFrame(step); else res();
+      })();
+    });
+  // deterministic pseudo random
+  let seed = 7;
+  F.rand = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+  F.scroller = document.scrollingElement;
+  F.layer = document.body; // where site overlays (modals/drawers) live
+
+  const $ = (s) => (typeof s === 'string' ? document.querySelector(s) : s);
+  F.$ = $;
+
+  // ---- reveal on scroll ----
+  F.reveal = () => {
+    const vb = F.on ? F.scroller.getBoundingClientRect().bottom : innerHeight;
+    document.querySelectorAll('[data-reveal]:not(.in)').forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vb - 40 && r.bottom > 0) el.classList.add('in');
+    });
+  };
+
+  F.setUrl = (host, path = '') => {
+    const u = document.getElementById('fb-url-text');
+    if (u) u.innerHTML = host + (path ? '<span class="path">' + path + '</span>' : '');
+  };
+
+  function buildStage(cfg) {
+    const pageBg = getComputedStyle(document.body).backgroundColor;
+    document.documentElement.classList.add('film');
+    const stage = document.createElement('div');
+    stage.id = 'film-stage';
+    stage.innerHTML =
+      '<div class="fb-bar"><div class="fb-dots"><i></i><i></i><i></i></div>' +
+      '<div class="fb-nav"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></div>' +
+      '<div class="fb-url"><svg width="11" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M6 10V8a6 6 0 1 1 12 0v2h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V11a1 1 0 0 1 1-1h1zm2 0h8V8a4 4 0 1 0-8 0v2z"/></svg><span id="fb-url-text"></span></div>' +
+      '<div class="fb-spacer"></div></div><div class="fb-vp"><div class="fb-scroll"></div></div>';
+    const scroll = stage.querySelector('.fb-scroll');
+    scroll.style.background = pageBg;
+    while (document.body.firstChild) scroll.appendChild(document.body.firstChild);
+    document.body.appendChild(stage);
+    F.scroller = scroll;
+    F.vp = stage.querySelector('.fb-vp');
+    F.layer = F.vp;
+    scroll.addEventListener('scroll', F.reveal);
+
+    const cur = document.createElement('div');
+    cur.id = 'film-cursor';
+    cur.innerHTML = '<svg width="26" height="26" viewBox="0 0 26 26"><path d="M4 2.5v18.2l4.6-4.4 2.9 6.9 3.2-1.4-2.9-6.7 6.4-.2z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>';
+    document.body.appendChild(cur);
+    F.cursorEl = cur;
+
+    const cap = document.createElement('div');
+    cap.id = 'film-cap';
+    cap.innerHTML = '<div class="fc-k"><b class="fc-n"></b><i></i><span class="fc-b"></span></div><div class="fc-t"></div><div class="fc-d"></div>';
+    document.body.appendChild(cap);
+    F.capEl = cap;
+
+    const card = document.createElement('div');
+    card.id = 'film-card';
+    document.body.appendChild(card);
+    F.cardEl = card;
+    F.cfg = cfg;
+    F.setUrl(cfg.host, '');
+    placeCursor();
+  }
+
+  function placeCursor() {
+    if (F.cursorEl) F.cursorEl.style.transform = `translate(${F.cx - 4}px,${F.cy - 3}px) scale(${F._press || 1})`;
+  }
+
+  F.point = (target, ox = 0.5, oy = 0.5) => {
+    if (target && typeof target === 'object' && 'x' in target && !(target instanceof Element)) return target;
+    const el = $(target);
+    if (!el) throw new Error('FILM: missing ' + target);
+    const r = el.getBoundingClientRect();
+    return { x: r.left + r.width * ox, y: r.top + r.height * oy };
+  };
+
+  F.moveTo = async (target, dur, ox, oy) => {
+    const p = F.point(target, ox, oy);
+    const sx = F.cx, sy = F.cy, dx = p.x - sx, dy = p.y - sy;
+    const dist = Math.hypot(dx, dy);
+    if (dist < 1) return;
+    dur = dur || Math.max(420, Math.min(1050, 380 + dist * 0.55));
+    const bend = (F.rand() - 0.5) * 0.35 * dist;
+    const nx = -dy / dist, ny = dx / dist;
+    const cx = sx + dx * 0.5 + nx * bend, cy = sy + dy * 0.5 + ny * bend;
+    await F.tween(dur, (t) => {
+      const u = 1 - t;
+      F.cx = u * u * sx + 2 * u * t * cx + t * t * p.x;
+      F.cy = u * u * sy + 2 * u * t * cy + t * t * p.y;
+      placeCursor();
+    });
+  };
+
+  F.press = async () => {
+    await F.tween(90, (t) => { F._press = 1 - 0.14 * t; placeCursor(); });
+    const rp = document.createElement('div');
+    rp.className = 'film-ripple';
+    rp.style.left = F.cx + 'px'; rp.style.top = F.cy + 'px';
+    document.body.appendChild(rp);
+    setTimeout(() => rp.remove(), 700);
+    await F.tween(140, (t) => { F._press = 0.86 + 0.14 * t; placeCursor(); });
+  };
+
+  F.click = async (target, opts = {}) => {
+    if (!opts.noMove) await F.moveTo(target, opts.dur, opts.ox, opts.oy);
+    await sleep(opts.pause ?? 120);
+    await F.press();
+    const el = typeof target === 'string' || target instanceof Element ? $(target) : document.elementFromPoint(F.cx, F.cy);
+    if (el) {
+      if (el.focus && /INPUT|TEXTAREA|SELECT/.test(el.tagName)) el.focus();
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, clientX: F.cx, clientY: F.cy }));
+    }
+    await sleep(opts.after ?? 220);
+  };
+
+  F.type = async (target, text, opts = {}) => {
+    const el = $(target);
+    el.focus();
+    if (opts.clear) { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); }
+    for (const ch of text) {
+      el.value += ch;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      await sleep((opts.cps ? 1000 / opts.cps : 70) * (0.6 + F.rand() * 0.9));
+    }
+    await sleep(opts.after ?? 250);
+  };
+
+  F.scrollTo = async (target, dur = 1400, offset = 0) => {
+    const sc = F.scroller;
+    let y;
+    if (typeof target === 'number') y = target;
+    else {
+      const el = $(target);
+      const top = el.getBoundingClientRect().top - (F.on ? sc.getBoundingClientRect().top : 0);
+      y = sc.scrollTop + top - offset;
+    }
+    y = Math.max(0, Math.min(y, sc.scrollHeight - sc.clientHeight));
+    const s = sc.scrollTop;
+    await F.tween(dur, (t) => { sc.scrollTop = s + (y - s) * t; F.reveal(); });
+  };
+  F.scrollBy = (dy, dur = 1200) => F.scrollTo(F.scroller.scrollTop + dy, dur);
+
+  let capN = 0;
+  F.caption = async (title, desc, opt = {}) => {
+    const c = F.capEl; if (!c) return;
+    if (c.classList.contains('show')) { c.classList.remove('show'); await sleep(420); }
+    capN++;
+    c.querySelector('.fc-n').textContent = String(capN).padStart(2, '0') + ' / ' + String(F.cfg.caps || 8).padStart(2, '0');
+    c.querySelector('.fc-b').textContent = F.cfg.short || '';
+    c.querySelector('.fc-t').textContent = title;
+    c.querySelector('.fc-d').textContent = desc || '';
+    c.style.left = opt.right ? 'auto' : '30px';
+    c.style.right = opt.right ? '30px' : 'auto';
+    await sleep(30);
+    c.classList.add('show');
+  };
+  F.hideCaption = async () => { F.capEl && F.capEl.classList.remove('show'); await sleep(400); };
+
+  const cube = '<svg width="22" height="22" viewBox="0 0 40 40"><path d="M20 3 36 11.5v17L20 37 4 28.5v-17Z" fill="#5b2bc4"/><path d="M20 3 36 11.5 20 20 4 11.5Z" fill="#8b5cf6"/><path d="M20 20v17L4 28.5v-17Z" fill="#3b168f"/></svg>';
+  F.card = async (kind, hold) => {
+    const c = F.cfg, el = F.cardEl;
+    el.style.background = c.cardBg; el.style.color = c.cardFg;
+    const name = `<div class="fk-ln fk-d1"><span class="fk-name" style="font-family:${c.displayFont};font-size:${c.nameSize || 132}px;font-weight:${c.nameWeight || 500};${c.nameStyle || ''}">${c.name}</span></div>`;
+    if (kind === 'intro') {
+      el.innerHTML = `<div class="fk-top fk-fade"><span class="fk-pb">${cube} Purplebox Solutions</span><span>Concept ${c.no} / 04</span></div>
+        <div class="fk-mid"><div class="fk-ln"><span class="fk-eyebrow">${c.sector}</span></div>${name}
+        <div class="fk-ln fk-d2"><span class="fk-desc">${c.desc}</span></div></div>
+        <div class="fk-bot fk-fade"><span>${c.host}</span><span>Concept demo · fictional brand</span></div>`;
+    } else {
+      el.innerHTML = `<div class="fk-top fk-fade"><span class="fk-pb">${cube} Purplebox Solutions</span><span>Concept ${c.no} / 04</span></div>
+        <div class="fk-mid"><div class="fk-ln"><span class="fk-eyebrow">What we'd build for you</span></div>
+        <div class="fk-ln fk-d1"><span class="fk-name" style="font-family:'Instrument Sans',sans-serif;font-size:76px;font-weight:600">Website, apps and the<br>software behind them.</span></div>
+        <div class="fk-ln fk-d2"><span class="fk-mods">${c.mods.map((m) => `<span>${m}</span>`).join('')}</span></div></div>
+        <div class="fk-bot fk-fade"><span>purpleboxsolutions.in</span><span>${c.name} is a fictional brand created for this demo</span></div>`;
+    }
+    await sleep(40);
+    el.classList.add('show');
+    if (hold) { await sleep(hold); el.classList.remove('show'); await sleep(750); }
+  };
+
+  F.hideCursor = (v) => { if (F.cursorEl) F.cursorEl.style.opacity = v ? 0 : 1; };
+
+  // called once per captured frame: pin every CSS animation/transition to the (faked) clock
+  F.sync = () => {
+    const now = performance.now();
+    for (const a of document.getAnimations()) {
+      if (a._fin) continue;
+      if (a._vs === undefined) { a._vs = now - (a.currentTime || 0); a.pause(); }
+      const ct = now - a._vs;
+      const end = a.effect ? a.effect.getComputedTiming().endTime : Infinity;
+      if (isFinite(end) && ct >= end) { a._fin = 1; try { a.finish(); } catch (e) {} }
+      else a.currentTime = ct;
+    }
+    return { x: F.cx, y: F.cy, done: F.done };
+  };
+
+  function buildBar(cfg) {
+    const bar = document.createElement('div');
+    bar.id = 'demo-bar';
+    bar.innerHTML = '<span class="db-pb">' + cube + 'Concept demo by Purplebox</span>' +
+      (cfg.views || []).map((v, i) => '<button data-i="' + i + '"' + (i ? '' : ' class="on"') + '>' + v.name + '</button>').join('') +
+      '<button class="db-tour">&#9654; Play guided tour</button>';
+    document.body.appendChild(bar);
+    bar.querySelectorAll('button[data-i]').forEach((b) => b.addEventListener('click', () => {
+      bar.querySelectorAll('button[data-i]').forEach((x) => x.classList.remove('on'));
+      b.classList.add('on'); cfg.views[+b.dataset.i].go();
+    }));
+    bar.querySelector('.db-tour').addEventListener('click', () => {
+      bar.remove(); if (cfg.reset) cfg.reset(); scrollTo(0, 0);
+      F.on = true; buildStage(cfg); F.start();
+    });
+  }
+  F.init = (cfg, script) => {
+    F.script = script;
+    if (F.on) buildStage(cfg);
+    else {
+      addEventListener('scroll', F.reveal, { passive: true });
+      if (cfg.normal) setTimeout(cfg.normal, 300);
+      buildBar(cfg);
+    }
+    requestAnimationFrame(F.reveal);
+    setTimeout(F.reveal, 60);
+  };
+  F.start = async () => {
+    try { await F.script(F); } catch (e) { console.error(e); F.err = String(e && e.stack || e); }
+    await sleep(300);
+    F.done = true;
+    if (!navigator.webdriver && F.cardEl) {
+      const b = document.createElement('button');
+      b.id = 'tour-again'; b.textContent = 'Explore the site yourself';
+      b.onclick = () => { location.hash = ''; location.reload(); };
+      document.body.appendChild(b);
+    }
+  };
+  if (F.on && !navigator.webdriver) setTimeout(() => F.start(), 900);
+})();
+</script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const COL={moss:['Moss','#5A6E3F','#7f9562','#38461f','#E2E5D3'],tang:['Tangerine','#FF5A24','#ff8a5c','#c43c10','#F7DFD2'],sky:['Sky','#7FA7CF','#a9c6e3','#4f7aa3','#DCE6EE'],chalk:['Chalk','#E6E1D6','#f6f3ec','#bdb6a6','#ECE8DF'],ink:['Ink','#262624','#4a4945','#0f0f0e','#DCD8CF']};
+let st={c:'moss',cap:'loop',size:750,eng:''};
+function mixBottle(x=''){
+ let g=`<defs><linearGradient id="bg1${x}" x1="0" x2="1"><stop id="s0${x}" offset="0"/><stop id="s1${x}" offset=".22"/><stop id="s2${x}" offset=".42"/><stop id="s3${x}" offset=".78"/><stop id="s4${x}" offset="1"/></linearGradient>
+ <linearGradient id="steel${x}" x1="0" x2="1"><stop offset="0" stop-color="#8d8d8a"/><stop offset=".3" stop-color="#e9e9e6"/><stop offset=".55" stop-color="#b6b6b2"/><stop offset="1" stop-color="#6f6f6c"/></linearGradient>
+ <linearGradient id="hl${x}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".38"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+ <filter id="grn${x}" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" result="n"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .09"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in"/></filter>
+ <clipPath id="bodyclip${x}"><path id="bp${x}" d="M60 236 C60 196 96 178 112 158 L112 128 L188 128 L188 158 C204 178 240 196 240 236 L240 700 Q240 740 200 740 L100 740 Q60 740 60 700 Z"/></clipPath></defs>
+ <g class="grp" id="grp${x}">
+  <g clip-path="url(#bodyclip${x})"><rect x="40" y="110" width="220" height="660" fill="url(#bg1${x})"/><rect x="40" y="110" width="220" height="660" filter="url(#grn${x})" fill="#000"/>
+   <g class="sheen"><rect x="96" y="120" width="40" height="640" fill="url(#hl${x})"/></g>
+   <rect x="40" y="700" width="220" height="60" fill="rgba(0,0,0,.08)"/>
+   <text class="engr" id="engr${x}" x="150" y="452" text-anchor="middle"></text>
+   <text x="150" y="660" text-anchor="middle" font-family="Familjen Grotesk" font-weight="700" font-size="22" fill="rgba(255,255,255,.55)" letter-spacing="-.5">thanda.</text></g>
+  <rect x="108" y="112" width="84" height="22" rx="4" fill="url(#steel${x})"/>
+  <g class="cap" id="cap-loop${x}"><rect x="102" y="56" width="96" height="60" rx="10" fill="#1d1d1b"/><rect x="102" y="56" width="96" height="60" rx="10" fill="url(#hl${x})" opacity=".4"/><path d="M128 60 C128 10, 172 10, 172 60" fill="none" stroke="#1d1d1b" stroke-width="13" stroke-linecap="round"/></g>
+  <g class="cap" id="cap-sport${x}" style="opacity:0"><rect x="106" y="70" width="88" height="46" rx="9" fill="#1d1d1b"/><rect x="132" y="38" width="36" height="36" rx="8" fill="#2c2c29"/><rect x="140" y="26" width="20" height="16" rx="5" fill="#3a3a36"/><path d="M168 46 l26 8 l0 14 l-26 -4z" fill="#2c2c29"/></g>
+  <g class="cap" id="cap-chug${x}" style="opacity:0"><rect x="96" y="72" width="108" height="44" rx="10" fill="#1d1d1b"/><rect x="190" y="80" width="26" height="12" rx="6" fill="#1d1d1b"/><rect x="96" y="72" width="108" height="44" rx="10" fill="url(#hl${x})" opacity=".4"/></g>
+ </g>`;
+ return g;}
+$('#bottle').innerHTML=mixBottle();
+function paint(x){const c=COL[st.c];['s0','s1','s2','s3','s4'].forEach((id,i)=>{$('#'+id+x).style.stopColor=[c[3],c[1],c[2],c[1],c[3]][i]});['loop','sport','chug'].forEach(k=>$('#cap-'+k+x).style.opacity=k===st.cap?1:0);$('#engr'+x).textContent=st.eng;$('#engr'+x).style.fill=st.c==='chalk'?'rgba(80,76,68,.75)':'rgba(238,235,228,.9)'}
+function render(){const c=COL[st.c];paint('');
+ $('#stage').style.backgroundColor=c[4];$('#cn').textContent=c[0];
+ ['loop','sport','chug'].forEach(k=>$('#cap-'+k).style.opacity=k===st.cap?1:0);
+ const sc={500:.84,750:1,1000:1.14}[st.size];$('#grp').style.transform=`scale(${.96+ (sc-1)*.35},${sc})`;$('#shd').style.width=(220+sc*60)+'px';$('#shd').style.marginLeft=(-(220+sc*60)/2)+'px';
+ $('#engr').textContent=st.eng;$('#engr').style.fill=st.c==='chalk'?'rgba(80,76,68,.75)':'rgba(238,235,228,.9)';
+ const price={500:1149,750:1349,1000:1549}[st.size]+(st.cap==='sport'?150:0);const f='₹'+price.toLocaleString('en-IN');$('#price').textContent=f;$('#addp').textContent=f;
+ $('#lbl').textContent=`${c[0]} · ${st.cap[0].toUpperCase()+st.cap.slice(1)} cap · ${st.size===1000?'1 litre':st.size+' ml'}`;$('#capn').textContent={loop:'Loop',sport:'Sport',chug:'Chug'}[st.cap];
+ $('#wt').textContent={500:'340 g',750:'410 g',1000:'495 g'}[st.size];
+ const left={moss:12,tang:48,sky:7,chalk:31,ink:64}[st.c]-(st.size===1000?3:0);$('#stk').innerHTML=`<b>${c[0]} · ${st.size===1000?'1 L':st.size+' ml'}</b> — ${left} left in the Hyderabad warehouse`;
+ $$('#sw button').forEach(b=>b.classList.toggle('on',b.dataset.c===st.c));$$('#caps .ch').forEach(b=>b.classList.toggle('on',b.dataset.c===st.cap));$$('#sizes .ch').forEach(b=>b.classList.toggle('on',+b.dataset.s===st.size));}
+$('#sw').innerHTML=Object.entries(COL).map(([k,c])=>`<button data-c="${k}" id="sw-${k}" style="background:radial-gradient(circle at 35% 30%,${c[2]},${c[1]} 55%,${c[3]})" title="${c[0]}"></button>`).join('');
+$$('#sw button').forEach(b=>b.addEventListener('click',()=>{st.c=b.dataset.c;render()}));
+$$('#caps .ch').forEach(b=>b.addEventListener('click',()=>{st.cap=b.dataset.c;render()}));
+$$('#sizes .ch').forEach(b=>b.addEventListener('click',()=>{st.size=+b.dataset.s;render()}));
+$('#eng').addEventListener('input',e=>{st.eng=e.target.value;$('#ecnt').textContent=e.target.value.length+'/12';render()});
+$('#pin').addEventListener('input',e=>{if(e.target.value.length===6)$('#pres').innerHTML='<span><b>Arrives Wed, 12 Nov</b> · free delivery<br>Ships from Hyderabad · COD available</span>'});
+render();
+function miniBottle(c,w=56){const k=COL[c];return `<svg width="${w}" height="${w*1.9}" viewBox="0 0 60 114"><rect x="22" y="2" width="16" height="12" rx="3" fill="#1d1d1b"/><path d="M12 30 C12 22 20 20 23 16 L37 16 C40 20 48 22 48 30 L48 104 Q48 112 40 112 L20 112 Q12 112 12 104Z" fill="${k[1]}"/><rect x="18" y="22" width="6" height="86" rx="3" fill="#fff" opacity=".22"/></svg>`}
+$('#add').addEventListener('click',()=>{const c=COL[st.c];$('#items').innerHTML=`<div class="li"><div class="th" style="background:${c[4]}">${miniBottle(st.c)}</div><div><b>The Everyday · ${st.size} ml</b><span>${c[0]} · ${st.cap[0].toUpperCase()+st.cap.slice(1)} cap · engraved "${st.eng}"</span><span>Arrives Wed 12 Nov</span></div><div class="p">${$('#price').textContent}</div></div>`;
+ $('#scrim').classList.add('on');$('#drawer').classList.add('on');$('#bagc').classList.add('on');setTimeout(()=>$('#fsb').style.width='100%',500)});
+$('#upb').addEventListener('click',()=>{$('#upb').classList.add('on');$('#upb').textContent='Added';const d=document.createElement('div');d.className='li new';d.innerHTML=`<div class="th" style="background:#efe3cf"><svg width="44" height="44" viewBox="0 0 40 40"><path d="M8 6 C 4 20, 10 32, 20 34 C 30 32, 36 20, 32 6" fill="none" stroke="#8a6a3e" stroke-width="3"/><rect x="14" y="20" width="12" height="14" rx="3" fill="#b38a54"/></svg></div><div><b>Cotton bottle sling</b><span>Natural · fits 500 ml – 1 L</span></div><div class="p">₹499</div>`;$('#items').appendChild(d);
+ $('#sub').textContent='₹1,998';$('#tot').textContent='₹1,998';$('#bagc').textContent='2';$('.drawer h3 span').textContent='2 items'});
+function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;const hide=v==='admin';$('nav').style.display=hide?'none':'';$('.ann').style.display=hide||v!=='shop'?'none':''}
+$('#cob').addEventListener('click',()=>{$('#scrim').classList.remove('on');$('#drawer').classList.remove('on');show('checkout');FILM.setUrl('thanda.in','/checkout');
+ $('#sumitems').innerHTML=$('#items').innerHTML});
+$('#vpa').addEventListener('input',e=>{if(e.target.value.endsWith('okaxis'))$('#vok').classList.add('on')});
+$('#payb').addEventListener('click',async()=>{$('#payb').innerHTML='<span class="spin"></span>Waiting for approval in your UPI app';await FILM.wait(1600);$('#ok').classList.add('on')});
+(function(){let s=31;const r=()=>((s=s*16807%2147483647)/2147483647);let g='<rect width="640" height="380" fill="#efeadf"/>';
+ for(let i=0;i<10;i++){const y=i*42+r()*12;g+=`<path d="M-10 ${y} L650 ${y+(r()-.5)*30}" stroke="#fff" stroke-width="${r()>.7?8:3}"/>`}
+ for(let i=0;i<14;i++){const x=i*48+r()*12;g+=`<path d="M${x} -10 L${x+(r()-.5)*30} 390" stroke="#fff" stroke-width="${r()>.7?8:3}"/>`}
+ g+='<path d="M380 -10 C 360 80, 420 140, 400 390" stroke="#cfe0ee" stroke-width="22" fill="none" opacity=".8"/>';
+ g+='<path id="cr" d="M80 300 L150 270 L210 280 L260 220 L330 205 L350 150 L430 130 L470 90" fill="none" stroke="#171614" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>';
+ [[150,270],[260,220],[350,150]].forEach(([x,y],i)=>g+=`<circle cx="${x}" cy="${y}" r="7" fill="#fff" stroke="#171614" stroke-width="3"/><text x="${x+12}" y="${y-10}" font-family="Familjen Grotesk" font-size="12" fill="#8a857b">stop ${i+1}</text>`);
+ g+='<g transform="translate(470 90)"><circle r="18" fill="rgba(255,90,36,.2)"/><circle r="9" fill="#FF5A24" stroke="#fff" stroke-width="3"/><text x="16" y="-12" font-family="Familjen Grotesk" font-weight="700" font-size="13" fill="#171614">You</text></g>';
+ g+='<g id="van"><rect x="-16" y="-11" width="32" height="22" rx="6" fill="#171614"/><rect x="4" y="-7" width="9" height="8" rx="2" fill="#FF5A24"/></g>';
+ g+='<g transform="translate(24 24)"><rect width="220" height="54" rx="12" fill="#fff"/><text x="16" y="23" font-family="Familjen Grotesk" font-weight="700" font-size="15" fill="#171614">Arriving 11:40 – 12:10</text><text x="16" y="42" font-family="Familjen Grotesk" font-size="12.5" fill="#8a857b">Courier: Suresh · 3 stops away</text></g>';
+ $('#cmap').innerHTML=g;})();
+function placeVan(t){const p=$('#cr'),L=p.getTotalLength(),pt=p.getPointAtLength(L*t);$('#van').setAttribute('transform',`translate(${pt.x} ${pt.y})`)}
+placeVan(.05);
+function countUp(el,dur=1500){const n=+el.dataset.n;return FILM.tween(dur,t=>{const v=Math.round(n*t);el.textContent=el.dataset.d?(v/10).toFixed(1)+'%':(el.dataset.r?'₹':'')+v.toLocaleString('en-IN')},FILM.easeOut)}
+
+function trackInit(){if(!$('#photo .bcopy')){$('#photo').innerHTML=`<div style="transform:rotate(-8deg) scale(1.15)"><svg class="bcopy" viewBox="0 0 300 760" style="height:420px">${mixBottle('p')}</svg></div>`+$('#photo').innerHTML;paint('p')}setTimeout(()=>$('#tl').classList.add('go'),200);FILM.tween(6000,t=>placeVan(.05+t*.6),t=>t)}
+function ensureCart(){if(!$('#items').innerHTML){if(!st.eng){st.eng='for kabir';$('#eng').value=st.eng;render()}$('#add').click();$('#upb').click();$('#scrim').classList.remove('on');$('#drawer').classList.remove('on')}}
+$('#scrim').addEventListener('click',()=>{$('#scrim').classList.remove('on');$('#drawer').classList.remove('on')});
+FILM.init({views:[{name:'Store',go:()=>show('shop')},{name:'Checkout',go:()=>{ensureCart();show('checkout');$('#sumitems').innerHTML=$('#items').innerHTML}},{name:'Order tracking',go:()=>{ensureCart();show('track');trackInit()}},{name:'Brand studio',go:()=>{show('admin');$('#adm').classList.add('go');$$('.k b').forEach(b=>countUp(b))}}],
+ reset:()=>{$('#scrim').classList.remove('on');$('#drawer').classList.remove('on');show('shop')},no:'03',name:'thanda.',short:'Retail · D2C',sector:'Concept 03 — Retail / D2C brand',host:'thanda.in',caps:6,
+ desc:'An insulated-bottle brand with a store that sells: live product configurator, honest delivery dates, one-page UPI checkout, and a studio to run it all.',
+ displayFont:"'Familjen Grotesk',sans-serif",nameSize:200,nameWeight:700,nameStyle:'letter-spacing:-.05em;',cardBg:'#FF5A24',cardFg:'#171614',
+ mods:['D2C storefront','Product configurator','Live stock by warehouse','Pincode delivery dates','UPI checkout','Order tracking','WhatsApp cart recovery','Inventory forecasting']},
+async F=>{
+ F.cx=900;F.cy=620;F.hideCursor(1);
+ await F.card('intro',4200);F.hideCursor(0);
+ await F.wait(600);
+ await F.scrollTo('#cfg',1400,0);
+ await F.caption('A configurator that sells','Colour, cap, size and engraving render live on the bottle — price and warehouse stock update with every choice.',{right:false});
+ await F.click('#sw-tang');await F.wait(1100);
+ await F.click('#sw-sky');await F.wait(1000);
+ await F.click('#sw-moss');await F.wait(900);
+ await F.click('#c-sport');await F.wait(1000);
+ await F.click('#s1000');await F.wait(1300);
+ await F.click('#s750');await F.wait(900);
+ await F.click('#eng',{ox:.3});
+ await F.type('#eng','for kabir',{cps:8});
+ await F.moveTo('#bottle',900,.5,.55);await F.wait(1800);
+ // delivery
+ await F.caption('Delivery dates from real stock','A pincode gives an exact date from the nearest warehouse that has this exact bottle — not "5–7 business days".',{right:false});
+ await F.click('#pin',{ox:.4});
+ await F.type('#pin','500034',{cps:7});
+ await F.wait(1600);
+ // bag
+ await F.caption('A bag that suggests, not nags','One relevant add-on, based on what people actually buy together. Free-shipping progress is shown, not hidden.',{right:false});
+ await F.click('#add',{ox:.3});await F.wait(1500);
+ await F.moveTo('#up',800,.4,.5);await F.wait(800);
+ await F.click('#upb');await F.wait(1500);
+ await F.click('#cob');await F.wait(900);
+ // checkout
+ await F.caption('One-page checkout','Saved address, an exact delivery date and UPI verified before paying — fewer drop-offs at the last step.',{right:false});
+ await F.click('#vpa',{ox:.3});await F.type('#vpa','kabir@okaxis',{cps:10});await F.wait(600);
+ await F.click('#payb');await F.wait(3200);
+ // tracking
+ await F.caption('Tracking people actually open','A photo of the engraving before it ships, then the courier live on the map. Support is one tap away.',{right:true});
+ show('track');F.setUrl('thanda.in','/orders/TH-58213');
+ $('#photo').innerHTML=`<div style="transform:rotate(-8deg) scale(1.15)"><svg class="bcopy" viewBox="0 0 300 760" style="height:420px">${mixBottle('p')}</svg></div>`+$('#photo').innerHTML;paint('p');
+ await F.wait(200);$('#tl').classList.add('go');
+ await F.moveTo('#photo',1000,.5,.4);await F.wait(1500);
+ await F.moveTo('.courier',900,.6,.4);
+ await F.tween(3600,t=>placeVan(.05+t*.5),t=>t);
+ // admin
+ await F.caption('The brand\'s control room','Live orders, what colours are selling, stock that will run out tomorrow, and carts won back on WhatsApp.',{right:true});
+ show('admin');F.setUrl('studio.thanda.in','/today');$('#adm').classList.add('go');$$('.k b').forEach(b=>countUp(b));
+ const vi=setInterval(()=>{$('#vis').textContent=318+Math.round(F.rand()*12)},900);
+ await F.moveTo('.cb',1000,.5,.3);await F.wait(1300);
+ const n=document.createElement('div');n.className='fi new';n.innerHTML='<span class="sw2" style="background:#5A6E3F"></span>Moss · 750 · Sport · engraved "for kabir"<span>Hyderabad · now</span>';$('#feed').prepend(n);
+ await F.moveTo('#feed',900,.5,.15);await F.wait(1600);
+ await F.moveTo('.reo',1000,.5,.5);await F.wait(2400);
+ clearInterval(vi);
+ await F.hideCaption();F.hideCursor(1);
+ await F.card('outro');await F.wait(5200);
+});
+</script>
+</body>
+</html>
