@@ -160,7 +160,11 @@ details p{padding:0 0 22px;color:var(--soft)}
 .contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:start}
 .contact h2{margin:12px 0 16px}
 .contact>div>p{color:var(--soft);margin-bottom:28px}
+.book{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:0 0 28px}
+.book small{flex:1 1 220px;color:var(--soft);font-size:.93rem;line-height:1.45}
+@media(max-width:560px){.book .btn{width:100%}}
 .ways{display:grid;gap:0;border-top:1px solid var(--rule)}
+.ways>[hidden]{display:none}
 .ways>*{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid var(--rule);text-decoration:none}
 .ways b{font-weight:600}
 .ways a:hover b{color:var(--purple)}
@@ -373,8 +377,11 @@ footer{margin-top:104px;border-top:1px solid var(--rule);padding:32px 0 40px;fon
       <span class="label">Get in touch</span>
       <h2>Tell us what your business needs</h2>
       <p>The first call is free and there is no obligation. You will leave it with a clear idea of what is possible and roughly what it would cost.</p>
+      <div class="book">
+        <a class="btn solid" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ07uXA7dbmYm1DRjQou9gk-ECb-Ov0XUEpDlUOAg0N1mIfcQuv1cj4Y1pF4hD1RQHjEZQ8e0-bq" target="_blank" rel="noopener">Pick a time for a call <span class="arrow" aria-hidden="true">&rarr;</span></a>
+        <small>Free, any day, 8 AM to 10 PM IST. You choose the slot and get a calendar invite.</small>
+      </div>
       <div class="ways">
-        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ07uXA7dbmYm1DRjQou9gk-ECb-Ov0XUEpDlUOAg0N1mIfcQuv1cj4Y1pF4hD1RQHjEZQ8e0-bq" target="_blank" rel="noopener"><span><b>Pick a time for a call</b><br>Any day, 8 AM to 10 PM IST</span><span class="arrow" aria-hidden="true">&rarr;</span></a>
         <a id="wa" href="#" target="_blank" rel="noopener" hidden><span><b>Message us on WhatsApp</b><br>Usually answered the same day</span><span class="arrow" aria-hidden="true">&rarr;</span></a>
         <a href="mailto:kharshavardhan150@gmail.com"><span><b>Email</b><br>kharshavardhan150@gmail.com</span><span class="arrow" aria-hidden="true">&rarr;</span></a>
         <div><span><b>Office</b><br>Hyderabad, Telangana</span></div>
