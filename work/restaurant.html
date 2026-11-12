@@ -63,6 +63,18 @@ html.film { scroll-behavior:auto !important; }
 #demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
 #demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
 #demo-bar .db-tour:hover { background:#7c4bec; }
+#demo-bar a.db-pb { text-decoration:none; }
+#demo-bar a.db-pb:hover { color:#fff; }
+#demo-bar button { white-space:nowrap; flex:none; }
+@media (max-width:900px) {
+  #demo-bar { left:8px; right:8px; bottom:8px; transform:none; overflow-x:auto; scrollbar-width:none; border-radius:14px; }
+  #demo-bar::-webkit-scrollbar { display:none; }
+  #demo-bar .db-tour { display:none; }
+  #demo-bar .db-pb { padding:0 8px 0 6px; flex:none; }
+  #demo-bar .db-pb span { display:none; }
+}
+#toast { position:fixed; left:50%; bottom:84px; transform:translate(-50%,12px); z-index:10000; width:max-content; max-width:min(92vw,460px); padding:13px 18px; border-radius:12px; background:#141416; color:#fff; font:500 14px/1.4 'Instrument Sans',system-ui,sans-serif; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); opacity:0; pointer-events:none; transition:opacity .25s, transform .3s; }
+#toast.on { opacity:1; transform:translate(-50%,0); }
 #tour-again { position:fixed; right:30px; top:60px; z-index:9999; font:600 14px 'Instrument Sans',sans-serif; color:#111; background:#fff; border:0; border-radius:12px; padding:12px 18px; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.4); }
 </style>
 <style>
@@ -292,6 +304,149 @@ nav .wrap{display:flex;align-items:center;height:74px;gap:46px}
 .ch div{flex:1;text-align:center;font-size:11.5px;color:var(--mute);display:flex;flex-direction:column;justify-content:flex-end;height:100%;gap:6px}
 .ch i{border-radius:6px 6px 2px 2px;background:var(--saff);display:block;transform:scaleY(0);transform-origin:bottom;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
 .kds.go .ch i{transform:none}
+
+/* ---------- live-demo additions ---------- */
+.links a:hover{color:var(--bone)}
+#ccount{font-style:normal;font-size:11px;font-weight:700;background:var(--saff);color:#1b1206;border-radius:99px;padding:1px 6px;margin-left:6px}
+#ccount:empty{display:none}
+.tabs span{cursor:pointer}
+.dish{cursor:pointer}
+.dish[hidden]{display:none}
+.dish.open .more{transform:none}
+.dish.dim{cursor:default}
+.add{width:100%;border:0;cursor:pointer}
+.add:hover{background:#f0b350}
+.dt,.fp .tb{cursor:pointer}
+.tm.x{cursor:not-allowed}
+.nm{width:100%;height:48px;border:1px solid rgba(21,17,14,.14);border-radius:12px;padding:0 14px;font:inherit;font-size:15px;background:#fff;color:var(--char);outline:0}
+.nm:focus{border-color:var(--char)}
+.rhint{font-size:13px;color:var(--chili);margin-top:12px;font-weight:600}
+.rhint:empty{display:none}
+.conf.on{pointer-events:auto}
+.conf{grid-template-columns:minmax(0,520px);justify-content:center;padding:12px;visibility:hidden}
+.conf.on{visibility:visible}
+.conf .cc{width:100%}
+.cnew{width:100%;height:46px;margin-top:16px;border-radius:12px;border:1px solid var(--line);color:var(--bone);font-weight:600;font-size:14px}
+.cnew:hover{border-color:var(--bone2)}
+.fps{overflow-x:auto}
+.qty{margin-left:auto;display:flex;align-items:center;gap:4px}
+.qty button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);font-size:16px;display:grid;place-items:center}
+.qty button:hover{border-color:var(--bone2)}
+.qty em{font-style:normal;font-weight:600;min-width:20px;text-align:center}
+.ci .qty+.q{margin-left:10px;min-width:64px}
+.ce{padding:26px 0;color:var(--mute);font-size:14px}
+.upi span{cursor:pointer}
+.pay.off{opacity:.45}
+.tkt{cursor:pointer}
+.tkt:hover{border-color:#4a3f33}
+.khint{font-size:12.5px;color:var(--mute);margin:-6px 0 14px}
+.kh .tb2 span{cursor:pointer;white-space:nowrap}
+.inv.flash{animation:fl 1.4s ease}
+@keyframes fl{0%,60%{box-shadow:0 0 0 2px var(--saff)}100%{box-shadow:0 0 0 2px transparent}}
+.story{border-top:1px solid var(--line2)}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.story h2{font-family:var(--disp);font-weight:500;font-size:64px;line-height:.95;letter-spacing:-.02em}
+.story h2 em{font-style:italic;color:var(--saff)}
+.st2 p{font-size:17px;line-height:1.65;color:var(--bone2);margin-bottom:18px;max-width:560px}
+.hrs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:30px;border-top:1px solid var(--line)}
+.hrs div{padding:16px 0;border-bottom:1px solid var(--line2);font-size:14.5px;color:var(--bone2)}
+.hrs b{display:block;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:8px}
+#v-home{padding-bottom:70px}
+
+@media(max-width:1240px){
+ .wrap{padding:0 32px}
+ nav .wrap{gap:26px}
+ .links{gap:20px}
+ .logo small{display:none}
+ .hero .wrap{grid-template-columns:1fr 420px;min-height:520px}
+ .hero h1{font-size:88px}
+ .plate-wrap{width:420px;height:420px}
+ .plate-wrap .pl{inset:20px}
+ .plate-wrap .pl svg{width:100%;height:100%}
+ .ann.a2{right:0;bottom:10px}
+ .ann.a1{left:0;top:-34px}
+ .strip .wrap{grid-template-columns:1fr 1fr;height:auto;padding-top:8px;padding-bottom:8px}
+ .strip div{padding:14px 0 14px 20px}
+ .strip div:nth-child(odd){border:0;padding-left:0}
+ .sh h2{font-size:60px}
+ .grid{grid-template-columns:repeat(3,1fr)}
+ .rg{grid-template-columns:360px minmax(0,1fr);gap:22px}
+ .og{grid-template-columns:1fr}
+ .trk{grid-template-columns:minmax(0,1fr) 340px}
+ .kg{grid-template-columns:1fr 1fr}
+ .kds{min-height:0;padding-bottom:110px}
+}
+@media(max-width:860px){
+ .wrap{padding:0 18px}
+ nav{position:static}
+ nav .wrap{flex-wrap:wrap;height:auto;padding-top:12px;gap:0 12px}
+ .logo{font-size:30px}
+ .links{order:3;width:100%;overflow-x:auto;white-space:nowrap;gap:24px;padding:12px 0;margin-top:10px;border-top:1px solid var(--line2);scrollbar-width:none}
+ .links::-webkit-scrollbar{display:none}
+ .pill{display:none}
+ .btn{height:40px;padding:0 16px}
+ .hero{padding-top:28px}
+ .hero .wrap{grid-template-columns:1fr;min-height:0;gap:10px}
+ .hero h1{font-size:64px}
+ .hero p{font-size:16px;margin:20px 0 24px}
+ .hero .cta{flex-wrap:wrap}
+ .plate-wrap{width:min(320px,86vw);height:min(320px,86vw);margin:10px auto 0}
+ .ann{display:none}
+ .strip .wrap{grid-template-columns:1fr}
+ .strip div{border:0;border-top:1px solid var(--line2);padding:12px 0}
+ .strip div:first-child{border-top:0}
+ .sec{padding:56px 0 52px}
+ .sh{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:24px}
+ .sh h2{font-size:46px}
+ .tabs{overflow-x:auto;white-space:nowrap;gap:22px;scrollbar-width:none}
+ .tabs::-webkit-scrollbar{display:none}
+ .filters{flex-wrap:wrap}
+ .spice{margin-left:0;padding-left:0;border-left:0;width:100%}
+ .count{margin-left:0}
+ .grid{grid-template-columns:1fr 1fr;gap:10px}
+ .dish{padding:12px 12px 14px;border-radius:16px}
+ .dish .art{height:132px;margin-bottom:8px}
+ .dish .art svg{width:128px;height:128px}
+ .dish h4{font-size:21px}
+ .dish .d{font-size:12.5px}
+ .badge{top:10px;left:10px;font-size:9.5px;padding:5px 7px}
+ .more{padding:12px}
+ .more .r{font-size:11.5px;gap:8px}
+ .more .r span:last-child{text-align:right}
+ .rg{grid-template-columns:minmax(0,1fr)}
+ .form{padding:18px}
+ .fpw{padding:12px 12px 10px}
+ .fp{min-width:600px}
+ .leg{flex-wrap:wrap;gap:8px 14px}
+ .leg span:last-child{margin-left:0!important;width:100%}
+ .conf{position:fixed;inset:0;z-index:60;border-radius:0;background:rgba(21,17,14,.72);padding:16px;overflow:auto}
+ .conf .cc{padding:22px}
+ .conf h3{font-size:36px}
+ .cart{padding:18px}
+ .ci{gap:10px}
+ .ci svg{width:44px;height:44px}
+ .ci b{font-size:18px}
+ .ci .qty+.q{min-width:54px;font-size:14px}
+ .tot{gap:12px}
+ .tot span{font-size:12.5px}
+ .upi span{font-size:12px;text-align:center;padding:0 4px}
+ .pay{font-size:14px}
+ .trk{grid-template-columns:minmax(0,1fr);padding:20px 18px;min-height:0}
+ .trk .empty{font-size:24px}
+ .minimap{height:320px}
+ .story .wrap{grid-template-columns:1fr;gap:26px}
+ .story h2{font-size:44px}
+ .st2 p{font-size:16px}
+ #v-home{padding-bottom:90px}
+ .kds{padding:16px 14px 110px}
+ .kh{flex-wrap:wrap;gap:10px 14px}
+ .kh .logo{font-size:26px}
+ .kh .tb2{order:3;width:100%;margin-left:0;overflow-x:auto;scrollbar-width:none}
+ .kh .r{gap:14px}
+ .kh .r span:first-child{display:none}
+ .kg{grid-template-columns:1fr}
+}
+@media(max-width:380px){.hero h1{font-size:54px}.sh h2{font-size:40px}}
 </style>
 </head>
 <body>
@@ -393,6 +548,15 @@ nav .wrap{display:flex;align-items:center;height:74px;gap:46px}
     </div>
   </div>
 </div></section>
+
+<section class="sec story" id="story"><div class="wrap">
+  <div><div class="k">Our story</div><h2 style="margin-top:16px">A short menu, cooked <em>the slow way.</em></h2></div>
+  <div class="st2">
+    <p>Saalan opened in 2019 in an old house on Road No. 36, with a courtyard, a neem tree and a head cook who had spent thirty years making biryani for weddings.</p>
+    <p>The menu is short on purpose. Every dish is one a Hyderabadi grandmother would recognise, made with sealed pots, a granite stone and wood coals. Nothing is finished in a microwave.</p>
+    <div class="hrs"><div><b>Lunch</b>12:00 to 3:30 PM</div><div><b>Dinner</b>7:00 to 11:30 PM</div><div><b>Find us</b>Road No. 36, Jubilee Hills</div><div><b>Call</b>040 4455 0136</div></div>
+  </div>
+</div></section>
 </main>
 
 <main class="view" id="v-kds">
@@ -461,6 +625,14 @@ nav .wrap{display:flex;align-items:center;height:74px;gap:46px}
       const r = el.getBoundingClientRect();
       if (r.top < vb - 40 && r.bottom > 0) el.classList.add('in');
     });
+  };
+
+  let toastT;
+  F.toast = (msg) => {
+    let t = document.getElementById('toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 3400);
   };
 
   F.setUrl = (host, path = '') => {
@@ -643,7 +815,7 @@ nav .wrap{display:flex;align-items:center;height:74px;gap:46px}
   function buildBar(cfg) {
     const bar = document.createElement('div');
     bar.id = 'demo-bar';
-    bar.innerHTML = '<span class="db-pb">' + cube + 'Concept demo by Purplebox</span>' +
+    bar.innerHTML = '<a class="db-pb" href="../index.html#work" title="Back to Purplebox">' + cube + '<span>Demo by Purplebox</span></a>' +
       (cfg.views || []).map((v, i) => '<button data-i="' + i + '"' + (i ? '' : ' class="on"') + '>' + v.name + '</button>').join('') +
       '<button class="db-tour">&#9654; Play guided tour</button>';
     document.body.appendChild(bar);
@@ -709,12 +881,31 @@ const D=[
 $('#heroplate').innerHTML=plate('h',{seed:5,c1:'#F0CF86',c2:'#D28B33',r:68,specks:[{n:240,w:3.4,h:1,c:'#FBF3E2'},{n:90,w:3,h:1,c:'#E58A2B'},{n:40,w:2.4,h:1.6,c:'#7A3F1C'}],pieces:{n:8,s:9,c:['#6B3A22','#7d4526']},leaves:9}).replace('<svg','<svg width="560" height="560"');
 const chili='<svg width="16" height="16" viewBox="0 0 24 24"><path d="M14 4c1-2 3-2 4-1M12 7c4-2 8 1 7 5-1 5-8 9-15 9 4-3 5-7 5-10 0-2 1-3 3-4z" fill="#BC462C" stroke="#BC462C" stroke-width="1.2" stroke-linejoin="round"/></svg>';
 $('#chilis').innerHTML=[1,2,3,4,5].map(i=>`<b data-h="${i}">${chili}</b>`).join('');
+D[0].all='Dairy, cashew';
+D.push(
+ {n:'Shikampuri kebab',d:'Minced mutton patties stuffed with hung curd, mint and onion',p:460,v:0,h:2,nut:1,pair:'Sheermal',time:'15 min',all:'Dairy, gram flour',a:{seed:52,c1:'#6f8f3a',c2:'#4f6f26',r:34,jit:.3,pieces:{n:5,s:15,c:['#6B3A22','#7d4526','#5a3220']},leaves:7,lemon:1}},
+ {n:'Rumali roti',d:'Paper-thin wheat bread, tossed by hand and folded warm',p:90,v:1,h:0,nut:1,pair:'Bagara baingan',time:'5 min',all:'Gluten',a:{seed:61,c1:'#F1E3C2',c2:'#DCC594',r:68,jit:.3,specks:[{n:26,w:3,h:2,c:'#B98A4A',o:.5}]}},
+ {n:'Double ka meetha',d:'Fried bread soaked in saffron milk, reduced with cardamom, topped with pistachio',p:280,v:1,h:0,nut:0,pair:'Sulaimani chai',time:'Ready',all:'Gluten, dairy, pistachio',a:{seed:70,bowl:'#2d2620',c1:'#C98A3C',c2:'#8E5320',r:60,jit:.14,pieces:{n:5,s:12,c:['#E3B25E','#D49B45']},specks:[{n:26,w:2.2,h:1.4,c:'#8FA65A'}]}},
+ {n:'Sulaimani chai',d:'Black tea with lemon, mint and a little jaggery. No milk.',p:120,v:1,h:0,nut:1,pair:'Qubani ka meetha',time:'4 min',all:'None listed',a:{seed:77,bowl:'#EFE5D3',c1:'#B5521E',c2:'#7A2E0C',r:62,jit:.04,lemon:1,leaves:3}});
+['dum','small','dum','dum','small','small','bread','sweet','small','bread','sweet','drink'].forEach((c,i)=>D[i].c=c);
+[6,7,9,10,11].forEach(i=>D[i].jain=1);
+D.forEach(d=>d.gf=!/gluten/i.test(d.all));
+const toast=m=>FILM.toast(m),money=n=>'₹'+n.toLocaleString('en-IN');
+function goTo(sel){if(FILM.on)return;const el=$(sel);if(!el)return;const nav=$('nav'),off=getComputedStyle(nav).position==='sticky'?nav.offsetHeight:0;scrollTo({top:Math.max(0,el.getBoundingClientRect().top+scrollY-off+1),behavior:'smooth'})}
 $('#grid').innerHTML=D.map((d,i)=>`<div class="dish" data-i="${i}">${d.pick?`<span class="badge">${d.pick}</span>`:''}<div class="art">${plate(i,d.a)}</div><h4><span class="veg ${d.v?'':'nv'}"></span>${d.n}</h4><div class="d">${d.d}</div><div class="ft"><b>₹${d.p}</b><span class="sp">${[1,2,3,4,5].map(k=>`<i class="${k<=d.h?'h':''}"></i>`).join('')}</span></div>
- <div class="more"><div class="r"><span>Contains</span><span>${d.all}</span></div><div class="r"><span>Pairs with</span><span>${d.pair}</span></div><div class="r"><span>Kitchen time</span><span>${d.time}</span></div><div class="add">Add · ₹${d.p}</div></div></div>`).join('');
-let fV=0,fH=5;function applyF(){let n=0;$$('.dish').forEach(el=>{const d=D[+el.dataset.i];const ok=(!fV||d.v)&&d.h<=fH;el.classList.toggle('dim',!ok);n+=ok});$('#count').innerHTML=`<b>${n}</b> of 8 dishes`;
- $$('#chilis b').forEach(b=>b.classList.toggle('off',+b.dataset.h>fH))}
-$('#fveg').addEventListener('click',()=>{fV=!fV;$('#fveg').classList.toggle('on',fV);applyF()});
-$$('#chilis b').forEach(b=>b.addEventListener('click',()=>{fH=+b.dataset.h;applyF()}));
+ <div class="more"><div class="r"><span>Contains</span><span>${d.all}</span></div><div class="r"><span>Pairs with</span><span>${d.pair}</span></div><div class="r"><span>Kitchen time</span><span>${d.time}</span></div><button class="add" data-add="${i}">Add · ₹${d.p}</button></div></div>`).join('');
+const F_={v:0,jain:0,nut:0,gf:0};let fH=5,fC='';
+const fcs=$$('.fc');['v','jain','nut','gf'].forEach((k,i)=>{fcs[i].dataset.f=k});
+function applyF(){let n=0,tot=0;$$('.dish').forEach(el=>{const d=D[+el.dataset.i];const inCat=!fC||d.c===fC;el.hidden=!inCat;if(!inCat)return;tot++;
+  const ok=!!((!F_.v||d.v)&&(!F_.jain||d.jain)&&(!F_.nut||d.nut)&&(!F_.gf||d.gf)&&d.h<=fH);el.classList.toggle('dim',!ok);if(!ok)el.classList.remove('open');n+=ok});
+ $('#count').innerHTML=`<b>${n}</b> of ${tot} dishes`;$$('#chilis b').forEach(b=>b.classList.toggle('off',+b.dataset.h>fH))}
+fcs.forEach(b=>b.addEventListener('click',()=>{const k=b.dataset.f;F_[k]=!F_[k];b.classList.toggle('on',F_[k]);applyF()}));
+$$('#chilis b').forEach(b=>b.addEventListener('click',()=>{fH=(fH===+b.dataset.h&&fH<5)?5:+b.dataset.h;applyF()}));
+const mtabs=$$('#menu .tabs span'),CATS=['','small','dum','bread','sweet','drink'];
+mtabs.forEach((t,i)=>t.addEventListener('click',()=>{mtabs.forEach(x=>x.classList.toggle('on',x===t));fC=CATS[i];applyF()}));
+$('#grid').addEventListener('click',e=>{const a=e.target.closest('[data-add]');if(a){e.stopPropagation();addToCart(+a.dataset.add);return}
+ const d=e.target.closest('.dish');if(!d||d.classList.contains('dim'))return;const was=d.classList.contains('open');$$('.dish.open').forEach(x=>x.classList.remove('open'));d.classList.toggle('open',!was)});
+applyF();
 // ---------- floor plan ----------
 const T=[ // id,x,y,w,h,shape,seats,zone,state,note
  ['T1',130,70,64,52,'r',2,'Window','book'],['T2',230,70,64,52,'r',2,'Window','free','Window seat, looks onto the street'],['T3',330,70,64,52,'r',2,'Window','book'],['T4',430,70,64,52,'r',2,'Window','free'],
@@ -737,18 +928,53 @@ const T=[ // id,x,y,w,h,shape,seats,zone,state,note
   else{const per=Math.ceil(seats/2);for(let i=0;i<per;i++){const cx=x+(i+.5)*w/per;g+=`<rect x="${cx-8}" y="${y-14}" width="16" height="9" rx="3" fill="#15110E" opacity=".75"/><rect x="${cx-8}" y="${y+h+5}" width="16" height="9" rx="3" fill="#15110E" opacity=".75"/>`}g+=`<rect class="s" x="${x}" y="${y}" width="${w}" height="${h}" rx="10" stroke-width="2.5"/>`}
   g+=`<text x="${x+w/2}" y="${y+h/2+4}" text-anchor="middle">${id}</text></g>`});
  $('#fp').innerHTML=g;})();
-let pax=2;function paxUpd(){$('#pax').textContent=pax+' guests';T.forEach(t=>{const el=$('#tb-'+t[0]);el.classList.toggle('small',t[6]<pax&&t[8]==='free')})}
-$('#plus').addEventListener('click',()=>{pax=Math.min(8,pax+1);paxUpd()});
-$$('.dt').forEach(d=>d.addEventListener('click',()=>{$$('.dt').forEach(x=>x.classList.remove('on'));d.classList.add('on')}));
-$$('.tm').forEach(d=>d.addEventListener('click',()=>{if(d.classList.contains('x'))return;$$('.tm').forEach(x=>x.classList.remove('on'));d.classList.add('on')}));
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],DOWF=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],MONF=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const rdays=[];{const d=new Date();d.setHours(12,0,0,0);for(let i=0;i<5;i++){rdays.push(new Date(d));d.setDate(d.getDate()+1)}}
+const RT=['7:30','7:45','8:00','8:30','8:45','9:00','9:30','10:00'];
+const rs={pax:2,day:2,time:null,table:null,occ:null},held={};
+const BASE=Object.fromEntries(T.map(t=>[t[0],t[8]]));
+const tKey=id=>rs.day+'-'+(rs.time??3)+'-'+id;
+function tState(id){if(held[tKey(id)])return 'book';if(rs.day===2&&(rs.time===null||rs.time===3))return BASE[id];const i=T.findIndex(t=>t[0]===id);return (i*7+rs.day*5+(rs.time??3)*3)%5<2?'book':'free'}
+const timeFull=i=>rs.day===2?[0,2,5].includes(i):(i*3+rs.day*2)%7<2;
+{const f=document.createElement('div');f.className='fps';$('#fp').before(f);f.appendChild($('#fp'))}
+$('.sel').insertAdjacentHTML('beforebegin','<div class="fl"><span>Name</span><span>for the booking</span></div><input class="nm" id="rname" placeholder="Your name" autocomplete="given-name" maxlength="24">');
+$('#rbtn').insertAdjacentHTML('beforebegin','<div class="rhint" id="rhint" role="alert"></div>');
+$('.conf .cc').insertAdjacentHTML('beforeend','<button class="cnew" id="rnew">Make another booking</button>');
+function renderDates(){$('.dates').innerHTML=rdays.map((d,i)=>`<div class="dt${i===rs.day?' on':''}" data-i="${i}"${i===2?' id="sat"':''}>${i?DOW[d.getDay()]:'Today'}<b>${d.getDate()}</b></div>`).join('');$$('.form .fl')[1].lastElementChild.textContent=MONF[rdays[rs.day].getMonth()]}
+function renderTimes(){if(rs.time!=null&&timeFull(rs.time))rs.time=null;$('.times').innerHTML=RT.map((t,i)=>`<button class="tm${timeFull(i)?' x':''}${rs.time===i?' on':''}" data-i="${i}"${i===3?' id="t830"':''}>${t}</button>`).join('')}
+function renderTables(){T.forEach(t=>{const el=$('#tb-'+t[0]),st=tState(t[0]);el.classList.toggle('free',st==='free');el.classList.toggle('book',st==='book');el.classList.toggle('small',st==='free'&&t[6]<rs.pax)});
+ if(rs.table){const t=T.find(x=>x[0]===rs.table);if(tState(rs.table)!=='free'||t[6]<rs.pax)rs.table=null}
+ $$('.tb').forEach(x=>x.classList.toggle('pick',x.dataset.id===rs.table));const t=rs.table&&T.find(x=>x[0]===rs.table);$('#selt').textContent=t?`${t[0]} · ${t[7]}`:'—';$('#rhint').textContent=''}
+function paxUpd(){$('#pax').textContent=rs.pax+(rs.pax===1?' guest':' guests');renderTables()}
+$('#plus').addEventListener('click',()=>{rs.pax=Math.min(12,rs.pax+1);paxUpd()});
+$('#minus').addEventListener('click',()=>{rs.pax=Math.max(1,rs.pax-1);paxUpd()});
+$('.dates').addEventListener('click',e=>{const d=e.target.closest('.dt');if(!d)return;rs.day=+d.dataset.i;renderDates();renderTimes();renderTables()});
+$('.times').addEventListener('click',e=>{const b=e.target.closest('.tm');if(!b)return;if(b.classList.contains('x')){toast(`${b.textContent} PM is fully booked. Times without a strike-through still have tables.`);return}rs.time=+b.dataset.i;renderTimes();renderTables()});
+const whenTxt=()=>rs.time==null?'tonight':'at '+RT[rs.time]+' PM';
 function tipFor(id){const t=T.find(x=>x[0]===id);const el=$('#tb-'+id).getBoundingClientRect(),w=$('#fpw').getBoundingClientRect();const tip=$('#tip');
- tip.innerHTML=`<b>${id} · ${t[7]}</b>${t[6]} seats · ${t[9]||'Free at 8:30 PM'}<br><span>Held for 10 min while you book</span>`;tip.style.left=(el.right-w.left+10)+'px';tip.style.top=(el.top-w.top-10)+'px';tip.classList.add('on')}
-$$('.tb.free').forEach(el=>{el.addEventListener('mouseenter',()=>tipFor(el.dataset.id));el.addEventListener('mouseleave',()=>$('#tip').classList.remove('on'));
- el.addEventListener('click',()=>{$$('.tb').forEach(x=>x.classList.remove('pick'));el.classList.add('pick');$('#selt').textContent=el.dataset.id+' · Courtyard'})});
-$('#anniv').addEventListener('click',()=>{$('#anniv').classList.add('on');$('#ocn').classList.add('on')});
-$('#rbtn').addEventListener('click',()=>{$('#tip').classList.remove('on');$('#conf').classList.add('on');$('#left').textContent='Tonight: 6 tables left'});
+ tip.innerHTML=`<b>${id} · ${t[7]}</b>${t[6]} seats · ${t[9]||'Free '+whenTxt()}<br><span>Held for 10 min while you book</span>`;tip.style.left=Math.max(8,Math.min(el.right-w.left+10,w.width-240))+'px';tip.style.top=Math.max(8,el.top-w.top-10)+'px';tip.classList.add('on')}
+let tipT;const fp=$('#fp');
+fp.addEventListener('mouseover',e=>{const g=e.target.closest('.tb.free[data-id]');if(g&&matchMedia('(hover:hover)').matches)tipFor(g.dataset.id)});
+fp.addEventListener('mouseout',e=>{if(e.target.closest('.tb[data-id]')&&matchMedia('(hover:hover)').matches)$('#tip').classList.remove('on')});
+fp.addEventListener('click',e=>{const g=e.target.closest('.tb');if(!g)return;const id=g.dataset.id;if(!id){toast('Bar stools are walk-in only. No booking needed.');return}const t=T.find(x=>x[0]===id);
+ if(tState(id)==='book'){toast(`${id} is already booked ${whenTxt()}. Tables shown in white are free.`);return}
+ if(t[6]<rs.pax){toast(`${id} seats ${t[6]}. Choose a larger table for ${rs.pax} guests.`);return}
+ rs.table=id;renderTables();if(!matchMedia('(hover:hover)').matches){tipFor(id);clearTimeout(tipT);tipT=setTimeout(()=>$('#tip').classList.remove('on'),2600)}});
+const OCN={Birthday:'We will bring out a slice of qubani ka meetha with a candle, on the house.',Anniversary:'The kitchen will send out a candle on your double ka meetha.',Business:'We will seat you somewhere quieter and can split the bill across cards.','First date':'A corner table, and we promise not to hover.'};
+$$('.oc').forEach(b=>b.addEventListener('click',()=>{const o=b.textContent,off=rs.occ===o&&!FILM.on;rs.occ=off?null:o;$$('.oc').forEach(x=>x.classList.toggle('on',x===b&&!off));$('#ocn').textContent=off?'':OCN[o];$('#ocn').classList.toggle('on',!off)}));
+let tablesLeft=7;
+$('#rbtn').addEventListener('click',()=>{const h=$('#rhint');if(rs.time==null){h.textContent='Choose a time first.';return}if(!rs.table){h.textContent='Tap a free table on the floor plan.';if(innerWidth<1000)goTo('#fpw');return}
+ const t=T.find(x=>x[0]===rs.table),d=rdays[rs.day],nm=$('#rname').value.trim().replace(/[<>&]/g,''),day=rs.day?DOWF[d.getDay()]:'tonight';
+ $('#tip').classList.remove('on');const c=$('#conf');c.querySelector('.k').textContent='Confirmed · SA-R-'+(4471+Object.keys(held).length);
+ c.querySelector('h3').innerHTML=nm?`See you ${day}, <em>${nm}.</em>`:`See you <em>${day}.</em>`;
+ c.querySelector('h3').nextElementSibling.textContent=(t[9]||t[7])+'.';
+ const rw=c.querySelectorAll('.rw span:last-child');rw[0].textContent=`${t[0]} · ${rs.pax} ${rs.pax===1?'guest':'guests'}`;rw[1].textContent=`${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]} · ${RT[rs.time]} PM`;
+ c.querySelector('.wb').textContent=rs.occ?`The kitchen knows it's ${rs.occ==='Anniversary'?'your anniversary':rs.occ==='Birthday'?'a birthday':rs.occ==='Business'?'a business dinner':'a first date'}. ${OCN[rs.occ]}`:'We will send a reminder on WhatsApp two hours before. Reply to it if your plans change.';
+ held[tKey(rs.table)]=1;c.classList.add('on');if(rs.day===0||FILM.on){tablesLeft=Math.max(0,tablesLeft-1);$('#left').textContent=`Tonight: ${tablesLeft} tables left`}});
+function closeConf(){$('#conf').classList.remove('on');rs.table=null;renderTables()}
+$('#rnew').addEventListener('click',closeConf);
+renderDates();renderTimes();paxUpd();
 // ---------- order ----------
-$('#cartitems').innerHTML=[[0,1,'Serves 2 · extra raita'],[3,1,'Medium'],[6,2,'']].map(([i,q,n])=>`<div class="ci">${plate('c'+i,D[i].a)}<div><b>${D[i].n}</b><span>${n||'—'}</span></div><div class="q">₹${D[i].p*q}<small>× ${q}</small></div></div>`).join('');
 (function(){let s=17;const r=()=>((s=s*16807%2147483647)/2147483647);let g='<rect width="400" height="470" fill="#221c17"/>';
  for(let i=0;i<12;i++){const y=i*42+r()*10;g+=`<path d="M-10 ${y} L410 ${y+(r()-.5)*40}" stroke="#2f2720" stroke-width="${r()>.7?7:3}"/>`}
  for(let i=0;i<9;i++){const x=i*48+r()*10;g+=`<path d="M${x} -10 L${x+(r()-.5)*40} 480" stroke="#2f2720" stroke-width="${r()>.7?7:3}"/>`}
@@ -760,11 +986,71 @@ $('#cartitems').innerHTML=[[0,1,'Serves 2 · extra raita'],[3,1,'Medium'],[6,2,'
  $('#mm').innerHTML=g;})();
 function placeRider(t){const p=$('#rr'),L=p.getTotalLength(),pt=p.getPointAtLength(L*t);$('#rd').setAttribute('transform',`translate(${pt.x} ${pt.y})`)}
 placeRider(0);
-$('#pay').addEventListener('click',async()=>{$('#pay').textContent='Paid ✓  UPI · Ref 4471 2093';$('#trk').classList.add('live');$('#g1').classList.add('on');await FILM.wait(700);$('#g2').classList.add('on','cur');
- if(!FILM.on){await FILM.tween(4000,t=>{const sec=Math.round(18*60-t*95);$('#rgt').textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');$('#rg').setAttribute('stroke-dashoffset',207-207*(t*.9))},t=>t);$('#g2').classList.remove('cur');$('#g3').classList.add('on');$('#g3 .t').textContent='8:16';await FILM.wait(700);$('#g4').classList.add('on','cur');$('#g4 .t').textContent='8:19';await FILM.tween(5000,t=>placeRider(t*.85),t=>t)}});
-function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;$('nav').style.display=v==='kds'?'none':''}
+const cart=new Map([[0,1],[3,1],[6,2]]);let payM='UPI',paid=false,runId=0;
+const hm=(m=0)=>{const d=new Date(Date.now()+m*60000);let h=d.getHours()%12||12;return h+':'+String(d.getMinutes()).padStart(2,'0')};
+function totals(){let sub=0;cart.forEach((q,i)=>sub+=D[i].p*q);const gst=Math.round(sub*.05),pack=sub?40:0;return{sub,gst,pack,total:sub+gst+pack}}
+function renderCart(){const t=totals();let n=0;cart.forEach(q=>n+=q);
+ $('#cartitems').innerHTML=cart.size?[...cart].map(([i,q])=>`<div class="ci">${plate('c'+i,D[i].a)}<div><b>${D[i].n}</b><span>${money(D[i].p)} each</span></div>${paid?`<div class="q">${money(D[i].p*q)}<small>× ${q}</small></div>`:`<div class="qty"><button data-d="-1" data-i="${i}" aria-label="Remove one ${D[i].n}">−</button><em>${q}</em><button data-d="1" data-i="${i}" aria-label="Add one ${D[i].n}">+</button></div><div class="q">${money(D[i].p*q)}</div>`}</div>`).join(''):'<div class="ce">Your order is empty. Add a few dishes from the menu.</div>';
+ $('.tot').innerHTML=`<span>Total · incl. ${money(t.gst)} GST and ${money(t.pack)} packaging</span><b>${money(t.total)}</b>`;
+ if(!paid){$('#pay').textContent=cart.size?(payM==='Pay on delivery'?`Place order · pay ${money(t.total)} on delivery`:`Pay ${money(t.total)}`):'Add dishes to order';$('#pay').classList.toggle('off',!cart.size)}
+ $('#ccount').textContent=n&&!paid?n:'';}
+function addToCart(i){if(paid){toast('Your order is already with the kitchen. Start a new order when it arrives.');return}cart.set(i,(cart.get(i)||0)+1);renderCart();toast(`${D[i].n} added to your order.`)}
+$('#cartitems').addEventListener('click',e=>{const b=e.target.closest('button[data-d]');if(!b||paid)return;const i=+b.dataset.i,q=(cart.get(i)||0)+ +b.dataset.d;if(q<=0)cart.delete(i);else cart.set(i,Math.min(9,q));renderCart()});
+const pm=$$('.upi span');pm.forEach(sp=>sp.addEventListener('click',()=>{if(paid)return;payM=sp.textContent;pm.forEach(x=>x.classList.toggle('on',x===sp));renderCart()}));
+function resetOrder(){runId++;paid=false;$('#trk').classList.remove('live');$$('.sg').forEach(g=>g.classList.remove('on','cur'));$('#g3 .t').textContent='—';$('#g4 .t').textContent='—';$('#g4 b').textContent='Imran is on the way';placeRider(0);$('#rg').setAttribute('stroke-dashoffset',207);renderCart()}
+$('#pay').addEventListener('click',async()=>{if(paid){if($('#pay').dataset.again){delete $('#pay').dataset.again;resetOrder()}return}
+ if(!cart.size){toast('Your order is empty. Add a few dishes from the menu.');goTo('#menu');return}
+ const id=++runId,t=totals(),film=FILM.on,hasB=cart.has(0);paid=true;renderCart();
+ $('#pay').textContent=payM==='UPI'?'Paid ✓  UPI · Ref 4471 2093':payM==='Card'?'Paid ✓  Card ending 4471':`Order placed ✓  Pay ${money(t.total)} on delivery`;
+ $('#g2 b').textContent=hasB?'Biryani on dum':'In the kitchen';$('#g2 b').nextElementSibling.textContent=hasB?"Your portion is from tonight's 8:15 pot":'Station 2 has started your order';$('.dum').style.display=hasB?'':'none';
+ if(!film){orderNo++;$('#trk .k span').textContent='Order SA-'+orderNo;{const e=new Date(Date.now()+42*60000);$('#eta').textContent='Arriving ~'+hm(42)+(e.getHours()>=12?' PM':' AM')}$('#g1 .t').textContent=hm();$('#g2t').textContent=hm(2);
+  kdsAdd({h:`Delivery · SA-${orderNo}`,sub:`Online · Film Nagar · ${payM==='Pay on delivery'?'cash on delivery':'paid by '+payM}`,items:[...cart].map(([i,q])=>[q,D[i].n])});
+  toast('Order sent to the kitchen. Open "Kitchen display" in the bar below to see the ticket.')}
+ $('#trk').classList.add('live');$('#g1').classList.add('on');await FILM.wait(700);if(id!==runId)return;$('#g2').classList.add('on','cur');
+ if(film)return;
+ if(innerWidth<1000)goTo('#trk');
+ await FILM.tween(hasB?6000:3500,t=>{if(id!==runId)return;const sec=Math.round(18*60-t*1075);$('#rgt').textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');$('#rgm').textContent=Math.max(0,Math.ceil(sec/60));$('#rg').setAttribute('stroke-dashoffset',207-207*t)},t=>t);if(id!==runId)return;
+ $('#g2').classList.remove('cur');$('#g3').classList.add('on');$('#g3 .t').textContent=hm(20);await FILM.wait(1200);if(id!==runId)return;
+ $('#g4').classList.add('on','cur');$('#g4 .t').textContent=hm(23);await FILM.tween(8000,t=>{if(id===runId)placeRider(t)},t=>t);if(id!==runId)return;
+ $('#g4').classList.remove('cur');$('#g4 b').textContent='Delivered';$('#pay').textContent='Start a new order';$('#pay').dataset.again=1;toast('Imran has arrived with your order. Enjoy your meal.')});
 
-FILM.init({views:[{name:'Website',go:()=>show('home')},{name:'Kitchen display',go:()=>{show('kds');$('#kds').classList.add('go')}}],reset:()=>show('home'),no:'02',name:'Saalan',short:'Restaurant',sector:'Concept 02 — Restaurant',host:'saalan.in',caps:5,
+// ---------- kitchen display ----------
+let orderNo=2295;
+const kcols=$$('.kg .col').slice(0,3),kbox=i=>i?kcols[i]:$('#cnew');
+$('.kg').insertAdjacentHTML('beforebegin','<div class="khint">Tap a ticket to move it to the next stage.</div>');
+const secOf=el=>{const [a,b]=el.textContent.split(':').map(Number);return a*60+b},mmss=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+function kCount(){kcols.forEach(c=>c.querySelector('h5 span:last-child').textContent=c.querySelectorAll('.tkt').length)}
+function kdsAdd(o){const el=document.createElement('div');el.className='tkt new';el.innerHTML=`<div class="th"><b>${o.h}</b><span class="mono">00:00</span></div><div class="sub">${o.sub}</div>`+o.items.map(([q,n])=>`<div class="it"><b>${q}</b>${n}</div>`).join('')+(o.nt?`<div class="nt">${o.nt}</div>`:'');$('#cnew').prepend(el);kCount()}
+$('.kg').addEventListener('click',e=>{const t=e.target.closest('.tkt');if(!t)return;const i=kcols.findIndex(c=>c.contains(t));if(i<0)return;const name=t.querySelector('.th b').textContent;
+ if(i===2){t.style.opacity=0;t.style.transform='translateX(20px)';setTimeout(()=>{t.remove();kCount()},350);toast(`${name}: handed over.`);return}
+ t.classList.remove('new','warn','late');void t.offsetWidth;t.classList.add('new');kbox(i+1).appendChild(t);kCount();toast(`${name}: ${i?'ready at the pass.':'cooking started.'}`)});
+const POOL=[{h:'Table 5',sub:'Dine-in · 4 guests · Sana',items:[[2,'Shikampuri kebab'],[1,'Kacchi gosht biryani'],[4,'Rumali roti']]},{h:'Takeaway · SA-2301',sub:'Pickup in 25 min',items:[[1,'Hyderabadi haleem'],[2,'Sheermal']]},{h:'Table 2',sub:'Dine-in · 2 guests',items:[[1,'Paneer 65'],[1,'Bagara baingan'],[2,'Sulaimani chai']],nt:'Peanut allergy: confirm the gravy with the guest'},{h:'Delivery · SA-2304',sub:'Online · Banjara Hills · paid by UPI',items:[[2,'Kacchi gosht biryani'],[1,'Mirchi ka salan'],[2,'Double ka meetha']]}];
+let ktick=0,kpool=0;
+setInterval(()=>{if(FILM.on)return;const d=new Date();$('#kclk').textContent=d.toLocaleTimeString('en-GB');if(!$('#v-kds').classList.contains('on')||document.hidden)return;
+ $$('.kg .tkt .th .mono').forEach(m=>{m.textContent=mmss(secOf(m)+1)});
+ kcols[1].querySelectorAll('.tkt').forEach(t=>{const s=secOf(t.querySelector('.th .mono'));t.classList.toggle('late',s>=1080);t.classList.toggle('warn',s>=720&&s<1080)});
+ if(++ktick%22===0&&$$('#cnew .tkt').length<4){kdsAdd(POOL[kpool++%POOL.length])}},1000);
+{const d=new Date();$('.kh .r span').textContent=`${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}`}
+const ktabs=$$('.kh .tb2 span'),invs=$$('.kg .inv');
+ktabs.forEach((t,i)=>t.addEventListener('click',()=>{if(i===1){show('home');setTimeout(()=>goTo('#reserve'),80);toast('The host stand uses the same live floor plan your guests book from.');return}
+ ktabs.forEach(x=>x.classList.toggle('on',x===t));if(i>1){const el=invs[i-2];el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}}));
+kCount();
+
+// ---------- views + nav ----------
+function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;$('nav').style.display=v==='kds'?'none':'';
+ $$('#demo-bar button[data-i]').forEach((b,i)=>b.classList.toggle('on',i===(v==='kds'?1:0)));if(v==='kds'){ktabs.forEach((x,i)=>x.classList.toggle('on',!i));$('#kds').classList.add('go')}}
+const nl=$$('nav .links a');nl[2].insertAdjacentHTML('beforeend','<i id="ccount"></i>');
+['#menu','#reserve','#order',null,'#story'].forEach((sel,i)=>nl[i].addEventListener('click',()=>{if(sel){goTo(sel);return}
+ rs.pax=12;paxUpd();goTo('#reserve');toast('The private room seats 12. Choose a date and time to see if it is free.')}));
+$('nav .logo').style.cursor='pointer';$('nav .logo').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+$('#navres').addEventListener('click',()=>goTo('#reserve'));
+const hb=$$('.hero .cta .btn');hb[0].addEventListener('click',()=>goTo('#reserve'));hb[1].addEventListener('click',()=>goTo('#order'));
+renderCart();
+function resetAll(){Object.keys(held).forEach(k=>delete held[k]);Object.assign(rs,{pax:2,day:2,time:null,table:null,occ:null});$$('.oc').forEach(x=>x.classList.remove('on'));$('#ocn').classList.remove('on');$('#rname').value='';
+ $('#conf').classList.remove('on');renderDates();renderTimes();paxUpd();Object.keys(F_).forEach(k=>F_[k]=0);fcs.forEach(b=>b.classList.remove('on'));fH=5;fC='';mtabs.forEach((x,i)=>x.classList.toggle('on',!i));applyF();
+ cart.clear();[[0,1],[3,1],[6,2]].forEach(([i,q])=>cart.set(i,q));payM='UPI';pm.forEach((x,i)=>x.classList.toggle('on',!i));delete $('#pay').dataset.again;resetOrder();$('.dum').style.display='';show('home')}
+
+FILM.init({views:[{name:'Website',go:()=>show('home')},{name:'Kitchen display',go:()=>show('kds')}],reset:resetAll,no:'02',name:'Saalan',short:'Restaurant',sector:'Concept 02 — Restaurant',host:'saalan.in',caps:5,
  desc:'A Deccan kitchen with a website that does real work: a filterable menu, live table booking on the actual floor plan, and delivery tracked from the kitchen.',
  displayFont:"'Cormorant Garamond',serif",nameSize:190,nameWeight:500,nameStyle:'font-style:italic;',cardBg:'#15110E',cardFg:'#EFE5D3',
  mods:['Restaurant website','Smart menu','Table booking on floor plan','Deposits via UPI','Online ordering','Kitchen display system','Inventory alerts','Guest CRM']},

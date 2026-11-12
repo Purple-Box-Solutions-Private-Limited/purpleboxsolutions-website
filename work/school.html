@@ -63,6 +63,18 @@ html.film { scroll-behavior:auto !important; }
 #demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
 #demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
 #demo-bar .db-tour:hover { background:#7c4bec; }
+#demo-bar a.db-pb { text-decoration:none; }
+#demo-bar a.db-pb:hover { color:#fff; }
+#demo-bar button { white-space:nowrap; flex:none; }
+@media (max-width:900px) {
+  #demo-bar { left:8px; right:8px; bottom:8px; transform:none; overflow-x:auto; scrollbar-width:none; border-radius:14px; }
+  #demo-bar::-webkit-scrollbar { display:none; }
+  #demo-bar .db-tour { display:none; }
+  #demo-bar .db-pb { padding:0 8px 0 6px; flex:none; }
+  #demo-bar .db-pb span { display:none; }
+}
+#toast { position:fixed; left:50%; bottom:84px; transform:translate(-50%,12px); z-index:10000; width:max-content; max-width:min(92vw,460px); padding:13px 18px; border-radius:12px; background:#141416; color:#fff; font:500 14px/1.4 'Instrument Sans',system-ui,sans-serif; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); opacity:0; pointer-events:none; transition:opacity .25s, transform .3s; }
+#toast.on { opacity:1; transform:translate(-50%,0); }
 #tour-again { position:fixed; right:30px; top:60px; z-index:9999; font:600 14px 'Instrument Sans',sans-serif; color:#111; background:#fff; border:0; border-radius:12px; padding:12px 18px; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.4); }
 </style>
 <style>
@@ -261,6 +273,162 @@ nav .wrap{display:flex;align-items:center;height:70px;gap:44px}
 .risk .act{margin-left:auto;font-size:12.5px;font-weight:600;color:var(--blue);white-space:nowrap}
 .auto{margin-top:12px;padding:14px;border-radius:14px;background:var(--ink);color:#fff;font-size:13.5px;line-height:1.5}
 .auto b{color:var(--hi)}
+
+/* ---------- live-demo additions ---------- */
+.links a:hover{color:var(--ink)}
+.opts div{cursor:pointer}
+.smp{display:block;margin-top:10px;font-size:13.5px;color:var(--blue);font-weight:600;text-decoration:underline}
+.hint{font-size:13.5px;color:#c2411f;margin:10px 0 0;font-weight:500}
+.hint:empty{display:none}
+.flash{animation:fl 1.5s ease}
+@keyframes fl{0%,60%{box-shadow:0 0 0 3px var(--blue)}100%{box-shadow:0 0 0 3px transparent}}
+.tk2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tkc{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}
+.tkc.y{background:var(--hi);border-color:var(--hi)}
+.tkc h3{font-size:30px;letter-spacing:-.035em;line-height:1.05;margin:14px 0 10px;font-weight:800}
+.tkc p{color:var(--ink2);line-height:1.55;margin-bottom:20px;max-width:520px}
+.tkc.y p{color:var(--ink)}
+.tkc .fr{margin-bottom:14px}
+.tkc .fr label{color:var(--ink2)}
+.tkc .btn{margin-top:14px;height:50px}
+.csl{display:flex;gap:8px;flex-wrap:wrap}
+.cs{height:44px;padding:0 16px;border-radius:12px;border:1.5px solid var(--line);font-weight:600;font-size:14.5px;background:#fff}
+.cs.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.okc{padding:18px;border-radius:16px;background:#fff;border:1.5px solid var(--ink);line-height:1.55;font-size:15px}
+.okc b{display:block;font-size:19px;letter-spacing:-.02em;margin-bottom:4px}
+.sg3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.dr{padding:11px 0;border-top:1px solid var(--line2)}
+.dl .dr:first-child{border-top:0}
+.dr b{display:block;font-size:14.5px;line-height:1.3}
+.dr span{font-size:12.5px;color:var(--mute)}
+.dr em{font-style:normal;color:var(--blue);font-weight:600}
+.dr.new{animation:vin .5s ease}
+.ask{display:flex;gap:8px;margin-top:10px}
+.ask input{flex:1;min-width:0;height:44px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:15px;outline:0}
+.ask input:focus{border-color:var(--ink)}
+.big2{font-size:44px;font-weight:800;letter-spacing:-.05em;line-height:1;margin:14px 0 8px}
+#feec p{font-size:13.5px;color:var(--ink2);line-height:1.5;margin-bottom:16px}
+.nt>div:nth-child(2){min-width:0}
+#talk{padding-bottom:130px}
+
+@media(max-width:1240px){
+ .wrap{padding:0 32px}
+ nav .wrap{gap:22px}
+ .links{gap:18px;font-size:14.5px}
+ .logo small{display:none}
+ .hero h1{font-size:72px}
+ .hero p{font-size:17px}
+ .plot svg{height:320px}
+ .sh h2{font-size:46px}
+ .sent{font-size:34px}
+ .pk{height:52px;padding:0 14px;border-radius:14px}
+ .opts{top:58px}
+ .match{grid-template-columns:1fr 1fr}
+ .mc.main{grid-column:1/-1}
+ .sg{grid-template-columns:minmax(0,1fr)}
+ .sg3{grid-template-columns:1fr 1fr}
+ .smh{flex-direction:column;align-items:flex-start;gap:16px}
+ .today{flex-wrap:wrap}
+ .par{min-height:0;padding:50px 0 120px}
+ .par .wrap{grid-template-columns:1fr;gap:40px}
+ .par h2{font-size:56px}
+ .phs{width:700px;max-width:100%;margin:0 auto}
+ .kk{grid-template-columns:1fr 1fr}
+ .sg2{grid-template-columns:minmax(0,1fr)}
+ .stf{min-height:0;padding-bottom:110px}
+ .st{min-height:0}
+ .sm{padding-bottom:110px}
+ .tkc h3{font-size:26px}
+}
+@media(max-width:860px){
+ .wrap{padding:0 18px}
+ nav{position:static}
+ nav .wrap{flex-wrap:wrap;height:auto;padding-top:12px;gap:0 12px}
+ .logo{font-size:22px}
+ .links{order:3;width:100%;overflow-x:auto;white-space:nowrap;gap:24px;padding:12px 0;margin-top:10px;border-top:1px solid var(--line2);scrollbar-width:none}
+ .links::-webkit-scrollbar{display:none}
+ .nr .btn{height:38px;padding:0 12px;font-size:13.5px}
+ .nr .btn.k{display:none}
+ .hero{padding:32px 0 44px}
+ .hero .wrap{grid-template-columns:minmax(0,1fr);gap:30px}
+ .hero h1{font-size:52px}
+ .hero p{font-size:16.5px;margin:20px 0 22px}
+ .hero .cta{flex-wrap:wrap}
+ .hero .cta .btn{height:48px!important;padding:0 16px!important}
+ .plot{padding:16px;border-radius:18px}
+ .plot .h{flex-direction:column;gap:6px}
+ .plot .h b{font-size:17px}
+ .plot svg{height:250px}
+ .plot .ft{gap:8px}
+ .plot .ft div b{font-size:24px}
+ .plot .ft div span{font-size:11.5px}
+ .sec{padding:52px 0}
+ .sh{flex-direction:column;align-items:flex-start;gap:14px;margin-bottom:24px}
+ .sh h2{font-size:36px}
+ .sent{font-size:25px;line-height:1.7}
+ .pk{height:44px;padding:0 12px;border-radius:12px;border-width:1.5px;gap:8px;position:static}
+ .pk::after{width:8px;height:8px}
+ .opts{position:fixed;left:12px;right:12px;top:auto;bottom:70px;min-width:0;z-index:80;font-size:15.5px;box-shadow:0 0 0 100vmax rgba(20,33,61,.35),0 24px 40px -20px rgba(20,33,61,.4)}
+ .match{grid-template-columns:minmax(0,1fr);gap:12px}
+ .mc{padding:18px}
+ .mc h3{font-size:23px}
+ .mc .rw{gap:12px;font-size:13.5px}
+ .mc .rw span:last-child{text-align:right}
+ .mc .big{font-size:40px}
+ .ag{grid-template-columns:minmax(0,1fr);gap:16px}
+ .two{grid-template-columns:1fr;gap:0}
+ .fb,.feeb{padding:18px;border-radius:18px}
+ .drop{height:auto;min-height:88px;padding:14px;text-align:center}
+ .drop.done{padding:12px 14px;text-align:left}
+ .sch{gap:14px}
+ .sch b{font-size:30px}
+ .sch span{font-size:13px}
+ .plan{padding:14px;gap:10px}
+ .plan b{font-size:15px}
+ .plan .p{font-size:16px;white-space:nowrap}
+ .strike{display:block;margin:0;font-size:12.5px}
+ #hold{font-size:14px!important;height:auto!important;min-height:54px;padding:10px 14px;text-align:center}
+ .tk2{grid-template-columns:minmax(0,1fr)}
+ .tkc{padding:20px}
+ .tkc h3{font-size:24px}
+ #talk{padding-bottom:120px}
+ .st{grid-template-columns:minmax(0,1fr)}
+ .side{display:flex;gap:4px;overflow-x:auto;padding:10px 14px;border-right:0;border-bottom:1px solid var(--line2);scrollbar-width:none}
+ .side::-webkit-scrollbar{display:none}
+ .side .logo,.side .cd{display:none}
+ .side a{white-space:nowrap;margin:0;padding:9px 12px}
+ .sm{padding:20px 18px 110px}
+ .smh h2{font-size:30px}
+ .today{flex-direction:column;width:100%}
+ .cls{justify-content:space-between}
+ .c{padding:16px;min-width:0}
+ .c h4{flex-direction:column;align-items:flex-start;gap:4px}
+ .rk{gap:8px 20px;flex-wrap:wrap}
+ .rk b{font-size:42px}
+ #rchart{height:190px}
+ .hm{grid-template-columns:70px repeat(10,1fr);gap:3px;font-size:11.5px}
+ .hm i{height:24px;border-radius:4px}
+ .fix{flex-wrap:wrap;gap:12px}
+ .fix>div:nth-child(2){flex:1;min-width:0}
+ .fix .btn{margin-left:0;width:100%;justify-content:center}
+ .sg3{grid-template-columns:minmax(0,1fr)}
+ .par{padding:36px 0 110px}
+ .par h2{font-size:42px}
+ .par p{font-size:16px}
+ .phs{height:auto;display:flex;flex-direction:column;align-items:center;gap:22px;width:auto}
+ .ph{position:relative;left:auto;top:auto;transform:none;width:min(330px,100%);height:auto;min-height:560px}
+ .stf{padding:16px 14px 110px}
+ .sfh{flex-wrap:wrap;gap:10px 14px}
+ .sfh .tb{order:3;width:100%;overflow-x:auto;scrollbar-width:none}
+ .sfh .tb span{white-space:nowrap}
+ .kk{gap:10px}
+ .kq{padding:14px;min-width:0}
+ .kq>b{font-size:28px}
+ .tbl{overflow-x:auto}
+ .tr{min-width:540px}
+ .risk{flex-wrap:wrap}
+ .risk .act{margin-left:46px;width:100%}
+}
 </style>
 </head>
 <body>
@@ -314,6 +482,16 @@ nav .wrap{display:flex;align-items:center;height:70px;gap:44px}
     </div>
   </div>
 </div></section>
+
+<section class="sec" id="talk"><div class="wrap">
+  <div class="sh"><div><div class="lab">Two ways to start</div><h2 style="margin-top:14px">Sit the test, or talk to us first.</h2></div><p>Both are free. Neither commits you to anything.</p></div>
+  <div class="tk2">
+    <div class="tkc y"><div class="lab" style="color:var(--ink)">Parabola Scholarship Test · <span class="satd"></span></div><h3>Up to 90% off the fee, decided by one 90-minute paper.</h3><p>10 AM at all four centres, or online with a camera on. Maths, science and reasoning from the current class.</p>
+      <div id="satf"><div class="two"><div class="fr"><label for="satn">Student's name</label><input id="satn" autocomplete="name"></div><div class="fr"><label for="satm">Mobile for the hall ticket</label><input id="satm" inputmode="numeric" placeholder="10 digits" autocomplete="tel-national"></div></div><div class="hint" id="sath" role="alert"></div><button class="btn k" id="satb" type="button">Register for the test</button></div></div>
+    <div class="tkc"><div class="lab">Free counselling · 20 minutes</div><h3>Not sure which course fits? Ask a counsellor.</h3><p>We look at the last report card and tell you plainly which batch makes sense, including when the answer is none of ours.</p>
+      <div id="csf"><div class="fr"><label>Pick a time</label><div class="csl" id="cslots"></div></div><div class="fr"><label for="csm">Mobile number</label><input id="csm" inputmode="numeric" placeholder="10 digits" autocomplete="tel-national"></div><div class="hint" id="csh" role="alert"></div><button class="btn k" id="csb" type="button">Book the call</button></div></div>
+  </div>
+</div></section>
 </main>
 
 <main class="view" id="v-student">
@@ -330,6 +508,11 @@ nav .wrap{display:flex;align-items:center;height:70px;gap:44px}
         <svg id="rchart" viewBox="0 0 700 230" preserveAspectRatio="none"></svg></div>
       <div class="c"><h4>Chapter mastery<span>ACCURACY × SPEED</span></h4><div class="hm" id="hm"></div>
         <div class="fix" id="fix"><div class="n">41%</div><div><b>Fix next: Electrostatics</b><span>41% accuracy, 2.3 min per question. 3 practice sets and a 12-min recap assigned.</span></div><button class="btn k">Start set 1</button></div></div>
+    </div>
+    <div class="sg3">
+      <div class="c" id="dbc"><h4>Doubts<span>2 ANSWERED THIS WEEK</span></h4><div class="dl" id="dbl"><div class="dr"><b>Why is torque zero about the pivot?</b><span>Answered by V. Srinivas · 2 min video</span></div><div class="dr"><b>Hybridisation of SF4: how do I count lone pairs?</b><span>Answered by Farah Naaz · worked example</span></div></div><div class="ask"><input id="dbi" placeholder="Ask a doubt" maxlength="140"><button class="btn k" id="dbb" type="button">Ask</button></div></div>
+      <div class="c" id="recc"><h4>Recordings<span>KEPT FOR 30 DAYS</span></h4><div class="dl" id="recl"><div class="dr"><b>Physics · Torque and angular momentum</b><span>Yesterday · 1 h 52 min · <em>Not watched</em></span></div><div class="dr"><b>Maths · Conics, problem session</b><span>Tuesday · 1 h 34 min · <em>Watched to 48 min</em></span></div><div class="dr"><b>Chemistry · Chemical bonding recap</b><span>Monday · 58 min · <em>Not watched</em></span></div></div></div>
+      <div class="c" id="feec"><h4>Fees<span>PLAN · 4 INSTALMENTS</span></h4><div class="big2">₹33,300</div><p>Instalment 2 of 4 · due 5 Feb · a reminder goes to your parent a week before</p><button class="btn k" type="button">Pay now</button></div>
     </div>
   </div>
 </div>
@@ -361,7 +544,7 @@ nav .wrap{display:flex;align-items:center;height:70px;gap:44px}
     <div class="kq"><small>Students active</small><b>1,846</b><span>42 batches · 4 centres</span></div>
     <div class="kq"><small>Attendance today</small><b>93.4%</b><span>↑ 2.1% this month</span></div>
     <div class="kq"><small>Fees collected · Q3</small><b>₹4.12 Cr</b><span class="bad">₹38.6 L pending, 61 families</span></div>
-    <div class="kq"><small>New admissions this week</small><b>57</b><span>Scholarship test signups: 1,204</span></div>
+    <div class="kq"><small>New admissions this week</small><b id="kadm">57</b><span>Scholarship test signups: <span id="ksat">1,204</span></span></div>
   </div>
   <div class="sg2">
     <div class="kq" style="padding:20px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><b style="font-size:16px;letter-spacing:-.02em;margin:0">Batches</b><span class="lab">this month</span></div><div class="tbl">
@@ -418,6 +601,14 @@ nav .wrap{display:flex;align-items:center;height:70px;gap:44px}
       const r = el.getBoundingClientRect();
       if (r.top < vb - 40 && r.bottom > 0) el.classList.add('in');
     });
+  };
+
+  let toastT;
+  F.toast = (msg) => {
+    let t = document.getElementById('toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 3400);
   };
 
   F.setUrl = (host, path = '') => {
@@ -600,7 +791,7 @@ nav .wrap{display:flex;align-items:center;height:70px;gap:44px}
   function buildBar(cfg) {
     const bar = document.createElement('div');
     bar.id = 'demo-bar';
-    bar.innerHTML = '<span class="db-pb">' + cube + 'Concept demo by Purplebox</span>' +
+    bar.innerHTML = '<a class="db-pb" href="../index.html#work" title="Back to Purplebox">' + cube + '<span>Demo by Purplebox</span></a>' +
       (cfg.views || []).map((v, i) => '<button data-i="' + i + '"' + (i ? '' : ' class="on"') + '>' + v.name + '</button>').join('') +
       '<button class="db-tour">&#9654; Play guided tour</button>';
     document.body.appendChild(bar);
@@ -654,17 +845,68 @@ $('.seats').innerHTML='<i class="f"></i>'.repeat(28)+'<i></i>'.repeat(12);
  g+=`<g transform="translate(${x(11)-176} ${y(ranks[11])-56})"><rect width="196" height="40" rx="10" fill="#14213D"/><text x="14" y="25" font-family="Bricolage Grotesque" font-weight="700" font-size="15" fill="#FFD84A">Mock 12 · AIR 2,300</text></g>`;
  ['Jun','Aug','Oct','Dec','Feb','Apr'].forEach((m,i)=>g+=`<text x="${x(i*2)}" y="${H-12}" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#7c849a">${m}</text>`);
  $('#psvg').innerHTML=g})();
-// finder
-$('#pk2').addEventListener('click',e=>{if(e.target.closest('.opts'))return;$('#o2').classList.add('on')});
-$('#pk3').addEventListener('click',e=>{if(e.target.closest('.opts'))return;$('#o3').classList.add('on')});
-$('#o-jee').addEventListener('click',e=>{e.stopPropagation();$('#o2').classList.remove('on');$('#pk2').firstChild.textContent='JEE';$('#pk2').classList.add('set')});
-$('#o-hyb').addEventListener('click',e=>{e.stopPropagation();$('#o3').classList.remove('on');$('#pk3').firstChild.textContent='hybrid';$('#pk3').classList.add('set');$('#match').classList.add('on')});
-// admission
-async function upload(){const dr=$('#drop');dr.classList.add('done');dr.innerHTML='<div class="fi">JPG</div><div><b>marksheet_aarav.jpg</b><span>Reading…</span><div class="scan"><i id="scn"></i></div></div>';await FILM.wait(60);$('#scn').style.width='100%';await FILM.wait(1300);
- dr.querySelector('span').textContent='Read and verified · 2.4 MB';for(const s of $$('#read span')){s.classList.add('on');await FILM.wait(260)}
- await FILM.tween(1000,t=>{const v=Math.round(30*t);$('#schv').textContent=v+'%';const fee=148000*(1-v/100);$('#p1v').textContent='₹'+Math.round(fee*.96).toLocaleString('en-IN');$('#p2v').textContent='₹'+Math.round(fee/4).toLocaleString('en-IN');$('#p3v').textContent='₹'+Math.round(fee/12).toLocaleString('en-IN')},FILM.easeOut)}
-$$('.plan').forEach(p=>p.addEventListener('click',()=>{$$('.plan').forEach(x=>x.classList.remove('on'));p.classList.add('on')}));
-$('#hold').addEventListener('click',()=>{$('#hold').innerHTML='✓ Seat held in K-2 · receipt sent to parent on WhatsApp';$('#hold').style.background='#23885A'});
+const toast=m=>FILM.toast(m),inr=n=>'₹'+Math.round(n).toLocaleString('en-IN'),esc=t=>t.replace(/[<>&"]/g,'');
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],MONF=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const nextDow=(dow,min=1)=>{const d=new Date();d.setDate(d.getDate()+min);while(d.getDay()!==dow)d.setDate(d.getDate()+1);return d},dm=d=>`${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}`;
+function goTo(sel){if(FILM.on)return;const el=$(sel);if(!el)return;const nav=$('#nav'),off=getComputedStyle(nav).position==='sticky'?nav.offsetHeight:0;scrollTo({top:Math.max(0,el.getBoundingClientRect().top+scrollY-off),behavior:'smooth'})}
+function flash(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}
+// ---------- course finder ----------
+const FND={cls:{v:'10',o:[['8','Class 8','Foundation years'],['9','Class 9','Foundation years'],['10','Class 10','Start the two-year course after boards'],['11','Class 11','Two-year course'],['12','Class 12','One-year course']]},
+ exam:{v:null,o:[['jee','JEE Main + Advanced','Engineering · IITs, NITs','JEE'],['neet','NEET','Medicine · AIIMS, GMCs','NEET'],['found','Olympiads + Boards','Foundation track','Olympiads']]},
+ mode:{v:null,o:[['class','In the classroom','Mon–Sat, 4 centres','in the classroom'],['hyb','Hybrid','Classroom 3 days + live online 3 days','hybrid'],['online','Fully online','Live classes, recorded backups','online']]},
+ ctr:{v:'Kondapur',o:[['Kondapur','Kondapur','Botanical Garden Road'],['Kukatpally','Kukatpally','KPHB Phase 3'],['Dilsukhnagar','Dilsukhnagar','Near the metro station'],['Secunderabad','Secunderabad','SD Road']]}};
+const pkH=(k,id,oid,ph)=>{const f=FND[k],sel=f.o.find(o=>o[0]===f.v);return `<span class="pk${sel?' set':''}" id="${id}" data-k="${k}">${sel?(sel[3]||sel[1]):ph}<div class="opts" id="${oid}">${f.o.map(o=>`<div data-v="${o[0]}"${o[0]==='jee'?' id="o-jee"':o[0]==='hyb'?' id="o-hyb"':''}>${o[1]}<small>${o[2]}</small></div>`).join('')}</div></span>`};
+$('.sent').innerHTML=`I'm in ${pkH('cls','pk1','o1','')} and I'm aiming for ${pkH('exam','pk2','o2','choose an exam')}, studying ${pkH('mode','pk3','o3','how?')} near ${pkH('ctr','pk4','o4','')}.`;
+const held={};let cur={code:'K-2',fee:148000,ctr:'Kondapur'},schPct=0;
+function batch(){const cls=FND.cls.v,mode=FND.mode.v||'hyb',ctr=FND.ctr.v,young=cls==='8'||cls==='9',ex=young?'found':(FND.exam.v||'jee');
+ const exN={jee:'JEE',neet:'NEET',found:'Foundation'}[ex],dur=ex==='found'?`Class ${cls}`:cls==='12'?'One-Year':'Two-Year',mN={class:'Classroom',hyb:'Hybrid',online:'Online'}[mode];
+ const code=(mode==='online'?'L':ctr[0])+'-'+(({jee:1,neet:3,found:5})[ex]+(mode==='hyb'?1:0));
+ let fee=({jee:148000,neet:142000,found:86000})[ex]+({class:12000,hyb:0,online:-38000})[mode];if(dur==='One-Year')fee=Math.round(fee*.62/1000)*1000;
+ const tour=ex==='jee'&&mode==='hyb'&&ctr==='Kondapur'&&dur==='Two-Year',left=Math.max(0,(tour?12:4+(code.charCodeAt(0)*3+code.charCodeAt(2)*7+cls*5)%16)-(held[code]||0));
+ const rows={class:[['Classroom',`Mon to Sat · 4–8 PM · ${ctr}`],['Sunday test','9 AM–12 PM · at the centre']],hyb:[['Classroom',`Mon, Wed, Fri · 4–8 PM · ${ctr}`],['Live online','Tue, Thu, Sat · 5–8 PM']],online:[['Live online','Mon to Sat · 5–8 PM'],['Recordings','Every class, kept for 30 days']]}[mode];
+ const tch={jee:'<b>Physics</b> · V. Srinivas, ex-IIT Madras<br><b>Chemistry</b> · Farah Naaz, 11 yrs<br><b>Maths</b> · K. Raghav, AIR 214 (2012)',neet:'<b>Biology</b> · Dr. Meenal Joshi, MBBS<br><b>Chemistry</b> · Farah Naaz, 11 yrs<br><b>Physics</b> · V. Srinivas, ex-IIT Madras',found:'<b>Maths</b> · K. Raghav, AIR 214 (2012)<br><b>Science</b> · Anita Rao, 14 yrs<br><b>Mental ability</b> · P. Kiran'}[ex];
+ return{title:`${exN} ${dur} ${mN} · Batch ${code}`,code,fee,left,rows,tch,ctr:mode==='online'?'Online':ctr}}
+function paintMatch(){const b=batch(),m=$('.mc.main'),st=nextDow(1,14);cur=b;m.querySelector('h3').textContent=b.title;const rw=m.querySelectorAll('.rw');
+ rw[0].lastElementChild.textContent=`${dm(st)} ${st.getFullYear()}`;[1,2].forEach(i=>{rw[i].firstElementChild.textContent=b.rows[i-1][0];rw[i].lastElementChild.textContent=b.rows[i-1][1]});
+ rw[3].lastElementChild.innerHTML=`<b style="color:var(--hi)">${b.left?b.left+' of 40 left':'Batch full · join the waitlist'}</b>`;$('.seats').innerHTML='<i class="f"></i>'.repeat(40-b.left)+'<i></i>'.repeat(b.left);
+ const mc=$$('#match .mc');mc[1].querySelector('.big').textContent=inr(b.fee);mc[2].querySelector('p').innerHTML=b.tch;paintFees(schPct);
+ if(!held.done)$('#hold').textContent=`Hold seat in ${b.code} · pay ₹1,000`}
+function paintFees(pct){schPct=pct;const fee=cur.fee*(1-pct/100);$('#schv').textContent=pct+'%';$('.strike').textContent=inr(cur.fee);$('#p1v').textContent=inr(fee*.96);$('#p2v').textContent=inr(fee/4);$('#p3v').textContent=inr(fee/12)}
+const closeOpts=()=>$$('.opts.on').forEach(o=>o.classList.remove('on'));
+$('.sent').addEventListener('click',e=>{const o=e.target.closest('.opts div[data-v]'),pk=e.target.closest('.pk');if(!pk)return;e.stopPropagation();
+ if(o){const f=FND[pk.dataset.k],sel=f.o.find(x=>x[0]===o.dataset.v);f.v=sel[0];pk.firstChild.textContent=sel[3]||sel[1];pk.classList.add('set');closeOpts();
+  if(FND.exam.v&&FND.mode.v){paintMatch();$('#match').classList.add('on')}else if(!FILM.on)$(FND.exam.v?'#pk3':'#pk2').querySelector('.opts').classList.add('on');return}
+ const box=pk.querySelector('.opts'),was=box.classList.contains('on');closeOpts();box.classList.toggle('on',!was)});
+document.addEventListener('click',closeOpts);
+// ---------- admission ----------
+let uploaded=false,upBusy=false;
+$('#drop').insertAdjacentHTML('afterend','<input type="file" id="mfile" accept="image/*,.pdf" hidden><button class="smp" id="smp" type="button">No marksheet to hand? Use a sample one</button><div class="hint" id="ahint" role="alert"></div>');
+const dropIdle=$('#drop').innerHTML;
+async function upload(file){if(upBusy)return;upBusy=true;uploaded=false;const dr=$('#drop'),nm=file?file.name:'marksheet_aarav.jpg',ext=(nm.split('.').pop()||'JPG').slice(0,4).toUpperCase(),size=file?Math.max(.1,file.size/1048576).toFixed(1)+' MB':'2.4 MB';
+ $$('#read span').forEach(x=>x.classList.remove('on'));$('#ahint').textContent='';
+ dr.classList.add('done');dr.innerHTML=`<div class="fi">${esc(ext)}</div><div style="min-width:0"><b>${esc(nm.length>28?nm.slice(0,25)+'…':nm)}</b><span>Reading…</span><div class="scan"><i id="scn"></i></div></div>`;await FILM.wait(60);$('#scn').style.width='100%';await FILM.wait(1300);
+ dr.querySelector('span').textContent='Read and verified · '+size;for(const x of $$('#read span')){x.classList.add('on');await FILM.wait(260)}
+ await FILM.tween(1000,t=>paintFees(Math.round(30*t)),FILM.easeOut);uploaded=true;upBusy=false}
+$('#drop').style.cursor='pointer';$('#drop').addEventListener('click',()=>{if(!FILM.on&&!upBusy)$('#mfile').click()});
+$('#mfile').addEventListener('change',e=>{const f=e.target.files[0];if(f)upload(f);e.target.value=''});
+$('#smp').addEventListener('click',()=>upload());
+$$('.plan').forEach(p=>{p.style.cursor='pointer';p.addEventListener('click',()=>{$$('.plan').forEach(x=>x.classList.remove('on'));p.classList.add('on');$('#ahint').textContent=''})});
+$('#hold').addEventListener('click',()=>{if(held.done)return;const h=$('#ahint'),nm=$('#sname').value.trim();
+ if(nm.length<2){h.textContent="Enter the student's name as it appears on the marksheet.";$('#sname').focus();return}
+ if(!uploaded){h.textContent=upBusy?'Still reading the marksheet. One moment.':'Add the Class 10 marksheet, or use the sample one.';return}
+ if(!$('.plan.on')){h.textContent='Choose how you would like to pay the fee.';return}
+ h.textContent='';held.done=1;held[cur.code]=(held[cur.code]||0)+1;$('#hold').innerHTML=`✓ Seat held in ${cur.code} · receipt sent to parent on WhatsApp`;$('#hold').style.background='#23885A';
+ if(FILM.on)return;setStudent(nm.split(' ')[0],cur);const k=$('#kadm');k.textContent=+k.textContent+1;paintSeats();toast('Seat held. Open "Student app" or "Staff room" in the bar below to see it reflected.')});
+function paintSeats(){const b=batch();if(b.code===cur.code){$('.mc.main .rw:nth-of-type(5) b');const rw=$$('.mc.main .rw');rw[3].lastElementChild.innerHTML=`<b style="color:var(--hi)">${b.left} of 40 left</b>`;$('.seats').innerHTML='<i class="f"></i>'.repeat(40-b.left)+'<i></i>'.repeat(b.left)}}
+// ---------- scholarship test + counselling ----------
+{const sun=nextDow(0,1);$$('.satd').forEach(x=>x.textContent=dm(sun));$('.hero .cta .btn.o').textContent='Scholarship test · '+dm(sun);
+ const t=new Date(),tm=new Date(t);tm.setDate(t.getDate()+1);const sat=nextDow(6,2);$('#cslots').innerHTML=[`Today · 7 PM`,`${DOW[tm.getDay()]} · 11 AM`,`${DOW[sat.getDay()]} ${sat.getDate()} · 4 PM`].map((x,i)=>`<button class="cs${i?'':' on'}" type="button">${x}</button>`).join('')}
+$('#cslots').addEventListener('click',e=>{const b=e.target.closest('.cs');if(b)$$('.cs').forEach(x=>x.classList.toggle('on',x===b))});
+const tenDigits=v=>v.replace(/\D/g,'').replace(/^91(?=\d{10}$)/,'');
+$('#satb').addEventListener('click',()=>{const n=$('#satn').value.trim(),m=tenDigits($('#satm').value),h=$('#sath');if(n.length<2){h.textContent="Enter the student's name.";$('#satn').focus();return}if(m.length!==10){h.textContent="Enter a 10-digit mobile number for the hall ticket.";$('#satm').focus();return}
+ $('#satf').innerHTML=`<div class="okc"><b>${esc(n.split(' ')[0])} is registered.</b>Hall ticket PST-${4100+n.length*37+ +m.slice(-2)} is on its way to +91 ${m.slice(0,2)}••• ••${m.slice(-3)} on WhatsApp. Reporting time is 9:30 AM, and the result comes the same evening.</div>`;const k=$('#ksat');k.textContent=(+k.textContent.replace(/,/g,'')+1).toLocaleString('en-IN')});
+$('#csb').addEventListener('click',()=>{const m=tenDigits($('#csm').value),h=$('#csh');if(m.length!==10){h.textContent='Enter a 10-digit mobile number we can call.';$('#csm').focus();return}
+ $('#csf').innerHTML=`<div class="okc"><b>Call booked for ${$('.cs.on').textContent.replace(' · ',', ')}.</b>A counsellor will ring +91 ${m.slice(0,2)}••• ••${m.slice(-3)}. Keep the latest report card nearby.</div>`});
 // student
 (function(){const W=700,H=230;const r=[18400,14900,12700,11200,8800,6300,4960,3120];const y=v=>20+(Math.log(v)-Math.log(2500))/(Math.log(20000)-Math.log(2500))*(H-50),x=i=>30+i*(W-60)/7;let g='';
  [3000,6000,12000].forEach(v=>g+=`<line x1="0" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="rgba(20,33,61,.07)"/><text x="${W-4}" y="${y(v)-5}" text-anchor="end" font-family="IBM Plex Mono" font-size="11" fill="#7c849a">${v/1000}k</text>`);
@@ -676,12 +918,60 @@ $('#hold').addEventListener('click',()=>{$('#hold').innerHTML='✓ Seat held in 
  let h='<span></span>'+['1','2','3','4','5','6','7','8','9','10'].map(x=>`<span style="text-align:center;font-family:IBM Plex Mono;font-size:10.5px;color:#7c849a">${x}</span>`).join('');
  sub.forEach(([n,v],si)=>{h+=`<span>${n}</span>`;v.forEach((a,i)=>{const c=a<.5?'#EE5E3A':a<.7?'#F2B04C':a<.85?'#9fd3b4':'#23885A';h+=`<i style="background:${c};transition-delay:${(si*10+i)*25}ms" ${si==0&&i==3?'id="weak"':''}></i>`})});
  $('#hm').innerHTML=h})();
-function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;$('#nav').style.display=v==='home'?'':'none'}
+// ---------- student app ----------
+const CH=[['Kinematics','Laws of motion','Work and energy','Electrostatics','Rotational motion','Gravitation','Thermodynamics','Waves','Optics','Modern physics'],['Mole concept','Atomic structure','Chemical bonding','Periodic table','Equilibrium','Thermochemistry','Organic basics','Hydrocarbons','Solutions','Electrochemistry'],['Quadratics','Sequences','Trigonometry','Straight lines','Conics','Limits','Differentiation','Integration','Vectors','Probability']],
+ ACC=[[.82,.9,.74,.41,.68,.88,.79,.6,.71,.85],[.7,.62,.88,.91,.55,.73,.8,.66,.9,.77],[.93,.85,.78,.9,.72,.69,.95,.81,.64,.87]];
+const cells=$$('#hm i');cells.forEach((c,i)=>{c.style.cursor='pointer';c.title=CH[Math.floor(i/10)][i%10];c.addEventListener('click',()=>{const a=ACC[Math.floor(i/10)][i%10],n=CH[Math.floor(i/10)][i%10],pc=Math.round(a*100),f=$('#fix');
+ cells.forEach(x=>x.classList.toggle('pick',x===c));f.querySelector('.n').textContent=pc+'%';f.querySelector('.n').style.background=a<.5?'#EE5E3A':a<.7?'#F2B04C':'#23885A';
+ f.querySelector('b').textContent=(a<.7?'Fix next: ':a<.85?'Keep practising: ':'Strong chapter: ')+n;f.querySelector('span').textContent=`${pc}% accuracy, ${(3.4-a*2.4).toFixed(1)} min per question. `+(a<.7?'3 practice sets and a 12-min recap assigned.':a<.85?'One mixed set a week keeps it there.':'Nothing assigned. Try the advanced set if you like.');
+ const b=f.querySelector('.btn');b.textContent=a<.85?'Start set 1':'Advanced set';f.classList.add('on')})});
+$('#fix .btn').addEventListener('click',e=>{e.target.textContent='In progress · 0/15';toast('15 questions, 20 minutes. Your timer has started.')});
+$('.lv').style.cursor='pointer';$('.lv').addEventListener('click',()=>{$('.lv').lastChild.textContent='JOINED';toast('You are in. V. Srinivas is on slide 14 of Rotational motion.')});
+{const h=new Date().getHours();window.GREET=h<12?'Good morning':h<17?'Good afternoon':'Good evening';const now=new Date(),j=new Date(now.getFullYear()+(now.getMonth()>0||now.getDate()>22?1:0),0,22);$('#days').textContent=Math.ceil((j-now)/864e5)}
+function setStudent(first,b){first=esc(first||'Aarav');$('.smh h2').textContent=`${GREET}, ${first}.`;$('.smh p').textContent=`Batch ${b.code} · ${b.ctr} · Roll 0428`;$('.pp h5').textContent=`${first} · ${MONF[new Date().getMonth()]}`;$('#n1 b').textContent=b.ctr==='Online'?`${first} joined the live class`:`${first} reached the ${b.ctr} centre`}
+let feePaid=false;
+function payFee(){if(feePaid)return;feePaid=true;$('#n3 b').textContent='Instalment 2 paid · ₹33,300';$('#n3 b').nextSibling.textContent='Receipt sent on WhatsApp';$('#n3 .ic').textContent='✓';$('#n3 .ic').style.cssText='background:#d6eedf;color:#1d6b46';
+ const f=$('#feec');f.querySelector('.big2').textContent='Paid';f.querySelector('p').textContent='Instalment 2 of 4 · ₹33,300 · receipt sent to your parent';f.querySelector('button').textContent='Paid ✓';toast('Instalment 2 paid. The receipt went to the parent app and WhatsApp.')}
+$('#feec button').addEventListener('click',payFee);
+$('#dbb').addEventListener('click',()=>{const v=$('#dbi').value.trim();if(v.length<5){toast('Type your doubt first, in a sentence or two.');$('#dbi').focus();return}
+ $('#dbl').insertAdjacentHTML('afterbegin',`<div class="dr new"><b>${esc(v.length>70?v.slice(0,67)+'…':v)}</b><span>Sent to V. Srinivas · usually answered within 2 hours</span></div>`);$('#dbi').value=''});
+$$('#recl .dr').forEach(r=>{r.style.cursor='pointer';r.addEventListener('click',()=>{r.querySelector('em').textContent='Watched ✓';toast('Playing: '+r.querySelector('b').textContent+'. It resumes where you stopped.')})});
+const sideA=$$('.st .side a'),cc=$$('.sg .c'),sT=[null,cc[0],cc[0],$('#fix'),$('#dbc'),$('#recc'),$('#feec')];
+sideA.forEach((a,i)=>{a.style.cursor='pointer';a.addEventListener('click',()=>{sideA.forEach(x=>x.classList.toggle('on',x===a));if(!sT[i]){scrollTo({top:0,behavior:'smooth'});return}flash(sT[i]);
+ if(i===2)toast('Mock 9 is this Sunday at 9 AM. Syllabus: Electrostatics, Chemical bonding and Conics.')})});
+// ---------- parent app ----------
+const ptm=nextDow(6,7);$('#n4 b').textContent='PTM on '+dm(ptm);
+function bookPtm(){const b=$('.pp .btn');if(b.dataset.done)return;b.dataset.done=1;b.textContent='PTM booked · 4:20 PM ✓';b.style.background='#23885A';$('#n4 b').textContent=`PTM booked · ${dm(ptm)}, 4:20 PM`;$('#n4 b').nextSibling.textContent='10 minutes with Mr. Srinivas · Room 3';toast('Slot booked. A reminder goes out the evening before.')}
+$('.pp .btn').addEventListener('click',bookPtm);
+[['#n1',()=>toast('Gate log: in at 3:52 PM. You will get another alert on the way out.')],['#n2',()=>{show('student');toast('This is the full report the student sees.')}],['#n3',payFee],['#n4',bookPtm]].forEach(([id,fn])=>{$(id).style.cursor='pointer';$(id).addEventListener('click',fn)});
+// ---------- staff room ----------
+{const d=new Date();$('.sfh > span').textContent=`All centres · ${dm(d)}`}
+const stabs=$$('.sfh .tb span'),kq=$$('.kk .kq'),tT=[null,$('.tbl').parentElement,$('.auto'),kq[2],kq[3]];
+stabs.forEach((t,i)=>{t.style.cursor='pointer';t.addEventListener('click',()=>{stabs.forEach(x=>x.classList.toggle('on',x===t));if(!tT[i]){scrollTo({top:0,behavior:'smooth'});return}flash(tT[i])})});
+let riskN=7;$$('.risk .act').forEach(a=>{a.style.cursor='pointer';a.addEventListener('click',()=>{if(a.dataset.done)return;a.dataset.done=1;const w=a.textContent.replace(' →',''),who=a.parentElement.querySelector('b').textContent.split(' · ')[0];
+ a.textContent={'Call parent':'Call logged ✓','Assign mentor':'Mentor assigned ✓','Message':'Message sent ✓'}[w];a.style.color='var(--green)';riskN--;a.closest('.kq').querySelector('.lab').textContent=riskN+' students';
+ toast({'Call parent':`Calling the parent of ${who}. The call is logged against the student record.`,'Assign mentor':`${who} now has a weekly session with K. Raghav.`,'Message':`WhatsApp sent to ${who} and a parent, with the pending homework list.`}[w])})});
+// ---------- views + nav ----------
+function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;$('#nav').style.display=v==='home'?'':'none';
+ $$('#demo-bar button[data-i]').forEach((b,i)=>b.classList.toggle('on',i===({home:0,student:1,parents:2,staff:3})[v]));if(FILM.on)return;
+ if(v==='student')setTimeout(()=>{$('#rchart').classList.add('draw');$('#hm').classList.add('on');$('#fix').classList.add('on')},300);
+ if(v==='parents'){$('#mk2').classList.add('on');['#n1','#n2','#n3','#n4'].forEach((id,i)=>setTimeout(()=>$(id).classList.add('on'),400+i*450))}}
+const nl=$$('#nav .links a');
+nl[0].addEventListener('click',()=>goTo('#finder'));nl[1].addEventListener('click',()=>goTo('#plot'));nl[2].addEventListener('click',()=>goTo('#talk'));nl[3].addEventListener('click',()=>{goTo('#finder');setTimeout(()=>{closeOpts();$('#o4').classList.add('on')},500)});nl[4].addEventListener('click',()=>show('parents'));
+$('#slog').addEventListener('click',()=>show('student'));$('#nav .nr .btn.k').addEventListener('click',()=>goTo('#talk'));
+const hb=$$('.hero .cta .btn');hb[0].addEventListener('click',()=>{goTo('#finder');if(!FND.exam.v)setTimeout(()=>{closeOpts();$('#o2').classList.add('on')},500)});hb[1].addEventListener('click',()=>goTo('#talk'));
+$('#nav .logo').style.cursor='pointer';$('#nav .logo').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+$$('.st .side .logo, .sfh .logo').forEach(l=>{l.style.cursor='pointer';l.addEventListener('click',()=>show('home'))});
+setStudent('Aarav',{code:'K-2',ctr:'Kondapur'});paintFees(0);
+function resetAll(){FND.cls.v='10';FND.exam.v=null;FND.mode.v=null;FND.ctr.v='Kondapur';Object.keys(held).forEach(k=>delete held[k]);cur={code:'K-2',fee:148000,ctr:'Kondapur'};
+ [['#pk1','Class 10',1],['#pk2','choose an exam',0],['#pk3','how?',0],['#pk4','Kondapur',1]].forEach(([id,t,on])=>{$(id).firstChild.textContent=t;$(id).classList.toggle('set',!!on)});closeOpts();$('#match').classList.remove('on');
+ uploaded=false;upBusy=false;$('#drop').classList.remove('done');$('#drop').innerHTML=dropIdle;$$('#read span').forEach(x=>x.classList.remove('on'));$$('.plan').forEach(x=>x.classList.remove('on'));$('#sname').value='';$('#ahint').textContent='';
+ $('#hold').textContent='Hold seat in K-2 · pay ₹1,000';$('#hold').style.background='';paintFees(0);$('.seats').innerHTML='<i class="f"></i>'.repeat(28)+'<i></i>'.repeat(12);
+ setStudent('Aarav',{code:'K-2',ctr:'Kondapur'});$('#rchart').classList.remove('draw');$('#hm').classList.remove('on');$('#fix').classList.remove('on');cells.forEach(x=>x.classList.remove('pick'));['#n1','#n2','#n3','#n4'].forEach(id=>$(id).classList.remove('on'));$('#mk2').classList.remove('on');show('home')}
 
 FILM.init({normal:()=>{$('#mk').classList.add('on');$('#plot').classList.add('go')},
- views:[{name:'Website',go:()=>show('home')},{name:'Student app',go:()=>{show('student');setTimeout(()=>{$('#rchart').classList.add('draw');$('#hm').classList.add('on');$('#fix').classList.add('on')},300)}},
-  {name:'Parent app',go:async()=>{show('parents');$('#mk2').classList.add('on');for(const id of ['#n1','#n2','#n3','#n4']){await FILM.wait(500);$(id).classList.add('on')}}},{name:'Staff room',go:()=>show('staff')}],
- reset:()=>show('home'),no:'04',name:'Parabola Academy',short:'Education',sector:'Concept 04 — School / coaching institute',host:'parabola.academy',caps:5,
+ views:[{name:'Website',go:()=>show('home')},{name:'Student app',go:()=>show('student')},{name:'Parent app',go:()=>show('parents')},{name:'Staff room',go:()=>show('staff')}],
+ reset:resetAll,no:'04',name:'Parabola Academy',short:'Education',sector:'Concept 04 — School / coaching institute',host:'parabola.academy',caps:5,
  desc:'A JEE & NEET coaching institute with one system for everyone: a course finder, paperless admissions, student analytics, a parent app and a staff room.',
  displayFont:"'Bricolage Grotesque',sans-serif",nameSize:150,nameWeight:800,nameStyle:'letter-spacing:-.05em;',cardBg:'#14213D',cardFg:'#F6F4EE',
  mods:['Institute website','Course finder','Paperless admissions','Scholarships & instalments','Student dashboard','Parent app','Attendance from gate','Staff & fee management']},

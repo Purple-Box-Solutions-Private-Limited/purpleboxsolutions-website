@@ -63,6 +63,18 @@ html.film { scroll-behavior:auto !important; }
 #demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
 #demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
 #demo-bar .db-tour:hover { background:#7c4bec; }
+#demo-bar a.db-pb { text-decoration:none; }
+#demo-bar a.db-pb:hover { color:#fff; }
+#demo-bar button { white-space:nowrap; flex:none; }
+@media (max-width:900px) {
+  #demo-bar { left:8px; right:8px; bottom:8px; transform:none; overflow-x:auto; scrollbar-width:none; border-radius:14px; }
+  #demo-bar::-webkit-scrollbar { display:none; }
+  #demo-bar .db-tour { display:none; }
+  #demo-bar .db-pb { padding:0 8px 0 6px; flex:none; }
+  #demo-bar .db-pb span { display:none; }
+}
+#toast { position:fixed; left:50%; bottom:84px; transform:translate(-50%,12px); z-index:10000; width:max-content; max-width:min(92vw,460px); padding:13px 18px; border-radius:12px; background:#141416; color:#fff; font:500 14px/1.4 'Instrument Sans',system-ui,sans-serif; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); opacity:0; pointer-events:none; transition:opacity .25s, transform .3s; }
+#toast.on { opacity:1; transform:translate(-50%,0); }
 #tour-again { position:fixed; right:30px; top:60px; z-index:9999; font:600 14px 'Instrument Sans',sans-serif; color:#111; background:#fff; border:0; border-radius:12px; padding:12px 18px; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.4); }
 </style>
 <style>
@@ -395,6 +407,151 @@ h1 em{font-style:italic;color:var(--green)}
 .amb:first-of-type{border-top:0}
 .amb b{color:#fff}
 .amb span{color:#7fcfa2;font-family:var(--mono);font-size:12px}
+
+/* ---------- live-demo additions ---------- */
+.chip.sp{cursor:pointer;font:inherit;font-size:13px;background:#fff}
+.chip.sp:hover{border-color:var(--ink2)}
+.chip.sp.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.links a:hover{color:var(--ink)}
+.hint{font-size:13px;color:#a53a1f;margin-top:12px}
+.hint:empty{display:none}
+.slot:disabled{cursor:not-allowed}
+.again{width:100%;justify-content:center;margin-top:16px}
+.day{cursor:pointer}.day.x{cursor:not-allowed}
+.pbtns span,.mside .bt span,.oph .tabs span,.side a,.card h4 a{cursor:pointer;user-select:none}
+.card h4 a:hover{text-decoration:underline}
+.card.flash,.fam.flash{animation:fl 1.4s ease}
+@keyframes fl{0%,60%{box-shadow:0 0 0 3px rgba(44,117,89,.35)}100%{box-shadow:0 0 0 3px rgba(44,117,89,0)}}
+.more .rx:first-child{margin-top:12px}
+.mbox{position:relative;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);overflow:auto}
+.mx{position:absolute;right:14px;top:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:22px;line-height:1;display:grid;place-items:center}
+.checks{padding-top:0}
+.pk3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pkc{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+.pkc small{font-size:11.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.pkc h4{font-family:var(--serif);font-weight:400;font-size:30px;letter-spacing:-.01em;margin:8px 0 6px}
+.pkc p{color:var(--mute);font-size:14px;line-height:1.5;flex:1}
+.pkc .pr{display:flex;justify-content:space-between;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid var(--line2)}
+.pkc .pr b{font-size:22px;font-weight:600}
+
+@media(max-width:1180px){
+ .wrap{padding:0 32px}
+ h1{font-size:68px}
+ .hero .wrap{grid-template-columns:1fr;gap:40px}
+ .live{max-width:560px}
+ .book{grid-template-columns:1fr}
+ .panel{position:static}
+ .visit .wrap{grid-template-columns:1fr;gap:48px}
+ .phones{max-width:660px}
+ nav.main .wrap{gap:22px}
+ .links{gap:20px}
+ .pg{grid-template-columns:1fr}
+ .kpis{grid-template-columns:repeat(3,1fr)}
+ .og{grid-template-columns:1fr 1fr}
+ .og .ob:first-child{grid-column:1/-1}
+ .mbox{grid-template-columns:1fr 360px}
+}
+@media(max-width:820px){
+ .wrap{padding:0 18px}
+ .util .r{display:none}
+ .util{font-size:12px}
+ nav.main .wrap{flex-wrap:wrap;height:auto;padding-top:10px;gap:0 12px}
+ .logo{font-size:18px;gap:9px}
+ .logo small{font-size:9.5px}
+ nav.main{position:static}
+ .logo svg{width:32px;height:32px}
+ .links{order:3;width:100%;overflow-x:auto;gap:24px;padding:12px 0;margin-top:10px;white-space:nowrap;scrollbar-width:none;border-top:1px solid var(--line2)}
+ .links::-webkit-scrollbar{display:none}
+ .links a.cur::after{bottom:-12px}
+ .nav-r .btn.g{display:none}
+ .nav-r .btn{height:38px;padding:0 12px}
+ .hero{padding:36px 0 44px}
+ h1{font-size:44px;margin:16px 0}
+ .lede{font-size:16px}
+ .sbox{height:56px;padding:0 8px 0 14px;gap:8px}
+ .sbox input{font-size:16px;min-width:0}
+ .sbox .btn{height:40px;padding:0 14px}
+ .drop{top:64px}
+ .res{gap:12px;padding:10px}
+ .res .go{display:none}
+ .live{padding:20px 18px 14px}
+ .er .v{font-size:56px}
+ .spark{width:110px}
+ .row{font-size:13.5px;gap:10px}
+ .bar{width:56px}
+ .sec{padding:52px 0}
+ .checks{padding-top:0}
+ .sh{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:24px}
+ .sh h2{font-size:36px}
+ .doc{grid-template-columns:52px 1fr;gap:14px;padding:16px}
+ .doc .av{width:52px;height:52px;font-size:21px}
+ .doc h4{font-size:16.5px}
+ .doc .m{flex-wrap:wrap;gap:4px 14px}
+ .doc .nx{grid-column:1/-1;text-align:left;display:flex;align-items:center;gap:10px;border-top:1px solid var(--line2);padding-top:12px}
+ .doc .nx small{display:none}
+ .doc .nx b{margin:0;flex:1;font-size:14.5px}
+ .pb{padding:18px}
+ .panel .ph{padding:16px 18px}
+ .days{gap:6px}
+ .ph-in input{min-width:0}
+ .ph-in .btn{padding:0 12px;white-space:nowrap}
+ .otp i{width:42px;height:46px}
+ .confirm{font-size:14.5px;padding:0 10px}
+ .done{padding:22px 18px}
+ .done h3{font-size:30px}
+ .tk{grid-template-columns:1fr 88px;gap:12px;padding:14px}
+ .tk svg{width:88px;height:88px}
+ .tk .no{font-size:46px}
+ .pk3{grid-template-columns:1fr}
+ .visit{padding:60px 0}
+ .visit h2{font-size:40px}
+ .visit p.l{font-size:16px}
+ .phones{height:auto;display:flex;justify-content:center}
+ .phone{position:relative;left:auto;top:auto;transform:none;width:min(318px,100%)}
+ .p2{display:none}
+ .portal{grid-template-columns:minmax(0,1fr);min-height:0}
+ .pm{min-width:0}
+ .side{display:flex;gap:4px;overflow-x:auto;padding:10px 14px;border-right:0;border-bottom:1px solid var(--line2);scrollbar-width:none}
+ .side::-webkit-scrollbar{display:none}
+ .side .who{display:none}
+ .side a{white-space:nowrap;margin:0;padding:9px 12px;font-size:14px}
+ .pm{padding:22px 18px 110px}
+ .pmh{flex-direction:column;align-items:flex-start;gap:16px}
+ .pmh h2{font-size:32px}
+ .fam{max-width:100%;overflow-x:auto}
+ .fam button{white-space:nowrap}
+ .card{padding:18px;min-width:0}
+ .pg>*{min-width:0}
+ .trend .v{font-size:44px}
+ .chart{height:180px}
+ .rx{flex-direction:column;align-items:flex-start;gap:12px}
+ .claim{gap:4px}
+ .st{font-size:11px}
+ .st b{font-size:11.5px}
+ .modal{place-items:end center}
+ .mbox{grid-template-columns:1fr;border-radius:20px 20px 0 0;max-width:100vw;width:100vw;max-height:92vh}
+ .map{height:210px}
+ .mside{padding:20px 18px 90px}
+ .mside h3{font-size:28px}
+ .mside .eta2 b{font-size:60px}
+ .mside .bt{margin-top:18px}
+ .ops{padding:18px 14px 110px;min-height:0}
+ .oph{flex-wrap:wrap;gap:10px 14px}
+ .oph .tabs{margin-left:0;order:3;width:100%;overflow-x:auto;scrollbar-width:none}
+ .oph .tabs span{white-space:nowrap}
+ .oph .r span:first-child{display:none}
+ .kpis{grid-template-columns:1fr 1fr;gap:10px}
+ .kpi{padding:14px}
+ .kpi b{font-size:34px}
+ .og{grid-template-columns:1fr}
+ .ob{padding:16px;min-width:0}
+ .wards{grid-template-columns:58px repeat(12,1fr);gap:2px;font-size:11px}
+ .wards span{overflow:hidden;white-space:nowrap}
+ .wards i{height:20px}
+ .bars{gap:4px}
+ #v-home{padding-bottom:0}
+ .visit+div{height:90px!important}
+}
 </style>
 </head>
 <body>
@@ -471,6 +628,15 @@ h1 em{font-style:italic;color:var(--green)}
         <div class="ok-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 5 5 9-10"/></svg>Added to your calendar · Pay at visit or now</div>
       </div>
     </div>
+  </div>
+</div></section>
+
+<section class="sec checks" id="checks"><div class="wrap">
+  <div class="sh"><div><h2>Health checks, <em>same day.</em></h2><p>Give a fasting sample at 7 AM and read the reports on your phone by evening.</p></div></div>
+  <div class="pk3">
+    <div class="pkc"><small>Most booked</small><h4>Full body check</h4><p>62 tests covering blood, urine, ECG and chest X-ray, with a doctor's review.</p><div class="pr"><b>₹1,499</b><button class="btn g" data-pk="Full body check">Book</button></div></div>
+    <div class="pkc"><small>For ages 40 and above</small><h4>Heart health check</h4><p>ECG, 2D Echo, treadmill test and lipid profile, reviewed by a cardiologist.</p><div class="pr"><b>₹3,900</b><button class="btn g" data-pk="Heart health check">Book</button></div></div>
+    <div class="pkc"><small>Every six months</small><h4>Diabetes review</h4><p>HbA1c, fasting and post-meal sugar, kidney profile and an eye screening.</p><div class="pr"><b>₹1,199</b><button class="btn g" data-pk="Diabetes review">Book</button></div></div>
   </div>
 </div></section>
 
@@ -555,7 +721,7 @@ h1 em{font-style:italic;color:var(--green)}
     <div class="tabs"><span class="on">Today</span><span>Beds</span><span>OPD</span><span>Emergency</span><span>Revenue</span></div>
     <div class="r"><span>Gachibowli campus</span><span class="mono" id="clk">10:44:12</span><span style="color:#7fcfa2;display:flex;gap:8px;align-items:center"><span class="pulse" style="color:#7fcfa2"></span>Live</span></div></div>
   <div class="kpis">
-    <div class="kpi"><small>Bed occupancy</small><b class="tnum" data-n="87" data-s="%">0</b><span>↑ 3% vs last Monday</span></div>
+    <div class="kpi"><small>Bed occupancy</small><b class="tnum" data-n="87" data-s="%">0</b><span>↑ 3% vs last week</span></div>
     <div class="kpi"><small>OPD patients today</small><b class="tnum" data-n="642">0</b><span>184 still in queue</span></div>
     <div class="kpi"><small>Avg OPD wait</small><b class="tnum" data-n="14" data-s=" min">0</b><span>↓ from 41 min before live queue</span></div>
     <div class="kpi"><small>ER arrivals</small><b class="tnum" data-n="23">0</b><span class="bad">2 critical · 1 ambulance inbound</span></div>
@@ -579,6 +745,7 @@ h1 em{font-style:italic;color:var(--green)}
 
 <!-- emergency modal -->
 <div class="modal" id="modal"><div class="mbox">
+  <button class="mx" id="mx" aria-label="Close">&times;</button>
   <div class="map"><svg id="map" viewBox="0 0 640 560" preserveAspectRatio="xMidYMid slice"></svg></div>
   <div class="mside">
     <div class="k"><span class="pulse"></span>Ambulance on the way</div>
@@ -635,6 +802,14 @@ h1 em{font-style:italic;color:var(--green)}
       const r = el.getBoundingClientRect();
       if (r.top < vb - 40 && r.bottom > 0) el.classList.add('in');
     });
+  };
+
+  let toastT;
+  F.toast = (msg) => {
+    let t = document.getElementById('toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 3400);
   };
 
   F.setUrl = (host, path = '') => {
@@ -817,7 +992,7 @@ h1 em{font-style:italic;color:var(--green)}
   function buildBar(cfg) {
     const bar = document.createElement('div');
     bar.id = 'demo-bar';
-    bar.innerHTML = '<span class="db-pb">' + cube + 'Concept demo by Purplebox</span>' +
+    bar.innerHTML = '<a class="db-pb" href="../index.html#work" title="Back to Purplebox">' + cube + '<span>Demo by Purplebox</span></a>' +
       (cfg.views || []).map((v, i) => '<button data-i="' + i + '"' + (i ? '' : ' class="on"') + '>' + v.name + '</button>').join('') +
       '<button class="db-tour">&#9654; Play guided tour</button>';
     document.body.appendChild(bar);
@@ -894,34 +1069,235 @@ placeAmb(0);
  names.forEach((n,i)=>{h+=`<span>${n}</span>`;let base=[.9,.8,.82,.7,.62,.86,.74,.55][i];for(let j=0;j<12;j++){const v=Math.min(1,base+j*(i==0?.012:.006)+(r()-.5)*.08);const c=v>=.98?'#dd5536':v>.85?'#d9962e':v>.7?'#2c7559':'#1d4a3a';h+=`<i style="background:${c};transition-delay:${(i*12+j)*8}ms"></i>`}});
  $('#wards').innerHTML=h;
  const v=[22,58,91,104,88,72,64,48,39,30,18];$('#bars').innerHTML=v.map((n,i)=>`<div><i class="${n>85?'pk':''}" style="height:${n/104*170}px;transition-delay:${i*60}ms"></i>${i+8>12?i-4:i+8}${i+8>=12?'p':'a'}</div>`).join('');})();
-function countUp(el,dur=1400){const n=+el.dataset.n,s=el.dataset.s||'';return FILM.tween(dur,t=>{el.innerHTML=Math.round(n*t)+(s?`<em style="font-size:20px;color:#8ea69a;font-style:normal">${s}</em>`:'')},FILM.easeOut)}
-// ---- interactions ----
+function countUp(el,dur=1400){const n=+el.dataset.n,s=el.dataset.s||'',p=el.dataset.p||'';return FILM.tween(dur,t=>{el.innerHTML=p+Math.round(n*t)+(s?`<em style="font-size:20px;color:#8ea69a;font-style:normal">${s}</em>`:'')},FILM.easeOut)}
+const toast=m=>FILM.toast(m);
+const narrow=()=>innerWidth<1180;
+function goTo(sel){if(FILM.on)return;const el=$(sel);if(!el)return;const nav=$('nav.main'),y=el.getBoundingClientRect().top+scrollY-(getComputedStyle(nav).position==='sticky'?nav.offsetHeight:0)-12;scrollTo({top:Math.max(0,y),behavior:'smooth'})}
+
+// ---- data ----
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],DOWF=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+ MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],MONF=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const days=[];{const d=new Date();d.setHours(12,0,0,0);while(days.length<6){days.push(new Date(d));d.setDate(d.getDate()+1)}}
+const firstOpen=days.findIndex(d=>d.getDay()!==0), tourDay=days.findIndex((d,i)=>i>firstOpen&&d.getDay()!==0);
+const TIMES=['9:40','10:00','10:40','11:20','11:40','12:00','12:20','12:40'];
+const ampm=t=>t+(parseInt(t)>=12?' PM':' AM');
+const D=(i,c,n,t,y,r,k,l,nx,off)=>({i,c,n,t,y,r,k,l,nx,off});
+const SPEC={
+ cardio:{n:'Cardiology',tk:'A',room:'Room 214 · 2nd floor',fee:[900,700],kw:['chest','heart','palpitat','blood pressure',' bp ','stairs','cholesterol','cardio'],docs:[
+  D('AR','#2C7559','Dr. Ananya Rao','Interventional Cardiologist · MD, DM (AIIMS)',16,'4.9','1,240','English, Telugu','Today, 11:20 AM'),
+  D('VK','#7A6A4F','Dr. Vikram Kulkarni','Cardiac Electrophysiologist · MD, DM, FHRS',21,'4.8','2,310','English, Hindi, Marathi','Today, 12:00 PM'),
+  D('SF','#4F6478','Dr. Sana Farooqui','Preventive Cardiology · MD, DNB',9,'4.9','860','English, Hindi, Urdu','Today, 10:40 AM'),
+  D('MP','#8a5a4a','Dr. Mahesh Pillai','Cardiothoracic Surgeon · MS, MCh',24,'','','','Tomorrow, 10:00 AM','In surgery today')]},
+ pulmo:{n:'Pulmonology',tk:'B',room:'Room 118 · 1st floor',fee:[800,600],kw:['cough','breath','asthma','wheez','lung','chest','snor'],docs:[
+  D('RN','#4F6478','Dr. Rohit Nair','Pulmonologist · MD, DM (Pulmonary Medicine)',14,'4.8','1,520','English, Malayalam, Hindi','Today, 10:40 AM'),
+  D('HB','#7A6A4F','Dr. Harini Balaji','Sleep and Allergy Specialist · MD, DNB',8,'4.7','640','English, Telugu, Tamil','Today, 12:20 PM')]},
+ ortho:{n:'Orthopaedics',tk:'C',room:'Room 302 · 3rd floor',fee:[850,650],kw:['knee','joint','back','fracture','shoulder','bone','sprain','neck','hip'],docs:[
+  D('KS','#2C7559','Dr. Karthik Subramanian','Joint Replacement Surgeon · MS, MCh (Ortho)',19,'4.9','3,180','English, Telugu, Tamil','Today, 11:20 AM'),
+  D('NJ','#8a5a4a','Dr. Neha Joshi','Sports Injury and Arthroscopy · MS, DNB',11,'4.8','1,090','English, Hindi','Today, 12:00 PM'),
+  D('IA','#4F6478','Dr. Imran Ahmed','Spine Surgeon · MS, FNB (Spine)',15,'4.8','1,410','English, Hindi, Urdu','Tomorrow, 9:40 AM','In theatre today')]},
+ paed:{n:'Paediatrics',tk:'D',room:'Room 106 · 1st floor',fee:[700,550],kw:['child','kid','baby','infant','vaccin','newborn','toddler'],docs:[
+  D('PM','#B0634A','Dr. Priya Menon','Paediatrician · MD, DCH',13,'4.9','4,260','English, Telugu, Malayalam','Today, 10:00 AM'),
+  D('AG','#2C7559','Dr. Arjun Goud','Neonatologist · MD, DM (Neonatology)',10,'4.8','1,150','English, Telugu, Hindi','Today, 11:20 AM')]},
+ obgyn:{n:'Obstetrics & Gynaecology',tk:'E',room:'Room 221 · 2nd floor',fee:[900,700],kw:['pregnan','scan','period','gynae','pcos','fertil','menstru'],docs:[
+  D('LV','#7A6A4F','Dr. Lakshmi Varma','Obstetrician and Gynaecologist · MS, DGO',22,'4.9','5,030','English, Telugu','Today, 11:20 AM'),
+  D('ZK','#B0634A','Dr. Zoya Khan','Fetal Medicine Specialist · MD, FRCOG',12,'4.9','1,870','English, Hindi, Urdu','Today, 12:20 PM')]},
+ endo:{n:'Diabetes & Endocrinology',tk:'F',room:'Room 209 · 2nd floor',fee:[800,600],kw:['diabet','sugar','thyroid','hba1c','insulin','hormone','weight'],docs:[
+  D('FS','#4F6478','Dr. Farah Siddiqui','Endocrinologist · MD, DM (Endocrinology)',17,'4.8','2,740','English, Hindi, Urdu','Today, 10:40 AM'),
+  D('VR','#2C7559','Dr. Venkat Reddy','Diabetologist · MD, Fellowship in Diabetes',9,'4.7','1,960','English, Telugu','Today, 11:20 AM')]},
+ gen:{n:'General Medicine',tk:'G',room:'Room 101 · Ground floor',fee:[600,450],kw:['fever','cold','headache','second opinion','stomach','pain','tired','weak','vomit','infection','flu'],docs:[
+  D('SD','#8a5a4a','Dr. Shalini Deshpande','General Physician · MD (Internal Medicine)',18,'4.8','6,410','English, Hindi, Marathi, Telugu','Today, 10:00 AM'),
+  D('TR','#4F6478','Dr. Tarun Rao','General Physician · MD, DNB',7,'4.7','1,330','English, Telugu','Today, 11:20 AM')]}
+};
+const st={spec:'cardio',doc:0,day:firstOpen,slot:null,mode:0,otp:false};
+const DEF={num:24,tk:'A',doc:'Dr. Ananya Rao',spec:'Cardiology',room:'Room 214 · 2nd floor',time:'11:20 AM',day:days[tourDay],mode:0};
+let booked=DEF;
+
+// ---- doctors + booking ----
+$('.docs').id='docs';
+$('.sh .chips').id='specs';$('.sh .chips').removeAttribute('style');
+$('#specs').innerHTML=Object.entries(SPEC).map(([k,S])=>`<button class="chip sp" data-spec="${k}">${S.n}</button>`).join('');
+$('#conf').insertAdjacentHTML('beforebegin','<div class="hint" id="hint" role="alert"></div>');
+$('.done').insertAdjacentHTML('beforeend','<button class="btn o again" id="again">Book another appointment</button>');
+function taken(i){const d=SPEC[st.spec].docs[st.doc];if(days[st.day].getDay()===0)return true;if(d.off&&st.day===0)return true;if(TIMES[i]==='11:20')return false;
+ return (st.spec.charCodeAt(0)+st.spec.length*3+st.doc*5+days[st.day].getDate()*7+i*11)%7<3}
+function renderDocs(){const S=SPEC[st.spec];$('#docs').innerHTML=S.docs.map((d,i)=>`<div class="doc${i===st.doc?' sel':''}"${i?'':' id="doc1"'}${d.off?' style="opacity:.72"':''}><div class="av" style="background:${d.c}">${d.i}</div><div><h4>${d.n}</h4><div class="t">${d.t}</div><div class="m"><span><b>${d.y} yrs</b> experience</span>${d.off?`<span>${d.off}</span>`:`<span><b>${d.r}</b> · ${d.k} consults</span><span>${d.l}</span>`}</div></div><div class="nx"><small>Next available</small><b>${d.nx}</b><button class="btn ${i===st.doc?'g':'o'}" data-i="${i}"${i?'':' id="bk1"'}>${i===st.doc?'Selected':'Book'}</button></div></div>`).join('')}
+function renderDays(){$('#days').innerHTML=days.map((d,i)=>`<div class="day${i===st.day?' on':''}${d.getDay()===0?' x':''}" data-i="${i}"${i===tourDay?' id="d11"':''}><small>${DOW[d.getDay()]}</small><b>${d.getDate()}</b></div>`).join('');
+ $('#days').previousElementSibling.lastElementChild.textContent=MONF[days[st.day].getMonth()]}
+function renderSlots(){let free=0;$('#slots').innerHTML=TIMES.map((t,i)=>{const x=taken(i);if(!x)free++;return `<button class="slot${x?' taken':''}${st.slot===i?' on':''}" data-i="${i}" id="s${t.replace(':','')}"${x?' disabled':''}>${t}</button>`}).join('');
+ $('#slotsleft').textContent=free?free+' left':'Fully booked';}
+function renderConf(){const b=$('#conf'),d=days[st.day];b.classList.remove('busy');$('#hint').textContent='';
+ b.textContent=st.slot==null?'Choose a time to continue':`Confirm — ${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}, ${ampm(TIMES[st.slot])}`}
+function renderPanel(){const S=SPEC[st.spec],d=S.docs[st.doc];
+ $('.panel .ph').innerHTML=`<div class="av" style="background:${d.c}">${d.i}</div><div><b>${d.n}</b><span>${S.n} · Gachibowli · ${S.room.split(' · ')[0]}</span></div>`;
+ $('#seg').innerHTML=`<button class="${st.mode?'':'on'}" data-m="0">In person <span>₹${S.fee[0]}</span></button><button class="${st.mode?'on':''}" data-m="1">Video <span>₹${S.fee[1]}</span></button>`;
+ $('#panel').classList.remove('ok');renderDays();renderSlots();renderConf()}
+function setSpec(k,doc){const S=SPEC[k];st.spec=k;st.doc=doc==null?0:doc;st.slot=null;
+ $('.crumbs b').textContent=S.n;$('#doctors .sh h2').innerHTML=`${S.n}, <em>today.</em>`;
+ $$('#specs .sp').forEach(c=>c.classList.toggle('on',c.dataset.spec===k));renderDocs();renderPanel()}
+function resetOtp(){st.otp=false;$('#otpb').textContent='Send OTP';$('#otp').classList.remove('on');$$('#otp i').forEach(b=>{b.textContent='';b.classList.remove('f')})}
+setSpec('cardio');
+
+$('#specs').addEventListener('click',e=>{const c=e.target.closest('.sp');if(c)setSpec(c.dataset.spec)});
+$('#docs').addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(!b)return;st.doc=+b.dataset.i;st.slot=null;renderDocs();renderPanel();if(narrow())goTo('#panel')});
+$('#days').addEventListener('click',e=>{const d=e.target.closest('.day');if(!d)return;if(d.classList.contains('x')){toast('The OPD is closed on Sundays. Emergency is open 24 hours.');return}st.day=+d.dataset.i;st.slot=null;renderDays();renderSlots();renderConf()});
+$('#slots').addEventListener('click',e=>{const b=e.target.closest('.slot');if(!b||b.classList.contains('taken'))return;st.slot=+b.dataset.i;$$('.slot').forEach(x=>x.classList.toggle('on',x===b));renderConf()});
+$('#seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;st.mode=+b.dataset.m;$$('#seg button').forEach(x=>x.classList.toggle('on',x===b))});
+$('#phone').addEventListener('input',e=>{const v=e.target.value.replace(/[^\d ]/g,'');if(v!==e.target.value)e.target.value=v;if(st.otp)resetOtp();$('#hint').textContent=''});
+$('#otpb').addEventListener('click',async()=>{if($('#phone').value.replace(/\D/g,'').length!==10){$('#hint').textContent='Enter your 10-digit mobile number first.';$('#phone').focus();return}
+ if(st.otp||$('#otp').classList.contains('on'))return;$('#hint').textContent='';$('#otpb').textContent='Sent ✓';$('#otp').classList.add('on');await FILM.wait(700);const c=[4,8,2,9];const b=$$('#otp i');for(let i=0;i<4;i++){b[i].textContent=c[i];b[i].classList.add('f');await FILM.wait(130)}st.otp=true});
+$('#conf').addEventListener('click',async()=>{const b=$('#conf');if(b.classList.contains('busy'))return;
+ if(st.slot==null){$('#hint').textContent='Choose a time slot above.';return}
+ if(!st.otp){$('#hint').textContent=$('#otp').classList.contains('on')?'Reading the OTP, one moment.':'Enter your mobile number and tap Send OTP.';if(!$('#otp').classList.contains('on'))$('#phone').focus();return}
+ const S=SPEC[st.spec],d=S.docs[st.doc],day=days[st.day],last=d.n.split(' ').pop();
+ b.classList.add('busy');b.innerHTML=`<span class="spin"></span>Confirming with Dr. ${last}'s calendar`;await FILM.wait(1100);
+ booked={num:21+st.slot,tk:S.tk,doc:d.n,spec:S.n,room:S.room,time:ampm(TIMES[st.slot]),day,mode:st.mode};
+ const ph=$('#phone').value.replace(/\D/g,'');
+ $('.done h3').textContent="You're booked.";$('.done p').textContent=`${DOWF[day.getDay()]}, ${day.getDate()} ${MONF[day.getMonth()]} · ${booked.time} · ${d.n}`;
+ $('.tk .no').textContent=`${S.tk}-${booked.num}`;$('.tk .w').textContent=st.mode?'Your video link arrives on WhatsApp 10 minutes before the consult.':`Show this QR at the ${S.n} desk, ${S.room.split(' · ')[1]}. We'll tell you when to leave home.`;
+ const rows=$$('.done .ok-row');const set=(r,t)=>{r.lastChild.textContent=t};
+ set(rows[0],`WhatsApp reminder set for +91 ${ph.slice(0,2)}••• ••${ph.slice(-3)}`);set(rows[1],`Previous reports shared with Dr. ${last}`);set(rows[2],`Added to your calendar · Pay ₹${S.fee[st.mode]} ${st.mode?'online before the consult':'at visit or now'}`);
+ $('#panel').classList.add('ok');syncBooking();q.ahead=5;renderQueue();if(narrow())goTo('#panel')});
+$('#again').addEventListener('click',()=>{st.slot=null;$('#phone').value='';resetOtp();renderPanel();if(narrow())goTo('#panel')});
+
+// ---- search ----
+const IC={spec:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="9.5"/></svg>',
+ doc:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4.5 4-6.5 8-6.5s7 2 8 6.5"/></svg>',
+ warn:'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17v.5"/></svg>'};
+const freeToday=S=>S.docs.filter(d=>!d.off).length;
+function search(v){const raw=v.trim().toLowerCase(),s=' '+raw+' ';if(raw.length<3)return '';
+ const hits=Object.entries(SPEC).map(([k,S])=>[k,S.kw.filter(w=>s.includes(w)).length+(s.includes(S.n.toLowerCase().slice(0,6))?3:0)]).filter(x=>x[1]).sort((a,b)=>b[1]-a[1]).slice(0,3);
+ const nm=raw.replace(/^dr\.?\s*/,''),docs=[];if(nm.length>2)Object.entries(SPEC).forEach(([k,S])=>S.docs.forEach((d,i)=>{if(d.n.toLowerCase().includes(nm)&&docs.length<3)docs.push([k,i,d])}));
+ const urgent=/chest|breath|unconscious|bleed|stroke|faint|severe|accident|seizure|fits/.test(s);
+ let h=`<div class="lbl">${docs.length?'Doctors':hits.length?'Best match for your symptoms':'We could not match that. Start here'}</div>`;
+ docs.forEach(([k,i,d])=>h+=`<div class="res" data-spec="${k}" data-doc="${i}"><div class="ic">${IC.doc}</div><div><b>${d.n}</b><span>${SPEC[k].n} · next ${d.nx.toLowerCase()}</span></div><span class="go">See slots →</span></div>`);
+ if(!docs.length){(hits.length?hits:[['gen',1]]).forEach(([k],n)=>{const S=SPEC[k];h+=`<div class="res" data-spec="${k}"${k==='cardio'?' id="r-cardio"':''}><div class="ic">${IC.spec}</div><div><b>${S.n}</b><span>${n?'Also worth considering':freeToday(S)+' doctors available today'} · from ₹${S.fee[1]}</span></div><span class="go">See slots →</span></div>`});
+  if(!hits.length)h+=`<div class="res" data-call="1"><div class="ic">${IC.doc}</div><div><b>Not sure who to see?</b><span>Call the helpline on 040 4455 0108 and a nurse will guide you</span></div></div>`}
+ if(urgent)h+=`<div class="res warn" data-er="1"><div class="ic">${IC.warn}</div><div><b>Sudden or severe symptoms? Don't book. Come to ER now.</b><span>Current ER wait at Gachibowli: ${$('#erv').firstChild.textContent} min · tap here to call an ambulance</span></div></div>`;
+ return h}
+function showDrop(){const h=search($('#q').value);$('#drop').innerHTML=h;$('#drop').classList.toggle('on',!!h)}
+function hideDrop(){$('#drop').classList.remove('on');$('#sbox').classList.remove('f')}
+$('#q').addEventListener('focus',()=>{$('#sbox').classList.add('f');showDrop()});
+$('#q').addEventListener('input',showDrop);
+$('#q').addEventListener('keydown',e=>{if(e.key==='Enter'){const r=$('#drop .res[data-spec]');if(r)r.click()}if(e.key==='Escape')hideDrop()});
+$('#sbox .btn').addEventListener('click',()=>{const r=$('#drop.on .res[data-spec]');if(r)r.click();else{$('#q').focus();if($('#q').value.trim().length<3)toast('Type a symptom, a speciality or a doctor\'s name.')}});
+$('#drop').addEventListener('click',e=>{const r=e.target.closest('.res');if(!r)return;hideDrop();
+ if(r.dataset.er){openER();return}if(r.dataset.call){toast('Helpline: 040 4455 0108, open 24 hours.');return}
+ setSpec(r.dataset.spec,r.dataset.doc?+r.dataset.doc:null);goTo('#doctors')});
+document.addEventListener('click',e=>{if(!e.target.closest('.search'))hideDrop()});
+$$('.hero .chips .chip').forEach(c=>{c.style.cursor='pointer';c.addEventListener('click',e=>{e.stopPropagation();$('#q').value=c.textContent;$('#sbox').classList.add('f');showDrop();const r=$('#drop .res[data-spec]');if(r)r.click()})});
+
+// ---- health checks ----
+$$('#checks [data-pk]').forEach(b=>b.addEventListener('click',()=>{if(b.disabled)return;b.disabled=true;b.textContent='Requested ✓';b.className='btn o';toast(`${b.dataset.pk} requested. Our desk will call you within 30 minutes to fix a time.`)}));
+
+// ---- views + nav ----
 function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;
  $('nav.main').style.display=v==='ops'?'none':'';$('.util').style.display=v==='ops'?'none':'';
- $('#l-home').classList.toggle('cur',v==='home');$('#l-portal').classList.toggle('cur',v==='portal');}
-$('#q').addEventListener('focus',()=>$('#sbox').classList.add('f'));
-$('#q').addEventListener('input',e=>{$('#drop').classList.toggle('on',e.target.value.length>8)});
-$('#r-cardio').addEventListener('click',()=>{$('#drop').classList.remove('on');$('#sbox').classList.remove('f')});
-$$('.day').forEach(d=>d.addEventListener('click',()=>{if(d.classList.contains('x'))return;$$('.day').forEach(x=>x.classList.remove('on'));d.classList.add('on')}));
-$$('.slot').forEach(d=>d.addEventListener('click',()=>{if(d.classList.contains('taken'))return;$$('.slot').forEach(x=>x.classList.remove('on'));d.classList.add('on')}));
-$('#otpb').addEventListener('click',async()=>{$('#otpb').textContent='Sent ✓';$('#otp').classList.add('on');await FILM.wait(700);const c=[4,8,2,9];const b=$$('#otp i');for(let i=0;i<4;i++){b[i].textContent=c[i];b[i].classList.add('f');await FILM.wait(130)}});
-$('#conf').addEventListener('click',async()=>{const b=$('#conf');b.classList.add('busy');b.innerHTML='<span class="spin"></span>Confirming with Dr. Rao\'s calendar';await FILM.wait(1100);$('#panel').classList.add('ok')});
-$('#l-portal').addEventListener('click',()=>{show('portal');FILM.setUrl('kadambahealth.in','/portal/overview');setTimeout(()=>{$('#chart').classList.add('draw');$('#claim').classList.add('go')},500)});
-$('#f-dad').addEventListener('click',async()=>{$$('#fam button').forEach(b=>b.classList.toggle('on',b.id==='f-dad'));$('#pgrid').classList.add('out');await FILM.wait(350);
- $('#ptitle').textContent='Suresh Reddy · Father';$('#psub').textContent='Managed by you · BP review due in 9 days.';$('#adoc').textContent='Dr. Vikram Kulkarni · Cardiology';$('#awhen').textContent='Tue 18 Nov, 4:40 PM · Video consult';$('#ad').textContent='18';
- drawChart('dad');$('#pgrid').classList.remove('out');await FILM.wait(200);$('#chart').classList.add('draw')});
-$('#b-er').addEventListener('click',async()=>{$('#modal').classList.add('on');FILM.setUrl('kadambahealth.in','/emergency');const sh=$$('#shared div');for(const d of sh){await FILM.wait(650);d.classList.add('on')}});
+ $('#l-home').classList.toggle('cur',v==='home');$('#l-portal').classList.toggle('cur',v==='portal');
+ $$('#demo-bar button[data-i]').forEach((b,i)=>b.classList.toggle('on',i===({home:0,portal:1,ops:3})[v]))}
+const isHome=()=>$('#v-home').classList.contains('on');
+function homeThen(sel){closeER();if(!isHome())show('home');setTimeout(()=>goTo(sel),isHome()?0:80)}
+const navA=$$('nav.main .links a');
+navA[1].addEventListener('click',()=>homeThen('#doctors'));
+navA[2].addEventListener('click',()=>homeThen('#checks'));
+$('nav.main .nav-r .btn.g').addEventListener('click',()=>homeThen(narrow()?'#panel':'#doctors'));
+$('.logo').style.cursor='pointer';$('.logo').addEventListener('click',()=>{closeER();show('home')});
+function openPortal(){closeER();show('portal');FILM.setUrl('kadambahealth.in','/portal/overview');setTimeout(()=>{$('#chart').classList.add('draw');$('#claim').classList.add('go')},500)}
+$('#l-portal').addEventListener('click',openPortal);
+$('#l-home').addEventListener('click',()=>{closeER();show('home');FILM.setUrl('kadambahealth.in','')});
+
+// ---- live queue on the visit phone ----
+const q={ahead:5,hold:0,late:false};
+function renderQueue(){const b=booked,first=b.num-5,dots=$('#qdots');
+ dots.innerHTML=Array.from({length:6},(_,i)=>{const cur=5-q.ahead;return `<i class="${i<cur?'d':i===cur?'c':i===5?'me':''}">${b.tk}-${first+i}</i>`}).join('');
+ $('#ahead').textContent=q.ahead?`${q.ahead} ${q.ahead===1?'person':'people'} ahead`:'You are next';
+ $('#etav').textContent=q.ahead?`~${q.ahead*4+2+(q.late?6:0)} min`:'Now';
+ $('#leave').textContent=q.ahead>2?'Leave by 10:52 AM':q.ahead?'Leave now':'Please come to the desk';
+ $('#late').classList.toggle('on',q.late);
+ $('#srv').textContent=`${b.tk}-${first+5-q.ahead}`}
+function syncBooking(){const b=booked,d=b.day,tok=`${b.tk}-${b.num}`,last=b.doc.split(' ').pop();
+ $('.q .h span').textContent=b.mode?'Video consult':b.room;$('.q .big .n').textContent=tok;$('.q .big .s').textContent=`${b.doc} · ${b.spec}`;
+ $('#late span').textContent=`Dr. ${last} is running 6 min behind. We've moved your estimate, so there is no need to rush.`;
+ const bub=$$('.wa .bub');bub[0].innerHTML=`<b>Reminder · ${DOW[d.getDay()]} ${b.time}</b>${b.doc}, ${b.spec}. Your token is ${tok}. Reply 1 to confirm, 2 to reschedule.<span class="tm">9:30 AM</span>`;
+ $('.row span').textContent=`${b.spec} OPD — now serving`;
+ PPL.meera.appt={d:d.getDate(),m:MON[d.getMonth()].toUpperCase(),doc:`${b.doc} · ${b.spec}`,when:`${DOW[d.getDay()]} ${b.time} · Token ${tok} · ${b.mode?'Video consult':'Gachibowli'}`};
+ if(person==='meera')paintAppt()}
+setInterval(()=>{if(FILM.on||document.hidden||!isHome())return;
+ if(q.ahead===0){if(++q.hold>2){q.ahead=5;q.hold=0;q.late=false}}else{q.ahead--;if(q.ahead===3)q.late=true}
+ renderQueue()},5000);
+const pb=$$('.pbtns span');
+pb[0].addEventListener('click',()=>{q.ahead=Math.min(5,q.ahead+2);q.hold=0;renderQueue();toast("Noted. We've told the desk and moved you two places back.")});
+pb[1].addEventListener('click',()=>toast('Kadamba Health, Gachibowli. 14 min drive, light traffic on ORR.'));
 
 // live ticks on home
 let upd=4;setInterval(()=>{upd=(upd%9)+1;$('#upd').textContent=`updated ${upd} s ago`},1000);
+setInterval(()=>{if(FILM.on||document.hidden)return;const v=9+Math.floor(Math.random()*6);$('#erv').innerHTML=v+'<small>min</small>'},7000);
 
-$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')});
-$('#l-home').addEventListener('click',()=>{$('#modal').classList.remove('on');show('home');FILM.setUrl('kadambahealth.in','')});
-const H_views=[{name:'Website',go:()=>{$('#modal').classList.remove('on');show('home')}},
- {name:'Patient portal',go:()=>{$('#modal').classList.remove('on');$('#l-portal').click()}},
- {name:'Emergency',go:()=>{show('home');$('#b-er').click();FILM.tween(7000,t=>{placeAmb(t*.62);$('#amin').textContent=Math.max(4,Math.ceil(7-t*3.2))},t=>t)}},
- {name:'Ops dashboard',go:()=>{$('#modal').classList.remove('on');show('ops');$('#ops').classList.add('go');$$('.kpi b').forEach(b=>countUp(b))}}];
-FILM.init({views:H_views,reset:()=>{$('#modal').classList.remove('on');show('home')},no:'01',name:'Kadamba Health',short:'Hospital',sector:'Concept 01 — Hospital',host:'kadambahealth.in',caps:7,
+// ---- patient portal ----
+Object.assign(series,{
+ ldl:{k:'LDL cholesterol · last 18 months',v:'96<small> mg/dL</small>',d:'↓ 38 since starting Rosuvastatin<span>Below the 100 target for the first time</span>',pts:[134,121,112,103,96],lo:60,hi:150,band:[60,100],lab:['May 25','Aug 25','Dec 25','Apr 26','Oct 26']},
+ sugar:{k:'Fasting sugar · last 18 months',v:'101<small> mg/dL</small>',d:'↓ 17 this year<span>Just above the normal range</span>',pts:[118,112,109,104,101],lo:70,hi:130,band:[70,100],lab:['Jun 25','Sep 25','Jan 26','May 26','Oct 26']},
+ tsh:{k:'Thyroid (TSH) · last 18 months',v:'3.2<small> mIU/L</small>',d:'↓ 4.4 since starting Thyronorm<span>Inside the normal range</span>',pts:[7.6,6.1,4.8,3.9,3.2],lo:0,hi:9,band:[.4,4.5],lab:['May 25','Sep 25','Jan 26','Jun 26','Oct 26']},
+ vitd:{k:'Vitamin D · last 18 months',v:'31<small> ng/mL</small>',d:'↑ 17 since supplements<span>Just inside the healthy range</span>',pts:[14,19,24,28,31],lo:5,hi:45,band:[30,45],lab:['May 25','Sep 25','Jan 26','Jun 26','Oct 26']}});
+const plus=n=>{const d=new Date(days[0]);d.setDate(d.getDate()+n);return d};
+const apptOn=(d,doc,rest)=>({d:d.getDate(),m:MON[d.getMonth()].toUpperCase(),doc,when:`${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}, ${rest}`});
+const PPL={
+ meera:{title:'Good morning, Meera.',sub:'Two new reports since last week.',tests:['meera','ldl'],appt:null},
+ dad:{title:'Suresh Reddy · Father',sub:'Managed by you · BP review due in 9 days.',tests:['dad','sugar'],appt:apptOn(plus(9),'Dr. Vikram Kulkarni · Cardiology','4:40 PM · Video consult')},
+ mom:{title:'Lakshmi Reddy · Mother',sub:'Managed by you · Thyroid review due in 3 weeks.',tests:['tsh','vitd'],appt:apptOn(plus(21),'Dr. Farah Siddiqui · Endocrinology','10:00 AM · Gachibowli')}};
+let person='meera',testI=0;
+function paintAppt(){const a=PPL[person].appt;$('#ad').textContent=a.d;$('#ad').closest('.dt').querySelector('small').textContent=a.m;$('#adoc').textContent=a.doc;$('#awhen').textContent=a.when}
+async function setPerson(p){if(p===person)return;person=p;testI=0;$$('#fam button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));$('#pgrid').classList.add('out');await FILM.wait(350);
+ const P=PPL[p];$('#ptitle').textContent=P.title;$('#psub').textContent=P.sub;paintAppt();drawChart(P.tests[0]);$('#pgrid').classList.remove('out');await FILM.wait(200);$('#chart').classList.add('draw')}
+$('#fam').addEventListener('click',e=>{const b=e.target.closest('button');if(b)setPerson(b.dataset.p)});
+const cards=$$('#pgrid .card'),cardLink=i=>cards[i].querySelector('h4 a');
+cardLink(0).textContent='Next test →';
+cardLink(0).addEventListener('click',()=>{const t=PPL[person].tests;testI=(testI+1)%t.length;drawChart(t[testI]);requestAnimationFrame(()=>requestAnimationFrame(()=>$('#chart').classList.add('draw')))});
+cardLink(1).addEventListener('click',()=>{toast('Pick a new time. Your current slot is released once you confirm.');homeThen(narrow()?'#panel':'#doctors')});
+cards[2].insertAdjacentHTML('beforeend','<div class="more" hidden><div class="rep"><div class="ic">'+IC.spec+'</div><div><b>HbA1c</b><span>28 Oct · reviewed by Dr. Siddiqui</span></div><span class="s tag ok">READY</span></div><div class="rep"><div class="ic">'+IC.spec+'</div><div><b>Chest X-ray</b><span>12 Sep · no abnormality seen</span></div><span class="s tag ok">READY</span></div></div>');
+cards[4].insertAdjacentHTML('beforeend','<div class="more" hidden><div class="rx"><div><b>Pantoprazole 40 mg</b><span>Course completed · 14 Aug to 28 Aug</span></div><span class="tag ok">DONE</span></div><div class="rx"><div><b>Azithromycin 500 mg</b><span>Course completed · 2 Jun to 6 Jun</span></div><span class="tag ok">DONE</span></div></div>');
+[[2,'View all','Show fewer'],[4,'History','Hide history']].forEach(([i,a,b])=>cardLink(i).addEventListener('click',e=>{const m=cards[i].querySelector('.more');m.hidden=!m.hidden;e.target.textContent=m.hidden?a:b}));
+cardLink(3).addEventListener('click',()=>toast('3 documents on file: pre-authorisation letter, discharge summary and final bill.'));
+$$('#pgrid .rep').forEach(r=>{r.style.cursor='pointer';r.addEventListener('click',()=>{const n=r.querySelector('b').textContent,ok=r.querySelector('.tag.ok');toast(ok?`${n}: report opened. A copy was sent to your WhatsApp.`:`${n} is still being processed. We will message you when it is ready.`)})});
+$$('#pgrid .rx .btn').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.done)return;b.dataset.done=1;const refill=b.classList.contains('g');b.className='btn o';b.textContent=refill?'Ordered ✓ arriving tomorrow':'Reminder on ✓';toast(refill?'Refill ordered from the hospital pharmacy. Pay on delivery.':'We will remind you every night at 9 PM.')}));
+const sideA=$$('.side a'),sideTo=[null,cards[2],cards[4],cards[3],$('#fam'),cards[1]];
+sideA.forEach((a,i)=>a.addEventListener('click',()=>{sideA.forEach(x=>x.classList.toggle('on',x===a));const el=sideTo[i];if(!el){scrollTo({top:0,behavior:'smooth'});return}
+ el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')}));
+
+// ---- emergency ----
+let erRun=0;
+async function openER(){const id=++erRun;$('#modal').classList.add('on');FILM.setUrl('kadambahealth.in','/emergency');
+ if(!FILM.on){placeAmb(0);$('#amin').textContent=7;FILM.tween(14000,t=>{if(id!==erRun)return;placeAmb(t*.94);$('#amin').textContent=Math.max(1,Math.ceil(7-t*6.2))},t=>t)}
+ for(const d of $$('#shared div')){await FILM.wait(650);if(id!==erRun)return;d.classList.add('on')}}
+function closeER(){if(!$('#modal').classList.contains('on'))return;erRun++;$('#modal').classList.remove('on');$$('#shared div').forEach(d=>d.classList.remove('on'));
+ const s=$$('.mside .bt span');s[0].textContent='Call paramedic';s[1].textContent='Share live location'}
+$('#b-er').addEventListener('click',openER);
+$('#mx').addEventListener('click',closeER);
+$('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeER()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeER()});
+$$('.mside .bt span').forEach((s,i)=>s.addEventListener('click',()=>{s.textContent=i?'Location shared ✓':'Calling Ravi Teja…'}));
+
+// ---- ops dashboard ----
+const KPI={
+ Today:[['Bed occupancy',87,'%','','↑ 3% vs last week'],['OPD patients today',642,'','','184 still in queue'],['Avg OPD wait',14,' min','','↓ from 41 min before live queue'],['ER arrivals',23,'','','2 critical · 1 ambulance inbound',1],['Discharges pending',11,'','','4 waiting on billing',1]],
+ Beds:[['Beds occupied',358,'','','of 412 across 8 wards'],['ICU beds free',4,'','','of 32 · forecast full by 6 PM',1],['Admissions today',46,'','','19 planned · 27 from ER and OPD'],['Avg length of stay',4,' days','','↓ 0.6 days this quarter'],['Beds being cleaned',9,'','','avg turnaround 38 min']],
+ OPD:[['Booked online',71,'%','','↑ from 22% a year ago'],['Walk-ins today',186,'','','auto-added to the live queue'],['No-shows',4,'%','','↓ from 17% before reminders'],['Doctors in OPD',38,'','','3 running more than 15 min late',1],['Longest queue',22,'','','Orthopaedics · patients notified',1]],
+ Emergency:[['Patients in ER',9,'','','2 critical · 4 under observation',1],['Door to doctor',6,' min','','target is under 10 min'],['Ambulances out',1,'','','KA-07 inbound · ETA 4 min'],['Trauma bays free',3,'','','of 5'],['Transfers to ICU',2,'','','beds reserved in advance']],
+ Revenue:[['Collected today',18,' L','₹','↑ 9% vs last week'],['Insurance claims filed',64,'','','₹41 L awaiting settlement'],['Bills pending',11,'','','4 holding up discharges',1],['Online payments',68,'%','','UPI 52% · cards 16%'],['Pharmacy sales',3,' L','₹','214 home deliveries']]};
+function setKpis(tab,animate){$('.kpis').innerHTML=KPI[tab].map(k=>`<div class="kpi"><small>${k[0]}</small><b class="tnum" data-n="${k[1]}" data-s="${k[2]}" data-p="${k[3]}">${animate?0:k[3]+k[1]+(k[2]?`<em style="font-size:20px;color:#8ea69a;font-style:normal">${k[2]}</em>`:'')}</b><span${k[5]?' class="bad"':''}>${k[4]}</span></div>`).join('');if(animate)$$('.kpi b').forEach(b=>countUp(b,900))}
+const tabs=$$('.oph .tabs span');
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.toggle('on',x===t));setKpis(t.textContent,true)}));
+setInterval(()=>{if(FILM.on||!$('#v-ops').classList.contains('on'))return;$('#clk').textContent=new Date().toLocaleTimeString('en-GB')},1000);
+function openOps(){closeER();show('ops');$('#ops').classList.add('go');tabs.forEach((x,i)=>x.classList.toggle('on',!i));setKpis('Today',true)}
+
+function resetAll(){closeER();tabs.forEach((x,i)=>x.classList.toggle('on',!i));$('.kpis').innerHTML=KPI.Today.map(k=>`<div class="kpi"><small>${k[0]}</small><b class="tnum" data-n="${k[1]}" data-s="${k[2]}">0</b><span${k[5]?' class="bad"':''}>${k[4]}</span></div>`).join('');
+ booked=DEF;q.ahead=5;q.hold=0;q.late=false;syncBooking();renderQueue();$('#leave').textContent='Leave by 10:52 AM';$('#q').value='';hideDrop();$('#phone').value='';resetOtp();
+ st.day=firstOpen;st.mode=0;setSpec('cardio');person='';setPerson('meera');show('home')}
+syncBooking();renderQueue();
+const H_views=[{name:'Website',go:()=>{closeER();show('home')}},
+ {name:'Patient portal',go:openPortal},
+ {name:'Emergency',go:()=>{if(!isHome())show('home');openER()}},
+ {name:'Ops dashboard',go:openOps}];
+FILM.init({views:H_views,reset:resetAll,no:'01',name:'Kadamba Health',short:'Hospital',sector:'Concept 01 — Hospital',host:'kadambahealth.in',caps:7,
   desc:'A patient-first hospital platform: symptom search, real-time booking, a live OPD queue, family health records and one-tap emergency.',
   displayFont:"'Newsreader',serif",nameSize:150,nameWeight:400,cardBg:'#0F2A22',cardFg:'#EFEBE1',
   mods:['Hospital website','Doctor booking','Live OPD queue','WhatsApp alerts','Patient portal','Insurance tracking','Ambulance dispatch','Operations dashboard']},

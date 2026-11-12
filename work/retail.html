@@ -63,6 +63,18 @@ html.film { scroll-behavior:auto !important; }
 #demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
 #demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
 #demo-bar .db-tour:hover { background:#7c4bec; }
+#demo-bar a.db-pb { text-decoration:none; }
+#demo-bar a.db-pb:hover { color:#fff; }
+#demo-bar button { white-space:nowrap; flex:none; }
+@media (max-width:900px) {
+  #demo-bar { left:8px; right:8px; bottom:8px; transform:none; overflow-x:auto; scrollbar-width:none; border-radius:14px; }
+  #demo-bar::-webkit-scrollbar { display:none; }
+  #demo-bar .db-tour { display:none; }
+  #demo-bar .db-pb { padding:0 8px 0 6px; flex:none; }
+  #demo-bar .db-pb span { display:none; }
+}
+#toast { position:fixed; left:50%; bottom:84px; transform:translate(-50%,12px); z-index:10000; width:max-content; max-width:min(92vw,460px); padding:13px 18px; border-radius:12px; background:#141416; color:#fff; font:500 14px/1.4 'Instrument Sans',system-ui,sans-serif; box-shadow:0 18px 40px -16px rgba(0,0,0,.55); opacity:0; pointer-events:none; transition:opacity .25s, transform .3s; }
+#toast.on { opacity:1; transform:translate(-50%,0); }
 #tour-again { position:fixed; right:30px; top:60px; z-index:9999; font:600 14px 'Instrument Sans',sans-serif; color:#111; background:#fff; border:0; border-radius:12px; padding:12px 18px; cursor:pointer; box-shadow:0 10px 30px -10px rgba(0,0,0,.4); }
 </style>
 <style>
@@ -266,6 +278,155 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .wa{margin-top:14px;padding:14px 16px;border-radius:14px;background:var(--ink);color:#fff;display:flex;justify-content:space-between;align-items:center}
 .wa small{display:block;color:#b9b3a6;font-size:12.5px}
 .wa b{font-size:26px;letter-spacing:-.03em}
+
+/* ---------- live-demo additions ---------- */
+.links a:hover{color:var(--ink)}
+.bag{cursor:pointer}
+.dx{position:absolute;right:22px;top:22px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);font-size:20px;line-height:1;display:grid;place-items:center;background:#fff}
+.drawer{width:min(500px,100vw);overflow-y:auto}
+.drawer h3{padding-right:52px}
+.emp{padding:40px 0;color:var(--mute);font-size:15px}
+.qy{display:flex;align-items:center;gap:6px;margin-top:8px}
+.qy button{min-width:28px;height:28px;padding:0 8px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-weight:600;display:grid;place-items:center}
+.qy button:hover{border-color:var(--ink)}
+.qy em{font-style:normal;font-weight:600;min-width:18px;text-align:center}
+.cob.off{opacity:.4;cursor:not-allowed}
+.li>div:nth-child(2){min-width:0}
+.box .bl span{cursor:pointer}
+.col .box:nth-of-type(2) .bl span{color:var(--ink);font-weight:600;text-decoration:underline}
+.af{display:grid;gap:8px}
+.af input,.af textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font:inherit;font-size:15px;outline:0;background:#fff;resize:vertical}
+.af input:focus,.af textarea:focus{border-color:var(--ink)}
+.af button{height:44px;border-radius:12px;background:var(--ink);color:#fff;font-weight:600}
+.hint{font-size:13px;color:#b5452a;margin-top:6px}
+.hint:empty{display:none}
+.ok.on{pointer-events:auto}
+.okb{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.okb button{height:48px;padding:0 20px;border-radius:14px;font-weight:600;border:1px solid var(--ink)}
+.okb button:first-child{background:var(--ink);color:#fff}
+.fi .sw2{margin-left:0}
+.ab.flash,.wa.flash{animation:fl 1.4s ease}
+@keyframes fl{0%,60%{box-shadow:0 0 0 3px var(--tang)}100%{box-shadow:0 0 0 3px transparent}}
+.bulk{padding:90px 0;border-top:1px solid var(--line2)}
+.bulk .wrap{display:grid;grid-template-columns:1fr 480px;gap:70px;align-items:center}
+.bulk h2{font-size:60px;letter-spacing:-.045em;line-height:.95;margin:16px 0 18px}
+.bulk h2 em{font-family:var(--s);font-weight:400;color:var(--tang)}
+.bulk p{font-size:16px;line-height:1.55;color:var(--ink2);max-width:460px}
+.bq{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+.bq label{font-size:14px;color:var(--ink2)}
+.bqr{display:flex;align-items:center;gap:18px;margin:12px 0 4px}
+.bqr input{flex:1;accent-color:var(--ink);height:28px;min-width:0}
+.bqr b{font-size:34px;letter-spacing:-.03em;min-width:70px;text-align:right}
+.bq .dsum{margin-top:14px}
+.steel{background:var(--ink);color:#e9e4d8;padding:70px 0 80px}
+.s3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:26px;font-size:15px;line-height:1.55;color:#b9b3a6}
+.s3 b{display:block;color:#fff;font-size:24px;letter-spacing:-.03em;margin-bottom:10px;line-height:1.1}
+#v-shop .steel{padding-bottom:130px}
+
+@media(max-width:1240px){
+ .wrap{padding:0 32px}
+ nav .wrap{gap:26px}
+ .links{gap:20px}
+ .hero{height:auto;padding:44px 0 32px}
+ .hero h1{font-size:84px}
+ .cfg{grid-template-columns:minmax(0,1fr) 460px;min-height:0}
+ #bottle{height:560px}
+ .stage .disc{width:480px;height:480px;margin:-240px 0 0 -240px}
+ .stage .hl{gap:18px;left:24px;bottom:24px}
+ .stage .lbl{left:24px;top:22px}
+ .panel{padding:32px 28px}
+ .co{grid-template-columns:minmax(0,1fr) 420px}
+ .col{padding:32px}
+ .sum{padding:32px 28px}
+ .trk{padding:32px 32px 110px}
+ .tg{grid-template-columns:1fr 1fr}
+ .help{grid-column:1/-1;height:auto}
+ .kp{grid-template-columns:1fr 1fr}
+ .ag{grid-template-columns:1fr 1fr}
+ .ag .ab:first-child{grid-column:1/-1}
+ .adm{min-height:0;padding-bottom:110px}
+ .bulk .wrap{grid-template-columns:minmax(0,1fr) 400px;gap:40px}
+ .bulk h2{font-size:46px}
+}
+@media(max-width:860px){
+ .wrap{padding:0 18px}
+ .ann{font-size:12px;padding:0 12px}
+ .ann span:nth-child(n+2){display:none}
+ nav{position:static}
+ nav .wrap{flex-wrap:wrap;height:auto;padding-top:12px;gap:0 14px}
+ .logo{font-size:26px}
+ .links{order:3;width:100%;overflow-x:auto;white-space:nowrap;gap:24px;padding:12px 0;margin-top:10px;border-top:1px solid var(--line2);scrollbar-width:none}
+ .links::-webkit-scrollbar{display:none}
+ .hero{padding:30px 0 26px}
+ .hero .wrap{flex-direction:column;align-items:flex-start;gap:18px}
+ .hero h1{font-size:54px}
+ .hero .r{text-align:left;font-size:15px;max-width:none}
+ .cfg{grid-template-columns:minmax(0,1fr)}
+ .stage{height:470px}
+ #bottle{height:380px;margin-top:-20px}
+ .stage .disc{width:340px;height:340px;margin:-170px 0 0 -170px}
+ .stage .shadow{bottom:74px;transform:scale(.6)}
+ .stage .lbl{left:18px;top:16px}
+ .stage .hl{left:18px;right:18px;bottom:16px;gap:10px;justify-content:space-between;font-size:11.5px}
+ .stage .hl b{font-size:17px}
+ .panel{padding:26px 18px 30px;border-left:0}
+ .pn h2{font-size:30px}
+ .pn .pr{font-size:24px}
+ .sub{flex-wrap:wrap;gap:4px 14px}
+ .ol{gap:10px}
+ .ch{height:58px;font-size:13.5px}
+ .ch small{font-size:11px;text-align:center}
+ .eng input{min-width:0}
+ .eng .cnt{width:44px}
+ .pin{flex-direction:column}
+ .pin input{width:100%}
+ .addb{padding:0 18px}
+ .trust{flex-wrap:wrap;gap:6px 14px;justify-content:flex-start}
+ .drawer{padding:22px 18px 84px}
+ .li{gap:12px;padding:14px 0}
+ .li .th{width:62px;height:80px}
+ .li b{font-size:15px}
+ .up{gap:10px;padding:12px}
+ .up .th{width:48px;height:48px}
+ .up button{padding:0 12px}
+ .co{grid-template-columns:minmax(0,1fr);min-height:0}
+ .col{padding:26px 18px 10px}
+ .col h2{font-size:36px}
+ .box{padding:16px}
+ .po{padding:12px;gap:10px;font-size:14px;cursor:pointer}
+ .po small{font-size:12px;text-align:right}
+ .vpa{padding-left:0;flex-direction:column}
+ .vpa input{width:100%}
+ #phint{padding-left:0!important}
+ .sum{padding:26px 18px 120px;border-left:0}
+ .ok{padding:0 18px 90px}
+ .ok h3{font-size:38px}
+ .trk{padding:26px 18px 110px}
+ .trk h2{font-size:40px}
+ .tl{grid-template-columns:1fr;margin-top:26px;gap:18px}
+ .tl::before{left:9px;right:auto;top:8px;bottom:8px;width:3px;height:auto}
+ .tl .fl{display:none}
+ .ts{padding:0 0 0 36px}
+ .tg{grid-template-columns:minmax(0,1fr);margin-top:28px}
+ .photo,.courier{height:320px}
+ .adm{padding:16px 14px 110px}
+ .ah{flex-wrap:wrap;gap:10px 14px}
+ .ah .tb{order:3;width:100%;overflow-x:auto;scrollbar-width:none}
+ .ah .tb span{white-space:nowrap}
+ .ah .r span:first-child{display:none}
+ .kp{gap:10px}
+ .k{padding:14px}
+ .k b{font-size:28px}
+ .ag{grid-template-columns:minmax(0,1fr)}
+ .ab{padding:16px;min-width:0}
+ .fi{font-size:13px;gap:10px}
+ .bulk{padding:56px 0}
+ .bulk .wrap{grid-template-columns:minmax(0,1fr);gap:26px}
+ .bulk h2{font-size:38px}
+ .bq{padding:20px}
+ .steel{padding:50px 0}
+ .s3{grid-template-columns:1fr;gap:26px}
+}
 </style>
 </head>
 <body>
@@ -300,6 +461,16 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
     <div class="trust"><span>Free returns within 30 days</span><span>Lifetime warranty</span><span>COD available</span></div>
   </div>
 </section>
+<section class="bulk" id="bulk"><div class="wrap">
+  <div><div class="m" style="color:var(--mute)">Corporate gifting</div><h2>One bottle per desk, <em>engraved</em> with each name.</h2><p>Send us a list of names and we engrave every bottle individually. Your logo goes on the back at no extra charge.</p></div>
+  <div class="bq"><label for="bqn">How many bottles?</label><div class="bqr"><input type="range" id="bqn" min="25" max="500" step="25" value="100"><b id="bqv">100</b></div>
+    <div class="dsum"><div class="r"><span>Price per bottle</span><span></span></div><div class="r"><span>You save</span><span></span></div><div class="r"><span>Ready to ship in</span><span></span></div><div class="r t"><span>Total before GST</span><span></span></div></div>
+    <button class="addb" id="bqb"><span>Request a quote</span><span>&rarr;</span></button></div>
+</div></section>
+<section class="steel" id="steel"><div class="wrap">
+  <div class="m" style="color:var(--mute)">Our steel</div>
+  <div class="s3"><div><b>18/8 food-grade steel</b>No liner and no coating inside, so nothing can flake into your water. The inside is bare polished steel.</div><div><b>Two walls and a vacuum</b>Ice lasts 24 hours and chai stays hot for 12. The outside never sweats in your bag.</div><div><b>Made in Peenya</b>Formed, powder-coated and engraved in our Bengaluru workshop, then leak-tested one at a time.</div></div>
+</div></section>
 </main>
 
 <main class="view" id="v-checkout">
@@ -347,7 +518,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
     <div class="tb"><span class="on">Today</span><span>Orders</span><span>Inventory</span><span>Customers</span><span>Campaigns</span></div>
     <div class="r"><span>Mon 10 Nov</span><span style="display:flex;gap:8px;align-items:center"><span style="width:8px;height:8px;border-radius:50%;background:#2f6a2a;box-shadow:0 0 0 4px rgba(47,106,42,.15)"></span><b id="vis">318</b>&nbsp;people on the site now</span></div></div>
   <div class="kp">
-    <div class="k"><small>Revenue today</small><b data-n="384200" data-r="1">₹0</b><span>↑ 18% vs last Monday</span></div>
+    <div class="k"><small>Revenue today</small><b data-n="384200" data-r="1">₹0</b><span>↑ 18% vs last week</span></div>
     <div class="k"><small>Orders</small><b data-n="214">0</b><span>62% chose engraving</span></div>
     <div class="k"><small>Conversion rate</small><b data-n="39" data-d="1">0</b><span>↑ 0.6 pts since configurator launch</span></div>
     <div class="k"><small>Average order</small><b data-n="1795" data-r="1">₹0</b><span>Sling attach rate 34%</span></div>
@@ -425,6 +596,14 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
       const r = el.getBoundingClientRect();
       if (r.top < vb - 40 && r.bottom > 0) el.classList.add('in');
     });
+  };
+
+  let toastT;
+  F.toast = (msg) => {
+    let t = document.getElementById('toast');
+    if (!t) { t = document.createElement('div'); t.id = 'toast'; t.setAttribute('role', 'status'); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add('on');
+    clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('on'), 3400);
   };
 
   F.setUrl = (host, path = '') => {
@@ -607,7 +786,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
   function buildBar(cfg) {
     const bar = document.createElement('div');
     bar.id = 'demo-bar';
-    bar.innerHTML = '<span class="db-pb">' + cube + 'Concept demo by Purplebox</span>' +
+    bar.innerHTML = '<a class="db-pb" href="../index.html#work" title="Back to Purplebox">' + cube + '<span>Demo by Purplebox</span></a>' +
       (cfg.views || []).map((v, i) => '<button data-i="' + i + '"' + (i ? '' : ' class="on"') + '>' + v.name + '</button>').join('') +
       '<button class="db-tour">&#9654; Play guided tour</button>';
     document.body.appendChild(bar);
@@ -684,18 +863,74 @@ $$('#sw button').forEach(b=>b.addEventListener('click',()=>{st.c=b.dataset.c;ren
 $$('#caps .ch').forEach(b=>b.addEventListener('click',()=>{st.cap=b.dataset.c;render()}));
 $$('#sizes .ch').forEach(b=>b.addEventListener('click',()=>{st.size=+b.dataset.s;render()}));
 $('#eng').addEventListener('input',e=>{st.eng=e.target.value;$('#ecnt').textContent=e.target.value.length+'/12';render()});
-$('#pin').addEventListener('input',e=>{if(e.target.value.length===6)$('#pres').innerHTML='<span><b>Arrives Wed, 12 Nov</b> · free delivery<br>Ships from Hyderabad · COD available</span>'});
+const toast=m=>FILM.toast(m),inr=n=>'₹'+n.toLocaleString('en-IN'),esc=t=>t.replace(/[<>&"]/g,'');
+const DOW=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const dPlus=n=>{const d=new Date();d.setDate(d.getDate()+n);return d},dl=d=>`${DOW[d.getDay()]}, ${d.getDate()} ${MON[d.getMonth()]}`;
+let shipDays=2;const arrive=()=>{const d=dPlus(shipDays);return d.getDay()===0?dPlus(shipDays+1):d};
+function goTo(sel){if(FILM.on)return;const el=$(sel);if(!el)return;const nav=$('nav'),off=getComputedStyle(nav).position==='sticky'?nav.offsetHeight:0;scrollTo({top:Math.max(0,el.getBoundingClientRect().top+scrollY-off),behavior:'smooth'})}
+function syncDates(){const a=dl(arrive());$('.drawer .dsum .r:nth-child(3) span').textContent='Delivery · '+a;$$('.col .box')[1].querySelector('.bl b').textContent='Arrives '+a}
+$('#pin').addEventListener('input',e=>{const v=e.target.value.replace(/\D/g,'');e.target.value=v;const r=$('#pres');
+ if(v.length<6){r.textContent='Enter your pincode for an exact delivery date';return}
+ if(!/^[1-8]/.test(v)){r.innerHTML='<span>We could not find that pincode. Check the six digits.</span>';return}
+ const near=/^5/.test(v);shipDays=near?2:4;const hub=/^5[6-9]/.test(v)?'Bengaluru':'Hyderabad';
+ r.innerHTML=`<span><b>Arrives ${dl(arrive())}</b> · free delivery<br>Ships from ${hub} · COD available</span>`;syncDates();renderBag()});
 render();
 function miniBottle(c,w=56){const k=COL[c];return `<svg width="${w}" height="${w*1.9}" viewBox="0 0 60 114"><rect x="22" y="2" width="16" height="12" rx="3" fill="#1d1d1b"/><path d="M12 30 C12 22 20 20 23 16 L37 16 C40 20 48 22 48 30 L48 104 Q48 112 40 112 L20 112 Q12 112 12 104Z" fill="${k[1]}"/><rect x="18" y="22" width="6" height="86" rx="3" fill="#fff" opacity=".22"/></svg>`}
-$('#add').addEventListener('click',()=>{const c=COL[st.c];$('#items').innerHTML=`<div class="li"><div class="th" style="background:${c[4]}">${miniBottle(st.c)}</div><div><b>The Everyday · ${st.size} ml</b><span>${c[0]} · ${st.cap[0].toUpperCase()+st.cap.slice(1)} cap · engraved "${st.eng}"</span><span>Arrives Wed 12 Nov</span></div><div class="p">${$('#price').textContent}</div></div>`;
- $('#scrim').classList.add('on');$('#drawer').classList.add('on');$('#bagc').classList.add('on');setTimeout(()=>$('#fsb').style.width='100%',500)});
-$('#upb').addEventListener('click',()=>{$('#upb').classList.add('on');$('#upb').textContent='Added';const d=document.createElement('div');d.className='li new';d.innerHTML=`<div class="th" style="background:#efe3cf"><svg width="44" height="44" viewBox="0 0 40 40"><path d="M8 6 C 4 20, 10 32, 20 34 C 30 32, 36 20, 32 6" fill="none" stroke="#8a6a3e" stroke-width="3"/><rect x="14" y="20" width="12" height="14" rx="3" fill="#b38a54"/></svg></div><div><b>Cotton bottle sling</b><span>Natural · fits 500 ml – 1 L</span></div><div class="p">₹499</div>`;$('#items').appendChild(d);
- $('#sub').textContent='₹1,998';$('#tot').textContent='₹1,998';$('#bagc').textContent='2';$('.drawer h3 span').textContent='2 items'});
-function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;const hide=v==='admin';$('nav').style.display=hide?'none':'';$('.ann').style.display=hide||v!=='shop'?'none':''}
-$('#cob').addEventListener('click',()=>{$('#scrim').classList.remove('on');$('#drawer').classList.remove('on');show('checkout');FILM.setUrl('thanda.in','/checkout');
- $('#sumitems').innerHTML=$('#items').innerHTML});
-$('#vpa').addEventListener('input',e=>{if(e.target.value.endsWith('okaxis'))$('#vok').classList.add('on')});
-$('#payb').addEventListener('click',async()=>{$('#payb').innerHTML='<span class="spin"></span>Waiting for approval in your UPI app';await FILM.wait(1600);$('#ok').classList.add('on')});
+
+// ---------- bag ----------
+const cart=[];let sling=false,order=null,pay='upi',vpaOk=false,orderSeq=58213;
+const priceOf=l=>({500:1149,750:1349,1000:1549})[l.size]+(l.cap==='sport'?150:0),capN=c=>c[0].toUpperCase()+c.slice(1),sizeN=z=>z===1000?'1 litre':z+' ml';
+const lineHTML=(l,i,edit)=>{const c=COL[l.c];return `<div class="li"><div class="th" style="background:${c[4]}">${miniBottle(l.c)}</div><div><b>The Everyday · ${sizeN(l.size)}</b><span>${c[0]} · ${capN(l.cap)} cap${l.eng?` · engraved "${esc(l.eng)}"`:''}</span>${edit?`<div class="qy"><button data-q="-1" data-i="${i}" aria-label="Remove one">−</button><em>${l.q}</em><button data-q="1" data-i="${i}" aria-label="Add one">+</button></div>`:`<span>Qty ${l.q} · arrives ${dl(arrive())}</span>`}</div><div class="p">${inr(priceOf(l)*l.q)}</div></div>`};
+const slingHTML=edit=>`<div class="li"><div class="th" style="background:#efe3cf"><svg width="44" height="44" viewBox="0 0 40 40"><path d="M8 6 C 4 20, 10 32, 20 34 C 30 32, 36 20, 32 6" fill="none" stroke="#8a6a3e" stroke-width="3"/><rect x="14" y="20" width="12" height="14" rx="3" fill="#b38a54"/></svg></div><div><b>Cotton bottle sling</b><span>Natural · fits 500 ml – 1 L</span>${edit?'<div class="qy"><button data-sl="1">Remove</button></div>':''}</div><div class="p">₹499</div></div>`;
+function sums(){const sub=cart.reduce((a,l)=>a+priceOf(l)*l.q,0)+(sling?499:0),n=cart.reduce((a,l)=>a+l.q,0)+(sling?1:0),cod=pay==='cod'&&sub?49:0;return{sub,n,cod,total:sub+cod}}
+function renderBag(){const t=sums();
+ $('#items').innerHTML=t.n?cart.map((l,i)=>lineHTML(l,i,true)).join('')+(sling?slingHTML(true):''):'<div class="emp">Your bag is empty. Build a bottle and add it here.</div>';
+ $('.drawer h3 span').textContent=t.n+(t.n===1?' item':' items');$('#bagc').textContent=t.n;$('#bagc').classList.toggle('on',t.n>0);
+ $('#sub').textContent=inr(t.sub);$('#tot').textContent=inr(t.sub);
+ $('#fs').firstChild.textContent=t.sub>=999?"You've unlocked free shipping":`Add ${inr(999-t.sub)} more for free shipping`;$('#fsb').style.width=Math.min(100,t.sub/9.99)+'%';
+ $('#up').style.display=cart.length?'':'none';$('#upb').classList.toggle('on',sling);$('#upb').textContent=sling?'Added':'Add';
+ $('#cob').classList.toggle('off',!t.n);renderSum()}
+const openBag=()=>{$('#scrim').classList.add('on');$('#drawer').classList.add('on')},closeBag=()=>{$('#scrim').classList.remove('on');$('#drawer').classList.remove('on')};
+$('#drawer').insertAdjacentHTML('afterbegin','<button class="dx" id="dx" aria-label="Close bag">&times;</button>');
+$('#dx').addEventListener('click',closeBag);$('#scrim').addEventListener('click',closeBag);document.addEventListener('keydown',e=>{if(e.key==='Escape')closeBag()});
+$('#bagn').addEventListener('click',openBag);
+$('#add').addEventListener('click',()=>{const l={c:st.c,cap:st.cap,size:st.size,eng:st.eng.trim()};const ex=cart.find(x=>x.c===l.c&&x.cap===l.cap&&x.size===l.size&&x.eng===l.eng);if(ex)ex.q=Math.min(9,ex.q+1);else cart.push({...l,q:1});renderBag();openBag()});
+$('#items').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.sl){sling=false}else{const l=cart[+b.dataset.i];l.q+=+b.dataset.q;if(l.q<=0)cart.splice(+b.dataset.i,1);else l.q=Math.min(9,l.q)}if(!cart.length)sling=false;renderBag()});
+$('#upb').addEventListener('click',()=>{sling=!sling;renderBag()});
+function show(v){$$('.view').forEach(x=>x.classList.toggle('on',x.id==='v-'+v));FILM.scroller.scrollTop=0;const hide=v==='admin';$('nav').style.display=hide?'none':'';$('.ann').style.display=hide||v!=='shop'?'none':'';
+ $$('#demo-bar button[data-i]').forEach((b,i)=>b.classList.toggle('on',i===({shop:0,checkout:1,track:2,admin:3})[v]))}
+$('#cob').addEventListener('click',()=>{if(!cart.length)return;closeBag();show('checkout');FILM.setUrl('thanda.in','/checkout')});
+
+// ---------- checkout ----------
+const cust={name:'Kabir Menon',phone:'9848012345',addr:'Flat 402, Lumbini Residency, Road 12, Banjara Hills, Hyderabad 500034'};
+const abox=$$('.col .box')[0],abody=abox.lastElementChild;
+function renderAddr(){abody.innerHTML=`<b>${esc(cust.name)}</b> · +91 ${cust.phone.slice(0,5)} xxxxx<br>${esc(cust.addr)}`;abox.querySelector('.bl span').textContent='Change';if(vpaOk)$('#vok').textContent='✓ Verified · '+cust.name}
+abox.querySelector('.bl span').addEventListener('click',()=>{if(abody.querySelector('input')){renderAddr();return}
+ abody.innerHTML=`<div class="af"><input id="a-n" placeholder="Full name" value="${esc(cust.name)}" autocomplete="name"><input id="a-p" placeholder="10-digit mobile" inputmode="numeric" maxlength="10" value="${cust.phone}" autocomplete="tel-national"><textarea id="a-a" rows="2" placeholder="Flat, street, area, city and pincode">${esc(cust.addr)}</textarea><div class="hint" id="ahint"></div><button id="a-s">Save address</button></div>`;abox.querySelector('.bl span').textContent='Cancel';
+ $('#a-s').addEventListener('click',()=>{const n=$('#a-n').value.trim(),ph=$('#a-p').value.replace(/\D/g,''),a=$('#a-a').value.trim(),h=$('#ahint');
+  if(n.length<2){h.textContent='Enter the name of the person receiving the order.';return}if(ph.length!==10){h.textContent='Enter a 10-digit mobile number.';return}if(a.length<12){h.textContent='Enter the full address with a pincode.';return}
+  Object.assign(cust,{name:n,phone:ph,addr:a});renderAddr();toast('Address saved.')})});
+function renderSum(){const t=sums();$('#sumitems').innerHTML=cart.map((l,i)=>lineHTML(l,i,false)).join('')+(sling?slingHTML(false):'');
+ const r=$$('.sum .dsum .r span:last-child');r[0].textContent=inr(t.sub);r[2].textContent=t.cod?'₹49 COD fee':'Free';r[3].textContent=inr(t.total);
+ if(!order){$('#payb').textContent=pay==='cod'?`Place order · pay ${inr(t.total)} on delivery`:`Pay ${inr(t.total)}`;
+  $('#payb').nextElementSibling.textContent=pay==='upi'?"You'll approve the payment in your UPI app":pay==='card'?'Your saved card ending 4471 will be charged':'Pay the courier by cash or UPI at your door'}}
+const pos=$$('.pm .po'),PK=['upi','card','cod'];
+pos.forEach((o,i)=>{o.style.cursor='pointer';o.addEventListener('click',()=>{if(order)return;pay=PK[i];pos.forEach(x=>x.classList.toggle('on',x===o));$('.vpa').style.display=pay==='upi'?'':'none';$('#phint').textContent='';renderSum()})});
+$('.vpa').insertAdjacentHTML('afterend','<div class="hint" id="phint" style="padding-left:34px"></div>');
+$('#vpa').addEventListener('input',e=>{vpaOk=/^[\w.-]{2,}@[a-z]{3,}$/i.test(e.target.value.trim());$('#vok').textContent='✓ Verified · '+cust.name;$('#vok').classList.toggle('on',vpaOk);$('#phint').textContent=''});
+$('#ok').insertAdjacentHTML('beforeend','<div class="okb"><button id="trkb">Track this order</button><button id="again">Keep shopping</button></div>');
+$('#payb').addEventListener('click',async()=>{if(order||$('#payb').dataset.busy)return;
+ if(!cart.length){toast('Your bag is empty. Add a bottle first.');show('shop');return}
+ if(pay==='upi'&&!vpaOk){$('#phint').textContent='Enter your UPI ID, for example name@okaxis.';$('#vpa').focus();return}
+ $('#payb').dataset.busy=1;$('#payb').innerHTML='<span class="spin"></span>'+(pay==='upi'?'Waiting for approval in your UPI app':pay==='card'?'Charging your card':'Placing your order');await FILM.wait(1600);delete $('#payb').dataset.busy;
+ const t=sums(),first=cust.name.split(' ')[0],hasEng=cart.some(l=>l.eng);order={no:'TH-'+orderSeq++,lines:cart.map(l=>({...l})),total:t.total};
+ $('#ok h3').innerHTML=`Thank you, <em>${esc(first)}.</em>`;$('#ok p').textContent=`Order ${order.no} is confirmed. `+(hasEng?'Your bottle goes to engraving tomorrow at 9 AM, and you will get a photo of it on WhatsApp before it leaves.':'It ships tomorrow morning, and you will get tracking updates on WhatsApp.');
+ $('#ok').classList.add('on');
+ if(!FILM.on){const l=order.lines[0];feedAdd(l.c,`${COL[l.c][0]} · ${l.size===1000?'1 L':l.size} · ${capN(l.cap)}${l.eng?` · engraved "${esc(l.eng)}"`:''}${t.n>1?' + '+(t.n-1)+' more':''}`,'Hyderabad',t.total,true);
+  if(order.lines.some(x=>x.c==='moss'&&x.size===750)){const c=$('.inv .ir:nth-child(2) span:nth-child(2)');c.textContent=Math.max(0,+c.textContent-1)}}});
+$('#trkb').addEventListener('click',()=>{show('track');FILM.setUrl('thanda.in','/orders/'+order.no);trackInit();toast('Skipping ahead two days: this is the page your customer opens on delivery morning.')});
+$('#again').addEventListener('click',newOrder);
+function newOrder(){order=null;cart.length=0;sling=false;$('#ok').classList.remove('on');renderBag();show('shop')}
 (function(){let s=31;const r=()=>((s=s*16807%2147483647)/2147483647);let g='<rect width="640" height="380" fill="#efeadf"/>';
  for(let i=0;i<10;i++){const y=i*42+r()*12;g+=`<path d="M-10 ${y} L650 ${y+(r()-.5)*30}" stroke="#fff" stroke-width="${r()>.7?8:3}"/>`}
  for(let i=0;i<14;i++){const x=i*48+r()*12;g+=`<path d="M${x} -10 L${x+(r()-.5)*30} 390" stroke="#fff" stroke-width="${r()>.7?8:3}"/>`}
@@ -710,11 +945,59 @@ function placeVan(t){const p=$('#cr'),L=p.getTotalLength(),pt=p.getPointAtLength
 placeVan(.05);
 function countUp(el,dur=1500){const n=+el.dataset.n;return FILM.tween(dur,t=>{const v=Math.round(n*t);el.textContent=el.dataset.d?(v/10).toFixed(1)+'%':(el.dataset.r?'₹':'')+v.toLocaleString('en-IN')},FILM.easeOut)}
 
-function trackInit(){if(!$('#photo .bcopy')){$('#photo').innerHTML=`<div style="transform:rotate(-8deg) scale(1.15)"><svg class="bcopy" viewBox="0 0 300 760" style="height:420px">${mixBottle('p')}</svg></div>`+$('#photo').innerHTML;paint('p')}setTimeout(()=>$('#tl').classList.add('go'),200);FILM.tween(6000,t=>placeVan(.05+t*.6),t=>t)}
-function ensureCart(){if(!$('#items').innerHTML){if(!st.eng){st.eng='for kabir';$('#eng').value=st.eng;render()}$('#add').click();$('#upb').click();$('#scrim').classList.remove('on');$('#drawer').classList.remove('on')}}
-$('#scrim').addEventListener('click',()=>{$('#scrim').classList.remove('on');$('#drawer').classList.remove('on')});
-FILM.init({views:[{name:'Store',go:()=>show('shop')},{name:'Checkout',go:()=>{ensureCart();show('checkout');$('#sumitems').innerHTML=$('#items').innerHTML}},{name:'Order tracking',go:()=>{ensureCart();show('track');trackInit()}},{name:'Brand studio',go:()=>{show('admin');$('#adm').classList.add('go');$$('.k b').forEach(b=>countUp(b))}}],
- reset:()=>{$('#scrim').classList.remove('on');$('#drawer').classList.remove('on');show('shop')},no:'03',name:'thanda.',short:'Retail · D2C',sector:'Concept 03 — Retail / D2C brand',host:'thanda.in',caps:6,
+function paintL(x,l){const c=COL[l.c];['s0','s1','s2','s3','s4'].forEach((id,i)=>{$('#'+id+x).style.stopColor=[c[3],c[1],c[2],c[1],c[3]][i]});['loop','sport','chug'].forEach(k=>$('#cap-'+k+x).style.opacity=k===l.cap?1:0);$('#engr'+x).textContent=l.eng;$('#engr'+x).style.fill=l.c==='chalk'?'rgba(80,76,68,.75)':'rgba(238,235,228,.9)'}
+let trkRun=0;
+function trackInit(){const id=++trkRun,o=order||{no:'TH-58213',lines:[cart[0]||{...st}]},d=n=>DOW[dPlus(n).getDay()];
+ if(!$('#photo .bcopy'))$('#photo').insertAdjacentHTML('afterbegin',`<div class="bwrap" style="transform:rotate(-8deg) scale(1.15)"><svg class="bcopy" viewBox="0 0 300 760" style="height:420px">${mixBottle('p')}</svg></div>`);
+ paintL('p',o.lines[0]);
+ if(!FILM.on){const p2=dPlus(-2);$('.trk .m').textContent=`Order ${o.no} · placed ${DOW[p2.getDay()]} ${p2.getDate()} ${MON[p2.getMonth()]}`;const ts=$$('.ts');
+  ts[0].lastChild.textContent=`${d(-2)}, 10:42 AM`;ts[1].lastChild.textContent=`${d(-1)}, 9:18 AM · photo sent`;ts[2].lastChild.textContent=`${d(-1)}, 4:05 PM · Hyderabad`;ts[3].lastChild.textContent=`${d(0)} · 3 stops away`;ts[4].lastChild.textContent='by 1 PM today';
+  ts[3].className='ts a';ts[4].className='ts';$('.tl .fl').style.width='';$('.trk h2').innerHTML='Out for delivery, <em>today.</em>';
+  $('.cap2').lastChild.textContent=`Photographed at our Peenya workshop · ${d(-1)} 9:18 AM`}
+ setTimeout(()=>$('#tl').classList.add('go'),200);
+ FILM.tween(FILM.on?6000:14000,t=>{if(id===trkRun)placeVan(.05+t*(FILM.on?.6:.95))},t=>t).then(()=>{if(id!==trkRun||FILM.on||!$('#v-track').classList.contains('on'))return;
+  const ts=$$('.ts');ts[3].className='ts d';ts[3].lastChild.textContent='Reached your street';ts[4].className='ts d';ts[4].lastChild.textContent='Handed over just now';$('.tl .fl').style.width='80%';$('.trk h2').innerHTML='Delivered, <em>just now.</em>';toast('Delivered. A warranty card and a care guide were sent on WhatsApp.')})}
+$$('.help .a').forEach((a,i)=>{a.style.cursor='pointer';a.addEventListener('click',()=>{const s=a.firstElementChild;
+ if(i===0){s.textContent='Delivery moved to 5 to 7 PM ✓';toast('Done. Suresh will come between 5 and 7 PM instead.')}
+ if(i===1){s.textContent='Will be left with security ✓';toast('Noted. You will get a photo when it is handed over.')}
+ if(i===2)toast('Chat opens in WhatsApp. A real person replies in about two minutes, 9 AM to 9 PM.');
+ if(i===3){s.textContent='Lifetime warranty registered ✓';toast('Registered against this order. No card to keep.')}})});
+function ensureCart(){if(!cart.length){cart.push({c:st.c,cap:st.cap,size:st.size,eng:st.eng.trim()||'for kabir',q:1});sling=true;renderBag()}}
+
+// ---------- studio (admin) ----------
+const kb=$$('.k b');let kReady=0,rev=384200,ord=214;
+function feedAdd(c,txt,city,amt,mine){const n=document.createElement('div');n.className='fi new';const k=COL[c];n.innerHTML=`<span class="sw2" style="background:${k[1]}${c==='chalk'?';border:1px solid #ccc':''}"></span>${txt}<span>${city} · now</span>`;if(mine)n.style.fontWeight=600;$('#feed').prepend(n);
+ const all=$$('#feed .fi');all.slice(6).forEach(x=>x.remove());rev+=amt;ord++;kb[0].dataset.n=rev;kb[1].dataset.n=ord;if(Date.now()>kReady){kb[0].textContent=inr(rev);kb[1].textContent=ord}}
+const POOL=[['sky','Sky · 1 L · engraved "AMMA"','Visakhapatnam',1549],['tang','Tangerine · 750 · Sport','Mumbai',1499],['ink','Ink · 500 ml × 2','Delhi',2298],['chalk','Chalk · 1 L + sling','Coimbatore',2048],['moss','Moss · 750 · engraved "run club"','Bengaluru',1349],['tang','Tangerine · 500 · Loop','Nagpur',1149],['sky','Sky · 750 · Chug','Kochi',1349]];
+let pk=0;setInterval(()=>{if(FILM.on||document.hidden||!$('#v-admin').classList.contains('on'))return;$('#vis').textContent=312+Math.floor(Math.random()*18);if(++pk%4===0){const p=POOL[(pk/4)%POOL.length];feedAdd(...p)}},1800);
+{const d=new Date();$('.ah .r span').textContent=`${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]}`}
+function openAdmin(){show('admin');$('#adm').classList.add('go');atabs.forEach((x,i)=>x.classList.toggle('on',!i));kReady=Date.now()+1600;kb.forEach(b=>countUp(b))}
+const atabs=$$('.ah .tb span'),abs=$$('.ag .ab'),aT=[null,abs[0],abs[2],abs[1],$('.wa')];
+atabs.forEach((t,i)=>{t.style.cursor='pointer';t.addEventListener('click',()=>{atabs.forEach(x=>x.classList.toggle('on',x===t));const el=aT[i];if(!el){scrollTo({top:0,behavior:'smooth'});return}el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash')})});
+
+// ---------- nav + extras ----------
+const nl=$$('nav .links a');nl.forEach(a=>a.style.cursor='pointer');
+const toShop=sel=>{if(!$('#v-shop').classList.contains('on'))show('shop');setTimeout(()=>goTo(sel),60)};
+nl[0].addEventListener('click',()=>toShop('#cfg'));
+nl[1].addEventListener('click',()=>toast('Tumblers arrive next month. The Everyday bottle is the whole range for now.'));
+nl[2].addEventListener('click',()=>{st.size=500;st.cap='sport';st.c='sky';render();toShop('#cfg');toast("Kids' pick: 500 ml with the one-hand Sport cap.")});
+nl[3].addEventListener('click',()=>toShop('#bulk'));
+nl[4].addEventListener('click',()=>toShop('#steel'));
+$('nav .logo').style.cursor='pointer';$('nav .logo').addEventListener('click',()=>show('shop'));
+const nr=$$('nav .nr > span');nr.forEach(x=>x.style.cursor='pointer');
+nr[0].addEventListener('click',()=>toast('Nothing to search yet. This store sells one bottle, and you are looking at it.'));
+nr[1].addEventListener('click',()=>{ensureCart();show('track');trackInit()});
+function bulk(){const n=+$('#bqn').value,off=n<50?10:n<100?14:n<250?18:25,each=Math.round(1349*(1-off/100)),days=n<=100?6:n<=250?9:14;$('#bqv').textContent=n;
+ const r=$$('#bulk .dsum .r span:last-child');r[0].textContent=inr(each);r[1].textContent=`${off}% · ${inr((1349-each)*n)}`;r[2].textContent=`${days} working days`;r[3].textContent=inr(each*n);$('#bqb').dataset.n=n}
+$('#bqn').addEventListener('input',bulk);bulk();
+$('#bqb').addEventListener('click',()=>toast(`Quote request received for ${$('#bqb').dataset.n} bottles. Our gifting team will call within one working day.`));
+renderAddr();renderBag();syncDates();
+function resetAll(){closeBag();trkRun++;order=null;cart.length=0;sling=false;pay='upi';vpaOk=false;$('#vpa').value='';$('#vok').classList.remove('on');pos.forEach((x,i)=>x.classList.toggle('on',!i));$('.vpa').style.display='';$('#ok').classList.remove('on');
+ Object.assign(cust,{name:'Kabir Menon',phone:'9848012345',addr:'Flat 402, Lumbini Residency, Road 12, Banjara Hills, Hyderabad 500034'});renderAddr();
+ Object.assign(st,{c:'moss',cap:'loop',size:750,eng:''});$('#eng').value='';$('#ecnt').textContent='0/12';$('#pin').value='';$('#pres').textContent='Enter your pincode for an exact delivery date';shipDays=2;
+ const w=$('#photo .bwrap');if(w)w.remove();$('#tl').classList.remove('go');placeVan(.05);render();renderBag();syncDates();show('shop')}
+FILM.init({views:[{name:'Store',go:()=>show('shop')},{name:'Checkout',go:()=>{if(!order)ensureCart();show('checkout')}},{name:'Order tracking',go:()=>{ensureCart();show('track');trackInit()}},{name:'Brand studio',go:openAdmin}],
+ reset:resetAll,no:'03',name:'thanda.',short:'Retail · D2C',sector:'Concept 03 — Retail / D2C brand',host:'thanda.in',caps:6,
  desc:'An insulated-bottle brand with a store that sells: live product configurator, honest delivery dates, one-page UPI checkout, and a studio to run it all.',
  displayFont:"'Familjen Grotesk',sans-serif",nameSize:200,nameWeight:700,nameStyle:'letter-spacing:-.05em;',cardBg:'#FF5A24',cardFg:'#171614',
  mods:['D2C storefront','Product configurator','Live stock by warehouse','Pincode delivery dates','UPI checkout','Order tracking','WhatsApp cart recovery','Inventory forecasting']},
