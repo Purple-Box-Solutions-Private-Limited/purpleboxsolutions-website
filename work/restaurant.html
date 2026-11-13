@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Saalan — Deccan kitchen & bar, Jubilee Hills</title>
+<title>Kewra House | Deccan kitchen and bar, Jubilee Hills</title>
 <!--pb-head-->
-<meta name="description" content="A working restaurant demo by Purplebox: a menu filtered by diet and spice, table booking on the floor plan, orders tracked from the kitchen and the kitchen display screen.">
-<meta name="theme-color" content="#15110E">
-<meta property="og:title" content="Saalan — Deccan kitchen &amp; bar, Jubilee Hills · a Purplebox demo">
-<meta property="og:description" content="A working restaurant demo by Purplebox: a menu filtered by diet and spice, table booking on the floor plan, orders tracked from the kitchen and the kitchen display screen.">
+<meta name="description" content="Kewra House, a working restaurant demo by Purplebox: a menu filtered by diet and spice, table booking on the floor plan, orders tracked from the kitchen and the kitchen display screen.">
+<meta name="theme-color" content="#2A0B0D">
+<meta property="og:title" content="Kewra House | Deccan kitchen and bar, Jubilee Hills · a Purplebox demo">
+<meta property="og:description" content="Kewra House, a working restaurant demo by Purplebox: a menu filtered by diet and spice, table booking on the floor plan, orders tracked from the kitchen and the kitchen display screen.">
 <meta property="og:image" content="https://purpleboxsolutions.in/work/restaurant.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 3 36 11.5v17L20 37 4 28.5v-17Z' fill='%234a1fb8'/%3E%3Cpath d='M20 3 36 11.5 20 20 4 11.5Z' fill='%238b6be8'/%3E%3Cpath d='M20 20v17L4 28.5v-17Z' fill='%2331127f'/%3E%3C/svg%3E">
@@ -457,6 +457,199 @@ nav .wrap{display:flex;align-items:center;height:74px;gap:46px}
 }
 @media(max-width:380px){.hero h1{font-size:54px}.sh h2{font-size:40px}}
 </style>
+<style id="pb-v2">
+/* ---- Kewra House: a printed carte, not an app. Oxblood, ivory and brass; square corners; ruled lines;
+   centred type; photographs carry the food. The kitchen display keeps its own dark working look. ---- */
+:root{--ox:#3A1013;--ox2:#2A0B0D;--ivory:#F5EEDF;--ivory2:#EBE1CC;--brass:#B98A3A;--ink2:#2A1D16;--rule2:rgba(42,29,22,.22)}
+body{background:var(--ox2)}
+.k{font:600 13px/1.3 var(--disp);letter-spacing:.22em;text-transform:uppercase}
+
+/* nav: the name in the middle, like a letterhead */
+nav{background:var(--ox2);border-bottom:1px solid rgba(245,238,223,.14)}
+.logo{font-style:normal;font-weight:600;letter-spacing:.02em}
+.logo small{font:600 11px/1 var(--disp);letter-spacing:.24em;color:var(--brass)}
+.links{font-family:var(--disp);font-size:18px;font-weight:500;color:var(--ivory)}
+.pill{border-radius:0;border-color:rgba(245,238,223,.22);color:var(--ivory2);height:36px}
+.btn{border-radius:0;font-family:var(--disp);font-size:18px;font-weight:600;letter-spacing:.01em;height:46px;padding:0 22px}
+.btn.s{background:var(--brass);color:#1d1206}
+.btn.l{border:1px solid rgba(245,238,223,.5);color:var(--ivory)}
+@media(hover:hover){.btn.s:hover{background:#cb9b47}.btn.l:hover{border-color:var(--ivory)}}
+#ccount{background:var(--brass);border-radius:0}
+@media(min-width:861px){
+ nav .wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;height:78px}
+ nav .logo{grid-column:2;grid-row:1;flex-direction:column;align-items:center;gap:6px;font-size:31px}
+ nav .links{grid-column:1;grid-row:1;gap:26px}
+ nav .nr{grid-column:3;grid-row:1;margin-left:0;justify-self:end}
+}
+@media(min-width:861px) and (max-width:1180px){nav .links{gap:16px;font-size:16.5px}.pill{display:none}}
+
+/* hero: one photograph, edge to edge, and one sentence */
+.hero{padding:0;background:#120806}
+.hero .grain,.plate-wrap,.ann{display:none}
+.hero-ph{display:block;width:100%;height:min(78vh,760px);min-height:520px;object-fit:cover;object-position:50% 46%}
+.hero::after{content:"";position:absolute;left:0;right:0;top:0;height:min(78vh,760px);min-height:520px;background:linear-gradient(180deg,rgba(18,8,6,.55),rgba(18,8,6,.42) 34%,rgba(18,8,6,.88));pointer-events:none}
+.hero .wrap{display:block;min-height:0;position:absolute;left:0;right:0;top:0;height:min(78vh,760px);min-height:520px;z-index:2;max-width:none}
+.hero-in{position:absolute;left:50%;bottom:54px;transform:translateX(-50%);width:min(880px,calc(100% - 48px));text-align:center;color:var(--ivory)}
+.hero .k{color:#fff;font-size:14px;text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 18px rgba(0,0,0,.8)}
+.hero h1{font-size:clamp(46px,6.6vw,96px);line-height:.96;font-weight:500;letter-spacing:-.015em;margin:20px 0 0;text-wrap:balance}
+.hero h1 em{color:#ecc983}
+.hero p{font-family:var(--disp);font-size:22px;line-height:1.4;color:var(--ivory2);max-width:600px;margin:20px auto 28px}
+.hero .cta{justify-content:center}
+.strip{position:relative;z-index:2;margin-top:0;border-top:0;background:var(--ox);color:var(--ivory2)}
+.strip .wrap{height:auto;padding-top:22px;padding-bottom:22px}
+.strip div{border-left:1px solid rgba(245,238,223,.18);font-size:14.5px;color:#d9c9b0}
+.strip b{font:600 19px/1.2 var(--disp);color:var(--ivory);letter-spacing:.01em}
+
+/* shared section head: centred, with a rule either side of the label */
+#v-home .sec{padding:92px 0 96px}
+#v-home .sh{flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:34px}
+#v-home .sh .k{display:flex;align-items:center;justify-content:center;gap:16px;color:var(--brass)}
+#v-home .sh .k::before,#v-home .sh .k::after{content:"";width:56px;height:1px;background:currentColor;opacity:.6}
+#v-home .sh h2{font-size:clamp(44px,5.4vw,78px);line-height:.98;margin-top:14px!important}
+#v-home .sh p{font-family:var(--disp);font-size:21px;line-height:1.4;max-width:560px}
+
+/* the carte: typeset, two columns, dotted leaders, no cards and no drawings */
+#menu{background:var(--ivory);color:var(--ink2)}
+#menu .sh h2 em{color:#9E2F22}
+#menu .sh p{color:#6b5a4b}
+#menu .tabs{justify-content:center;gap:34px;border-bottom:0;margin-bottom:18px}
+#menu .tabs span{font:600 14px/1 var(--disp);letter-spacing:.2em;text-transform:uppercase;color:#8a7867;padding:0 0 10px}
+#menu .tabs span.on{color:var(--ink2)}
+#menu .tabs span.on::after{background:#9E2F22;height:1px;bottom:0}
+#menu .filters{justify-content:center;flex-wrap:wrap;padding:16px 0;border-top:1px solid var(--rule2);border-bottom:3px double var(--rule2);margin-bottom:26px}
+.fc{border-radius:0;border-color:var(--rule2);color:var(--ink2);height:36px}
+.fc.on{background:var(--ink2);color:var(--ivory);border-color:var(--ink2)}
+@media(hover:hover){.fc:hover{border-color:var(--ink2)}}
+.spice{border-left:1px solid var(--rule2);color:var(--ink2)}
+.chilis b{border-radius:0}
+#menu .count{margin-left:18px;color:#6b5a4b}
+#menu .count b{color:var(--ink2)}
+#menu .grid{display:block;columns:2;column-gap:84px;max-width:1180px;margin:0 auto}
+#menu .dish{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;break-inside:avoid;background:none;border:0;border-bottom:1px solid var(--rule2);border-radius:0;padding:20px 0 18px;overflow:visible;transition:opacity .35s ease}
+#menu .dish.dim{opacity:.22;filter:none;transform:none}
+#menu .dish .art{display:none}
+#menu .badge{position:static;grid-column:1/-1;grid-row:1;justify-self:start;background:none;padding:0 0 8px;border-radius:0;font:600 12px/1 var(--disp);letter-spacing:.2em;color:#9E2F22}
+#menu .dish h4{grid-column:1;grid-row:2;display:flex;align-items:baseline;font-size:29px;font-weight:600;letter-spacing:0;line-height:1.1}
+#menu .dish h4::after{content:"";flex:1;min-width:24px;margin:0 0 0 12px;border-bottom:2px dotted rgba(42,29,22,.35);transform:translateY(-5px)}
+#menu .dish h4 .veg{flex:none;align-self:center;margin-right:10px}
+#menu .dish .ft{grid-column:2;grid-row:2/4;display:flex;flex-direction:column;align-items:flex-end;gap:9px;margin:0;font-size:15px}
+#menu .dish .ft b{font:600 27px/1.1 var(--disp)}
+#menu .dish .d{grid-column:1;grid-row:3;font:italic 500 19px/1.35 var(--disp);color:#6b5a4b;margin-top:4px;min-height:0;max-width:34em}
+.sp i{background:rgba(42,29,22,.16)}
+.sp i.h{background:#9E2F22}
+#menu .more{position:static;transform:none;display:none;grid-column:1/-1;grid-row:4;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:6px 22px;align-items:end;background:none;border:0;border-top:1px dashed var(--rule2);padding:14px 0 2px;margin-top:14px}
+#menu .dish.open .more{display:grid}
+#menu .more .r{display:block;padding:0;font-size:13.5px;color:var(--ink2)}
+#menu .more .r span:first-child{display:block;font:600 11.5px/1 var(--disp);letter-spacing:.18em;text-transform:uppercase;color:#8a7867;margin-bottom:5px}
+.add{border-radius:0;background:var(--ink2);color:var(--ivory);height:42px;padding:0 20px;width:auto;margin:0;font-family:var(--disp);font-size:17px}
+@media(hover:hover){.add:hover{background:#9E2F22}#menu .dish:not(.dim):hover h4{color:#9E2F22}}
+
+/* three photographs, edge to edge, nothing written on them */
+.ph3{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:6px;background:var(--ox2)}
+.ph3 img{display:block;width:100%;height:min(62vh,560px);object-fit:cover}
+
+/* reserve: the floor plan on oxblood */
+#v-home .res{background:var(--ox);color:var(--ivory)}
+#v-home .res .sh h2 em{color:#ecc983}
+#v-home .res .sh p{color:#d9c9b0}
+.form,.fpw{border-radius:0;background:var(--ivory);border:0;color:var(--ink2)}
+.fl{font:600 12px/1 var(--disp);letter-spacing:.2em;color:#7d6a58}
+.step,.dt,.tm,.oc,.sel,.nm,.step button{border-radius:0}
+.dt.on,.tm.on{background:var(--ox);border-color:var(--ox);color:var(--ivory)}
+.dt.on b{color:var(--ivory)}
+.oc.on{background:#9E2F22;border-color:#9E2F22}
+.cbtn{border-radius:0;background:var(--ox);font-family:var(--disp);font-size:19px;height:56px}
+.cbtn small{font-family:var(--sans);font-size:12.5px;color:#d9c9b0}
+.fp .tb.pick .s{fill:#9E2F22;stroke:#9E2F22}
+.fp .zl{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;letter-spacing:.2em}
+.leg .mono{font-family:var(--sans);letter-spacing:0}
+.tip,.conf .cc,.wb,.cnew{border-radius:0}
+.tip{background:var(--ink2)}
+.conf{border-radius:0;background:rgba(245,238,223,.94)}
+.conf .cc{background:var(--ox2);border:1px solid var(--brass)}
+.conf h3 em{color:#ecc983}
+
+/* order in */
+#order{background:var(--ivory);color:var(--ink2)}
+#order .sh h2 em{color:#9E2F22}
+#order .sh p{color:#6b5a4b}
+.cart{background:none;border:0;border-top:3px double var(--ink2);border-bottom:3px double var(--ink2);border-radius:0;padding:22px 0}
+.cart .k{color:#7d6a58}
+.ci{border-top:1px solid var(--rule2)}
+.ci svg{display:none}
+.ci b{font-size:24px}
+.ci span,.ci .q small{color:#7d6a58}
+.qty button{border-radius:0;border-color:var(--rule2)}
+.tot{border-top:1px solid var(--ink2);color:#6b5a4b}
+.tot b{color:var(--ink2);font:600 28px/1 var(--disp)}
+.upi span{border-radius:0;border-color:var(--rule2);color:var(--ink2)}
+.upi span.on{border-color:#9E2F22;color:#9E2F22;box-shadow:inset 0 0 0 1px #9E2F22}
+.pay{border-radius:0;background:var(--ox);color:var(--ivory);font-family:var(--disp);font-size:20px;font-weight:600}
+.ce{color:#7d6a58}
+.trk{border-radius:0;border:0;background:var(--ox2);color:var(--ivory)}
+.trk .empty{border-radius:0;background:var(--ox2);color:#b9a58a}
+.sg::before{background:var(--ox2)}
+.sg.on::before{background:var(--brass);border-color:var(--brass)}
+.dum,.minimap,.rider{border-radius:0}
+.dum{background:rgba(245,238,223,.07)}
+.rider i{background:var(--brass);border-radius:0}
+
+/* the house */
+#v-home .story{background:var(--ivory2);color:var(--ink2);border-top:0;padding:0}
+#v-home .story .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;max-width:none;padding:0}
+.story-ph{display:block;width:100%;height:100%;min-height:560px;object-fit:cover}
+.story-tx{padding:84px clamp(28px,6vw,96px);align-self:center}
+.story .k{color:#9E2F22}
+#v-home .story h2{font-size:clamp(40px,4.4vw,64px);line-height:1;margin-top:18px!important}
+#v-home .story h2 em{color:#9E2F22}
+.st2{margin-top:26px}
+.st2 p{font:500 21px/1.45 var(--disp);color:#4b3a2e;max-width:30em;margin-bottom:14px}
+.hrs{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:26px;border-top:3px double var(--rule2);font-size:15px;color:#4b3a2e}
+.hrs div{padding:14px 0;border-bottom:1px solid var(--rule2);color:#4b3a2e}
+.hrs b{display:block;font:600 12px/1 var(--disp);letter-spacing:.2em;text-transform:uppercase;color:#8a7867;margin-bottom:6px}
+
+@media(max-width:1240px){
+ #menu .grid{column-gap:48px}
+ .story-tx{padding:64px 36px}
+}
+@media(max-width:860px){
+ nav .wrap{padding-bottom:0}
+ .logo{font-size:27px}
+ .logo small{display:none}
+ .links{border-top-color:rgba(245,238,223,.14);font-size:17px}
+ .btn{height:44px;padding:0 16px;font-size:17px}
+ .hero-ph,.hero::after,.hero .wrap{height:min(74vh,600px);min-height:460px}
+ .hero-in{bottom:30px;width:calc(100% - 36px)}
+ .hero h1{font-size:clamp(40px,11.5vw,58px)}
+ .hero p{font-size:19px;margin:14px auto 20px}
+ .strip .wrap{padding-top:8px;padding-bottom:8px}
+ .strip div{border-left:0;border-top:1px solid rgba(245,238,223,.16)}
+ #v-home .sec{padding:60px 0 64px}
+ #v-home .sh h2{font-size:clamp(38px,11vw,50px)}
+ #v-home .sh p{font-size:19px}
+ #v-home .sh .k::before,#v-home .sh .k::after{width:28px}
+ #menu .tabs{justify-content:flex-start;gap:24px}
+ #menu .filters{justify-content:flex-start}
+ #menu .count{margin-left:0;width:100%}
+ #menu .grid{columns:1}
+ #menu .dish{padding:16px 0}
+ #menu .dish h4{font-size:25px}
+ #menu .dish .ft b{font-size:24px}
+ #menu .dish .d{font-size:18px}
+ #menu .more{grid-template-columns:1fr 1fr;padding-top:12px}
+ #menu .more .r span:last-child{text-align:left}
+ .add{grid-column:1/-1;width:100%;height:46px}
+ .ph3{grid-template-columns:1fr 1fr}
+ .ph3 img{height:46vw;max-height:300px}
+ .ph3 img:nth-child(2){grid-column:1/-1;grid-row:1;height:58vw;max-height:380px}
+ .conf{background:rgba(26,11,13,.78)}
+ .ci b{font-size:21px}
+ #v-home .story .wrap{grid-template-columns:1fr}
+ .story-ph{min-height:0;height:62vw;max-height:420px}
+ .story-tx{padding:48px 18px 20px}
+ .st2 p{font-size:19px}
+}
+</style>
 <style id="pb-polish">
 /* ---- polish pass: touch, press, focus, motion ---- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
@@ -485,41 +678,27 @@ html:not(.film) :is(.kds){min-height:max(862px,100vh);min-height:max(862px,100dv
 }
 
 nav .links a,.pill,.btn{white-space:nowrap}
-/* laptops between the tablet layout and the 1440 design: the plate gives way so the headline keeps its three lines */
-@media(min-width:1241px) and (max-width:1439px){
- .wrap{padding:0 40px}
- nav .wrap{gap:28px}
- .links{gap:22px}
- .logo small{display:none}
- .hero .wrap{grid-template-columns:minmax(0,1fr) calc(640px - (1440px - 100vw)*.75)}
- .plate-wrap{width:calc(640px - (1440px - 100vw)*.75);height:calc(640px - (1440px - 100vw)*.75)}
- .plate-wrap .pl svg{width:100%;height:100%}
- .ann.a2{right:-10px}
-}
 </style>
 <!--pb-polish-->
 </head>
 <body>
 <nav><div class="wrap">
-  <div class="logo">Saalan<small>Deccan kitchen · Jubilee Hills</small></div>
+  <div class="logo">Kewra House<small>Deccan kitchen &amp; bar</small></div>
   <div class="links"><a>Menu</a><a>Reserve</a><a>Order in</a><a>Private dining</a><a>Our story</a></div>
   <div class="nr"><div class="pill"><span class="dot"></span><span id="left">Tonight: 7 tables left</span></div><button class="btn s" id="navres">Reserve a table</button></div>
 </div></nav>
 
 <main class="view on" id="v-home">
 <section class="hero">
-  <svg class="grain" width="100%" height="100%"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#n)"/></svg>
+  <img class="hero-ph" src="img/kewra-dum.jpg" width="2000" height="1466" fetchpriority="high" alt="Long-grain rice under fried onions, cashews and coriander, seen from above">
   <div class="wrap">
-    <div>
-      <div class="k">Est. 2019 · Road No. 36, Jubilee Hills</div>
-      <h1 style="margin-top:26px">Smoke, <em>dum</em><br>&amp; old Deccan<br>recipes.</h1>
-      <p>Biryani sealed in dough and cooked for four hours. Haleem that starts at dawn. A courtyard under a sixty-year-old neem tree.</p>
+    <div class="hero-in">
+      <div class="k">Road No. 36, Jubilee Hills · Est. 2019</div>
+      <h1>Sealed with dough.<br><em>Opened at your table.</em></h1>
+      <p>Biryani cooked four hours on dum, haleem that starts at dawn, and a courtyard under a sixty-year-old neem tree.</p>
       <div class="cta"><button class="btn s">Reserve a table</button><button class="btn l">Order in · 35 min</button></div>
     </div>
-    <div class="plate-wrap"><div class="pl" id="heroplate"></div>
-      <div class="ann a1"><b>Kacchi gosht biryani</b>Raw marinated mutton and rice, layered and sealed. Four hours on dum.</div>
-      <div class="ann a2"><b>Tonight's pot</b>Unsealed at 8:15 PM — 22 portions left</div>
-    </div>
+    <div class="plate-wrap" hidden><div class="pl" id="heroplate"></div></div>
   </div>
   <div class="strip"><div class="wrap">
     <div><b>Kitchen open now</b>Lunch 12–3:30 · Dinner 7–11:30</div>
@@ -530,7 +709,7 @@ nav .links a,.pill,.btn{white-space:nowrap}
 </section>
 
 <section class="sec" id="menu"><div class="wrap">
-  <div class="sh"><div><div class="k">The menu, tonight</div><h2 style="margin-top:16px">Eat the way <em>you</em> eat.</h2></div><p>Filter by diet, allergies and how much heat you can take. Every dish lists what's in it — no asking the waiter twice.</p></div>
+  <div class="sh"><div><div class="k">Twelve dishes</div><h2 style="margin-top:16px">The <em>carte,</em> tonight.</h2></div><p>Filter by diet, allergies and how much heat you can take. Every dish lists what's in it — no asking the waiter twice.</p></div>
   <div class="tabs"><span class="on">Everything</span><span>Small plates</span><span>From the dum</span><span>Breads</span><span>Sweets</span><span>To drink</span></div>
   <div class="filters">
     <button class="fc" id="fveg"><i></i>Vegetarian</button><button class="fc">Jain</button><button class="fc">Nut-free</button><button class="fc">Gluten-free</button>
@@ -539,6 +718,12 @@ nav .links a,.pill,.btn{white-space:nowrap}
   </div>
   <div class="grid" id="grid"></div>
 </div></section>
+
+<div class="ph3">
+  <img src="img/kewra-seekh.jpg" width="1054" height="1400" loading="lazy" alt="Grilled kebabs with rice, a charred chilli and lemon on a steel platter">
+  <img src="img/kewra-salan.jpg" width="1400" height="933" loading="lazy" alt="A bowl of red curry with basil and dried chillies on a dark table">
+  <img src="img/kewra-shikampuri.jpg" width="1400" height="1050" loading="lazy" alt="A tray of pan-fried minced-meat patties">
+</div>
 
 <section class="sec res" id="reserve"><div class="wrap">
   <div class="sh"><div><div class="k">Reserve</div><h2 style="margin-top:16px">Pick your <em>exact</em> table.</h2></div><p>This is the real floor, live. Choose the courtyard, the window or the bar — and tell the kitchen what you're celebrating.</p></div>
@@ -560,7 +745,7 @@ nav .links a,.pill,.btn{white-space:nowrap}
       <div class="leg"><span><i style="background:#fff"></i>Free</span><span><i style="background:#d8ccb7;border-color:#bfb19a"></i>Booked</span><span><i style="background:#BC462C;border-color:#BC462C"></i>Your pick</span><span style="margin-left:auto" class="mono">Live · 2 tables held in the last 10 min</span></div>
       <div class="tip" id="tip"></div>
       <div class="conf" id="conf"><div class="cc">
-        <div class="k">Confirmed · SA-R-4471</div>
+        <div class="k">Confirmed · KW-R-4471</div>
         <h3>See you Saturday, <em>Arjun.</em></h3>
         <div style="color:var(--bone2);font-size:14px;margin-bottom:14px">Courtyard, under the neem tree.</div>
         <div class="rw"><span>Table</span><span>T7 · 4 guests</span></div>
@@ -585,7 +770,7 @@ nav .links a,.pill,.btn{white-space:nowrap}
     <div class="trk" id="trk">
       <div class="empty">Your order will appear here.</div>
       <div>
-        <div class="k" style="margin-bottom:22px;display:flex;justify-content:space-between"><span>Order SA-2291</span><span id="eta">Arriving ~8:24 PM</span></div>
+        <div class="k" style="margin-bottom:22px;display:flex;justify-content:space-between"><span>Order KW-2291</span><span id="eta">Arriving ~8:24 PM</span></div>
         <div class="stages">
           <div class="sg" id="g1"><span class="t">7:42</span><b>Order received</b><span>Sent to kitchen display, station 2</span></div>
           <div class="sg" id="g2"><span class="t" id="g2t">7:44</span><b>Biryani on dum</b><span>Your portion is from tonight's 8:15 pot</span>
@@ -594,34 +779,37 @@ nav .links a,.pill,.btn{white-space:nowrap}
           <div class="sg" id="g4"><span class="t">—</span><b>Imran is on the way</b><span>2.8 km · Jubilee Hills check post</span></div>
         </div>
       </div>
-      <div class="minimap"><svg id="mm" viewBox="0 0 400 470"></svg><div class="rider"><i>IM</i><div><b>Imran · Saalan rider</b>Our own delivery fleet</div><span style="margin-left:auto" class="mono">2.8 km</span></div></div>
+      <div class="minimap"><svg id="mm" viewBox="0 0 400 470"></svg><div class="rider"><i>IM</i><div><b>Imran · Kewra House rider</b>Our own delivery fleet</div><span style="margin-left:auto" class="mono">2.8 km</span></div></div>
     </div>
   </div>
 </div></section>
 
 <section class="sec story" id="story"><div class="wrap">
-  <div><div class="k">Our story</div><h2 style="margin-top:16px">A short menu, cooked <em>the slow way.</em></h2></div>
-  <div class="st2">
-    <p>Saalan opened in 2019 in an old house on Road No. 36, with a courtyard, a neem tree and a head cook who had spent thirty years making biryani for weddings.</p>
-    <p>The menu is short on purpose. Every dish is one a Hyderabadi grandmother would recognise, made with sealed pots, a granite stone and wood coals. Nothing is finished in a microwave.</p>
-    <div class="hrs"><div><b>Lunch</b>12:00 to 3:30 PM</div><div><b>Dinner</b>7:00 to 11:30 PM</div><div><b>Find us</b>Road No. 36, Jubilee Hills</div><div><b>Call</b>040 4455 0136</div></div>
+  <img class="story-ph" src="img/kewra-handi.jpg" width="1400" height="1050" loading="lazy" alt="Biryani with pieces of meat, tomato and green chilli in a steel handi">
+  <div class="story-tx">
+    <div class="k">The house</div><h2 style="margin-top:16px">A short menu, cooked <em>the slow way.</em></h2>
+    <div class="st2">
+      <p>Kewra House opened in 2019 in an old house on Road No. 36, with a courtyard, a neem tree and a head cook who had spent thirty years making biryani for weddings.</p>
+      <p>The menu is short on purpose. Every dish is one a Hyderabadi grandmother would recognise, made with sealed pots, a granite stone and wood coals. Nothing is finished in a microwave.</p>
+      <div class="hrs"><div><b>Lunch</b>12:00 to 3:30 PM</div><div><b>Dinner</b>7:00 to 11:30 PM</div><div><b>Find us</b>Road No. 36, Jubilee Hills</div><div><b>Call</b>040 4455 0136</div></div>
+    </div>
   </div>
 </div></section>
 </main>
 
 <main class="view" id="v-kds">
 <div class="kds" id="kds">
-  <div class="kh"><div class="logo">Saalan<small>Kitchen</small></div><div class="tb2"><span class="on">Kitchen display</span><span>Floor</span><span>Inventory</span><span>Sales</span></div>
+  <div class="kh"><div class="logo">Kewra House<small>Kitchen</small></div><div class="tb2"><span class="on">Kitchen display</span><span>Floor</span><span>Inventory</span><span>Sales</span></div>
     <div class="r"><span>Sat 15 Nov</span><span class="mono" id="kclk">20:31:05</span><span style="display:flex;gap:8px;align-items:center;color:#8fbf6a"><span class="dot"></span>Live · 3 stations</span></div></div>
   <div class="kg">
     <div class="col"><h5><span>New</span><span>3</span></h5><div id="cnew">
       <div class="tkt"><div class="th"><b>Table 11</b><span class="mono">01:12</span></div><div class="sub">Dine-in · 6 guests · Kiran</div><div class="it"><b>2</b>Kacchi gosht biryani</div><div class="it"><b>1</b>Mirchi ka salan</div><div class="it"><b>3</b>Sheermal</div></div>
-      <div class="tkt"><div class="th"><b>Takeaway · SA-2288</b><span class="mono">02:40</span></div><div class="sub">Pickup 8:50 PM</div><div class="it"><b>2</b>Haleem</div><div class="it"><b>1</b>Qubani ka meetha</div></div></div></div>
+      <div class="tkt"><div class="th"><b>Takeaway · KW-2288</b><span class="mono">02:40</span></div><div class="sub">Pickup 8:50 PM</div><div class="it"><b>2</b>Haleem</div><div class="it"><b>1</b>Qubani ka meetha</div></div></div></div>
     <div class="col"><h5><span>Cooking</span><span>4</span></h5>
       <div class="tkt warn"><div class="th"><b>Table 7</b><span class="mono">12:48</span></div><div class="sub">Dine-in · 4 guests · Arjun · 7th visit</div><div class="it"><b>1</b>Pathar ka gosht</div><div class="it"><b>2</b>Bagara baingan</div><div class="it"><b>4</b>Sulaimani chai</div><div class="nt">Anniversary — candle on double ka meetha</div></div>
       <div class="tkt late"><div class="th"><b>Table 3</b><span class="mono">18:22</span></div><div class="sub">Dine-in · 2 guests</div><div class="it"><b>2</b>Paneer 65</div><div class="it"><b>1</b>Haleem</div><div class="nt" style="background:rgba(227,164,59,.14);color:#f2cf8e">Nut allergy — no cashew garnish</div></div></div>
     <div class="col"><h5><span>Ready to go</span><span>2</span></h5>
-      <div class="tkt"><div class="th"><b>Delivery · SA-2291</b><span class="mono">16:05</span></div><div class="sub">Rider Imran · arriving at pass</div><div class="it"><b>1</b>Kacchi gosht biryani</div><div class="it"><b>1</b>Bagara baingan</div><div class="it"><b>2</b>Sheermal</div></div>
+      <div class="tkt"><div class="th"><b>Delivery · KW-2291</b><span class="mono">16:05</span></div><div class="sub">Rider Imran · arriving at pass</div><div class="it"><b>1</b>Kacchi gosht biryani</div><div class="it"><b>1</b>Bagara baingan</div><div class="it"><b>2</b>Sheermal</div></div>
       <div class="tkt"><div class="th"><b>Table 9</b><span class="mono">09:30</span></div><div class="sub">Dine-in · desserts</div><div class="it"><b>3</b>Double ka meetha</div></div></div>
     <div class="col">
       <div class="inv"><h5>Inventory · auto-tracked from sales</h5>
@@ -1015,7 +1203,7 @@ $$('.oc').forEach(b=>b.addEventListener('click',()=>{const o=b.textContent,off=r
 let tablesLeft=7;
 $('#rbtn').addEventListener('click',()=>{const h=$('#rhint');if(rs.time==null){h.textContent='Choose a time first.';return}if(!rs.table){h.textContent='Tap a free table on the floor plan.';if(innerWidth<1000)goTo('#fpw');return}
  const t=T.find(x=>x[0]===rs.table),d=rdays[rs.day],nm=$('#rname').value.trim().replace(/[<>&]/g,''),day=rs.day?DOWF[d.getDay()]:'tonight';
- $('#tip').classList.remove('on');const c=$('#conf');c.querySelector('.k').textContent='Confirmed · SA-R-'+(4471+Object.keys(held).length);
+ $('#tip').classList.remove('on');const c=$('#conf');c.querySelector('.k').textContent='Confirmed · KW-R-'+(4471+Object.keys(held).length);
  c.querySelector('h3').innerHTML=nm?`See you ${day}, <em>${nm}.</em>`:`See you <em>${day}.</em>`;
  c.querySelector('h3').nextElementSibling.textContent=(t[9]||t[7])+'.';
  const rw=c.querySelectorAll('.rw span:last-child');rw[0].textContent=`${t[0]} · ${rs.pax} ${rs.pax===1?'guest':'guests'}`;rw[1].textContent=`${DOW[d.getDay()]} ${d.getDate()} ${MON[d.getMonth()]} · ${RT[rs.time]} PM`;
@@ -1030,7 +1218,7 @@ renderDates();renderTimes();paxUpd();
  for(let i=0;i<9;i++){const x=i*48+r()*10;g+=`<path d="M${x} -10 L${x+(r()-.5)*40} 480" stroke="#2f2720" stroke-width="${r()>.7?7:3}"/>`}
  g+='<path d="M80 60 C 110 40, 150 90, 180 120" fill="none" stroke="#3b4a2a" stroke-width="40" opacity=".5"/>';
  g+='<path id="rr" d="M90 80 L130 110 L175 120 L210 175 L240 200 L250 260 L300 300 L320 350" fill="none" stroke="#E3A43B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 7"/>';
- g+='<g transform="translate(90 80)"><circle r="9" fill="#EFE5D3"/><text x="16" y="5" font-family="Instrument Sans" font-size="12" font-weight="700" fill="#EFE5D3">Saalan</text></g>';
+ g+='<g transform="translate(90 80)"><circle r="9" fill="#EFE5D3"/><text x="16" y="5" font-family="Instrument Sans" font-size="12" font-weight="700" fill="#EFE5D3">Kewra House</text></g>';
  g+='<g transform="translate(320 350)"><circle r="16" fill="rgba(227,164,59,.2)"/><circle r="8" fill="#E3A43B" stroke="#15110E" stroke-width="2"/><text x="-12" y="-18" text-anchor="end" font-family="Instrument Sans" font-size="12" font-weight="700" fill="#EFE5D3">You</text></g>';
  g+='<g id="rd"><circle r="13" fill="#EFE5D3" stroke="#15110E" stroke-width="3"/><path d="M-5 2h10M-3 -3l3 5 3-5" stroke="#15110E" stroke-width="2" fill="none"/></g>';
  $('#mm').innerHTML=g;})();
@@ -1053,8 +1241,8 @@ $('#pay').addEventListener('click',async()=>{if(paid){if($('#pay').dataset.again
  const id=++runId,t=totals(),film=FILM.on,hasB=cart.has(0);paid=true;renderCart();
  $('#pay').textContent=payM==='UPI'?'Paid ✓  UPI · Ref 4471 2093':payM==='Card'?'Paid ✓  Card ending 4471':`Order placed ✓  Pay ${money(t.total)} on delivery`;
  $('#g2 b').textContent=hasB?'Biryani on dum':'In the kitchen';$('#g2 b').nextElementSibling.textContent=hasB?"Your portion is from tonight's 8:15 pot":'Station 2 has started your order';$('.dum').style.display=hasB?'':'none';
- if(!film){orderNo++;$('#trk .k span').textContent='Order SA-'+orderNo;{const e=new Date(Date.now()+42*60000);$('#eta').textContent='Arriving ~'+hm(42)+(e.getHours()>=12?' PM':' AM')}$('#g1 .t').textContent=hm();$('#g2t').textContent=hm(2);
-  kdsAdd({h:`Delivery · SA-${orderNo}`,sub:`Online · Film Nagar · ${payM==='Pay on delivery'?'cash on delivery':'paid by '+payM}`,items:[...cart].map(([i,q])=>[q,D[i].n])});
+ if(!film){orderNo++;$('#trk .k span').textContent='Order KW-'+orderNo;{const e=new Date(Date.now()+42*60000);$('#eta').textContent='Arriving ~'+hm(42)+(e.getHours()>=12?' PM':' AM')}$('#g1 .t').textContent=hm();$('#g2t').textContent=hm(2);
+  kdsAdd({h:`Delivery · KW-${orderNo}`,sub:`Online · Film Nagar · ${payM==='Pay on delivery'?'cash on delivery':'paid by '+payM}`,items:[...cart].map(([i,q])=>[q,D[i].n])});
   toast('Order sent to the kitchen. Open "Kitchen display" in the bar below to see the ticket.')}
  $('#trk').classList.add('live');$('#g1').classList.add('on');await FILM.wait(700);if(id!==runId)return;$('#g2').classList.add('on','cur');
  if(film)return;
@@ -1074,7 +1262,7 @@ function kdsAdd(o){const el=document.createElement('div');el.className='tkt new'
 $('.kg').addEventListener('click',e=>{const t=e.target.closest('.tkt');if(!t)return;const i=kcols.findIndex(c=>c.contains(t));if(i<0)return;const name=t.querySelector('.th b').textContent;
  if(i===2){t.style.opacity=0;t.style.transform='translateX(20px)';setTimeout(()=>{t.remove();kCount()},350);toast(`${name}: handed over.`);return}
  t.classList.remove('new','warn','late');void t.offsetWidth;t.classList.add('new');kbox(i+1).appendChild(t);kCount();toast(`${name}: ${i?'ready at the pass.':'cooking started.'}`)});
-const POOL=[{h:'Table 5',sub:'Dine-in · 4 guests · Sana',items:[[2,'Shikampuri kebab'],[1,'Kacchi gosht biryani'],[4,'Rumali roti']]},{h:'Takeaway · SA-2301',sub:'Pickup in 25 min',items:[[1,'Hyderabadi haleem'],[2,'Sheermal']]},{h:'Table 2',sub:'Dine-in · 2 guests',items:[[1,'Paneer 65'],[1,'Bagara baingan'],[2,'Sulaimani chai']],nt:'Peanut allergy: confirm the gravy with the guest'},{h:'Delivery · SA-2304',sub:'Online · Banjara Hills · paid by UPI',items:[[2,'Kacchi gosht biryani'],[1,'Mirchi ka salan'],[2,'Double ka meetha']]}];
+const POOL=[{h:'Table 5',sub:'Dine-in · 4 guests · Sana',items:[[2,'Shikampuri kebab'],[1,'Kacchi gosht biryani'],[4,'Rumali roti']]},{h:'Takeaway · KW-2301',sub:'Pickup in 25 min',items:[[1,'Hyderabadi haleem'],[2,'Sheermal']]},{h:'Table 2',sub:'Dine-in · 2 guests',items:[[1,'Paneer 65'],[1,'Bagara baingan'],[2,'Sulaimani chai']],nt:'Peanut allergy: confirm the gravy with the guest'},{h:'Delivery · KW-2304',sub:'Online · Banjara Hills · paid by UPI',items:[[2,'Kacchi gosht biryani'],[1,'Mirchi ka salan'],[2,'Double ka meetha']]}];
 let ktick=0,kpool=0;
 setInterval(()=>{if(FILM.on)return;const d=new Date();$('#kclk').textContent=d.toLocaleTimeString('en-GB');if(!$('#v-kds').classList.contains('on')||document.hidden)return;
  $$('.kg .tkt .th .mono').forEach(m=>{m.textContent=mmss(secOf(m)+1)});
@@ -1100,9 +1288,9 @@ function resetAll(){Object.keys(held).forEach(k=>delete held[k]);Object.assign(r
  $('#conf').classList.remove('on');renderDates();renderTimes();paxUpd();Object.keys(F_).forEach(k=>F_[k]=0);fcs.forEach(b=>b.classList.remove('on'));fH=5;fC='';mtabs.forEach((x,i)=>x.classList.toggle('on',!i));applyF();
  cart.clear();[[0,1],[3,1],[6,2]].forEach(([i,q])=>cart.set(i,q));payM='UPI';pm.forEach((x,i)=>x.classList.toggle('on',!i));delete $('#pay').dataset.again;resetOrder();$('.dum').style.display='';show('home')}
 
-FILM.init({views:[{name:'Website',go:()=>show('home')},{name:'Kitchen display',go:()=>show('kds')}],reset:resetAll,no:'02',name:'Saalan',short:'Restaurant',sector:'Concept 02 — Restaurant',host:'saalan.in',caps:5,
+FILM.init({views:[{name:'Website',go:()=>show('home')},{name:'Kitchen display',go:()=>show('kds')}],reset:resetAll,no:'02',name:'Kewra House',short:'Restaurant',sector:'Concept 02 — Restaurant',host:'kewrahouse.in',caps:5,
  desc:'A Deccan kitchen with a website that does real work: a filterable menu, live table booking on the actual floor plan, and delivery tracked from the kitchen.',
- displayFont:"'Cormorant Garamond',serif",nameSize:190,nameWeight:500,nameStyle:'font-style:italic;',cardBg:'#15110E',cardFg:'#EFE5D3',
+ displayFont:"'Cormorant Garamond',serif",nameSize:150,nameWeight:500,nameStyle:'font-style:italic;',cardBg:'#15110E',cardFg:'#EFE5D3',
  mods:['Restaurant website','Smart menu','Table booking on floor plan','Deposits via UPI','Online ordering','Kitchen display system','Inventory alerts','Guest CRM']},
 async F=>{
  F.cx=1180;F.cy=620;F.hideCursor(1);
@@ -1112,7 +1300,7 @@ async F=>{
  await F.moveTo('.pill',1100,.5,.5);await F.wait(1200);
  await F.moveTo('#cov',900,.4,.5);await F.wait(700);$('#cov').textContent='41 guests seated';await F.wait(1600);
  // menu
- F.setUrl('saalan.in','/menu');
+ F.setUrl('kewrahouse.in','/menu');
  await F.scrollTo('#menu',1500,-20);
  await F.caption('A menu that filters itself','By diet, allergens and how much heat you can take. Every dish shows what\'s in it and what to pair it with.',{right:true});
  await F.moveTo('.dish[data-i="0"]',900,.5,.4);await F.wait(1600);
@@ -1121,7 +1309,7 @@ async F=>{
  await F.moveTo('.dish[data-i="7"]',900,.5,.35);await F.wait(2200);
  await F.moveTo('.dish[data-i="6"]',700,.5,.35);await F.wait(1700);
  // reserve
- F.setUrl('saalan.in','/reserve');
+ F.setUrl('kewrahouse.in','/reserve');
  await F.scrollTo('#reserve',1500,-10);
  await F.caption('Pick your exact table','A live floor plan that knows the party size. The occasion goes straight to the kitchen ticket.',{right:false});
  await F.click('#plus');await F.click('#plus',{noMove:false,pause:60});
@@ -1133,7 +1321,7 @@ async F=>{
  await F.click('#anniv');await F.wait(900);
  await F.click('#rbtn');await F.wait(3600);
  // order
- F.setUrl('saalan.in','/order/SA-2291');
+ F.setUrl('kewrahouse.in','/order/KW-2291');
  await F.caption('Delivery, tracked from the kitchen','Order status comes from the kitchen display — sealed, packed, picked up — with the restaurant\'s own riders on the map.',{right:true});
  await F.scrollTo('#order',1500,-10);
  await F.click('#pay');await F.wait(1200);
@@ -1144,12 +1332,12 @@ async F=>{
  await F.tween(3200,t=>placeRider(t*.75),t=>t);await F.wait(400);
  // kds
  await F.caption('One system behind the counter','The same orders feed the kitchen display, inventory and sales — tickets age in colour, allergies are flagged in red.',{right:true});
- show('kds');F.setUrl('kitchen.saalan.in','/display');$('#kds').classList.add('go');
+ show('kds');F.setUrl('kitchen.kewrahouse.in','/display');$('#kds').classList.add('go');
  let ks=5;const kc=setInterval(()=>{ks++;$('#kclk').textContent='20:31:'+String(ks).padStart(2,'0')},1000);
  const timers=$$('.tkt .th .mono');const base=timers.map(t=>{const [a,b]=t.textContent.split(':').map(Number);return a*60+b});
  const tt=setInterval(()=>{timers.forEach((t,i)=>{base[i]++;t.textContent=String(Math.floor(base[i]/60)).padStart(2,'0')+':'+String(base[i]%60).padStart(2,'0')})},1000);
  await F.moveTo('.tkt.warn',1000,.5,.6);await F.wait(1500);
- await F.wait(600);const nt=document.createElement('div');nt.className='tkt new';nt.innerHTML='<div class="th"><b>Delivery · SA-2294</b><span class="mono">00:01</span></div><div class="sub">Online · Banjara Hills · paid UPI</div><div class="it"><b>2</b>Kacchi gosht biryani</div><div class="it"><b>2</b>Qubani ka meetha</div>';$('#cnew').prepend(nt);
+ await F.wait(600);const nt=document.createElement('div');nt.className='tkt new';nt.innerHTML='<div class="th"><b>Delivery · KW-2294</b><span class="mono">00:01</span></div><div class="sub">Online · Banjara Hills · paid UPI</div><div class="it"><b>2</b>Kacchi gosht biryani</div><div class="it"><b>2</b>Qubani ka meetha</div>';$('#cnew').prepend(nt);
  await F.wait(1200);
  await F.moveTo('.iv',1000,.5,.5);await F.wait(2400);
  clearInterval(kc);clearInterval(tt);

@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kadamba Health — Gachibowli</title>
+<title>Ilara Hospitals, Gachibowli | Book a doctor, follow your OPD token</title>
 <!--pb-head-->
-<meta name="description" content="A working hospital demo by Purplebox: search by symptom, book a real slot, follow a live OPD token, read family health records and see the operations dashboard.">
-<meta name="theme-color" content="#0F2A22">
-<meta property="og:title" content="Kadamba Health — Gachibowli · a Purplebox demo">
-<meta property="og:description" content="A working hospital demo by Purplebox: search by symptom, book a real slot, follow a live OPD token, read family health records and see the operations dashboard.">
+<meta name="description" content="Ilara Hospitals, a working hospital demo by Purplebox: search by symptom, book a real slot, follow a live OPD token, read family health records and see the operations dashboard.">
+<meta name="theme-color" content="#0B2545">
+<meta property="og:title" content="Ilara Hospitals, Gachibowli | Book a doctor, follow your OPD token · a Purplebox demo">
+<meta property="og:description" content="Ilara Hospitals, a working hospital demo by Purplebox: search by symptom, book a real slot, follow a live OPD token, read family health records and see the operations dashboard.">
 <meta property="og:image" content="https://purpleboxsolutions.in/work/hospital.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 3 36 11.5v17L20 37 4 28.5v-17Z' fill='%234a1fb8'/%3E%3Cpath d='M20 3 36 11.5 20 20 4 11.5Z' fill='%238b6be8'/%3E%3Cpath d='M20 20v17L4 28.5v-17Z' fill='%2331127f'/%3E%3C/svg%3E">
 <!--/pb-head-->
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>/* ---------- Film harness: browser frame, cursor, captions, title cards ---------- */
 html.film, html.film body { margin:0; height:100%; overflow:hidden; background:#0d0d0f; }
 html.film { scroll-behavior:auto !important; }
@@ -88,9 +88,9 @@ html.film { scroll-behavior:auto !important; }
 </style>
 <style>
 :root{
-  --bone:#F2EEE5; --paper:#FBF9F4; --ink:#0F2A22; --ink2:#3C5249; --mute:#6D7F77;
-  --green:#1E5A45; --green2:#2C7559; --sage:#D5E1D4; --mist:#E8EEE6; --coral:#DD5536; --amber:#D9962E;
-  --line:rgba(15,42,34,.12); --line2:rgba(15,42,34,.07);
+  --bone:#F2EEE5; --paper:#FBF9F4; --ink:#0B2545; --ink2:#3C5249; --mute:#6D7F77;
+  --green:#0A5CA8; --green2:#1277C8; --sage:#D5E1D4; --mist:#E8EEE6; --coral:#DD5536; --amber:#D9962E;
+  --line:rgba(11,37,69,.12); --line2:rgba(11,37,69,.07);
   --serif:'Newsreader',Georgia,serif; --sans:'Figtree',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -116,7 +116,7 @@ nav.main .wrap{display:flex;align-items:center;height:70px;gap:40px}
 .nav-r{margin-left:auto;display:flex;gap:12px;align-items:center}
 .btn{height:42px;padding:0 18px;border-radius:10px;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s,box-shadow .2s}
 .btn.g{background:var(--green);color:#fff}
-@media(hover:hover){.btn.g:hover{background:#174a38}}
+@media(hover:hover){.btn.g:hover{background:#084a88}}
 .btn.o{border:1px solid var(--line);background:#fff}
 @media(hover:hover){.btn.o:hover{border-color:var(--ink2)}}
 .btn.er{color:var(--coral);border:1.5px solid rgba(221,85,54,.4);background:#fff}
@@ -134,14 +134,14 @@ h1{font-family:var(--serif);font-weight:400;font-size:86px;line-height:.98;lette
 h1 em{font-style:italic;color:var(--green)}
 .lede{font-size:18px;line-height:1.55;color:var(--ink2);max-width:560px}
 .search{margin-top:34px;position:relative;max-width:680px}
-.sbox{display:flex;align-items:center;gap:12px;height:64px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 10px 0 20px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 18px 40px -28px rgba(15,42,34,.35);transition:border-color .2s,box-shadow .2s}
-.sbox.f{border-color:var(--green2);box-shadow:0 0 0 4px rgba(44,117,89,.12),0 18px 40px -28px rgba(15,42,34,.35)}
+.sbox{display:flex;align-items:center;gap:12px;height:64px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:0 10px 0 20px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 18px 40px -28px rgba(11,37,69,.35);transition:border-color .2s,box-shadow .2s}
+.sbox.f{border-color:var(--green2);box-shadow:0 0 0 4px rgba(18,119,200,.12),0 18px 40px -28px rgba(11,37,69,.35)}
 .sbox input{flex:1;border:0;outline:0;font-size:17px;background:none}
 .sbox input::placeholder{color:#93a29b}
 .sbox .btn{height:46px}
 .chips{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .chip{font-size:13px;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.7);border:1px solid var(--line2);color:var(--ink2)}
-.drop{position:absolute;left:0;right:0;top:72px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -30px rgba(15,42,34,.45);padding:8px;opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .3s;pointer-events:none;z-index:20}
+.drop{position:absolute;left:0;right:0;top:72px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 30px 60px -30px rgba(11,37,69,.45);padding:8px;opacity:0;transform:translateY(-6px);transition:opacity .25s,transform .3s;pointer-events:none;z-index:20}
 .drop.on{opacity:1;transform:none;pointer-events:auto}
 .drop .lbl{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-weight:600;padding:10px 12px 6px}
 .res{display:flex;align-items:center;gap:14px;padding:12px;border-radius:11px;cursor:pointer;transition:background .15s}
@@ -158,9 +158,9 @@ h1 em{font-style:italic;color:var(--green)}
 .drop.on .res{opacity:1;transform:none}
 .drop.on .res:nth-child(3){transition-delay:.06s}.drop.on .res:nth-child(4){transition-delay:.12s}.drop.on .res:nth-child(5){transition-delay:.18s}
 
-.live{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 26px 18px;box-shadow:0 40px 80px -50px rgba(15,42,34,.5)}
+.live{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 26px 18px;box-shadow:0 40px 80px -50px rgba(11,37,69,.5)}
 .live h3{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:10px}
-.live h3 .pulse{color:#2fa36f}
+.live h3 .pulse{color:#2F9BE8}
 .er{display:flex;justify-content:space-between;align-items:flex-end;padding:18px 0 20px;border-bottom:1px solid var(--line2)}
 .er .k{font-size:14px;color:var(--ink2)}
 .er .v{font-family:var(--serif);font-size:72px;line-height:.9;letter-spacing:-.03em}
@@ -187,7 +187,7 @@ h1 em{font-style:italic;color:var(--green)}
 .book{display:grid;grid-template-columns:1fr 470px;gap:28px;align-items:start}
 .docs{display:flex;flex-direction:column;gap:14px}
 .doc{display:grid;grid-template-columns:76px 1fr auto;gap:20px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 22px;transition:border-color .25s,box-shadow .25s}
-.doc.sel{border-color:var(--green2);box-shadow:0 0 0 3px rgba(44,117,89,.12)}
+.doc.sel{border-color:var(--green2);box-shadow:0 0 0 3px rgba(18,119,200,.12)}
 .av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-style:italic;font-size:30px;color:#fff;position:relative;overflow:hidden}
 .av::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 2px,transparent 2px 7px)}
 .doc h4{font-size:18px;font-weight:600;letter-spacing:-.01em}
@@ -224,7 +224,7 @@ h1 em{font-style:italic;color:var(--green)}
 .ph-in{display:flex;gap:8px}
 .ph-in .cc{height:48px;padding:0 14px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;font-weight:600;color:var(--ink2)}
 .ph-in input{flex:1;height:48px;border:1px solid var(--line);border-radius:12px;padding:0 14px;font-size:16px;outline:0;letter-spacing:.04em;font-variant-numeric:tabular-nums}
-.ph-in input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(44,117,89,.12)}
+.ph-in input:focus{border-color:var(--green2);box-shadow:0 0 0 3px rgba(18,119,200,.12)}
 .ph-in .btn{height:48px}
 .otp{display:flex;gap:10px;align-items:center;margin-top:14px;max-height:0;opacity:0;overflow:hidden;transition:max-height .5s,opacity .4s}
 .otp.on{max-height:80px;opacity:1}
@@ -241,7 +241,7 @@ h1 em{font-style:italic;color:var(--green)}
 .done .ck{width:46px;height:46px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#fff}
 .done h3{font-family:var(--serif);font-size:34px;font-weight:400;margin:16px 0 4px;letter-spacing:-.01em}
 .done p{color:var(--mute);font-size:14px}
-.tk{display:grid;grid-template-columns:1fr 112px;gap:18px;margin:22px 0 18px;padding:18px;border-radius:16px;background:var(--bone);border:1px dashed rgba(15,42,34,.25)}
+.tk{display:grid;grid-template-columns:1fr 112px;gap:18px;margin:22px 0 18px;padding:18px;border-radius:16px;background:var(--bone);border:1px dashed rgba(11,37,69,.25)}
 .tk small{font-size:11px;letter-spacing:.11em;text-transform:uppercase;color:var(--mute);font-weight:600}
 .tk .no{font-family:var(--serif);font-size:58px;line-height:1;letter-spacing:-.02em;margin:6px 0 8px}
 .tk .w{font-size:14px;line-height:1.5;color:var(--ink2)}
@@ -253,11 +253,11 @@ h1 em{font-style:italic;color:var(--green)}
 .visit{background:var(--ink);color:#e9efe9;padding:96px 0;overflow:hidden}
 .visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .visit h2{font-family:var(--serif);font-weight:400;font-size:62px;line-height:1;letter-spacing:-.02em}
-.visit h2 em{color:#9fd3b5}
+.visit h2 em{color:#8CC4F3}
 .visit p.l{color:#a9bdb3;font-size:18px;line-height:1.55;margin-top:22px;max-width:520px}
 .feats{margin-top:34px;display:grid;gap:0;max-width:520px}
 .feats div{display:flex;gap:16px;padding:16px 0;border-top:1px solid rgba(255,255,255,.1);font-size:15px;color:#cfdcd4}
-.feats div b{font-family:var(--mono);font-size:12px;color:#7fae94;font-weight:500;padding-top:2px}
+.feats div b{font-family:var(--mono);font-size:12px;color:#8CC4F3;font-weight:500;padding-top:2px}
 .phones{position:relative;height:640px}
 .phone{position:absolute;width:318px;height:640px;border-radius:46px;background:#0a1612;padding:12px;box-shadow:0 60px 90px -40px rgba(0,0,0,.7),inset 0 0 0 1.5px rgba(255,255,255,.12)}
 .phone .scr{width:100%;height:100%;border-radius:36px;background:var(--paper);color:var(--ink);overflow:hidden;position:relative}
@@ -394,7 +394,7 @@ h1 em{font-style:italic;color:var(--green)}
 .kpi{background:#132420;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px 20px}
 .kpi small{font-size:12px;color:#8ea69a;display:block}
 .kpi b{font-family:var(--serif);font-weight:400;font-size:44px;display:block;margin:8px 0 2px;letter-spacing:-.02em;color:#fff}
-.kpi span{font-size:12.5px;color:#7fcfa2}
+.kpi span{font-size:12.5px;color:#7CC0F5}
 .kpi span.bad{color:#f0a07f}
 .og{display:grid;grid-template-columns:1.3fr 1fr 0.9fr;gap:14px}
 .ob{background:#132420;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:20px}
@@ -404,7 +404,7 @@ h1 em{font-style:italic;color:var(--green)}
 .ops.go .wards i{transform:none}
 .bars{display:flex;align-items:flex-end;gap:8px;height:200px;padding-top:10px}
 .bars div{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;font-size:11px;color:#7d968a;height:100%;justify-content:flex-end}
-.bars i{width:100%;border-radius:6px 6px 2px 2px;background:#2c7559;transform:scaleY(0);transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.bars i{width:100%;border-radius:6px 6px 2px 2px;background:#1277C8;transform:scaleY(0);transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .bars i.pk{background:#e0a24a}
 .ops.go .bars i{transform:none}
 .alert{display:flex;gap:12px;padding:12px 0;border-top:1px solid rgba(255,255,255,.06);font-size:13px;line-height:1.4}
@@ -415,7 +415,7 @@ h1 em{font-style:italic;color:var(--green)}
 .amb{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(255,255,255,.06);font-size:13px}
 .amb:first-of-type{border-top:0}
 .amb b{color:#fff}
-.amb span{color:#7fcfa2;font-family:var(--mono);font-size:12px}
+.amb span{color:#7CC0F5;font-family:var(--mono);font-size:12px}
 
 /* ---------- live-demo additions ---------- */
 .chip.sp{cursor:pointer;font:inherit;font-size:13px;background:#fff}
@@ -430,7 +430,7 @@ h1 em{font-style:italic;color:var(--green)}
 .pbtns span,.mside .bt span,.oph .tabs span,.side a,.card h4 a{cursor:pointer;user-select:none}
 @media(hover:hover){.card h4 a:hover{text-decoration:underline}}
 .card.flash,.fam.flash{animation:fl 1.4s ease}
-@keyframes fl{0%,60%{box-shadow:0 0 0 3px rgba(44,117,89,.35)}100%{box-shadow:0 0 0 3px rgba(44,117,89,0)}}
+@keyframes fl{0%,60%{box-shadow:0 0 0 3px rgba(18,119,200,.35)}100%{box-shadow:0 0 0 3px rgba(18,119,200,0)}}
 .more .rx:first-child{margin-top:12px}
 .mbox{position:relative;max-width:calc(100vw - 32px);max-height:calc(100vh - 32px);overflow:auto}
 .mx{position:absolute;right:14px;top:14px;z-index:3;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);font-size:22px;line-height:1;display:grid;place-items:center}
@@ -562,6 +562,172 @@ h1 em{font-style:italic;color:var(--green)}
  .visit+div{height:90px!important}
 }
 </style>
+<style id="pb-v2">
+/* ---- Ilara Hospitals: an institution's site, not a brochure. White, navy and one clinical blue; one sans;
+   small radii, ruled tables, no shadows, no italics. The booking tool sits on the first screen. ---- */
+:root{--bone:#F1F4F8;--paper:#fff;--ink:#0B2545;--ink2:#33475B;--mute:#5F7186;--green:#0A5CA8;--green2:#1277C8;--sage:#D6E4F2;--mist:#E9F1F9;--coral:#CF2439;--line:rgba(11,37,69,.18);--line2:rgba(11,37,69,.1);--serif:'Figtree',system-ui,sans-serif}
+h1,h2,h3,h4,.logo{font-weight:700!important;letter-spacing:-.025em}
+em{font-style:normal!important}
+.btn{border-radius:5px}
+.util{background:var(--ink);font-size:13px}
+.util .wrap{height:38px}
+.util span:first-child{display:flex;align-items:center;gap:10px}
+.util span:first-child b{background:var(--coral);color:#fff;padding:3px 9px;border-radius:3px;font-size:13.5px;letter-spacing:.02em}
+nav.main{background:#fff;border-bottom:1px solid var(--line)}
+.logo{font-size:21px;gap:12px}
+.logo small{letter-spacing:.1em;font-size:10px}
+.links a.cur::after{height:3px}
+.btn.er{background:var(--coral);color:#fff;border-color:var(--coral)}
+@media(hover:hover){.btn.er:hover{background:#b81d30}.btn.g:hover{background:#084a88}}
+
+/* hero: the campus behind, the booking panel in front, the live board along the bottom */
+.hero{position:relative;padding:0;background:var(--ink);overflow:hidden}
+.hero-ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,37,69,.86),rgba(11,37,69,.5) 55%,rgba(11,37,69,.2));pointer-events:none}
+.hero .wrap{position:relative;z-index:2;display:block;padding-top:54px;padding-bottom:0}
+.hero .wrap>div:first-child{max-width:660px;background:#fff;padding:30px 34px 30px;border-top:6px solid var(--green)}
+.eyebrow{letter-spacing:.08em;font-size:12px;color:var(--mute)}
+.eyebrow i{display:none}
+h1{font-size:44px;line-height:1.06;margin:12px 0 12px}
+h1 em{color:var(--ink)}
+.lede{font-size:16.5px;line-height:1.5;max-width:none}
+.search{margin-top:22px;max-width:none}
+.sbox{height:58px;border-radius:5px;border:2px solid var(--ink);box-shadow:none;padding:0 6px 0 16px}
+.sbox.f{border-color:var(--green);box-shadow:0 0 0 3px rgba(18,119,200,.2)}
+.sbox .btn{height:44px}
+.drop{top:64px;border-radius:5px;box-shadow:0 18px 30px -18px rgba(11,37,69,.5)}
+.res,.res .ic{border-radius:4px}
+.chips{gap:6px;margin-top:14px}
+.chip{border-radius:4px;background:var(--bone);border-color:transparent;font-size:13px}
+.chip.sp{background:#fff;border-color:var(--line)}
+.live{margin-top:44px;max-width:none;display:grid;grid-template-columns:150px 1.25fr repeat(5,1fr);background:#fff;border:0;border-radius:0;box-shadow:none;padding:0}
+.live h3{grid-row:1;background:var(--green);color:#fff;padding:14px 16px;font-size:12px;line-height:1.35;letter-spacing:.08em;align-items:flex-start}
+.live h3 .pulse{color:#fff;margin-top:4px;flex:none}
+.live .er{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;padding:12px 18px;border:0;border-right:1px solid var(--line2)}
+.live .er .k{font-size:12.5px;color:var(--mute)}
+.live .er .v{font-size:30px;font-weight:700;line-height:1.1;letter-spacing:-.02em}
+.live .er .v small{font-size:14px;font-weight:600}
+.spark,.live .bar{display:none}
+.live .row{flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;padding:12px 16px;border:0;border-right:1px solid var(--line2);font-size:12.5px;color:var(--mute);line-height:1.25}
+.live .row .r{font-size:17px;color:var(--ink);font-weight:700}
+.live .row:last-of-type{border-right:0}
+.tag{border-radius:3px;font-size:11px}
+.live .foot{grid-column:1/-1;margin:0;padding:7px 16px;background:var(--bone);border-top:1px solid var(--line2);font-size:11.5px}
+
+/* quick actions: one ruled row, as on any hospital counter */
+.qa{background:#fff;border-bottom:1px solid var(--line)}
+.qa .wrap{display:grid;grid-template-columns:repeat(5,1fr)}
+.qa button{display:flex;align-items:center;gap:14px;text-align:left;padding:22px 18px;border-left:1px solid var(--line2);min-height:88px;transition:background-color .15s ease,scale .16s cubic-bezier(.23,1,.32,1)}
+.qa button:first-child{border-left:0;padding-left:0}
+.qa svg{flex:none;color:var(--green)}
+.qa b{display:block;font-size:15.5px;font-weight:700;letter-spacing:-.01em}
+.qa span{display:block;font-size:12.5px;color:var(--mute);margin-top:2px}
+.qa .em svg,.qa .em b{color:var(--coral)}
+@media(hover:hover){.qa button:hover{background:var(--mist)}}
+
+/* departments: a directory table */
+.dir{padding:64px 0 0}
+.dir h2,.sh h2,.foot2 h2{font-size:34px;line-height:1.1}
+.dir p{color:var(--mute);margin-top:8px;font-size:15px}
+.dir table{width:100%;border-collapse:collapse;margin-top:22px;font-size:15px}
+.dir th{text-align:left;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:700;padding:10px 12px;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.dir td{padding:13px 12px;border-bottom:1px solid var(--line2)}
+.dir td:first-child{font-weight:700}
+.dir td:last-child,.dir th:last-child{text-align:right}
+.dir tr{cursor:pointer;transition:background-color .12s ease}
+.dir td button{color:var(--green);font-weight:700;font-size:14px;min-height:32px}
+@media(hover:hover){.dir tbody tr:hover{background:var(--mist)}}
+
+/* doctors: rows, not cards */
+.sec{padding:64px 0}
+.sh{margin-bottom:22px;align-items:flex-start;flex-direction:column;gap:14px}
+.sh h2 em{color:var(--green)}
+.crumbs{font-size:12.5px}
+.book{grid-template-columns:1fr 440px;gap:32px}
+.docs{gap:0;border-top:2px solid var(--ink)}
+.doc{border:0;border-bottom:1px solid var(--line);border-radius:0;padding:18px 14px;background:none;grid-template-columns:56px 1fr auto;gap:18px}
+.doc.sel{background:var(--mist);box-shadow:inset 4px 0 0 var(--green);border-color:var(--line)}
+.av{width:56px;height:56px;border-radius:5px;font-size:19px;font-weight:700;letter-spacing:0;font-style:normal}
+.av::after{display:none}
+.doc h4{font-size:17px}
+.panel{border-radius:5px!important;box-shadow:none!important;border:1px solid var(--ink)!important}
+.panel .ph{border-radius:0!important}
+.day,.slot,.seg,.seg button,.ph-in .cc,.ph-in input,.otp i,.tk,.ck{border-radius:4px!important}
+.done h3{font-size:26px!important}
+.tk .no{font-weight:700!important}
+
+/* health checks: three ruled columns */
+.pk3{gap:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line)}
+.pkc{border:0;border-left:1px solid var(--line);border-radius:0;background:none;padding:24px 26px}
+.pkc:first-child{border-left:0;padding-left:0}
+.pkc h4{font-size:22px;margin:8px 0 6px}
+.pkc .pr b{font-size:24px;font-weight:700}
+
+.band{display:block;width:100%;height:340px;object-fit:cover;object-position:50% 40%}
+.visit{padding:76px 0}
+.visit h2{font-size:42px;line-height:1.08}
+.visit h2 em{color:#8CC4F3}
+.visit .eyebrow{color:#8CC4F3!important}
+.visit p.l{color:#B9C8DA}
+.feats div{color:#D5DFEA}
+.feats div b{color:#8CC4F3;font-family:var(--sans);font-weight:700}
+
+/* footer: the facts a hospital site ends with */
+.foot2{background:#071A33;color:#B9C8DA;padding:52px 0 110px;font-size:14px;line-height:1.7}
+.foot2 .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.foot2 h2{color:#fff;font-size:22px;margin-bottom:8px}
+.foot2 h3{color:#fff;font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.foot2 .tel{display:block;color:#fff;font-size:26px;font-weight:700;letter-spacing:-.01em;margin-top:10px}
+.foot2 ul{list-style:none}
+.foot2 .fine{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.14);padding-top:16px;font-size:12.5px;color:#8FA3BB}
+#v-home>div[style*="height:40px"]{display:none}
+
+/* portal + dialogs follow the same plain rules */
+.portal em,.mbox em{font-style:normal}
+.pc,.card,.mbox,.mside{border-radius:6px!important}
+
+@media(max-width:1180px){
+ h1{font-size:40px}
+ .live{grid-template-columns:repeat(3,1fr)}
+ .live h3{grid-column:1/-1}
+ .live .er,.live .row{border-bottom:1px solid var(--line2)}
+ .book{grid-template-columns:1fr}
+ .qa .wrap{grid-template-columns:repeat(3,1fr)}
+ .qa button:nth-child(4){border-left:0;padding-left:0}
+ .qa button:nth-child(n+4){border-top:1px solid var(--line2)}
+ .foot2 .wrap{grid-template-columns:1fr 1fr}
+}
+@media(max-width:820px){
+ .util .wrap{height:auto;padding-top:7px;padding-bottom:7px}
+ .logo{font-size:18px}
+ .hero .wrap{padding-top:18px}
+ .hero .wrap>div:first-child{padding:20px 16px 20px}
+ h1{font-size:30px;margin:10px 0}
+ .lede{font-size:15px}
+ .live{margin:18px -18px 0;grid-template-columns:1fr 1fr}
+ .live .er .v{font-size:26px}
+ .live .row .r{font-size:15px}
+ .qa .wrap{grid-template-columns:1fr 1fr;padding:0}
+ .qa button,.qa button:first-child,.qa button:nth-child(4){padding:16px 18px;border-left:0;border-top:1px solid var(--line2);min-height:76px}
+ .qa button:nth-child(even){border-left:1px solid var(--line2)}
+ .qa button:nth-child(-n+2){border-top:0}
+ .qa button:last-child{grid-column:1/-1;border-left:0}
+ .dir{padding-top:44px}
+ .dir h2,.sh h2,.foot2 h2{font-size:26px}
+ .dir th:nth-child(3),.dir td:nth-child(3){display:none}
+ .dir td,.dir th{padding:12px 6px}
+ .sec{padding:44px 0}
+ .doc{grid-template-columns:44px 1fr;padding:16px 8px}
+ .doc .av{width:44px;height:44px;font-size:15px}
+ .pk3{border-bottom:0}
+ .pkc,.pkc:first-child{border-left:0;border-bottom:1px solid var(--line);padding:20px 0}
+ .band{height:200px}
+ .visit{padding:52px 0}
+ .visit h2{font-size:30px}
+ .foot2{padding:40px 0 110px}
+ .foot2 .wrap{grid-template-columns:1fr;gap:26px}
+}
+</style>
 <style id="pb-polish">
 /* ---- polish pass: touch, press, focus, motion ---- */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
@@ -600,18 +766,18 @@ nav.main .links a,.btn{white-space:nowrap}
 
 <div class="util"><div class="wrap"><span>Emergency &amp; ambulance, 24×7 — <b>040 4455 0108</b></span><div class="r"><span>Gachibowli</span><span>Kondapur</span><span>Kukatpally</span><span>Health checks from ₹1,499</span></div></div></div>
 <nav class="main"><div class="wrap">
-  <div class="logo"><svg width="38" height="38" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1E5A45"/><g fill="#F2EEE5"><circle cx="20" cy="20" r="5.2"/></g><g fill="#9fd3b5"><circle cx="20" cy="8.5" r="2"/><circle cx="20" cy="31.5" r="2"/><circle cx="8.5" cy="20" r="2"/><circle cx="31.5" cy="20" r="2"/><circle cx="11.9" cy="11.9" r="2"/><circle cx="28.1" cy="28.1" r="2"/><circle cx="28.1" cy="11.9" r="2"/><circle cx="11.9" cy="28.1" r="2"/></g></svg><div>Kadamba Health<small>Hospitals · Hyderabad</small></div></div>
+  <div class="logo"><svg width="38" height="38" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="6" fill="#0A5CA8"/><path d="M12 10h16M12 30h16M20 10v20" stroke="#fff" stroke-width="4.2" stroke-linecap="square"/></svg><div>Ilara Hospitals<small>Gachibowli · Hyderabad</small></div></div>
   <div class="links"><a class="cur" id="l-home">Find a doctor</a><a>Specialities</a><a>Health checks</a><a id="l-portal">Patient portal</a></div>
   <div class="nav-r"><button class="btn er" id="b-er"><span class="pulse"></span>Emergency</button><button class="btn g">Book appointment</button></div>
 </div></nav>
 
 <!-- ================= HOME ================= -->
 <main class="view on" id="v-home">
-<section class="hero"><div class="wrap">
+<section class="hero"><img class="hero-ph" src="img/ilara-campus.jpg" width="1800" height="1664" alt="" fetchpriority="high"><div class="wrap">
   <div>
-    <div class="eyebrow"><i></i>Gachibowli campus · 412 beds · NABH accredited</div>
-    <h1>Care that doesn't keep you <em>waiting.</em></h1>
-    <p class="lede">Book a specialist in under a minute, track your OPD token from home, and keep every report your family has ever had — in one place.</p>
+    <div class="eyebrow"><i></i>412 beds · 38 specialities · open 24 hours</div>
+    <h1>Book a doctor at Ilara, Gachibowli</h1>
+    <p class="lede">Search by doctor, speciality or symptom. You get a real slot from the doctor's calendar and an OPD token you can follow from home.</p>
     <div class="search">
       <div class="sbox" id="sbox"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6D7F77" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" placeholder="Search a doctor, speciality, or describe how you feel"><button class="btn g">Search</button></div>
       <div class="drop" id="drop">
@@ -627,7 +793,7 @@ nav.main .links a,.btn{white-space:nowrap}
   <aside class="live">
     <h3><span class="pulse"></span>Right now at Gachibowli</h3>
     <div class="er"><div><div class="k">Emergency wait time</div><div class="v tnum" id="erv">12<small>min</small></div></div>
-      <svg class="spark" viewBox="0 0 150 52"><path d="M0 30 L15 26 L30 32 L45 22 L60 28 L75 18 L90 24 L105 14 L120 20 L135 16 L150 22" fill="none" stroke="#2C7559" stroke-width="2"/><path d="M0 30 L15 26 L30 32 L45 22 L60 28 L75 18 L90 24 L105 14 L120 20 L135 16 L150 22 V52 H0Z" fill="rgba(44,117,89,.09)"/><circle cx="150" cy="22" r="3.5" fill="#2C7559"/></svg></div>
+      <svg class="spark" viewBox="0 0 150 52"><path d="M0 30 L15 26 L30 32 L45 22 L60 28 L75 18 L90 24 L105 14 L120 20 L135 16 L150 22" fill="none" stroke="#1277C8" stroke-width="2"/><path d="M0 30 L15 26 L30 32 L45 22 L60 28 L75 18 L90 24 L105 14 L120 20 L135 16 L150 22 V52 H0Z" fill="rgba(18,119,200,.09)"/><circle cx="150" cy="22" r="3.5" fill="#1277C8"/></svg></div>
     <div class="row"><span>Cardiology OPD — now serving</span><span class="r mono" id="srv">A-19</span></div>
     <div class="row"><span>ICU beds free</span><span class="r"><span class="bar"><i style="width:12.5%"></i></span><span class="tnum">4 / 32</span></span></div>
     <div class="row"><span>General ward beds free</span><span class="r"><span class="bar"><i style="width:28%"></i></span><span class="tnum">18 / 64</span></span></div>
@@ -637,19 +803,33 @@ nav.main .links a,.btn{white-space:nowrap}
   </aside>
 </div></section>
 
+<section class="qa" aria-label="Quick actions"><div class="wrap">
+  <button data-qa="book"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><span><b>Book an appointment</b><span>Slots from today</span></span></button>
+  <button data-qa="dir"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg><span><b>Find a doctor</b><span>By speciality</span></span></button>
+  <button data-qa="portal"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg><span><b>Reports and bills</b><span>Patient portal</span></span></button>
+  <button data-qa="checks"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg><span><b>Health checks</b><span>Same-day reports</span></span></button>
+  <button data-qa="er" class="em"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16V8a1 1 0 0 1 1-1h9v9M13 10h4l4 3v3h-8"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M8 9v4M6 11h4"/></svg><span><b>Ambulance</b><span>040 4455 0108</span></span></button>
+</div></section>
+
+<section class="dir" id="dir"><div class="wrap">
+  <h2>Specialities</h2>
+  <p>Pick a department to see its doctors and today's free slots.</p>
+  <table><thead><tr><th>Department</th><th>Doctors</th><th>Where</th><th>Appointments</th></tr></thead><tbody id="dirb"></tbody></table>
+</div></section>
+
 <section class="sec" id="doctors"><div class="wrap">
   <div class="crumbs">Find a doctor / <b>Cardiology</b></div>
-  <div class="sh"><div><h2>Cardiology, <em>today.</em></h2><p>Real slots from the doctors' own calendars — what you see is what's free.</p></div>
+  <div class="sh"><div><h2>Cardiology, <em>today</em></h2><p>Real slots from the doctors' own calendars — what you see is what's free.</p></div>
     <div class="chips" style="margin:0"><span class="chip" style="background:#fff">Gachibowli</span><span class="chip">Telugu · Hindi · English</span><span class="chip">Video consult available</span></div></div>
   <div class="book">
     <div class="docs">
-      <div class="doc sel" id="doc1"><div class="av" style="background:#2C7559">AR</div><div><h4>Dr. Ananya Rao</h4><div class="t">Interventional Cardiologist · MD, DM (AIIMS)</div><div class="m"><span><b>16 yrs</b> experience</span><span><b>4.9</b> · 1,240 consults</span><span>English, Telugu</span></div></div><div class="nx"><small>Next available</small><b>Today, 11:20 AM</b><button class="btn g" id="bk1">Book</button></div></div>
+      <div class="doc sel" id="doc1"><div class="av" style="background:#1277C8">AR</div><div><h4>Dr. Ananya Rao</h4><div class="t">Interventional Cardiologist · MD, DM (AIIMS)</div><div class="m"><span><b>16 yrs</b> experience</span><span><b>4.9</b> · 1,240 consults</span><span>English, Telugu</span></div></div><div class="nx"><small>Next available</small><b>Today, 11:20 AM</b><button class="btn g" id="bk1">Book</button></div></div>
       <div class="doc"><div class="av" style="background:#7A6A4F">VK</div><div><h4>Dr. Vikram Kulkarni</h4><div class="t">Cardiac Electrophysiologist · MD, DM, FHRS</div><div class="m"><span><b>21 yrs</b> experience</span><span><b>4.8</b> · 2,310 consults</span><span>English, Hindi, Marathi</span></div></div><div class="nx"><small>Next available</small><b>Today, 4:40 PM</b><button class="btn o">Book</button></div></div>
       <div class="doc"><div class="av" style="background:#4F6478">SF</div><div><h4>Dr. Sana Farooqui</h4><div class="t">Preventive Cardiology · MD, DNB</div><div class="m"><span><b>9 yrs</b> experience</span><span><b>4.9</b> · 860 consults</span><span>English, Hindi, Urdu</span></div></div><div class="nx"><small>Next available</small><b>Tomorrow, 9:00 AM</b><button class="btn o">Book</button></div></div>
       <div class="doc" style="opacity:.6"><div class="av" style="background:#8a5a4a">MP</div><div><h4>Dr. Mahesh Pillai</h4><div class="t">Cardiothoracic Surgeon · MS, MCh</div><div class="m"><span><b>24 yrs</b> experience</span><span>In surgery today</span></div></div><div class="nx"><small>Next available</small><b>Thu, 10:00 AM</b><button class="btn o">Book</button></div></div>
     </div>
     <div class="panel" id="panel">
-      <div class="ph"><div class="av" style="background:#2C7559">AR</div><div><b>Dr. Ananya Rao</b><span>Cardiology · Gachibowli · Room 214</span></div></div>
+      <div class="ph"><div class="av" style="background:#1277C8">AR</div><div><b>Dr. Ananya Rao</b><span>Cardiology · Gachibowli · Room 214</span></div></div>
       <div class="pb">
         <div class="pl"><span>Choose a day</span><span>November</span></div>
         <div class="days" id="days"><div class="day on"><small>Mon</small><b>10</b></div><div class="day" id="d11"><small>Tue</small><b>11</b></div><div class="day"><small>Wed</small><b>12</b></div><div class="day"><small>Thu</small><b>13</b></div><div class="day"><small>Fri</small><b>14</b></div><div class="day x"><small>Sun</small><b>16</b></div></div>
@@ -674,7 +854,7 @@ nav.main .links a,.btn{white-space:nowrap}
 </div></section>
 
 <section class="sec checks" id="checks"><div class="wrap">
-  <div class="sh"><div><h2>Health checks, <em>same day.</em></h2><p>Give a fasting sample at 7 AM and read the reports on your phone by evening.</p></div></div>
+  <div class="sh"><div><h2>Health checks with same-day reports</h2><p>Give a fasting sample at 7 AM and read the reports on your phone by evening.</p></div></div>
   <div class="pk3">
     <div class="pkc"><small>Most booked</small><h4>Full body check</h4><p>62 tests covering blood, urine, ECG and chest X-ray, with a doctor's review.</p><div class="pr"><b>₹1,499</b><button class="btn g" data-pk="Full body check">Book</button></div></div>
     <div class="pkc"><small>For ages 40 and above</small><h4>Heart health check</h4><p>ECG, 2D Echo, treadmill test and lipid profile, reviewed by a cardiologist.</p><div class="pr"><b>₹3,900</b><button class="btn g" data-pk="Heart health check">Book</button></div></div>
@@ -682,16 +862,17 @@ nav.main .links a,.btn{white-space:nowrap}
   </div>
 </div></section>
 
+<img class="band" src="img/ilara-ward.jpg" width="1800" height="1350" loading="lazy" alt="A long, clean hospital corridor">
 <section class="visit" id="visit"><div class="wrap">
   <div>
-    <div class="eyebrow" style="color:#7fae94"><i style="background:#7fae94"></i>On the day of your visit</div>
-    <h2 style="margin-top:20px">Wait at home,<br><em>not in the corridor.</em></h2>
+    <div class="eyebrow" style="color:#8CC4F3"><i style="background:#8CC4F3"></i>On the day of your visit</div>
+    <h2 style="margin-top:20px">Wait at home, <em>not in the corridor</em></h2>
     <p class="l">Your token moves in real time with the doctor's queue. If she's running late, your time moves too — and we tell you exactly when to leave.</p>
     <div class="feats"><div><b>01</b>Live token position, synced with the OPD desk</div><div><b>02</b>Travel time from your location, updated with traffic</div><div><b>03</b>WhatsApp alerts — no app download required</div></div>
   </div>
   <div class="phones">
     <div class="phone p2"><div class="scr"><div class="notch"></div><div class="sb"><span>10:41</span><span>5G</span></div>
-      <div class="wa"><div class="top"><i>K</i><div><b>Kadamba Health</b><small>Verified business</small></div></div>
+      <div class="wa"><div class="top"><i>I</i><div><b>Ilara Hospitals</b><small>Verified business</small></div></div>
         <div class="bub"><b>Reminder · Today 11:20 AM</b>Dr. Ananya Rao, Cardiology. Your token is A-24. Reply 1 to confirm, 2 to reschedule.<span class="tm">9:30 AM</span></div>
         <div class="bub"><b>Time to leave</b>The queue is moving. Leave by 10:52 — it's a 14 min drive from Kondapur right now.<span class="tm">10:38 AM</span></div>
         <div class="bub"><b>Reports ready</b>Your lipid profile is ready. View it in your patient portal.<span class="tm">10:40 AM</span></div>
@@ -708,14 +889,20 @@ nav.main .links a,.btn{white-space:nowrap}
       </div></div></div>
   </div>
 </div></section>
-<div style="height:40px;background:var(--ink)"></div>
+<footer class="foot2"><div class="wrap">
+  <div><h2>Ilara Hospitals</h2>Gachibowli, Hyderabad<br>Open 24 hours, every day<span class="tel">040 4455 0108</span>Emergency and ambulance</div>
+  <div><h3>Campuses</h3><ul><li>Gachibowli (main)</li><li>Kondapur clinic</li><li>Kukatpally clinic</li></ul></div>
+  <div><h3>For patients</h3><ul><li>OPD 8 AM to 8 PM</li><li>Pharmacy 24 hours</li><li>Visiting 4 to 7 PM</li><li>Cashless with 40 insurers</li></ul></div>
+  <div><h3>Departments</h3><ul><li>Cardiology</li><li>Orthopaedics</li><li>Paediatrics</li><li>Obstetrics and gynaecology</li></ul></div>
+  <div class="fine">This is a demonstration site. Ilara Hospitals, its doctors and its figures are made up.</div>
+</div></footer>
 </main>
 
 <!-- ================= PORTAL ================= -->
 <main class="view" id="v-portal">
 <div class="portal">
   <aside class="side">
-    <div class="who"><div class="av" style="background:#B0634A">MR</div><div><b>Meera Reddy</b><span>KH-ID 0048 2291</span></div></div>
+    <div class="who"><div class="av" style="background:#B0634A">MR</div><div><b>Meera Reddy</b><span>IH-ID 0048 2291</span></div></div>
     <a class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12 12 4l9 8M5 10v10h14V10"/></svg>Overview</a>
     <a><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Reports<span class="c">2</span></a>
     <a><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="3" width="12" height="18" rx="6"/><path d="M6 12h12"/></svg>Prescriptions</a>
@@ -742,7 +929,7 @@ nav.main .links a,.btn{white-space:nowrap}
         </div>
       </div>
       <div class="card">
-        <h4><span>Insurance claim · KH-CL-20931</span><a>Documents</a></h4>
+        <h4><span>Insurance claim · IH-CL-20931</span><a>Documents</a></h4>
         <div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:12px"><div style="font-family:var(--serif);font-size:38px;letter-spacing:-.02em">₹42,300</div><div style="font-size:13px;color:var(--mute)">Angiography · cashless</div></div>
         <div class="claim" id="claim"><div class="fill"></div><div class="st d"><b>Submitted</b>2 Nov</div><div class="st d"><b>Pre-auth approved</b>3 Nov</div><div class="st a"><b>Final review</b>with insurer</div><div class="st"><b>Settled</b>est. 14 Nov</div></div>
       </div>
@@ -759,9 +946,9 @@ nav.main .links a,.btn{white-space:nowrap}
 <!-- ================= OPS ================= -->
 <main class="view" id="v-ops">
 <div class="ops" id="ops">
-  <div class="oph"><div class="logo"><svg width="32" height="32" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#2C7559"/><circle cx="20" cy="20" r="5.2" fill="#F2EEE5"/></svg>Kadamba Ops</div>
+  <div class="oph"><div class="logo"><svg width="32" height="32" viewBox="0 0 40 40"><circle cx="20" cy="20" r="19" fill="#1277C8"/><circle cx="20" cy="20" r="5.2" fill="#F2EEE5"/></svg>Ilara Ops</div>
     <div class="tabs"><span class="on">Today</span><span>Beds</span><span>OPD</span><span>Emergency</span><span>Revenue</span></div>
-    <div class="r"><span>Gachibowli campus</span><span class="mono" id="clk">10:44:12</span><span style="color:#7fcfa2;display:flex;gap:8px;align-items:center"><span class="pulse" style="color:#7fcfa2"></span>Live</span></div></div>
+    <div class="r"><span>Gachibowli campus</span><span class="mono" id="clk">10:44:12</span><span style="color:#7CC0F5;display:flex;gap:8px;align-items:center"><span class="pulse" style="color:#7CC0F5"></span>Live</span></div></div>
   <div class="kpis">
     <div class="kpi"><small>Bed occupancy</small><b class="tnum" data-n="87" data-s="%">0</b><span>↑ 3% vs last week</span></div>
     <div class="kpi"><small>OPD patients today</small><b class="tnum" data-n="642">0</b><span>184 still in queue</span></div>
@@ -771,7 +958,7 @@ nav.main .links a,.btn{white-space:nowrap}
   </div>
   <div class="og">
     <div class="ob"><h5><span>Bed occupancy by ward · next 12 hours</span><span>forecast</span></h5><div class="wards" id="wards"></div>
-      <div style="display:flex;gap:16px;margin-top:16px;font-size:12px;color:#8ea69a;align-items:center"><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#1d4a3a"></i>&lt;70%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#2c7559"></i>70–85%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#d9962e"></i>85–95%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#dd5536"></i>full</span></div></div>
+      <div style="display:flex;gap:16px;margin-top:16px;font-size:12px;color:#8ea69a;align-items:center"><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#123A63"></i>&lt;70%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#1277C8"></i>70–85%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#d9962e"></i>85–95%</span><span style="display:flex;gap:6px;align-items:center"><i style="width:12px;height:12px;border-radius:3px;background:#dd5536"></i>full</span></div></div>
     <div class="ob"><h5><span>OPD arrivals by hour</span><span>today</span></h5><div class="bars" id="bars"></div></div>
     <div class="ob"><h5><span>Needs attention</span><span>4</span></h5>
       <div class="alert"><span class="dt" style="background:#dd5536"></span><div><b>ICU · 2 beds left</b><small>Forecast full by 6 PM — 3 transfers from Ward C suggested</small></div></div>
@@ -1076,18 +1263,18 @@ nav.main .links a,.btn{white-space:nowrap}
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 // ---- QR-like code ----
 (function(){let s=11;const r=()=>((s=s*16807%2147483647)/2147483647);let h='';
- const fin=(x,y)=>h+=`<rect x="${x}" y="${y}" width="7" height="7" fill="#0F2A22"/><rect x="${x+1}" y="${y+1}" width="5" height="5" fill="#fff"/><rect x="${x+2}" y="${y+2}" width="3" height="3" fill="#0F2A22"/>`;
- for(let y=0;y<29;y++)for(let x=0;x<29;x++){if((x<8&&y<8)||(x>20&&y<8)||(x<8&&y>20))continue;if(r()>.52)h+=`<rect x="${x}" y="${y}" width="1" height="1" fill="#0F2A22"/>`}
+ const fin=(x,y)=>h+=`<rect x="${x}" y="${y}" width="7" height="7" fill="#0B2545"/><rect x="${x+1}" y="${y+1}" width="5" height="5" fill="#fff"/><rect x="${x+2}" y="${y+2}" width="3" height="3" fill="#0B2545"/>`;
+ for(let y=0;y<29;y++)for(let x=0;x<29;x++){if((x<8&&y<8)||(x>20&&y<8)||(x<8&&y>20))continue;if(r()>.52)h+=`<rect x="${x}" y="${y}" width="1" height="1" fill="#0B2545"/>`}
  fin(0,0);fin(22,0);fin(0,22);$('#qr').innerHTML=h;})();
 // ---- chart ----
 const series={meera:{k:'HbA1c · last 18 months',v:'6.1<small>%</small>',d:'↓ 1.3 since May 2025<span>Inside target range for 2 visits</span>',pts:[7.4,7.1,6.8,6.4,6.1],lo:4.5,hi:8,band:[4.5,6.5],lab:['May 25','Aug 25','Dec 25','Apr 26','Oct 26']},
  dad:{k:'Blood pressure · systolic',v:'128<small> mmHg</small>',d:'↓ 22 since starting Telmisartan<span>Next review with Dr. Kulkarni · 18 Nov</span>',pts:[150,146,138,131,128],lo:110,hi:160,band:[110,130],lab:['Jun 25','Sep 25','Jan 26','May 26','Oct 26']}};
 function drawChart(p){const s=series[p],W=640,H=210,pad=24;const y=v=>H-pad-(v-s.lo)/(s.hi-s.lo)*(H-2*pad),x=i=>40+i*(W-80)/4;
- let g=`<rect x="0" y="${y(s.band[1])}" width="${W}" height="${y(s.band[0])-y(s.band[1])}" fill="rgba(44,117,89,.08)"/><text x="8" y="${y(s.band[1])+16}" text-anchor="start" font-size="11" fill="#2C7559" font-family="Figtree" font-weight="600">TARGET RANGE</text>`;
- [0,1,2,3].forEach(i=>{const yy=pad+i*(H-2*pad)/3;g+=`<line x1="0" x2="${W}" y1="${yy}" y2="${yy}" stroke="rgba(15,42,34,.07)"/>`});
+ let g=`<rect x="0" y="${y(s.band[1])}" width="${W}" height="${y(s.band[0])-y(s.band[1])}" fill="rgba(18,119,200,.08)"/><text x="8" y="${y(s.band[1])+16}" text-anchor="start" font-size="11" fill="#1277C8" font-family="Figtree" font-weight="600">TARGET RANGE</text>`;
+ [0,1,2,3].forEach(i=>{const yy=pad+i*(H-2*pad)/3;g+=`<line x1="0" x2="${W}" y1="${yy}" y2="${yy}" stroke="rgba(11,37,69,.07)"/>`});
  let d='';s.pts.forEach((v,i)=>{d+=(i?' L':'M')+x(i)+' '+y(v)});
- g+=`<path class="ln" d="${d}" fill="none" stroke="#0F2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
- s.pts.forEach((v,i)=>{g+=`<g class="pt"><circle cx="${x(i)}" cy="${y(v)}" r="${i==4?7:5}" fill="${i==4?'#1E5A45':'#fff'}" stroke="#0F2A22" stroke-width="2"/><text x="${x(i)}" y="${y(v)-16}" text-anchor="middle" font-size="13" font-family="Figtree" font-weight="600" fill="#0F2A22">${v}</text><text x="${x(i)}" y="${H-2}" text-anchor="middle" font-size="11.5" fill="#6D7F77" font-family="Figtree">${s.lab[i]}</text></g>`});
+ g+=`<path class="ln" d="${d}" fill="none" stroke="#0B2545" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+ s.pts.forEach((v,i)=>{g+=`<g class="pt"><circle cx="${x(i)}" cy="${y(v)}" r="${i==4?7:5}" fill="${i==4?'#0A5CA8':'#fff'}" stroke="#0B2545" stroke-width="2"/><text x="${x(i)}" y="${y(v)-16}" text-anchor="middle" font-size="13" font-family="Figtree" font-weight="600" fill="#0B2545">${v}</text><text x="${x(i)}" y="${H-2}" text-anchor="middle" font-size="11.5" fill="#6D7F77" font-family="Figtree">${s.lab[i]}</text></g>`});
  const c=$('#chart');c.classList.remove('draw');c.innerHTML=g;$('#tk').textContent=s.k;$('#tv').innerHTML=s.v;$('#td').innerHTML=s.d;}
 drawChart('meera');
 // ---- map ----
@@ -1099,8 +1286,8 @@ drawChart('meera');
  for(let i=0;i<26;i++){g+=`<rect x="${r()*620}" y="${r()*540}" width="${18+r()*40}" height="${14+r()*30}" rx="3" fill="#e1dccf"/>`}
  g+='<path d="M-10 250 C150 230 260 300 380 280 S560 200 660 230" stroke="#f3d9a4" stroke-width="12" fill="none"/><text x="70" y="232" font-size="12" font-family="Figtree" font-weight="600" fill="#a08550">Outer Ring Road</text>';
  g+='<path id="route" d="M120 470 L175 452 L230 420 L300 405 L312 330 L330 282 L420 268 L470 214 L520 160" fill="none" stroke="#DD5536" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 0"/>';
- g+='<g transform="translate(120 470)"><circle r="22" fill="rgba(30,90,69,.18)"/><circle r="10" fill="#1E5A45" stroke="#fff" stroke-width="3"/></g><text x="92" y="508" font-size="13" font-family="Figtree" font-weight="700" fill="#0F2A22">You · Kondapur</text>';
- g+='<g transform="translate(520 160)"><rect x="-58" y="-48" width="116" height="30" rx="8" fill="#0F2A22"/><text y="-28" text-anchor="middle" font-size="12" font-family="Figtree" font-weight="700" fill="#fff">Kadamba ER</text><circle r="9" fill="#fff" stroke="#0F2A22" stroke-width="3"/><path d="M-4 0h8M0 -4v8" stroke="#DD5536" stroke-width="2.5"/></g>';
+ g+='<g transform="translate(120 470)"><circle r="22" fill="rgba(10,92,168,.18)"/><circle r="10" fill="#0A5CA8" stroke="#fff" stroke-width="3"/></g><text x="92" y="508" font-size="13" font-family="Figtree" font-weight="700" fill="#0B2545">You · Kondapur</text>';
+ g+='<g transform="translate(520 160)"><rect x="-58" y="-48" width="116" height="30" rx="8" fill="#0B2545"/><text y="-28" text-anchor="middle" font-size="12" font-family="Figtree" font-weight="700" fill="#fff">Ilara ER</text><circle r="9" fill="#fff" stroke="#0B2545" stroke-width="3"/><path d="M-4 0h8M0 -4v8" stroke="#DD5536" stroke-width="2.5"/></g>';
  g+='<g id="amb"><circle r="26" fill="rgba(221,85,54,.18)"/><circle r="15" fill="#DD5536" stroke="#fff" stroke-width="3"/><path d="M-6 0h12M0 -6v12" stroke="#fff" stroke-width="3"/></g>';
  $('#map').innerHTML=g;})();
 function placeAmb(t){const p=$('#route'),L=p.getTotalLength(),pt=p.getPointAtLength(L*(1-t));$('#amb').setAttribute('transform',`translate(${pt.x} ${pt.y})`)}
@@ -1108,7 +1295,7 @@ placeAmb(0);
 // ---- ops data ----
 (function(){const names=['ICU','HDU','Cardiac','Ward A','Ward B','Ward C','Maternity','Paeds'];let s=3;const r=()=>((s=s*16807%2147483647)/2147483647);
  let h='<span></span>'+[10,11,12,13,14,15,16,17,18,19,20,21].map(x=>`<span style="text-align:center;font-size:10.5px">${x>12?x-12:x}${x>=12?'p':'a'}</span>`).join('');
- names.forEach((n,i)=>{h+=`<span>${n}</span>`;let base=[.9,.8,.82,.7,.62,.86,.74,.55][i];for(let j=0;j<12;j++){const v=Math.min(1,base+j*(i==0?.012:.006)+(r()-.5)*.08);const c=v>=.98?'#dd5536':v>.85?'#d9962e':v>.7?'#2c7559':'#1d4a3a';h+=`<i style="background:${c};transition-delay:${(i*12+j)*8}ms"></i>`}});
+ names.forEach((n,i)=>{h+=`<span>${n}</span>`;let base=[.9,.8,.82,.7,.62,.86,.74,.55][i];for(let j=0;j<12;j++){const v=Math.min(1,base+j*(i==0?.012:.006)+(r()-.5)*.08);const c=v>=.98?'#dd5536':v>.85?'#d9962e':v>.7?'#1277C8':'#123A63';h+=`<i style="background:${c};transition-delay:${(i*12+j)*8}ms"></i>`}});
  $('#wards').innerHTML=h;
  const v=[22,58,91,104,88,72,64,48,39,30,18];$('#bars').innerHTML=v.map((n,i)=>`<div><i class="${n>85?'pk':''}" style="height:${n/104*170}px;transition-delay:${i*60}ms"></i>${i+8>12?i-4:i+8}${i+8>=12?'p':'a'}</div>`).join('');})();
 function countUp(el,dur=1400){const n=+el.dataset.n,s=el.dataset.s||'',p=el.dataset.p||'';return FILM.tween(dur,t=>{el.innerHTML=p+Math.round(n*t)+(s?`<em style="font-size:20px;color:#8ea69a;font-style:normal">${s}</em>`:'')},FILM.easeOut)}
@@ -1126,7 +1313,7 @@ const ampm=t=>t+(parseInt(t)>=12?' PM':' AM');
 const D=(i,c,n,t,y,r,k,l,nx,off)=>({i,c,n,t,y,r,k,l,nx,off});
 const SPEC={
  cardio:{n:'Cardiology',tk:'A',room:'Room 214 · 2nd floor',fee:[900,700],kw:['chest','heart','palpitat','blood pressure',' bp ','stairs','cholesterol','cardio'],docs:[
-  D('AR','#2C7559','Dr. Ananya Rao','Interventional Cardiologist · MD, DM (AIIMS)',16,'4.9','1,240','English, Telugu','Today, 11:20 AM'),
+  D('AR','#1277C8','Dr. Ananya Rao','Interventional Cardiologist · MD, DM (AIIMS)',16,'4.9','1,240','English, Telugu','Today, 11:20 AM'),
   D('VK','#7A6A4F','Dr. Vikram Kulkarni','Cardiac Electrophysiologist · MD, DM, FHRS',21,'4.8','2,310','English, Hindi, Marathi','Today, 12:00 PM'),
   D('SF','#4F6478','Dr. Sana Farooqui','Preventive Cardiology · MD, DNB',9,'4.9','860','English, Hindi, Urdu','Today, 10:40 AM'),
   D('MP','#8a5a4a','Dr. Mahesh Pillai','Cardiothoracic Surgeon · MS, MCh',24,'','','','Tomorrow, 10:00 AM','In surgery today')]},
@@ -1134,18 +1321,18 @@ const SPEC={
   D('RN','#4F6478','Dr. Rohit Nair','Pulmonologist · MD, DM (Pulmonary Medicine)',14,'4.8','1,520','English, Malayalam, Hindi','Today, 10:40 AM'),
   D('HB','#7A6A4F','Dr. Harini Balaji','Sleep and Allergy Specialist · MD, DNB',8,'4.7','640','English, Telugu, Tamil','Today, 12:20 PM')]},
  ortho:{n:'Orthopaedics',tk:'C',room:'Room 302 · 3rd floor',fee:[850,650],kw:['knee','joint','back','fracture','shoulder','bone','sprain','neck','hip'],docs:[
-  D('KS','#2C7559','Dr. Karthik Subramanian','Joint Replacement Surgeon · MS, MCh (Ortho)',19,'4.9','3,180','English, Telugu, Tamil','Today, 11:20 AM'),
+  D('KS','#1277C8','Dr. Karthik Subramanian','Joint Replacement Surgeon · MS, MCh (Ortho)',19,'4.9','3,180','English, Telugu, Tamil','Today, 11:20 AM'),
   D('NJ','#8a5a4a','Dr. Neha Joshi','Sports Injury and Arthroscopy · MS, DNB',11,'4.8','1,090','English, Hindi','Today, 12:00 PM'),
   D('IA','#4F6478','Dr. Imran Ahmed','Spine Surgeon · MS, FNB (Spine)',15,'4.8','1,410','English, Hindi, Urdu','Tomorrow, 9:40 AM','In theatre today')]},
  paed:{n:'Paediatrics',tk:'D',room:'Room 106 · 1st floor',fee:[700,550],kw:['child','kid','baby','infant','vaccin','newborn','toddler'],docs:[
   D('PM','#B0634A','Dr. Priya Menon','Paediatrician · MD, DCH',13,'4.9','4,260','English, Telugu, Malayalam','Today, 10:00 AM'),
-  D('AG','#2C7559','Dr. Arjun Goud','Neonatologist · MD, DM (Neonatology)',10,'4.8','1,150','English, Telugu, Hindi','Today, 11:20 AM')]},
+  D('AG','#1277C8','Dr. Arjun Goud','Neonatologist · MD, DM (Neonatology)',10,'4.8','1,150','English, Telugu, Hindi','Today, 11:20 AM')]},
  obgyn:{n:'Obstetrics & Gynaecology',tk:'E',room:'Room 221 · 2nd floor',fee:[900,700],kw:['pregnan','scan','period','gynae','pcos','fertil','menstru'],docs:[
   D('LV','#7A6A4F','Dr. Lakshmi Varma','Obstetrician and Gynaecologist · MS, DGO',22,'4.9','5,030','English, Telugu','Today, 11:20 AM'),
   D('ZK','#B0634A','Dr. Zoya Khan','Fetal Medicine Specialist · MD, FRCOG',12,'4.9','1,870','English, Hindi, Urdu','Today, 12:20 PM')]},
  endo:{n:'Diabetes & Endocrinology',tk:'F',room:'Room 209 · 2nd floor',fee:[800,600],kw:['diabet','sugar','thyroid','hba1c','insulin','hormone','weight'],docs:[
   D('FS','#4F6478','Dr. Farah Siddiqui','Endocrinologist · MD, DM (Endocrinology)',17,'4.8','2,740','English, Hindi, Urdu','Today, 10:40 AM'),
-  D('VR','#2C7559','Dr. Venkat Reddy','Diabetologist · MD, Fellowship in Diabetes',9,'4.7','1,960','English, Telugu','Today, 11:20 AM')]},
+  D('VR','#1277C8','Dr. Venkat Reddy','Diabetologist · MD, Fellowship in Diabetes',9,'4.7','1,960','English, Telugu','Today, 11:20 AM')]},
  gen:{n:'General Medicine',tk:'G',room:'Room 101 · Ground floor',fee:[600,450],kw:['fever','cold','headache','second opinion','stomach','pain','tired','weak','vomit','infection','flu'],docs:[
   D('SD','#8a5a4a','Dr. Shalini Deshpande','General Physician · MD (Internal Medicine)',18,'4.8','6,410','English, Hindi, Marathi, Telugu','Today, 10:00 AM'),
   D('TR','#4F6478','Dr. Tarun Rao','General Physician · MD, DNB',7,'4.7','1,330','English, Telugu','Today, 11:20 AM')]}
@@ -1243,9 +1430,16 @@ navA[1].addEventListener('click',()=>homeThen('#doctors'));
 navA[2].addEventListener('click',()=>homeThen('#checks'));
 $('nav.main .nav-r .btn.g').addEventListener('click',()=>homeThen(narrow()?'#panel':'#doctors'));
 $('.logo').style.cursor='pointer';$('.logo').addEventListener('click',()=>{closeER();show('home')});
-function openPortal(){closeER();show('portal');FILM.setUrl('kadambahealth.in','/portal/overview');setTimeout(()=>{$('#chart').classList.add('draw');$('#claim').classList.add('go')},500)}
+function openPortal(){closeER();show('portal');FILM.setUrl('ilarahospitals.in','/portal/overview');setTimeout(()=>{$('#chart').classList.add('draw');$('#claim').classList.add('go')},500)}
 $('#l-portal').addEventListener('click',openPortal);
-$('#l-home').addEventListener('click',()=>{closeER();show('home');FILM.setUrl('kadambahealth.in','')});
+$('#l-home').addEventListener('click',()=>{closeER();show('home');FILM.setUrl('ilarahospitals.in','')});
+
+// ---- quick actions + department directory ----
+{const WHERE={cardio:'2nd floor, Block A',pulmo:'2nd floor, Block A',ortho:'1st floor, Block B',paed:'Ground floor, Block C',obgyn:'3rd floor, Block C',endo:'1st floor, Block A',gen:'Ground floor, Block A'};
+ $('#dirb').innerHTML=Object.entries(SPEC).map(([k,S])=>`<tr data-spec="${k}"><td>${S.n}</td><td>${S.docs.length}</td><td>${WHERE[k]||'Block A'}</td><td><button>See slots</button></td></tr>`).join('');
+ $('#dirb').addEventListener('click',e=>{const r=e.target.closest('tr');if(!r)return;setSpec(r.dataset.spec);goTo('#doctors')});
+ const QA={book:()=>homeThen(narrow()?'#panel':'#doctors'),dir:()=>goTo('#dir'),portal:()=>openPortal(),checks:()=>goTo('#checks'),er:()=>openER()};
+ $$('.qa [data-qa]').forEach(b=>b.addEventListener('click',()=>QA[b.dataset.qa]()))}
 
 // ---- live queue on the visit phone ----
 const q={ahead:5,hold:0,late:false};
@@ -1268,7 +1462,7 @@ setInterval(()=>{if(FILM.on||document.hidden||!isHome())return;
  renderQueue()},5000);
 const pb=$$('.pbtns span');
 pb[0].addEventListener('click',()=>{q.ahead=Math.min(5,q.ahead+2);q.hold=0;renderQueue();toast("Noted. We've told the desk and moved you two places back.")});
-pb[1].addEventListener('click',()=>toast('Kadamba Health, Gachibowli. 14 min drive, light traffic on ORR.'));
+pb[1].addEventListener('click',()=>toast('Ilara Hospitals, Gachibowli. 14 min drive, light traffic on ORR.'));
 
 // live ticks on home
 let upd=4;setInterval(()=>{upd=(upd%9)+1;$('#upd').textContent=`updated ${upd} s ago`},1000);
@@ -1307,7 +1501,7 @@ sideA.forEach((a,i)=>a.addEventListener('click',()=>{sideA.forEach(x=>x.classLis
 
 // ---- emergency ----
 let erRun=0;
-async function openER(){const id=++erRun;$('#modal').classList.add('on');FILM.setUrl('kadambahealth.in','/emergency');
+async function openER(){const id=++erRun;$('#modal').classList.add('on');FILM.setUrl('ilarahospitals.in','/emergency');
  if(!FILM.on){placeAmb(0);$('#amin').textContent=7;FILM.tween(14000,t=>{if(id!==erRun)return;placeAmb(t*.94);$('#amin').textContent=Math.max(1,Math.ceil(7-t*6.2))},t=>t)}
  for(const d of $$('#shared div')){await FILM.wait(650);if(id!==erRun)return;d.classList.add('on')}}
 function closeER(){if(!$('#modal').classList.contains('on'))return;erRun++;$('#modal').classList.remove('on');$$('#shared div').forEach(d=>d.classList.remove('on'));
@@ -1339,9 +1533,9 @@ const H_views=[{name:'Website',go:()=>{closeER();show('home')}},
  {name:'Patient portal',go:openPortal},
  {name:'Emergency',go:()=>{if(!isHome())show('home');openER()}},
  {name:'Ops dashboard',go:openOps}];
-FILM.init({views:H_views,reset:resetAll,no:'01',name:'Kadamba Health',short:'Hospital',sector:'Concept 01 — Hospital',host:'kadambahealth.in',caps:7,
+FILM.init({views:H_views,reset:resetAll,no:'01',name:'Ilara Hospitals',short:'Hospital',sector:'Concept 01 — Hospital',host:'ilarahospitals.in',caps:7,
   desc:'A patient-first hospital platform: symptom search, real-time booking, a live OPD queue, family health records and one-tap emergency.',
-  displayFont:"'Newsreader',serif",nameSize:150,nameWeight:400,cardBg:'#0F2A22',cardFg:'#EFEBE1',
+  displayFont:"'Newsreader',serif",nameSize:150,nameWeight:400,cardBg:'#0B2545',cardFg:'#EFEBE1',
   mods:['Hospital website','Doctor booking','Live OPD queue','WhatsApp alerts','Patient portal','Insurance tracking','Ambulance dispatch','Operations dashboard']},
 async F=>{
   F.cx=1180;F.cy=640;F.hideCursor(1);
@@ -1363,7 +1557,7 @@ async F=>{
   await F.moveTo('.res.warn',700,.4,.5);await F.wait(1300);
   await F.moveTo('#r-cardio',700,.85,.5);
   await F.click('#r-cardio',{noMove:true});
-  F.setUrl('kadambahealth.in','/doctors/cardiology');
+  F.setUrl('ilarahospitals.in','/doctors/cardiology');
   await F.scrollTo('#doctors',1500,-10);
   // booking
   await F.caption('Book in under a minute','Live slots from each doctor\'s calendar, OTP sign-in instead of passwords, and the token issued instantly.',{right:false});
@@ -1409,7 +1603,7 @@ async F=>{
   // ops
   $('#modal').classList.remove('on');
   await F.caption('The operations room, live','Admins see occupancy forecasts, OPD flow, ambulances and alerts — and act before wards run out of beds.',{right:true});
-  show('ops');F.setUrl('ops.kadambahealth.in','/today');
+  show('ops');F.setUrl('ops.ilarahospitals.in','/today');
   await F.wait(250);$('#ops').classList.add('go');
   $$('.kpi b').forEach(b=>countUp(b));
   let sec=12;const ck=setInterval(()=>{sec++;$('#clk').textContent='10:44:'+String(sec%60).padStart(2,'0')},1000);
