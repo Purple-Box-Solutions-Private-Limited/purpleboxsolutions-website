@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /desk/
+
+Sitemap: https://purpleboxsolutions.in/sitemap.xml
