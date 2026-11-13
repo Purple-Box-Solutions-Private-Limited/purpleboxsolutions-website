@@ -551,21 +551,48 @@ nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); menu.focus(); } });
 matchMedia('(min-width:1061px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
-// walkthrough videos load only when asked for; starting one pauses the others
-document.querySelectorAll('[data-video]').forEach(btn => btn.addEventListener('click', () => {
-  const shot = btn.closest('.demo').querySelector('.shot');
-  let v = shot.querySelector('video');
-  if (!v) {
-    v = document.createElement('video');
-    v.src = btn.dataset.video; v.controls = true; v.playsInline = true; v.preload = 'metadata';
-    v.addEventListener('click', e => e.stopPropagation());
-    shot.addEventListener('click', e => e.preventDefault());
-    shot.appendChild(v);
-  }
-  document.querySelectorAll('.shot video').forEach(o => { if (o !== v) o.pause(); });
-  v.play().catch(() => {});
-  shot.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' });
-}));
+// walkthrough videos load only when asked for; starting one pauses the others.
+// A host that ignores Range requests cannot seek a streamed video, so in that case the file is
+// fetched whole and played from memory, where jumping to any point works.
+const seekable = async url => {
+  const ac = new AbortController();
+  try { const r = await fetch(url, { headers: { Range: 'bytes=0-1' }, signal: ac.signal }); const ok = r.status === 206; ac.abort(); return ok; }
+  catch { return false; }
+};
+const wholeFile = async (url, onPart) => {
+  const r = await fetch(url); if (!r.ok) throw new Error('video ' + r.status);
+  const total = +r.headers.get('content-length') || 0, reader = r.body.getReader(), parts = []; let got = 0;
+  for (;;) { const { done, value } = await reader.read(); if (done) break; parts.push(value); got += value.length; if (total) onPart(got / total); }
+  return URL.createObjectURL(new Blob(parts, { type: 'video/mp4' }));
+};
+document.querySelectorAll('[data-video]').forEach(btn => {
+  const label = btn.lastChild.textContent;
+  btn.addEventListener('click', async () => {
+    const shot = btn.closest('.demo').querySelector('.shot');
+    let v = shot.querySelector('video');
+    document.querySelectorAll('.shot video').forEach(o => { if (o !== v) o.pause(); });
+    if (!v) {
+      if (btn.disabled) return;
+      v = document.createElement('video');
+      v.controls = true; v.playsInline = true; v.preload = 'auto';
+      v.addEventListener('click', e => e.stopPropagation());
+      shot.draggable = false;                      // a draggable link would swallow drags on the seek bar
+      shot.addEventListener('click', e => e.preventDefault());
+      shot.addEventListener('dragstart', e => e.preventDefault());
+      shot.appendChild(v);
+      const url = btn.dataset.video;
+      if (await seekable(url)) v.src = url;
+      else {
+        btn.disabled = true;
+        try { v.src = await wholeFile(url, p => { btn.lastChild.textContent = 'Loading ' + Math.round(p * 100) + '%'; }); }
+        catch { v.src = url; }
+        btn.disabled = false; btn.lastChild.textContent = label;
+      }
+    }
+    v.play().catch(() => {});
+    shot.scrollIntoView({ block: 'nearest', behavior: matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth' });
+  });
+});
 
 // enquiry form
 document.getElementById('cform').addEventListener('submit', async e => {
