@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>thanda. — insulated steel bottles</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Instrument+Sans:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<!--pb-head-->
+<meta name="description" content="A working online store demo by Purplebox: build your own bottle, get a delivery date from live stock, pay on one page, track the order and see the sales dashboard.">
+<meta name="theme-color" content="#171614">
+<meta property="og:title" content="thanda. — insulated steel bottles · a Purplebox demo">
+<meta property="og:description" content="A working online store demo by Purplebox: build your own bottle, get a delivery date from live stock, pay on one page, track the order and see the sales dashboard.">
+<meta property="og:image" content="https://purpleboxsolutions.in/work/retail.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 3 36 11.5v17L20 37 4 28.5v-17Z' fill='%234a1fb8'/%3E%3Cpath d='M20 3 36 11.5 20 20 4 11.5Z' fill='%238b6be8'/%3E%3Cpath d='M20 20v17L4 28.5v-17Z' fill='%2331127f'/%3E%3C/svg%3E">
+<!--/pb-head-->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <style>/* ---------- Film harness: browser frame, cursor, captions, title cards ---------- */
 html.film, html.film body { margin:0; height:100%; overflow:hidden; background:#0d0d0f; }
 html.film { scroll-behavior:auto !important; }
@@ -59,12 +68,12 @@ html.film { scroll-behavior:auto !important; }
 #demo-bar { position:fixed; left:50%; bottom:18px; transform:translateX(-50%); z-index:9999; display:flex; align-items:center; gap:4px; padding:6px; border-radius:16px; background:rgba(16,16,18,.92); color:#f2f0ec; font:500 13px/1 'Instrument Sans',system-ui,sans-serif; box-shadow:0 20px 50px -20px rgba(0,0,0,.6); white-space:nowrap; }
 #demo-bar .db-pb { display:flex; align-items:center; gap:8px; padding:0 12px 0 8px; color:#bdb9b0; border-right:1px solid rgba(255,255,255,.12); margin-right:4px; }
 #demo-bar button { font:inherit; color:#d9d6cf; background:none; border:0; padding:9px 12px; border-radius:11px; cursor:pointer; }
-#demo-bar button:hover { background:rgba(255,255,255,.08); }
+@media(hover:hover){#demo-bar button:hover{ background:rgba(255,255,255,.08); }}
 #demo-bar button.on { background:rgba(255,255,255,.14); color:#fff; }
 #demo-bar .db-tour { background:#8b5cf6; color:#fff; margin-left:6px; font-weight:600; }
-#demo-bar .db-tour:hover { background:#7c4bec; }
+@media(hover:hover){#demo-bar .db-tour:hover{ background:#7c4bec; }}
 #demo-bar a.db-pb { text-decoration:none; }
-#demo-bar a.db-pb:hover { color:#fff; }
+@media(hover:hover){#demo-bar a.db-pb:hover{ color:#fff; }}
 #demo-bar button { white-space:nowrap; flex:none; }
 @media (max-width:900px) {
   #demo-bar { left:8px; right:8px; bottom:8px; transform:none; overflow-x:auto; scrollbar-width:none; border-radius:14px; }
@@ -138,12 +147,12 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .sw button{width:46px;height:46px;border-radius:50%;position:relative;transition:transform .2s}
 .sw button::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid transparent;transition:border-color .25s}
 .sw button.on::after{border-color:var(--ink)}
-.sw button:hover{transform:scale(1.06)}
+@media(hover:hover){.sw button:hover{transform:scale(1.06)}}
 .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.ch{height:62px;border-radius:14px;border:1px solid var(--line);font-size:14px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transition:all .2s}
+.ch{height:62px;border-radius:14px;border:1px solid var(--line);font-size:14px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s,opacity .2s,scale .2s,fill .2s,stroke .2s}
 .ch small{font-weight:500;color:var(--mute);font-size:12px}
 .ch.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
-.ch:hover{border-color:var(--ink2)}
+@media(hover:hover){.ch:hover{border-color:var(--ink2)}}
 .eng{display:flex;gap:8px}
 .eng input{flex:1;height:50px;border:1px solid var(--line);border-radius:14px;padding:0 16px;font-size:16px;outline:0;background:#fff}
 .eng input:focus{border-color:var(--ink)}
@@ -156,7 +165,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .pin .res{flex:1;display:flex;align-items:center;font-size:13.5px;color:var(--mute);line-height:1.35}
 .pin .res b{color:#2f6a2a}
 .addb{width:100%;height:60px;margin-top:22px;border-radius:16px;background:var(--ink);color:#fff;font-size:16px;font-weight:600;display:flex;justify-content:space-between;align-items:center;padding:0 24px;transition:background .2s}
-.addb:hover{background:#000}
+@media(hover:hover){.addb:hover{background:#000}}
 .trust{display:flex;justify-content:space-between;margin-top:16px;font-size:12.5px;color:var(--mute)}
 
 /* drawer */
@@ -178,7 +187,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .up .th{width:64px;height:64px;border-radius:12px;background:#e9dcc6;display:grid;place-items:center;flex:none}
 .up b{display:block;font-size:15px}
 .up span{font-size:13px;color:var(--mute)}
-.up button{margin-left:auto;height:38px;padding:0 16px;border-radius:99px;border:1px solid var(--ink);font-weight:600;font-size:13.5px;transition:all .25s}
+.up button{margin-left:auto;height:38px;padding:0 16px;border-radius:99px;border:1px solid var(--ink);font-weight:600;font-size:13.5px;transition:background-color .25s,border-color .25s,color .25s,box-shadow .25s,transform .25s,opacity .25s,scale .25s,fill .25s,stroke .25s}
 .up button.on{background:var(--ink);color:#fff}
 .li.new{animation:lin .5s cubic-bezier(.2,.8,.2,1)}
 @keyframes lin{from{opacity:0;transform:translateY(-8px)}}
@@ -197,7 +206,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .box .bl{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-bottom:10px}
 .box .bl b{color:var(--ink);font-size:15px}
 .pm{display:flex;flex-direction:column;gap:8px}
-.po{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);font-size:15px;font-weight:500;transition:all .2s}
+.po{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:14px;border:1px solid var(--line);font-size:15px;font-weight:500;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s,opacity .2s,scale .2s,fill .2s,stroke .2s}
 .po .rd{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center}
 .po.on{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
 .po.on .rd{border-color:var(--ink)}
@@ -228,7 +237,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .tl .fl{position:absolute;left:10px;top:9px;height:3px;background:var(--ink);border-radius:3px;width:0;transition:width 2.4s cubic-bezier(.4,0,.2,1)}
 .tl.go .fl{width:56%}
 .ts{position:relative;padding-top:36px;font-size:13.5px;color:var(--mute)}
-.ts::before{content:"";position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;background:var(--paper);border:3px solid #d9d0bd;box-sizing:border-box;transition:all .4s}
+.ts::before{content:"";position:absolute;left:0;top:0;width:21px;height:21px;border-radius:50%;background:var(--paper);border:3px solid #d9d0bd;box-sizing:border-box;transition:background-color .4s,border-color .4s,color .4s,box-shadow .4s,transform .4s,opacity .4s,scale .4s,fill .4s,stroke .4s}
 .ts.d::before{background:var(--ink);border-color:var(--ink)}
 .ts.a::before{border-color:var(--tang);box-shadow:0 0 0 6px rgba(255,90,36,.18)}
 .ts b{display:block;color:var(--ink);font-size:16px;margin-bottom:3px}
@@ -280,7 +289,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .wa b{font-size:26px;letter-spacing:-.03em}
 
 /* ---------- live-demo additions ---------- */
-.links a:hover{color:var(--ink)}
+@media(hover:hover){.links a:hover{color:var(--ink)}}
 .bag{cursor:pointer}
 .dx{position:absolute;right:22px;top:22px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);font-size:20px;line-height:1;display:grid;place-items:center;background:#fff}
 .drawer{width:min(500px,100vw);overflow-y:auto}
@@ -288,7 +297,7 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
 .emp{padding:40px 0;color:var(--mute);font-size:15px}
 .qy{display:flex;align-items:center;gap:6px;margin-top:8px}
 .qy button{min-width:28px;height:28px;padding:0 8px;border-radius:8px;border:1px solid var(--line);font-size:13px;font-weight:600;display:grid;place-items:center}
-.qy button:hover{border-color:var(--ink)}
+@media(hover:hover){.qy button:hover{border-color:var(--ink)}}
 .qy em{font-style:normal;font-weight:600;min-width:18px;text-align:center}
 .cob.off{opacity:.4;cursor:not-allowed}
 .li>div:nth-child(2){min-width:0}
@@ -428,6 +437,41 @@ nav .wrap{display:flex;align-items:center;height:68px;gap:44px}
  .s3{grid-template-columns:1fr;gap:26px}
 }
 </style>
+<style id="pb-polish">
+/* ---- polish pass: touch, press, focus, motion ---- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+a,button,label,select,summary,input,textarea{touch-action:manipulation}
+button{-webkit-user-select:none;user-select:none}
+/* pressing anything answers at once; "scale" is its own property, so it never fights a transform already on the element */
+button:not(:disabled):active,.btn:active{scale:.97}
+button{transition:scale .16s cubic-bezier(.23,1,.32,1)}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+:focus:not(:focus-visible){outline:none}
+/* full-screen dashboards fill the screen they are opened on */
+html:not(.film) :is(.adm){min-height:max(862px,100vh);min-height:max(862px,100dvh)}
+/* demo bar */
+#demo-bar button{transition:background-color .15s ease,scale .16s cubic-bezier(.23,1,.32,1)}
+#demo-bar a.db-pb{transition:color .15s ease}
+#toast{transition:opacity .2s ease,transform .3s cubic-bezier(.23,1,.32,1)}
+@media(max-width:900px){
+ #demo-bar{padding:4px;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+ #demo-bar button{min-height:44px;padding:0 13px}
+ #demo-bar .db-pb{min-height:44px;min-width:44px;justify-content:center}
+}
+/* iOS zooms the page when a focused field's text is under 16px */
+@media(max-width:860px){input,select,textarea{font-size:16px!important}}
+@media(prefers-reduced-motion:reduce){
+ html:not(.film) *,html:not(.film) *::before,html:not(.film) *::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+}
+
+nav .links a{white-space:nowrap}
+@media(min-width:1241px){.hero{height:auto;min-height:300px;padding-top:44px}}
+@media(min-width:1241px) and (max-width:1439px){
+ .wrap{padding:0 40px}
+ .hero h1{font-size:calc(118px - (1440px - 100vw)*.2)}
+}
+</style>
+<!--pb-polish-->
 </head>
 <body>
 <div class="ann"><span>Free laser engraving this week — <b>no code needed</b></span><span>Ships in 48 hrs from Bengaluru &amp; Hyderabad</span><span>Lifetime warranty on every bottle</span></div>
@@ -928,7 +972,7 @@ $('#payb').addEventListener('click',async()=>{if(order||$('#payb').dataset.busy)
  $('#ok').classList.add('on');
  if(!FILM.on){const l=order.lines[0];feedAdd(l.c,`${COL[l.c][0]} · ${l.size===1000?'1 L':l.size} · ${capN(l.cap)}${l.eng?` · engraved "${esc(l.eng)}"`:''}${t.n>1?' + '+(t.n-1)+' more':''}`,'Hyderabad',t.total,true);
   if(order.lines.some(x=>x.c==='moss'&&x.size===750)){const c=$('.inv .ir:nth-child(2) span:nth-child(2)');c.textContent=Math.max(0,+c.textContent-1)}}});
-$('#trkb').addEventListener('click',()=>{show('track');FILM.setUrl('thanda.in','/orders/'+order.no);trackInit();toast('Skipping ahead two days: this is the page your customer opens on delivery morning.')});
+$('#trkb').addEventListener('click',()=>{if(!order)return;show('track');FILM.setUrl('thanda.in','/orders/'+order.no);trackInit();toast('Skipping ahead two days: this is the page your customer opens on delivery morning.')});
 $('#again').addEventListener('click',newOrder);
 function newOrder(){order=null;cart.length=0;sling=false;$('#ok').classList.remove('on');renderBag();show('shop')}
 (function(){let s=31;const r=()=>((s=s*16807%2147483647)/2147483647);let g='<rect width="640" height="380" fill="#efeadf"/>';
